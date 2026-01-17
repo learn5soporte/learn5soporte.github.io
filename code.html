@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IA en el Aula - Curso Online</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "primary-dark": "#1e3a8a",
+                        "accent": "#7c3aed",
+                        "background-light": "#ffffff",
+                        "background-alt": "#f8faff",
+                        "background-dark": "#101322",
+                        "background-dark-alt": "#1a1d2d",
+                        "text-main": "#111218",
+                        "text-muted": "#616889",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2b4bee 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #2b4bee 0%, #7c3aed 100%);
+        }
+        .soft-gradient-bg {
+            background: linear-gradient(180deg, rgba(43, 75, 238, 0.05) 0%, rgba(255,255,255,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white overflow-x-hidden antialiased">
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#f0f1f4] dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<!-- Logo -->
+<div class="flex items-center gap-2">
+<div class="p-1.5 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-2xl">school</span>
+</div>
+<span class="font-bold text-lg tracking-tight text-text-main dark:text-white">IA en el Aula</span>
+</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-text-main dark:text-gray-300 hover:text-primary transition-colors" href="#beneficios">Beneficios</a>
+<a class="text-sm font-medium text-text-main dark:text-gray-300 hover:text-primary transition-colors" href="#para-quien">Perfiles</a>
+<a class="text-sm font-medium text-text-main dark:text-gray-300 hover:text-primary transition-colors" href="#modulos">Contenido</a>
+<button class="bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2.5 px-5 rounded-lg transition-all shadow-md hover:shadow-lg">
+                        Inscribirme
+                    </button>
+</div>
+<!-- Mobile Menu Button -->
+<div class="md:hidden flex items-center">
+<button class="text-text-main dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Abstract Background Decoration -->
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-accent/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+<!-- Text Content -->
+<div class="flex flex-col gap-6 text-center lg:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary w-fit mx-auto lg:mx-0">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-wide">Nuevo Curso 2024</span>
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-text-main dark:text-white">
+                        Domina la <span class="gradient-text">Inteligencia Artificial</span> para Transformar tu Enseñanza
+                    </h1>
+<p class="text-lg text-text-muted dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        El curso definitivo para docentes que quieren innovar, ahorrar tiempo en planificación y preparar a sus estudiantes para el futuro.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+<button class="bg-primary hover:bg-primary-dark text-white text-base font-bold py-4 px-8 rounded-xl shadow-lg shadow-primary/25 transition-all transform hover:-translate-y-1">
+                            Quiero transformar mi enseñanza
+                        </button>
+<button class="flex items-center justify-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-main dark:text-white text-base font-bold py-4 px-8 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+                            Ver demo
+                        </button>
+</div>
+<div class="flex items-center justify-center lg:justify-start gap-4 text-sm text-text-muted dark:text-gray-400 mt-2">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 border-2 border-white dark:border-background-dark bg-cover" data-alt="Female avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAePyv8UjJKytrvWqakFTrW4N9Zif0G8LBxNbTGcKPSy_PGZVv6vlpZqdZygZ0ClrZT25cicEbS1RjgBYb_h1Wfu45p8teTGzTlmZtRXTQsXoI46Q7bOws-1vS2IIV9yYPPHue_JPcouJIzPE4LwvcXK4FTwJCPYR0nPB6mmOi3gu_6-zTfsGAZQscfkC0sArXkNL7fRwaqlupJ9getR4x-F9NAT2Y86olkSnQmALZ77bl-7gGmgcZvDH3J78e1Kwm7Tw2PdKxUtv82')"></div>
+<div class="w-8 h-8 rounded-full bg-gray-200 border-2 border-white dark:border-background-dark bg-cover" data-alt="Male avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-owSSkC4n_TYtkjRm1Zy8qDk3aOa0-TSOktnSRyycoFm3Kwiwvq6IZkIRFmgtPM_nfdpupS1U4VCvxrGARfej6xWB2gntySn5ajHrr4BPGabt2QY5d7OPGpKZC2-kXmH_j-2z0R2Ki3ryeS_h9Ke0IUZ5DRA7PvccDS0T3U-aRLFoZqO_YFqLc13hI8R1MCcTo4bBawCy1Trkv1bCgWRo7-5bLxtPj-jxyPyK46XVBSayQEzXbfSwMHKBUXq7vuxmpsMDLr_eFbkj')"></div>
+<div class="w-8 h-8 rounded-full bg-gray-200 border-2 border-white dark:border-background-dark bg-cover" data-alt="Female avatar 2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAuo_nwpuYBUJ1Oek1eh8PRChcdsrMy3oACcVru-5bdIW8L3h_tkUSzxTJNVGlOCX7D58br0QlrTsKpz3WYhv66vGCZCMlvDKoUq4iH3q4pnuEQaRMMpt_hDvLk_MvGY6Ql-Q196oVh-4I-s5CV-8_MlJ9WXOnFEjpJ4vsvcvvEEVEFqphrda2hk4lBBKS42sfQLnkZT63B4K2fT_hBD8onXg9cvsWwcMlwsJv2_rE6w66uCkTDvwvGzIAG7p-hsUWzsCAtN_L0Mgrv')"></div>
+</div>
+<p>+1,200 docentes inscritos</p>
+</div>
+</div>
+<!-- Image/Graphic -->
+<div class="relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary to-accent rounded-2xl rotate-3 opacity-20 blur-lg"></div>
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 aspect-[4/3] bg-gray-100 dark:bg-gray-800 group">
+<!-- Image representing teacher using tablet with futuristic interface overlay -->
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Teacher holding tablet with digital overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiVb-fVBgGcKwBDcmg0DQxMqNpAI4ZeN1ZZAScga5KFAb0uLteYoiPDL8o0IpiLp8cz4WInu1eH2nBW9YDYiLRaLhFwYQefnf6EyiQhJJLsAI42bzoB7rKs55PqI0eFp0YGA4gybuDEvmorFslA8qcp5SsGKVTZ5ByYdlPdZ-Nc7XMgyZQbHMlQ2YPQ50ivnLrs-2_nC3AdDXbtUcJSAluBVtFaPIO6FamNglD-39BUkxzfsV9NKcMbqovQH7J84-aAkIoJ-MlChRq')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+<div class="bg-white/95 dark:bg-gray-900/95 backdrop-blur rounded-lg p-4 shadow-lg max-w-xs transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<span class="text-sm font-bold dark:text-white">Planificación completa</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-green-500 h-2 rounded-full w-[90%]"></div>
+</div>
+<p class="text-xs text-gray-500 mt-2">Generado con IA en 30 segundos</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-20 bg-background-alt dark:bg-background-dark-alt" id="beneficios">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4 text-text-main dark:text-white">Beneficios para el docente moderno</h2>
+<p class="text-text-muted dark:text-gray-400 text-lg">Descubre cómo la IA se convierte en tu mejor asistente educativo, no en tu reemplazo.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/30 transition-all duration-300 group">
+<div class="w-14 h-14 bg-blue-50 dark:bg-blue-900/20 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">hourglass_empty</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-text-main dark:text-white">Ahorra horas de trabajo</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                        Automatiza tareas administrativas, corrección de exámenes y planificación de clases para enfocarte en lo que importa: tus alumnos.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/30 transition-all duration-300 group">
+<div class="w-14 h-14 bg-purple-50 dark:bg-purple-900/20 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-text-main dark:text-white">Personaliza el aprendizaje</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                        Crea contenidos adaptados a diferentes niveles y estilos de aprendizaje en segundos, atendiendo la diversidad del aula.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/30 transition-all duration-300 group">
+<div class="w-14 h-14 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-text-main dark:text-white">Innovación Garantizada</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                        Mantente a la vanguardia de la tecnología educativa y ofrece a tus estudiantes las herramientas que demandará el futuro laboral.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Target Audience & Achievements Split -->
+<section class="py-20 bg-background-light dark:bg-background-dark" id="para-quien">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-16 items-start">
+<!-- Who is it for -->
+<div>
+<h2 class="text-3xl font-bold mb-8 text-text-main dark:text-white">¿Para quién es este curso?</h2>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<div class="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded text-green-600">
+<span class="material-symbols-outlined">check_small</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-text-main dark:text-white">Docentes de Primaria y Secundaria</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">Que buscan nuevas formas de captar la atención en el aula.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<div class="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded text-green-600">
+<span class="material-symbols-outlined">check_small</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-text-main dark:text-white">Profesores Universitarios</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">Interesados en integrar herramientas de investigación y análisis.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<div class="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded text-green-600">
+<span class="material-symbols-outlined">check_small</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-text-main dark:text-white">Coordinadores Académicos</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">Que lideran la transformación digital de sus instituciones.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<div class="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded text-green-600">
+<span class="material-symbols-outlined">check_small</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-text-main dark:text-white">Diseñadores Instruccionales</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">Para agilizar la creación de materiales educativos de alta calidad.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- What you will achieve -->
+<div class="bg-background-alt dark:bg-background-dark-alt p-8 rounded-2xl border border-gray-100 dark:border-gray-800">
+<h2 class="text-3xl font-bold mb-8 text-text-main dark:text-white">Lo que lograrás</h2>
+<div class="space-y-6">
+<div class="bg-white dark:bg-background-dark p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+<h3 class="font-bold text-lg mb-2 text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">edit_document</span>
+                                Creación de Contenido
+                            </h3>
+<p class="text-text-muted dark:text-gray-400 text-sm">Diseña unidades didácticas, rúbricas y ejercicios prácticos en una fracción del tiempo habitual.</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+<h3 class="font-bold text-lg mb-2 text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">monitoring</span>
+                                Evaluación Inteligente
+                            </h3>
+<p class="text-text-muted dark:text-gray-400 text-sm">Implementa sistemas de feedback inmediato para tus estudiantes usando herramientas de IA.</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+<h3 class="font-bold text-lg mb-2 text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">lightbulb</span>
+                                Metodologías Activas
+                            </h3>
+<p class="text-text-muted dark:text-gray-400 text-sm">Integra la IA en Aprendizaje Basado en Proyectos y Flipped Classroom de manera efectiva.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Syllabus / Modules -->
+<section class="py-20 bg-background-alt dark:bg-background-dark-alt" id="modulos">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="text-3xl lg:text-4xl font-bold text-text-main dark:text-white">Contenido del Curso</h2>
+<p class="mt-4 text-text-muted dark:text-gray-400">Un programa paso a paso diseñado para llevarte de cero a experto.</p>
+</div>
+<div class="space-y-3">
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-gray-100 dark:bg-gray-800 text-text-muted dark:text-gray-300 font-bold px-3 py-1 rounded text-sm">Módulo 0</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">Introducción a la IA en Educación</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded text-sm">Módulo 1</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">Fundamentos de Prompt Engineering</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded text-sm">Módulo 2</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">Creación de Material Didáctico Visual y Textual</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded text-sm">Módulo 3</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">Evaluación y Feedback Automatizado</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded text-sm">Módulo 4</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">Personalización y Atención a la Diversidad</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded text-sm">Módulo 5</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">Herramientas de Productividad Docente</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded text-sm">Módulo 6</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">Ética, Plagio y Uso Responsable</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Module Item -->
+<div class="group bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary transition-colors">
+<div class="p-5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded text-sm">Módulo 7</span>
+<h3 class="font-bold text-lg text-text-main dark:text-white">El Futuro de la Educación con IA</h3>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Format & Trust -->
+<section class="py-16 bg-white dark:bg-background-dark border-t border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary">schedule</span>
+<div>
+<h4 class="font-bold text-text-main dark:text-white">A tu ritmo</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">Acceso 24/7 de por vida</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary">devices</span>
+<div>
+<h4 class="font-bold text-text-main dark:text-white">100% Online</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">Desde PC, tablet o móvil</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary">folder_zip</span>
+<div>
+<h4 class="font-bold text-text-main dark:text-white">Recursos</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">+50 Plantillas descargables</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary">verified_user</span>
+<div>
+<h4 class="font-bold text-text-main dark:text-white">Garantía</h4>
+<p class="text-sm text-text-muted dark:text-gray-400">14 días de satisfacción</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-20 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold text-center mb-12 text-text-main dark:text-white">Lo que dicen los docentes</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-background-alt dark:bg-background-dark-alt p-8 rounded-2xl relative">
+<span class="material-symbols-outlined text-6xl text-primary/10 absolute top-4 right-4">format_quote</span>
+<p class="text-lg text-text-main dark:text-gray-300 italic mb-6 relative z-10">
+                        "Nunca pensé que la tecnología podría ahorrarme tanto tiempo. Ahora preparo mis clases en la mitad de tiempo y mis alumnos están más motivados que nunca con las actividades personalizadas."
+                    </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of a female teacher" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB02z7qsthh0M2gjr413u1sx6XwuAUNw3u5nsCqWM3l5por2_JuADszSZN9R5axlraxAdTgmYrs1CMuLKQ7AFfLcqtPQSreLGZ240osHvVhG-8igIhmaQD6GVxOk5RxLWPKsryrrk7gcidm1OdtxzRpPFqkwuI-xVhmOIAT9PKK3WzxpboxNHbyAowe74-x8vuKCfkqLG0Hr8ArryywCQDLGC30dl7I-PNoLvBaHpPrkiaEMahMmu12Ao40tVCEwlNIHPbIZQ9_OouC')"></div>
+<div>
+<h5 class="font-bold text-text-main dark:text-white">María González</h5>
+<p class="text-sm text-text-muted dark:text-gray-500">Profesora de Secundaria</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-background-alt dark:bg-background-dark-alt p-8 rounded-2xl relative">
+<span class="material-symbols-outlined text-6xl text-primary/10 absolute top-4 right-4">format_quote</span>
+<p class="text-lg text-text-main dark:text-gray-300 italic mb-6 relative z-10">
+                        "Un curso práctico y directo al grano. Las plantillas de prompts son oro puro. He podido implementar la IA en mis evaluaciones universitarias desde la primera semana."
+                    </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of a male professor" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8XhlU_5aiJ6nLlh6h3i285WFkRpj1ZmJCsMtAZ5SUzN4aCveC7Jjt3PeOXDmQY_690VYKYT-14M890rdQ9TeMF_mfsHwLmze9bFBWYB_V_TnXLQECfy60PoHSj3A-PKF_GiLGoHDo9Lyp8pdyLGgpsM5Fi4fVKEiqTUGw5iVn9JizMmJSS9rq9Xl6E8sfhD2Bm9mu3T1fX7ReoC5DnzsiUvCM8wsurwqGs0rljF4hGm1XSOor5p6tJEA8_r4ZkCh4akz_zWweTpoa')"></div>
+<div>
+<h5 class="font-bold text-text-main dark:text-white">Carlos Ramírez</h5>
+<p class="text-sm text-text-muted dark:text-gray-500">Catedrático Universitario</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-20 bg-background-alt dark:bg-background-dark-alt">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="bg-gradient-to-br from-primary to-accent rounded-3xl p-10 md:p-16 text-white shadow-2xl relative overflow-hidden">
+<!-- Decorative Circles -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+<h2 class="text-3xl md:text-5xl font-black mb-6 relative z-10">¿Listo para revolucionar tu aula?</h2>
+<p class="text-lg md:text-xl text-blue-50 mb-8 max-w-2xl mx-auto relative z-10">
+                    Únete a la comunidad de docentes innovadores hoy mismo y accede a todo el contenido de forma inmediata.
+                </p>
+<button class="bg-white text-primary text-lg font-bold py-4 px-10 rounded-xl shadow-lg hover:bg-gray-50 hover:scale-105 transition-all relative z-10">
+                    Inscribirme ahora
+                </button>
+<p class="mt-4 text-sm text-blue-100 opacity-80 relative z-10">Oferta especial por tiempo limitado</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-8 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<div class="p-1.5 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<span class="font-bold text-lg text-text-main dark:text-white">IA en el Aula</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400">
+                        Transformando la educación a través de la tecnología y la innovación pedagógica.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white mb-4">Curso</h4>
+<ul class="space-y-2 text-sm text-text-muted dark:text-gray-400">
+<li><a class="hover:text-primary" href="#">Temario</a></li>
+<li><a class="hover:text-primary" href="#">Precios</a></li>
+<li><a class="hover:text-primary" href="#">Testimonios</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white mb-4">Legal</h4>
+<ul class="space-y-2 text-sm text-text-muted dark:text-gray-400">
+<li><a class="hover:text-primary" href="#">Términos y condiciones</a></li>
+<li><a class="hover:text-primary" href="#">Política de privacidad</a></li>
+<li><a class="hover:text-primary" href="#">Cookies</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white mb-4">Contacto</h4>
+<ul class="space-y-2 text-sm text-text-muted dark:text-gray-400">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">mail</span>
+                            hola@iaenelaula.com
+                        </li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-100 dark:border-gray-800 pt-8 text-center">
+<p class="text-sm text-text-muted dark:text-gray-500">© 2024 IA en el Aula. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</body></html>
