@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IA en el Aula 2026 - Professional Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0052cc",
+                        "accent-blue": "#0066CC",
+                        "text-dark": "#2C3E50",
+                        "background-light": "#F8F9FA",
+                        "section-gray": "#F0F2F5",
+                        "footer-dark": "#495057",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            color: #2C3E50;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-dark selection:bg-primary selection:text-white">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md">
+<div class="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg">
+<svg class="size-6 text-white" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-primary">Learn5</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#aprender">¿Qué aprenderás?</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#programa">Programa</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#publico">Para quién</a>
+<a class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-accent-blue transition-all shadow-sm" href="https://go.hotmart.com/G97993169E?dp=1">Ver Curso</a>
+</nav>
+</div>
+</header>
+<!-- 1. Hero Section -->
+<section class="bg-background-light py-16 md:py-24">
+<div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<div>
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-4">EDICIÓN 2026</span>
+<h2 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
+                        🚀 Transforma tu Enseñanza con <span class="text-primary">Inteligencia Artificial</span>
+</h2>
+</div>
+<p class="text-lg text-gray-600 max-w-lg">
+                    Personaliza el aprendizaje y optimiza tu tiempo con las herramientas más avanzadas. Diseñado para educadores que lideran el futuro.
+                </p>
+<div class="flex flex-col sm:flex-row items-center gap-4">
+<a class="w-full sm:w-auto flex justify-center items-center bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-accent-blue transition-all shadow-lg hover:shadow-xl active:scale-[0.98]" href="https://go.hotmart.com/G97993169E?dp=1">
+                        Inscríbete Ahora
+                    </a>
+<div class="text-2xl font-bold text-primary">
+                        $20.00 <span class="text-sm font-medium text-gray-500 uppercase tracking-tighter">USD</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="w-full aspect-video md:aspect-square bg-cover bg-center rounded-3xl shadow-2xl" data-alt="Teacher using a tablet with AI visual elements around" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBaahJ1Tmn0_ql_my_RWZmehM1xV9xQwjeIQvv7zWnDf95WzzC9PuLC70DbwcB0MUQmHphbKcgdWIXjAghWmYjxM1cHtwGuerFy6-kNdEcwFd42dkaytT1wMAjQn4NGgR9FC7FrERVhi1mDNLj615M20HKvx2g8_HRSw4z_WukwMNUMLhjhNOYw98AD2JsB72IJm5uLc-6ccXYpgqkDTqxVylGPfz5OW4EAG7ECmv0k-6KREBQRqzg3DfFw3oY3GXJX-F_JdhPTyNJO');">
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden lg:block">
+<div class="flex items-center gap-4">
+<div class="size-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="font-bold text-sm">Contenido Actualizado</p>
+<p class="text-xs text-gray-500 text-balance">Metodologías listas para el 2026</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Learning Section (Soft Gray) -->
+<section class="bg-section-gray py-20" id="aprender">
+<div class="max-w-[1200px] mx-auto px-6">
+<h3 class="text-3xl font-bold text-center mb-12">¿Qué aprenderás?</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4"><span class="material-symbols-outlined text-4xl">psychology</span></div>
+<h4 class="text-lg font-bold mb-2">Fundamentos</h4>
+<p class="text-sm text-gray-600">Comprende las bases de la IA y cómo funciona el procesamiento del lenguaje natural en educación.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4"><span class="material-symbols-outlined text-4xl">person_search</span></div>
+<h4 class="text-lg font-bold mb-2">Personalización</h4>
+<p class="text-sm text-gray-600">Aprende a crear rutas de aprendizaje adaptativas para cada uno de tus alumnos.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4"><span class="material-symbols-outlined text-4xl">build</span></div>
+<h4 class="text-lg font-bold mb-2">Herramientas</h4>
+<p class="text-sm text-gray-600">Domina el software educativo más puntero: ChatGPT, Claude, Midjourney y más.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4"><span class="material-symbols-outlined text-4xl">trending_up</span></div>
+<h4 class="text-lg font-bold mb-2">Tendencias</h4>
+<p class="text-sm text-gray-600">Prepárate para el futuro escolar y las nuevas dinámicas del aula híbrida.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Tangible Benefits (White) -->
+<section class="bg-white py-20">
+<div class="max-w-[1200px] mx-auto px-6">
+<div class="text-center mb-16">
+<h3 class="text-3xl font-bold mb-4">Beneficios Tangibles</h3>
+<p class="text-gray-500">Resultados reales para tu carrera profesional.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Ahorra 10h semanales</h5>
+<p class="text-sm text-gray-600">Automatiza tareas administrativas y de planificación tediosas.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Planes de Lección</h5>
+<p class="text-sm text-gray-600">Genera materiales didácticos de alta calidad en segundos.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">quiz</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Evaluaciones IA</h5>
+<p class="text-sm text-gray-600">Crea exámenes y rúbricas personalizadas automáticamente.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">50+ Prompts</h5>
+<p class="text-sm text-gray-600">Biblioteca exclusiva de comandos listos para copiar y usar.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">folder_copy</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Plantillas Editables</h5>
+<p class="text-sm text-gray-600">Recursos visuales y estructurados para tus clases.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Casos de Estudio</h5>
+<p class="text-sm text-gray-600">Ejemplos reales de éxito aplicados en diversas materias.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">card_membership</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Certificado</h5>
+<p class="text-sm text-gray-600">Acredita tus nuevas competencias digitales con diploma.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-yellow-50 text-yellow-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">all_inclusive</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Acceso de por vida</h5>
+<p class="text-sm text-gray-600">Consulta el material siempre que lo necesites, sin prisas.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div>
+<h5 class="font-bold mb-1">Comunidad Privada</h5>
+<p class="text-sm text-gray-600">Conecta con otros educadores innovadores de todo el mundo.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Program Content (Soft Gray) -->
+<section class="bg-section-gray py-20" id="programa">
+<div class="max-w-[960px] mx-auto px-6">
+<h3 class="text-3xl font-bold mb-12 text-center">Contenido del Programa</h3>
+<div class="space-y-4">
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm border-l-4 border-primary">
+<span class="text-3xl font-black text-primary/30">01</span>
+<span class="text-lg font-semibold">Módulo 0: Bienvenida e Introducción al curso</span>
+</div>
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm">
+<span class="text-3xl font-black text-gray-200">02</span>
+<span class="text-lg font-semibold">Módulo 1: Introducción a la IA en Educación</span>
+</div>
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm">
+<span class="text-3xl font-black text-gray-200">03</span>
+<span class="text-lg font-semibold">Módulo 2: Fundamentos de Prompt Engineering</span>
+</div>
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm">
+<span class="text-3xl font-black text-gray-200">04</span>
+<span class="text-lg font-semibold">Módulo 3: Aplicaciones Prácticas en el Aula</span>
+</div>
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm">
+<span class="text-3xl font-black text-gray-200">05</span>
+<span class="text-lg font-semibold">Módulo 4: Diseño de Recursos con IA</span>
+</div>
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm">
+<span class="text-3xl font-black text-gray-200">06</span>
+<span class="text-lg font-semibold">Módulo 5: Ética y Responsabilidad en el uso de IA</span>
+</div>
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm">
+<span class="text-3xl font-black text-gray-200">07</span>
+<span class="text-lg font-semibold">Módulo 6: Integración Curricular y Estratégica</span>
+</div>
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm">
+<span class="text-3xl font-black text-gray-200">08</span>
+<span class="text-lg font-semibold">Módulo 7: Conclusiones y Próximos Pasos</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Why Choose Us (White) -->
+<section class="bg-white py-20">
+<div class="max-w-[1200px] mx-auto px-6">
+<h3 class="text-3xl font-bold mb-12 text-center">¿Por qué elegirnos?</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex items-center gap-4 p-6 bg-background-light rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl">check_circle</span>
+<div>
+<h6 class="font-bold">100% Online y Flexible</h6>
+<p class="text-sm text-gray-600">Aprende a tu propio ritmo desde cualquier dispositivo.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-6 bg-background-light rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl">check_circle</span>
+<div>
+<h6 class="font-bold">Enfoque 100% Práctico</h6>
+<p class="text-sm text-gray-600">Menos teoría y más implementación directa en clase.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-6 bg-background-light rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl">check_circle</span>
+<div>
+<h6 class="font-bold">Recursos Actualizados</h6>
+<p class="text-sm text-gray-600">Materiales revisados mensualmente para el 2026.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-6 bg-background-light rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl">check_circle</span>
+<div>
+<h6 class="font-bold">Soporte Continuo</h6>
+<p class="text-sm text-gray-600">Resolvemos tus dudas en menos de 24 horas.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Target Audience (Soft Gray) -->
+<section class="bg-section-gray py-20" id="publico">
+<div class="max-w-[1200px] mx-auto px-6">
+<div class="bg-white rounded-3xl p-12 overflow-hidden relative shadow-lg">
+<div class="relative z-10">
+<h3 class="text-3xl font-bold mb-10">¿Para quién es este curso?</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">school</span>
+<span class="font-medium">Docentes de Primaria y Secundaria</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">corporate_fare</span>
+<span class="font-medium">Directores y Gestores Educativos</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">design_services</span>
+<span class="font-medium">Diseñadores Instruccionales</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+<span class="font-medium">Profesores Universitarios</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">model_training</span>
+<span class="font-medium">Capacitadores Corporativos</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+<span class="font-medium">Estudiantes de Pedagogía</span>
+</div>
+</div>
+</div>
+<!-- Abstract Background Decals -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+</div>
+</div>
+</section>
+<!-- 7. Main CTA (Light Blue BG) -->
+<section class="bg-primary/5 py-24">
+<div class="max-w-[1200px] mx-auto px-6 text-center">
+<h3 class="text-4xl font-black mb-4 tracking-tight">🎯 Comienza Tu Transformación Hoy</h3>
+<p class="text-xl text-gray-600 mb-8">Únete a la nueva generación de educadores líderes.</p>
+<div class="flex flex-col items-center gap-4">
+<div class="text-5xl font-black text-primary mb-2">$20.00 USD</div>
+<a class="min-w-[280px] bg-primary text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-accent-blue transition-all shadow-xl hover:-translate-y-1" href="https://go.hotmart.com/G97993169E?dp=1">
+                    Comprar Ahora
+                </a>
+<p class="text-sm text-gray-500 mt-4">Pago seguro garantizado por Hotmart</p>
+</div>
+</div>
+</section>
+<!-- 8. Newsletter (White) -->
+<section class="bg-white py-20 border-t border-gray-100">
+<div class="max-w-[800px] mx-auto px-6 text-center">
+<div class="mb-8">
+<span class="material-symbols-outlined text-5xl text-primary mb-4">mail</span>
+<h3 class="text-2xl font-bold">Recibe Tips y Recursos Gratuitos</h3>
+<p class="text-gray-500">Suscríbete para estar al día con las novedades de IA en educación.</p>
+</div>
+<form class="flex flex-col sm:flex-row gap-3">
+<input class="flex-1 px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Tu nombre" type="text"/>
+<input class="flex-1 px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Tu email" type="email"/>
+<button class="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-accent-blue transition-all shrink-0" type="submit">
+                    Suscribirme Gratis
+                </button>
+</form>
+</div>
+</section>
+<!-- 9. Footer (Dark Gray) -->
+<footer class="bg-footer-dark text-white pt-16 pb-8">
+<div class="max-w-[1200px] mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<svg class="size-6 text-white" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+<span class="text-2xl font-bold">Learn5</span>
+</div>
+<p class="text-gray-300 max-w-sm mb-6">Educación. Tecnología. Personas. Ayudamos a los educadores a navegar el futuro con herramientas prácticas y efectivas.</p>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-lg">Explorar</h4>
+<ul class="space-y-4 text-gray-300">
+<li><a class="hover:text-white transition-colors" href="#">Sobre el curso</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Metodología</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Testimonios</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Preguntas Frecuentes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-lg">Acceso</h4>
+<a class="inline-block bg-white text-footer-dark px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors" href="https://go.hotmart.com/G97993169E?dp=1">
+                        Ver Curso
+                    </a>
+</div>
+</div>
+<div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+<p>© 2026 Learn5. Todos los derechos reservados.</p>
+<div class="flex gap-8">
+<a class="hover:text-white" href="#">Política de Privacidad</a>
+<a class="hover:text-white" href="#">Términos de Servicio</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
