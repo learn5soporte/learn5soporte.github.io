@@ -1164,16 +1164,47 @@ function handleSubmit(e) {
 // ── NEWSLETTER ────────────────────────────────────────────
 function handleNL(e) {
   e.preventDefault();
+  // -- FORM SUBMIT --
+function sendToNotion(nombre, canal, empresa) {
+  return fetch('https://api.github.com/repos/learn5soporte/learn5soporte.github.io/actions/workflows/notion-lead.yml/dispatches', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer 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',
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      ref: 'main',
+      inputs: { nombre: nombre, canal: canal, empresa: empresa }
+    })
+  });
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('formSuccess');
+  var nombre = document.getElementById('nombre').value;
+  var email = document.getElementById('email').value;
+  var inst = document.getElementById('institucion').value;
+  var sol = document.getElementById('solucion').value;
+  sendToNotion(nombre + ' | ' + email, 'Propuesta Web', inst + ' - ' + sol).finally(function() {
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+}
+
+// -- NEWSLETTER --
+function handleNL(e) {
+  e.preventDefault();
   var btn = e.target.querySelector('.newsletter-btn');
   var email = document.getElementById('nlEmail').value;
-  btn.innerHTML = '⏳';
+  btn.textContent = 'Enviando...';
   btn.style.background = '#1565c0';
   sendToNotion(email, 'Newsletter Hero', '').finally(function() {
-    btn.innerHTML = '✅';
+    btn.textContent = 'OK!';
     btn.style.background = '#22c55e';
-    setTimeout(function(){
-      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg><span>Ok!</span>';
-    }, 2000);
+    setTimeout(function(){ btn.textContent = 'Suscribirme'; btn.style.background = ''; }, 3000);
     e.target.reset();
   });
 }
@@ -1182,11 +1213,12 @@ function handleFooterNL(e) {
   e.preventDefault();
   var btn = e.target.querySelector('.footer-nl-btn');
   var email = document.getElementById('footerNlEmail').value;
-  btn.innerHTML = '⏳';
+  btn.textContent = 'Enviando...';
   btn.style.background = '#1565c0';
   sendToNotion(email, 'Newsletter Footer', '').finally(function() {
-    btn.innerHTML = '✅';
+    btn.textContent = 'OK!';
     btn.style.background = '#22c55e';
+    setTimeout(function(){ btn.textContent = 'Suscribirme'; btn.style.background = ''; }, 3000);
     e.target.reset();
   });
 }
