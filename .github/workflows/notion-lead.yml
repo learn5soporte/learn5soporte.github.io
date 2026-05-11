@@ -1,0 +1,35 @@
+name: Guardar Lead en Notion
+
+on:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: 'Nombre'
+        required: true
+      canal:
+        description: 'Canal de origen'
+        required: true
+      empresa:
+        description: 'Empresa o Institucion'
+        required: false
+        default: ''
+
+jobs:
+  send-to-notion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar a Notion
+        run: |
+          curl -s -X POST https://api.notion.com/v1/pages \
+            -H "Authorization: Bearer ${{ secrets.NOTION_TOKEN }}" \
+            -H "Notion-Version: 2022-06-28" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "parent": { "database_id": "d6b53a1d961746f4920611f790f8b399" },
+              "properties": {
+                "Nombre": { "title": [{ "text": { "content": "${{ github.event.inputs.nombre }}" } }] },
+                "Canal de origen": { "select": { "name": "${{ github.event.inputs.canal }}" } },
+                "Empresa": { "rich_text": [{ "text": { "content": "${{ github.event.inputs.empresa }}" } }] },
+                "Estado": { "select": { "name": "Nuevo" } }
+              }
+            }'
