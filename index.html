@@ -1104,7 +1104,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var email = document.getElementById('nlEmail').value;
       btn.textContent = 'Enviando...';
       btn.style.background = '#1565c0';
-      sendToNotion(email, 'Newsletter Hero', '').finally(function() {
+      fetch('https://formspree.io/f/mpqbbwvq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,tipo:'Newsletter'})}).finally(function() {
         btn.textContent = 'OK!';
         btn.style.background = '#22c55e';
         setTimeout(function() { btn.textContent = 'Suscribirme'; btn.style.background = ''; }, 3000);
@@ -1136,7 +1136,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var email = document.getElementById('email').value;
       var inst = document.getElementById('institucion').value;
       var sol = document.getElementById('solucion').value;
-      sendToNotion(nombre + ' | ' + email, 'Propuesta Web', inst + ' - ' + sol).finally(function() {
+      fetch('https://formspree.io/f/mpqbbwvq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre:nombre,email:email,institucion:inst,solucion:sol,tipo:'Propuesta'})}).finally(function() {
         contactForm.style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
       });
@@ -1215,7 +1215,7 @@ function handleSubmit(e) {
   var email = document.getElementById('email').value;
   var inst = document.getElementById('institucion').value;
   var sol = document.getElementById('solucion').value;
-  sendToNotion(nombre + ' | ' + email, 'Propuesta Web', inst + ' - ' + sol).finally(function() {
+  fetch('https://formspree.io/f/mpqbbwvq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre:nombre,email:email,institucion:inst,solucion:sol,tipo:'Propuesta'})}).finally(function() {
     form.style.display = 'none';
     success.style.display = 'block';
   });
@@ -1248,7 +1248,7 @@ function handleSubmit(e) {
   var email = document.getElementById('email').value;
   var inst = document.getElementById('institucion').value;
   var sol = document.getElementById('solucion').value;
-  sendToNotion(nombre + ' | ' + email, 'Propuesta Web', inst + ' - ' + sol).finally(function() {
+  fetch('https://formspree.io/f/mpqbbwvq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre:nombre,email:email,institucion:inst,solucion:sol,tipo:'Propuesta'})}).finally(function() {
     form.style.display = 'none';
     success.style.display = 'block';
   });
@@ -1261,7 +1261,7 @@ function handleNL(e) {
   var email = document.getElementById('nlEmail').value;
   btn.textContent = 'Enviando...';
   btn.style.background = '#1565c0';
-  sendToNotion(email, 'Newsletter Hero', '').finally(function() {
+  fetch('https://formspree.io/f/mpqbbwvq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,tipo:'Newsletter'})}).finally(function() {
     btn.textContent = 'OK!';
     btn.style.background = '#22c55e';
     setTimeout(function(){ btn.textContent = 'Suscribirme'; btn.style.background = ''; }, 3000);
