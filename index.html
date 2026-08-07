@@ -409,62 +409,88 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 1.5r
 </section>
 
 
-<!-- IA EN 30 DIAS -->
-<section class="section" id="ia30dias" style="border-top:1px solid var(--border);">
-  <div class="inner">
-    <div class="fup">
-      <p class="sec-label" id="i30Label">Nuevo · Acceso Anticipado</p>
-      <h2 class="sec-title" id="i30Title">Domina la IA en 30 Días</h2>
-      <p class="sec-sub" id="i30Sub">1 herramienta de IA por día. 4 sesiones en vivo. Sin relleno, sin teoría genérica — resultados desde el primer día.</p>
+<!-- IA EN 30 DIAS - SECCION DESTACADA ESTILO CAMPANA -->
+<section id="ia30dias" style="position:relative;overflow:hidden;background:#0D0B2A;padding:5rem 0;">
+  <div id="i30Stars" style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;"></div>
+  <div style="position:absolute;top:-15%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(83,74,183,0.45),transparent 70%);filter:blur(80px);z-index:0;"></div>
+  <div style="position:absolute;bottom:-15%;right:-10%;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,0.35),transparent 70%);filter:blur(80px);z-index:0;"></div>
+
+  <div class="inner" style="position:relative;z-index:1;">
+    <div class="fup" style="text-align:center;max-width:720px;margin:0 auto;">
+      <p style="font-size:12px;font-weight:700;letter-spacing:3px;color:#D4AF37;text-transform:uppercase;margin-bottom:1rem;" id="i30Label">Nuevo · Acceso Anticipado</p>
+      <h2 style="font-family:var(--fd);font-size:clamp(36px,56px,4vw);font-weight:900;letter-spacing:-1.5px;line-height:1.05;color:#fff;margin-bottom:1rem;">
+        <span id="i30TitleA">DOMINA LA IA</span><br><span id="i30TitleB" style="color:#3E8FFF;">EN 30 DÍAS</span>
+      </h2>
+      <p style="font-size:16px;color:#AFA9EC;line-height:1.6;margin-bottom:2.5rem;" id="i30Sub">1 herramienta de IA por día. 4 sesiones en vivo. Sin relleno, sin teoría genérica — resultados desde el primer día.</p>
     </div>
 
-    <div class="hero-stats" style="margin-top:2rem;">
-      <div class="stat"><div class="stat-n">$96</div><div class="stat-l" id="i30s1">Precio Early Bird</div></div>
-      <div class="stat"><div class="stat-n">17 AGO</div><div class="stat-l" id="i30s2">Fecha de inicio</div></div>
-      <div class="stat"><div class="stat-n">20</div><div class="stat-l" id="i30s3">Cupos disponibles</div></div>
-      <div class="stat"><div class="stat-n">7 días</div><div class="stat-l" id="i30s4">Garantía de devolución</div></div>
-    </div>
-
-    <div class="courses-grid" style="margin-top:3rem;">
-      <div class="course-card fup" style="transition-delay:.05s">
-        <div class="course-top ct-blue">🧩</div>
-        <div class="course-body">
-          <span class="course-tag" id="i30w1t">Semana 1</span>
-          <div class="course-title" id="i30w1h">Fundamentos y Prompting</div>
-          <div class="course-desc" id="i30w1d">ChatGPT, Claude, Gemini, Perplexity, Copilot, NotebookLM, Otter.ai</div>
-        </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin:22.5rem 0 3rem;">
+      <div style="background:rgba(29,158,117,0.12);border:1px solid rgba(29,158,117,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;color:#fff;">$96</div>div>
+        <div style="font-size:11px;color:#9FE1CB;margin-top:2px;" id="i30s1">Precio Early Bird</div>
       </div>
-      <div class="course-card fup" style="transition-delay:.1s">
-        <div class="course-top ct-violet">🎨</div>
-        <div class="course-body">
-          <span class="course-tag" id="i30w2t">Semana 2</span>
-          <div class="course-title" id="i30w2h">Creación de Contenido</div>
-          <div class="course-desc" id="i30w2d">Canva AI, Leonardo, ElevenLabs, HeyGen, CapCut, Runway, Suno, AdCreative</div>
-        </div>
+      <div style="background:rgba(83,74,183,0.15);border:1px solid rgba(83,74,183,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;color:#fff;">17 AGO</div>
+        <div style="font-size:11px;color:#AFA9EC;margin-top:2px;" id="i30s2">Fecha de inicio</div>
       </div>
-      <div class="course-card fup" style="transition-delay:.15s">
-        <div class="course-top ct-cyan">⚙️</div>
-        <div class="course-body">
-          <span class="course-tag" id="i30w3t">Semana 3</span>
-          <div class="course-title" id="i30w3h">Automatización de Procesos</div>
-          <div class="course-desc" id="i30w3d">Make, Zapier, Notion AI, Typebot, n8n, Gamma, Airtable AI</div>
-        </div>
+      <div style="background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;color:#fff;">20</div>
+        <div style="font-size:11px;color:#FAEEDA;margin-top:2px;" id="i30s3">Cupos disponibles</div>
       </div>
-      <div class="course-card fup" style="transition-delay:.2s">
-        <div class="course-top ct-gold">🤖</div>
-        <div class="course-body">
-          <span class="course-tag" id="i30w4t">Semana 4</span>
-          <div class="course-title" id="i30w4h">Agentes de IA para Negocios</div>
-          <div class="course-desc" id="i30w4d">Custom GPTs, Claude Projects, Dify, Voiceflow, Lindy, Chatbase, Relevance AI, Retell AI</div>
-        </div>
+      <div style="background:rgba(62,143,255,0.12);border:1px solid rgba(62,143,255,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;color:#fff;">7 días</div>
+        <div style="font-size:11px;color:#AAD4FF;margin-top:2px;" id="i30s4">Garantía de devolución</div>
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:3rem;">
-      <a href="https://ai-workshop-miami.vercel.app/?utm_source=learn5pro&utm_medium=website&utm_campaign=seccion-ia30" target="_blank" style="display:inline-block;padding:16px 40px;border-radius:100px;background:var(--accent);color:var(--bg);font-size:16px;font-weight:800;text-decoration:none;transition:opacity .2s,transform .2s;" id="i30Cta">Reservar mi cupo →</a>
-      <p style="font-size:12px;color:var(--muted);margin-top:1rem;" id="i30Note">Cupos limitados · Garantía de 7 días · El precio sube a $129 al completarse</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;max-width:1000px;margin:0 auto 3rem;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(83,74,183,0.3);border-radius:14px;padding:20px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(83,74,183,0.35),rgba(83,74,183,0.08));border:1.5px solid rgba(83,74,183,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">🧾</div>
+        <div style="font-size:11px;color:#9FE1CB;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;" id="i30w1t">Semana 1</div>
+        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;" id="i30w1h">Fundamentos y Prompting</div>
+        <div style="font-size:12px;color:#AFA9EC;line-height:1.5;" id="i30w1d">ChatGPT, Claude, Gemini, Perplexity, Copilot, NotebookLM, Otter.ai</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(29,158,117,0.3);border-radius:14px;padding:20px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(29,158,117,0.35),rgba(29,158,117,0.08));border:1.5px solid rgba(29,158,117,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">🎨</div>
+        <div style="font-size:11px;color:#9FE1CB;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;" id="i30w2t">Semana 2</div>
+        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;" id="i30w2h">Creación de Contenido</div>
+        <div style="font-size:12px;color:#9FE1CB;line-height:1.5;" id="i30w2d">Canva AI, Leonardo, ElevenLabs, HeyGen, CapCut, Runway, Suno, AdCreative</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.3);border-radius:14px;padding:20px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(212,175,55,0.35),rgba(212,175,55,0.08));border:1.5px solid rgba(212,175,55,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">⚙️</div>
+        <div style="font-size:11px;color:#D4AF37;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;" id="i30w3t">Semana 3</div>
+        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;" id="i30w3h">Automatización de Procesos</div>
+        <div style="font-size:12px;color:#FAEEDA;line-height:1.5;" id="i30w3d">Make, Zapier, Notion AI, Typebot, n8n, Gamma, Airtable AI</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(62,143,255,0.3);border-radius:14px;padding:20px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(62,143,255,0.35),rgba(62,143,255,0.08));border:1.5px solid rgba(62,143,255,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">🤖</div>
+        <div style="font-size:11px;color:#AAD4FF;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;" id="i30w4t">Semana 4</div>
+        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;" id="i30w4h">Agentes de IA para Negocios</div>
+        <div style="font-size:12px;color:#AAD4FF;line-height:1.5;" id="i30w4d">Custom GPTs, Claude Projects, Dify, Voiceflow, Lindy, Chatbase, Relevance AI, Retell AI</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://ai-workshop-miami.vercel.app/?utm_source=learn5pro&utm_medium=website&utm_campaign=seccion-ia30" target="_blank" style="display:inline-block;padding:18px 46px;border-radius:100px;background:#534AB7;color:#fff;font-size:17px;font-weight:800;text-decoration:none;box-shadow:0 8px 30px rgba(83,74,183,0.5);" id="i30Cta">Reservar mi cupo →</a>
+      <p style="font-size:12px;color:#8899CC;margin-top:1rem;" id="i30Note">Cupos limitados · Garantía de 7 días · El precio sube a $129 al completarse</p>
     </div>
   </div>
+
+  <script>
+    (function(){
+      const c = document.getElementById('i30Stars');
+      if (!c) return;
+      for (let i=0;i<50;i++){
+        const s = document.createElement('div');
+        const size = (Math.random()*2+1).toFixed(1);
+        s.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:#fff;left:${(Math.random()*100).toFixed(22)}%;top:${(Math.random()*100).toFixed(2)}%;opacity:${(Math.random()*0.4+0.15).toFixed(2)};animation:i30twinkle ${(Math.random()*4+3).toFixed(1)}s ease-in-out infinite;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
+        c.appendChild(s);
+      }
+      const style = document.createElement('style');
+      style.textContent = '@keyframes i30twinkle{0%,100%{opacity:0.1}50%{opacity:0.6}}}';
+      document.head.appendChild(style);
+    })();
+  </script>
 </section>
 
 <!-- FOR YOU -->
