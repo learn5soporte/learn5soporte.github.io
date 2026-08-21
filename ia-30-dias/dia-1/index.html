@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IA en 30 Días · Cuaderno del programa | Learn5</title>
+<meta name="description" content="Cuaderno interactivo del programa IA en 30 Días de Learn5." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D0B2A; --navy2:#161238; --card:#1B1642; --deep:#0A0820;
+  --blue:#3E8FFF; --violet:#7C6BF0; --violet-l:#AFA9EC;
+  --gold:#D4AF37; --teal:#1D9E75; --teal-l:#6EE7B7; --coral:#E86A4B;
+  --gray1:#E8E6F5; --gray2:#A8A4C8; --gray3:#6F6B92;
+  --line:rgba(175,169,236,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--gray1);font-family:'Inter',system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ── CABECERA ── */
+.top{position:sticky;top:0;background:rgba(13,11,42,.96);backdrop-filter:blur(14px);z-index:90;border-bottom:1px solid var(--line)}
+.top-in{max-width:1000px;margin:0 auto;padding:0 22px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-family:'Space Grotesk';font-weight:700;font-size:16px;color:#fff;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--blue)}
+.stamps{display:flex;gap:6px;align-items:center}
+.stamp{width:25px;height:25px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:11.5px;filter:grayscale(1);opacity:.32;transition:all .45s cubic-bezier(.34,1.56,.64,1)}
+.stamp.on{filter:none;opacity:1;border-color:var(--gold);background:rgba(212,175,55,.15);transform:scale(1.12)}
+.sc{font-family:'IBM Plex Mono';font-size:12px;color:var(--gray2);margin-left:3px}
+.sc b{color:var(--gold)}
+
+/* ── PESTAÑAS TIPO CUADERNO ── */
+.tabs-wrap{background:var(--navy2);border-bottom:1px solid var(--line);position:sticky;top:54px;z-index:88}
+.tabs{max-width:1000px;margin:0 auto;padding:0 22px;display:flex;gap:3px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;background:transparent;border:1px solid transparent;border-bottom:none;color:var(--gray3);font-family:'Inter';font-size:13.5px;font-weight:500;padding:11px 17px 10px;border-radius:9px 9px 0 0;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;position:relative;top:1px;white-space:nowrap}
+.tab:hover:not(.lock){color:var(--gray1);background:rgba(255,255,255,.04)}
+.tab.on{background:var(--navy);border-color:var(--line);color:#fff;font-weight:600}
+.tab.on::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--navy)}
+.tab.lock{opacity:.42;cursor:not-allowed}
+.tab-n{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--blue);border:1px solid var(--line);padding:1px 5px;border-radius:4px}
+.tab.on .tab-n{border-color:var(--blue);background:rgba(62,143,255,.14)}
+.tab-ok{color:var(--teal-l);font-size:12px}
+
+/* ── BARRA DE PROGRESO ── */
+.pbar{height:3px;background:rgba(175,169,236,.12);position:relative;overflow:hidden}
+.pbar-f{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--teal));transition:width .6s cubic-bezier(.4,0,.2,1)}
+
+/* ── SELLOS: LEYENDA ── */
+.stamps{cursor:pointer;position:relative;padding:5px 8px;border-radius:9px;transition:background .2s}
+.stamps:hover{background:rgba(255,255,255,.05)}
+.legend{position:absolute;top:44px;right:0;width:288px;background:var(--navy2);border:1px solid var(--line);border-radius:14px;padding:16px;z-index:120;display:none;box-shadow:0 18px 44px rgba(0,0,0,.55);cursor:default}
+.legend.on{display:block;animation:fade .25s}
+.legend-h{font-family:'Space Grotesk';font-weight:600;color:#fff;font-size:14.5px;margin-bottom:3px}
+.legend-s{font-size:12.5px;color:var(--gray3);margin-bottom:13px;line-height:1.5}
+.lg-row{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(175,169,236,.09)}
+.lg-row:last-child{border-bottom:none}
+.lg-i{width:27px;height:27px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:12px;filter:grayscale(1);opacity:.35;flex-shrink:0}
+.lg-i.on{filter:none;opacity:1;border-color:var(--gold);background:rgba(212,175,55,.15)}
+.lg-t{font-size:13px;color:var(--gray1);font-weight:500;line-height:1.35}
+.lg-d{font-size:11.5px;color:var(--gray3);line-height:1.4}
+
+/* ── PANELES ── */
+.panel{display:none;animation:fade .35s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 90px}
+
+/* ── NAVEGACIÓN LATERAL ── */
+.sidenav{position:fixed;left:max(18px,calc(50vw - 560px));top:132px;width:196px;z-index:60;display:none}
+.sidenav.on{display:block;animation:fade .3s}
+.sn-h{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--gray3);margin-bottom:11px;padding-left:2px}
+.sn-i{display:flex;gap:9px;align-items:flex-start;padding:6px 8px;border-radius:8px;cursor:pointer;transition:all .2s;margin-bottom:1px;border-left:2px solid transparent}
+.sn-i:hover{background:rgba(255,255,255,.045)}
+.sn-i.on{background:rgba(62,143,255,.1);border-left-color:var(--blue)}
+.sn-d{width:6px;height:6px;border-radius:50%;background:var(--gray3);opacity:.45;flex-shrink:0;margin-top:7px;transition:all .25s}
+.sn-i.on .sn-d{background:var(--blue);opacity:1;box-shadow:0 0 0 3px rgba(62,143,255,.2)}
+.sn-i.seen .sn-d{background:var(--teal);opacity:1}
+.sn-x{flex:1;min-width:0}
+.sn-t{font-size:12.8px;color:var(--gray2);line-height:1.35}
+.sn-i.on .sn-t{color:#fff;font-weight:500}
+.sn-m{font-family:'IBM Plex Mono';font-size:10px;color:var(--gray3)}
+.sn-back{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--gray3);text-decoration:none;padding:9px 8px;margin-top:10px;border-top:1px solid var(--line);cursor:pointer;transition:color .2s}
+.sn-back:hover{color:var(--violet-l)}
+@media(max-width:1180px){.sidenav{display:none!important}}
+
+/* ── OBJETIVO ── */
+.goal{background:linear-gradient(135deg,rgba(29,158,117,.11),rgba(62,143,255,.07));border:1px solid rgba(29,158,117,.28);border-radius:14px;padding:18px 21px;margin:22px 0}
+.goal-l{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--teal-l);margin-bottom:7px}
+.goal p{margin-bottom:0;font-size:16px}
+
+/* ── RETOMAR ── */
+.resume{background:rgba(212,175,55,.09);border:1px solid rgba(212,175,55,.32);border-radius:12px;padding:14px 18px;margin-bottom:26px;display:none;align-items:center;gap:13px}
+.resume.on{display:flex;animation:fade .4s}
+.resume-t{flex:1;font-size:14.5px;color:var(--gray1)}
+.resume-t b{color:var(--gold)}
+.resume-b{background:rgba(212,175,55,.18);border:1px solid rgba(212,175,55,.4);color:var(--gold);border-radius:8px;padding:7px 14px;font-family:'Inter';font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.resume-b:hover{background:rgba(212,175,55,.28)}
+section{padding:38px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+
+/* ── TIPOGRAFÍA ── */
+.eyebrow{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:24px;height:1.5px;background:var(--blue);flex-shrink:0}
+h1{font-family:'Space Grotesk';font-size:clamp(30px,5.6vw,48px);font-weight:700;line-height:1.1;letter-spacing:-1.1px;color:#fff;margin-bottom:16px}
+h2{font-family:'Space Grotesk';font-size:clamp(22px,3.4vw,29px);font-weight:600;line-height:1.25;letter-spacing:-.5px;color:#fff;margin-bottom:15px}
+h3{font-family:'Space Grotesk';font-size:18px;font-weight:600;color:#fff;margin-bottom:9px}
+p{margin-bottom:15px;font-size:16.5px}
+p.lead{font-size:18.5px;color:var(--gray2);line-height:1.65}
+strong{color:#fff;font-weight:600}
+em{color:var(--violet-l);font-style:normal;font-weight:500}
+ul{margin:0 0 16px 20px}li{margin-bottom:9px;font-size:16px}
+
+/* ── COMPONENTES ── */
+.pill{font-family:'IBM Plex Mono';font-size:11.5px;padding:6px 13px;border-radius:50px;border:1px solid var(--line);color:var(--gray2);display:inline-block}
+.pill.hot{border-color:rgba(212,175,55,.45);color:var(--gold);background:rgba(212,175,55,.08)}
+.row{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:21px 23px;margin:18px 0}
+.callout{border-left:3px solid var(--blue);background:rgba(62,143,255,.07);border-radius:0 12px 12px 0;padding:17px 21px;margin:20px 0}
+.callout.warn{border-left-color:var(--coral);background:rgba(232,106,75,.07)}
+.callout.win{border-left-color:var(--teal);background:rgba(29,158,117,.08)}
+.callout p:last-child{margin-bottom:0}
+.pbox{background:var(--deep);border:1px solid var(--line);border-radius:12px;padding:18px 20px;font-family:'IBM Plex Mono';font-size:13.5px;line-height:1.75;white-space:pre-wrap;margin:18px 0;position:relative}
+.pbox.bad{border-color:rgba(232,106,75,.4)}
+.pbox.good{border-color:rgba(29,158,117,.45)}
+.tag{position:absolute;top:-9px;left:16px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.4px;padding:2px 9px;border-radius:4px;background:var(--navy);text-transform:uppercase}
+.tag.bad{color:var(--coral);border:1px solid rgba(232,106,75,.4)}
+.tag.good{color:var(--teal-l);border:1px solid rgba(29,158,117,.45)}
+
+/* ── SLOTS DE MEDIOS ── */
+.media{border:1.5px dashed var(--line);border-radius:14px;padding:26px 22px;margin:22px 0;text-align:center;background:rgba(124,107,240,.045);transition:all .25s}
+.media:hover{border-color:rgba(124,107,240,.4);background:rgba(124,107,240,.075)}
+.media-i{font-size:30px;margin-bottom:9px;opacity:.75}
+.media-t{font-family:'Space Grotesk';font-weight:600;color:#fff;font-size:16.5px;margin-bottom:5px}
+.media-d{font-size:14px;color:var(--gray3);max-width:420px;margin:0 auto}
+.media-badge{display:inline-block;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--violet-l);border:1px solid rgba(124,107,240,.35);padding:3px 9px;border-radius:4px;margin-top:11px}
+.media.ready{border-style:solid;border-color:rgba(29,158,117,.4);background:rgba(29,158,117,.06)}
+.dl{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin:14px 0;text-decoration:none;color:inherit;transition:all .2s}
+.dl:hover{border-color:var(--blue);transform:translateX(4px)}
+.dl-i{font-size:24px;flex-shrink:0}
+.dl-t{font-family:'Space Grotesk';font-weight:600;color:#fff;font-size:15.5px}
+.dl-d{font-size:13px;color:var(--gray3)}
+.dl-a{margin-left:auto;font-family:'IBM Plex Mono';font-size:11px;color:var(--blue);flex-shrink:0}
+
+/* ── RUTA DEL PROGRAMA ── */
+.weeks{display:flex;flex-direction:column;gap:11px;margin:22px 0}
+.week{display:flex;gap:15px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:17px 19px;align-items:flex-start}
+.week-n{font-family:'IBM Plex Mono';font-size:11px;color:var(--blue);border:1px solid var(--line);padding:4px 8px;border-radius:6px;flex-shrink:0;white-space:nowrap}
+.week-t{font-family:'Space Grotesk';font-weight:600;color:#fff;font-size:16.5px;margin-bottom:4px}
+.week-d{font-size:14.5px;color:var(--gray2);margin-bottom:8px}
+.week-tools{display:flex;gap:5px;flex-wrap:wrap}
+.tool-chip{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--gray3);border:1px solid var(--line);padding:2px 7px;border-radius:4px}
+
+/* ── ANATOMÍA ── */
+.anatomy{display:flex;flex-direction:column;gap:9px;margin:22px 0}
+.piece{display:flex;gap:13px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 17px;cursor:pointer;transition:all .22s}
+.piece:hover{border-color:var(--blue);transform:translateX(4px)}
+.piece.open{border-color:var(--blue);background:rgba(62,143,255,.09)}
+.piece-n{font-family:'IBM Plex Mono';font-size:12px;color:var(--blue);border:1px solid var(--line);width:26px;height:26px;border-radius:6px;display:grid;place-items:center;flex-shrink:0;margin-top:2px}
+.piece-body{flex:1}
+.piece-t{font-family:'Space Grotesk';font-weight:600;color:#fff;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.piece-t::after{content:'+';color:var(--gray3);font-weight:400;font-size:19px}
+.piece.open .piece-t::after{content:'−';color:var(--blue)}
+.piece-d{max-height:0;overflow:hidden;transition:max-height .3s ease,margin .3s;color:var(--gray2);font-size:15px}
+.piece.open .piece-d{max-height:460px;margin-top:9px}
+.piece-d code{font-family:'IBM Plex Mono';font-size:12.5px;color:var(--violet-l);background:rgba(124,107,240,.13);padding:3px 7px;border-radius:4px;display:inline-block;margin-top:7px;line-height:1.65}
+
+/* ── ESCENARIOS ── */
+.scn{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:16px 0}
+.scn-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px}
+.scn-n{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:1.4px;color:var(--gray3)}
+.scn-q{font-size:16px;color:#fff;margin-bottom:15px;line-height:1.55}
+.scn-q b{color:var(--violet-l);font-weight:600}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:8px}
+.opt{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--gray1);border-radius:10px;padding:11px 13px;font-family:'Inter';font-size:14.5px;font-weight:500;cursor:pointer;transition:all .18s;text-align:center}
+.opt:hover:not(:disabled){border-color:var(--blue);background:rgba(62,143,255,.11)}
+.opt:disabled{cursor:default}
+.opt.ok{border-color:var(--teal);background:rgba(29,158,117,.17);color:#fff}
+.opt.no{border-color:var(--coral);background:rgba(232,106,75,.13);opacity:.72}
+.fb{margin-top:13px;font-size:15px;padding:12px 15px;border-radius:9px;display:none;line-height:1.6}
+.fb.show{display:block;animation:fade .3s}
+.fb.ok{background:rgba(29,158,117,.13);color:var(--teal-l);border:1px solid rgba(29,158,117,.3)}
+.fb.no{background:rgba(232,106,75,.11);color:#F3B3A2;border:1px solid rgba(232,106,75,.3)}
+.score{font-family:'IBM Plex Mono';font-size:13px;color:var(--gray2);text-align:center;margin-top:16px}
+.score b{color:var(--teal-l)}
+
+/* ── CONSTRUCTOR ── */
+.builder{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:23px;margin:22px 0}
+.bf{margin-bottom:14px}
+.bf label{display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.bf input,.bf textarea{width:100%;background:var(--deep);border:1px solid var(--line);border-radius:9px;padding:11px 13px;color:#fff;font-family:'Inter';font-size:15px;resize:vertical}
+.bf input:focus,.bf textarea:focus{outline:none;border-color:var(--blue)}
+.bf input::placeholder,.bf textarea::placeholder{color:var(--gray3)}
+.btn{background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;border:none;border-radius:10px;padding:13px 24px;font-family:'Inter';font-size:15px;font-weight:600;cursor:pointer;transition:transform .18s,box-shadow .18s;width:100%;display:block;text-align:center;text-decoration:none;box-sizing:border-box}
+.btn:hover{transform:translateY(-2px);box-shadow:0 9px 24px rgba(62,143,255,.32)}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--gray2);font-weight:500;margin-top:10px}
+.btn.ghost:hover{border-color:var(--blue);color:#fff;box-shadow:none;transform:none}
+.out{margin-top:16px;display:none}
+.out.show{display:block;animation:fade .4s ease}
+
+/* ── RETO ── */
+.task{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.task:last-child{border-bottom:none}
+.tbox{width:21px;height:21px;border:1.5px solid var(--gray3);border-radius:6px;flex-shrink:0;margin-top:2px;display:grid;place-items:center;transition:all .2s}
+.task.done .tbox{background:var(--teal);border-color:var(--teal)}
+.tbox::after{content:'✓';color:#fff;font-size:13px;opacity:0;transition:opacity .2s}
+.task.done .tbox::after{opacity:1}
+.task.done .ttext{color:var(--gray3);text-decoration:line-through}
+.ttext{font-size:15.5px;transition:all .2s}
+
+/* ── CIERRE ── */
+.next{background:linear-gradient(135deg,rgba(62,143,255,.12),rgba(124,107,240,.1));border:1px solid rgba(62,143,255,.3);border-radius:16px;padding:25px;text-align:center;margin-top:28px}
+.footer{text-align:center;padding:36px 0 0;color:var(--gray3);font-size:13px}
+.footer a{color:var(--violet-l);text-decoration:none}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(140px);background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:13px 21px;display:flex;gap:11px;align-items:center;z-index:200;transition:transform .45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 12px 36px rgba(0,0,0,.5)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast-i{font-size:21px}
+.toast-t{font-family:'Space Grotesk';font-weight:600;color:#fff;font-size:14.5px}
+.toast-s{font-size:12.5px;color:var(--gray2)}
+
+/* ── ASISTENTE · CHISPA ── */
+.fab{position:fixed;bottom:22px;right:22px;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#2B2470,#1B1642);border:2px solid rgba(124,107,240,.5);cursor:pointer;z-index:150;box-shadow:0 8px 28px rgba(62,143,255,.4);display:grid;place-items:center;transition:transform .25s cubic-bezier(.34,1.56,.64,1);padding:0;overflow:visible}
+.fab:hover{transform:scale(1.1) rotate(-4deg)}
+.fab:active{transform:scale(.94)}
+.fab-dot{position:absolute;top:1px;right:1px;width:13px;height:13px;border-radius:50%;background:var(--teal-l);border:2.5px solid var(--navy);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(110,231,183,.6)}50%{box-shadow:0 0 0 7px rgba(110,231,183,0)}}
+.fab-bubble{position:absolute;right:74px;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--line);border-radius:12px 12px 2px 12px;padding:9px 13px;font-size:13px;color:var(--gray1);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.fab-bubble.show{opacity:1;transform:translateY(-50%) translateX(-4px)}
+
+/* mascota */
+.chispa{width:42px;height:42px;overflow:visible}
+.chispa.big{width:38px;height:38px}
+.ch-body{animation:float 3.4s ease-in-out infinite;transform-origin:center}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-3px) rotate(1.5deg)}}
+.ch-eye{transform-origin:center;animation:blink 4.2s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+.ch-ant{animation:antenna 2.2s ease-in-out infinite;transform-origin:bottom center}
+@keyframes antenna{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.ch-spark{animation:sparkle 2.2s ease-in-out infinite}
+@keyframes sparkle{0%,100%{opacity:.55;r:2.6}50%{opacity:1;r:3.6}}
+.chat.on .chispa{animation:hi .6s ease}
+@keyframes hi{0%{transform:scale(.7) rotate(-14deg)}60%{transform:scale(1.12) rotate(7deg)}100%{transform:scale(1) rotate(0)}}
+.chat{position:fixed;bottom:88px;right:22px;width:340px;max-width:calc(100vw - 44px);max-height:min(520px,70vh);background:var(--navy2);border:1px solid var(--line);border-radius:16px;z-index:150;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.55)}
+.chat.on{display:flex;animation:fade .28s}
+.chat-h{padding:14px 17px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;background:var(--card)}
+.chat-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;font-size:15px;flex-shrink:0}
+.chat-n{font-family:'Space Grotesk';font-weight:600;color:#fff;font-size:14.5px}
+.chat-s{font-size:11.5px;color:var(--teal-l)}
+.chat-x{margin-left:auto;background:none;border:none;color:var(--gray3);font-size:20px;cursor:pointer;line-height:1}
+.chat-b{flex:1;overflow-y:auto;padding:15px 16px;display:flex;flex-direction:column;gap:11px}
+.msg{max-width:88%;padding:10px 13px;border-radius:13px;font-size:14.5px;line-height:1.55}
+.msg.bot{background:var(--card);border:1px solid var(--line);border-radius:13px 13px 13px 4px;align-self:flex-start}
+.msg.me{background:rgba(62,143,255,.2);border:1px solid rgba(62,143,255,.35);border-radius:13px 13px 4px 13px;align-self:flex-end;color:#fff}
+.chat-o{padding:12px 16px 15px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:7px}
+.chat-opt{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--gray1);border-radius:9px;padding:9px 12px;font-family:'Inter';font-size:13.5px;cursor:pointer;text-align:left;transition:all .18s;line-height:1.45}
+.chat-opt:hover{border-color:var(--blue);background:rgba(62,143,255,.12);color:#fff}
+
+@media(max-width:640px){
+  .wrap{padding:30px 17px 80px}
+  section{padding:30px 0}
+  .stamps .stamp:nth-child(n+4){display:none}
+  .opts{grid-template-columns:1fr 1fr}
+  .top-in{padding:0 16px}.tabs{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a href="https://learn5.pro/ia-30-dias/" class="brand">LEARN<span>5</span></a>
+    <div class="stamps" id="stamps" title="Ver qué son estos sellos">
+      <div class="stamp" data-k="intro">🧭</div>
+      <div class="stamp" data-k="anatomia">🧬</div>
+      <div class="stamp" data-k="builder">🛠️</div>
+      <div class="stamp" data-k="escenarios">♟️</div>
+      <div class="stamp" data-k="quiz">🎯</div>
+      <div class="stamp" data-k="reto">🏁</div>
+      <span class="sc"><b id="sc">0</b>/6 sellos</span>
+      <div class="legend" id="legend">
+        <div class="legend-h" id="legendTitle">Tus sellos</div>
+        <div class="legend-s">Se ganan solos al completar cada actividad. No son puntos ni ranking: son tu registro de lo que ya hiciste.</div>
+        <div id="legendRows"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pbar"><div class="pbar-f" id="pbarF"></div></div>
+</header>
+
+<aside class="sidenav" id="sidenav">
+  <div class="sn-h">En esta lección</div>
+  <div id="snList"></div>
+  <div class="sn-back" onclick="show('p0')">← Volver a Empieza aquí</div>
+</aside>
+
+<div class="tabs-wrap">
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-p="p0"><span class="tab-n">00</span> Empieza aquí <span class="tab-ok" id="ok-p0"></span></button>
+    <button class="tab" data-p="p1"><span class="tab-n">01</span> ChatGPT <span class="tab-ok" id="ok-p1"></span></button>
+    <a class="tab" href="../dia-2/" style="text-decoration:none"><span class="tab-n">02</span> Claude <span class="tab-ok" id="ok-p2"></span></a>
+    <button class="tab lock" disabled><span class="tab-n">03</span> Perplexity 🔒</button>
+    <button class="tab lock" disabled><span class="tab-n">04</span> NotebookLM 🔒</button>
+    <button class="tab lock" disabled><span class="tab-n">05</span> Gemini 🔒</button>
+    <button class="tab lock" disabled><span class="tab-n">06</span> Copilot 🔒</button>
+    <button class="tab lock" disabled><span class="tab-n">07</span> Otter.ai 🔒</button>
+  </nav>
+</div>
+
+<button class="fab" id="fab" title="Habla con Chispa">
+  <svg class="chispa" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="chg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#5BA4FF"/><stop offset="100%" stop-color="#8B7BF5"/>
+      </linearGradient>
+    </defs>
+    <g class="ch-body">
+      <g class="ch-ant">
+        <line x1="32" y1="16" x2="32" y2="7" stroke="#8B7BF5" stroke-width="2.6" stroke-linecap="round"/>
+        <circle class="ch-spark" cx="32" cy="6" r="3.2" fill="#D4AF37"/>
+      </g>
+      <rect x="12" y="16" width="40" height="33" rx="12" fill="url(#chg)"/>
+      <rect x="17" y="21" width="30" height="20" rx="9" fill="#0A0820"/>
+      <g class="ch-eye">
+        <circle cx="26" cy="30" r="3.7" fill="#6EE7B7"/>
+        <circle cx="38" cy="30" r="3.7" fill="#6EE7B7"/>
+      </g>
+      <path d="M27 36.5c1.6 1.9 3.1 2.7 5 2.7s3.4-.8 5-2.7" stroke="#6EE7B7" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <rect x="7" y="27" width="4.5" height="10" rx="2.2" fill="#8B7BF5"/>
+      <rect x="52.5" y="27" width="4.5" height="10" rx="2.2" fill="#8B7BF5"/>
+    </g>
+  </svg>
+  <span class="fab-dot"></span>
+  <span class="fab-bubble" id="fabBubble">¿Te ayudo con algo? 👋</span>
+</button>
+<div class="chat" id="chat">
+  <div class="chat-h">
+    <div class="chat-av">
+      <svg class="chispa big" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="ch-body">
+          <g class="ch-ant">
+            <line x1="32" y1="16" x2="32" y2="7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".9"/>
+            <circle class="ch-spark" cx="32" cy="6" r="3.2" fill="#D4AF37"/>
+          </g>
+          <rect x="12" y="16" width="40" height="33" rx="12" fill="rgba(255,255,255,.22)"/>
+          <rect x="17" y="21" width="30" height="20" rx="9" fill="#0A0820"/>
+          <g class="ch-eye">
+            <circle cx="26" cy="30" r="3.7" fill="#6EE7B7"/>
+            <circle cx="38" cy="30" r="3.7" fill="#6EE7B7"/>
+          </g>
+          <path d="M27 36.5c1.6 1.9 3.1 2.7 5 2.7s3.4-.8 5-2.7" stroke="#6EE7B7" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="chat-n">Chispa</div>
+      <div class="chat-s">● Tu copiloto del curso</div>
+    </div>
+    <button class="chat-x" onclick="toggleChat()">×</button>
+  </div>
+  <div class="chat-b" id="chatB"></div>
+  <div class="chat-o" id="chatO"></div>
+</div>
+
+<div class="toast" id="toast">
+  <div class="toast-i" id="ti">🏅</div>
+  <div>
+    <div class="toast-t" id="tt"></div>
+    <div class="toast-s" id="ts"></div>
+  </div>
+</div>
+
+<!-- ═══════════ PANEL 0 · INTRODUCCIÓN ═══════════ -->
+<div class="panel on" id="p0"><div class="wrap">
+
+<section>
+  <div class="eyebrow">Antes de empezar</div>
+  <h1>Bienvenido a<br>IA en 30 Días</h1>
+  <p class="lead">Tómate cinco minutos para leer esto. Es la diferencia entre terminar el programa y ser una más de las personas que abandonan un curso de IA en la primera semana.</p>
+  <div class="row">
+    <span class="pill">⏱ 5 minutos de lectura</span>
+    <span class="pill hot">🧭 Sello por completar</span>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Lo primero</div>
+  <h2>Por qué la mayoría abandona</h2>
+  <p>No es falta de tiempo ni de capacidad. Es que casi todos los cursos de IA hacen lo mismo: te muestran veinte herramientas en dos horas, te dejan impresionado, y al día siguiente no recuerdas cuál usar para qué. La sensación de aprender no es lo mismo que aprender.</p>
+  <p>Este programa está construido al revés, con tres reglas:</p>
+  <div class="card">
+    <h3>1 · Una herramienta por día</h3>
+    <p style="margin-bottom:18px;color:var(--gray2)">Nunca más de una. Treinta días, treinta herramientas. Si un día no puedes, no pasa nada — retomas donde ibas, todo queda guardado.</p>
+    <h3>2 · Nunca sales con las manos vacías</h3>
+    <p style="margin-bottom:18px;color:var(--gray2)">Cada lección termina con algo <em>tuyo</em>: una plantilla, un flujo, un documento, un agente. No apuntes. Cosas que puedes usar mañana en tu trabajo.</p>
+    <h3>3 · Quince minutos bastan</h3>
+    <p style="margin-bottom:0;color:var(--gray2)">Está diseñado para gente ocupada. Si tienes más tiempo, mejor. Si no, quince minutos diarios te alcanzan para terminar.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Cómo funciona</div>
+  <h2>Tu cuaderno</h2>
+  <p>Esto que estás viendo es tu cuaderno del programa. Fíjate en las pestañas de arriba: cada una es un día con su herramienta. Se van <strong>desbloqueando conforme avanzas</strong>, igual que las hojas de un cuaderno que vas pasando.</p>
+  <ul>
+    <li><strong>Los sellos</strong> de la esquina superior derecha se ganan completando las actividades de cada lección. Son seis por día.</li>
+    <li><strong>Tu progreso se guarda solo</strong> en este dispositivo. Puedes cerrar la pestaña y volver mañana: los sellos, las tareas marcadas y lo que escribas siguen ahí.</li>
+    <li><strong>Abajo a la derecha vive Chispa ⚡</strong>, tu copiloto del curso. Si algo no se entiende, pregúntale antes de frustrarte — para eso está.</li>
+  </ul>
+  <div class="callout warn">
+    <p><strong>Una advertencia honesta:</strong> como el progreso se guarda en este navegador, si entras desde otro dispositivo empiezas de cero. Estamos trabajando en las cuentas de alumno. Por ahora, usa siempre el mismo equipo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">El recorrido</div>
+  <h2>Las cuatro semanas</h2>
+  <p>Este es el mapa completo. No tienes que memorizarlo — vuelve aquí cuando quieras ubicarte.</p>
+  <div class="weeks">
+    <div class="week">
+      <div class="week-n">SEM 1</div>
+      <div>
+        <div class="week-t">Fundamentos y prompting</div>
+        <div class="week-d">Aprendes a hablarle a la IA para que produzca cosas usables, y qué herramienta sirve para qué.</div>
+        <div class="week-tools"><span class="tool-chip">ChatGPT</span><span class="tool-chip">Claude</span><span class="tool-chip">Gemini</span><span class="tool-chip">Perplexity</span><span class="tool-chip">Copilot</span><span class="tool-chip">NotebookLM</span><span class="tool-chip">Otter.ai</span></div>
+      </div>
+    </div>
+    <div class="week">
+      <div class="week-n">SEM 2</div>
+      <div>
+        <div class="week-t">Contenido y creatividad</div>
+        <div class="week-d">Imagen, audio y video para tu negocio, sin depender de un diseñador para cada pieza.</div>
+        <div class="week-tools"><span class="tool-chip">Canva AI</span><span class="tool-chip">Leonardo</span><span class="tool-chip">ElevenLabs</span><span class="tool-chip">HeyGen</span><span class="tool-chip">CapCut</span><span class="tool-chip">Runway</span><span class="tool-chip">Suno</span><span class="tool-chip">AdCreative</span></div>
+      </div>
+    </div>
+    <div class="week">
+      <div class="week-n">SEM 3</div>
+      <div>
+        <div class="week-t">Automatización y productividad</div>
+        <div class="week-d">Conectas tus aplicaciones para que las tareas repetitivas se hagan solas. La semana que más horas devuelve.</div>
+        <div class="week-tools"><span class="tool-chip">Make</span><span class="tool-chip">Zapier</span><span class="tool-chip">n8n</span><span class="tool-chip">Notion AI</span><span class="tool-chip">y más</span></div>
+      </div>
+    </div>
+    <div class="week">
+      <div class="week-n">SEM 4</div>
+      <div>
+        <div class="week-t">Tu propio agente de IA</div>
+        <div class="week-d">Construyes un agente que atiende, responde y da seguimiento sin que tú estés presente.</div>
+        <div class="week-tools"><span class="tool-chip">Typebot</span><span class="tool-chip">Voiceflow</span><span class="tool-chip">Dify</span><span class="tool-chip">y más</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Antes del día 1</div>
+  <h2>Lo único que necesitas</h2>
+  <p>Nada de tarjetas de crédito ni programas instalados. Solo una cuenta gratuita de ChatGPT.</p>
+  <a class="dl" href="https://chatgpt.com" target="_blank" rel="noopener">
+    <div class="dl-i">🤖</div>
+    <div>
+      <div class="dl-t">Crea tu cuenta gratuita en ChatGPT</div>
+      <div class="dl-d">Toma dos minutos. Con la versión gratuita haces todo el Día 1.</div>
+    </div>
+    <div class="dl-a">ABRIR ↗</div>
+  </a>
+
+  <div class="media">
+    <div class="media-i">🎬</div>
+    <div class="media-t">Video de bienvenida</div>
+    <div class="media-d">Gelkin te explica en 3 minutos cómo aprovechar el programa y qué esperar de cada semana.</div>
+    <div class="media-badge">Espacio reservado</div>
+  </div>
+
+  <button class="btn" onclick="doneIntro()">Entendido, vamos al Día 1 →</button>
+</section>
+
+<div class="footer">
+  <p>IA en 30 Días · <a href="https://learn5.pro/ia-30-dias/">Learn5</a> · Miami, Florida<br>
+  ¿Dudas? <a href="https://wa.me/17865271196" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
+</div>
+
+</div></div>
+
+<!-- ═══════════ PANEL 1 · DÍA 1 ═══════════ -->
+<div class="panel" id="p1"><div class="wrap">
+
+<div class="resume" id="resume">
+  <div class="resume-t">Ya habías empezado esta lección — llevas <b id="rCount">0</b> de 6 sellos.</div>
+  <button class="resume-b" onclick="goResume()">Continuar</button>
+</div>
+
+<section data-nav="Introducción" data-min="2">
+  <div class="eyebrow">Semana 1 · Día 1 de 30</div>
+  <h1>Instrucciones que<br>sí funcionan</h1>
+  <p class="lead">Hoy no vas a aprender "qué es ChatGPT". Vas a aprender a hablarle para que produzca cosas que puedas usar sin reescribirlas — y te llevas una plantilla que reutilizarás los otros 29 días.</p>
+
+  <div class="goal">
+    <div class="goal-l">Objetivo de hoy</div>
+    <p>Al terminar sabrás <strong>escribir instrucciones con las cinco piezas</strong> y tendrás una plantilla propia, probada, para la tarea que más repites en tu semana.</p>
+  </div>
+
+  <div class="row">
+    <span class="pill">⏱ 15–20 minutos</span>
+    <span class="pill">🤖 ChatGPT gratis</span>
+    <span class="pill hot">🏆 5 sellos aquí</span>
+  </div>
+
+  <div class="media">
+    <div class="media-i">🎥</div>
+    <div class="media-t">Microlearning · La anatomía del prompt</div>
+    <div class="media-d">Video de 4 minutos donde Gelkin desarma un prompt real en pantalla, pieza por pieza.</div>
+    <div class="media-badge">Espacio reservado</div>
+  </div>
+</section>
+
+<section data-nav="Qué es ChatGPT" data-min="4">
+  <div class="eyebrow">La herramienta</div>
+  <h2>Qué es ChatGPT, en corto</h2>
+  <p>Lo hace <strong>OpenAI</strong>, una empresa estadounidense fundada en 2015. ChatGPT se abrió al público en <strong>noviembre de 2022</strong> y en dos meses llegó a cien millones de usuarios — el producto de consumo que más rápido creció en la historia. Por eso, cuando alguien dice "la IA", casi siempre está pensando en esto.</p>
+
+  <p>Pero aquí está lo que casi nadie te explica y cambia cómo lo usas:</p>
+
+  <div class="callout warn">
+    <p><strong>ChatGPT no es un buscador.</strong> Un buscador va a internet, encuentra páginas y te las muestra. ChatGPT no busca: <em>predice</em>. Aprendió patrones del lenguaje leyendo enormes cantidades de texto, y cuando le escribes, va construyendo la respuesta palabra por palabra según lo que resulta más probable que siga.</p>
+  </div>
+
+  <p>De ahí salen sus dos caras. Es extraordinario redactando, estructurando ideas, reformulando y resolviendo problemas de razonamiento. Y es poco fiable con datos muy recientes o cifras exactas, porque <em>completa con lo que suena coherente</em>. Cuando inventa algo con total seguridad, lo llaman <strong>alucinación</strong>, y no es un fallo raro: es consecuencia directa de cómo funciona.</p>
+
+  <p>Por eso el Día 3 verás Perplexity, que sí busca en internet y cita fuentes. No compiten: hacen cosas distintas.</p>
+
+  <h3 style="margin-top:28px">Gratis o de pago</h3>
+  <p>La versión gratuita alcanza de sobra para todo lo de hoy y para la mayor parte del programa. La de pago da más capacidad, modelos más potentes y funciones adicionales.</p>
+  <div class="callout">
+    <p>No pongo precios ni nombres de modelo a propósito: <strong>cambian cada pocos meses</strong>. Mira siempre <a href="https://openai.com/chatgpt/pricing" target="_blank" rel="noopener" style="color:var(--violet-l)">la página oficial de planes</a> antes de decidir. Un curso que te dice "el modelo X cuesta Y" está desactualizado antes de que lo termines.</p>
+  </div>
+
+  <h3 style="margin-top:28px">Tres ajustes que casi nadie toca</h3>
+  <p>Esta es la parte que separa a quien usa ChatGPT de quien lo <em>configura</em>. Ábrelos.</p>
+
+  <div class="anatomy" id="conf">
+    <div class="piece" data-c="1">
+      <div class="piece-n">⚙</div>
+      <div class="piece-body">
+        <div class="piece-t">Instrucciones personalizadas</div>
+        <div class="piece-d">El ajuste con mejor relación esfuerzo-resultado de toda la herramienta. Son dos campos que se aplican a <strong>todas</strong> tus conversaciones, así que dejas de repetir tu contexto cada vez.
+        <br><br><b>Dónde:</b> tu foto de perfil → Personalización → Instrucciones personalizadas.
+        <br><br><b>Campo 1 — qué debería saber de ti:</b>
+        <code>Tengo un taller de reparación de bicicletas en Doral, Miami. 3 empleados. Mis clientes son familias y ciclistas aficionados. Escribo en español latinoamericano.</code>
+        <br><b>Campo 2 — cómo quieres que responda:</b>
+        <code>Directo y concreto. Sin introducciones ni resúmenes de lo que te pedí. Si falta información para responder bien, pregúntamela antes de asumir.</code>
+        <br><br>Ese segundo campo elimina de golpe el relleno que tanto molesta.</div>
+      </div>
+    </div>
+    <div class="piece" data-c="2">
+      <div class="piece-n">🧠</div>
+      <div class="piece-body">
+        <div class="piece-t">Memoria</div>
+        <div class="piece-d">ChatGPT puede recordar cosas de una conversación a otra: cómo se llama tu empresa, cómo prefieres que escriba, en qué proyecto andas. Deja de arrancar de cero cada vez.
+        <br><br><b>Dónde:</b> Configuración → Personalización → Memoria. Ahí ves todo lo que recuerda y puedes borrar lo que no quieras.
+        <br><br><b>Lo importante:</b> revísala de vez en cuando. Si guardó algo mal — un dato viejo, un cliente que ya no es tuyo — lo va a seguir usando. Y si vas a tratar temas sensibles, usa un chat temporal, que no guarda nada.</div>
+      </div>
+    </div>
+    <div class="piece" data-c="3">
+      <div class="piece-n">📁</div>
+      <div class="piece-body">
+        <div class="piece-t">Proyectos</div>
+        <div class="piece-d">Una carpeta con memoria propia. Agrupas los chats de un mismo tema, subes archivos de referencia y le pones instrucciones que solo aplican ahí dentro.
+        <br><br><b>Dónde:</b> en la barra lateral, botón de nuevo proyecto. <strong>Ya está disponible también en cuentas gratuitas.</strong>
+        <br><br><b>Ejemplo real:</b> un proyecto "Clientes" con tu lista de precios y tu tono de voz cargados. Cada vez que entras ahí, ya sabe todo eso sin que se lo repitas. Es lo más parecido a tener un asistente que conoce tu negocio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-nav="El diagnóstico" data-min="3">
+  <div class="eyebrow">El diagnóstico</div>
+  <h2>El problema no es la herramienta</h2>
+  <p>Si probaste ChatGPT y te pareció "interesante pero nada del otro mundo", casi seguro escribiste algo así:</p>
+
+  <div class="pbox bad"><span class="tag bad">Prompt típico</span>Escríbeme un correo para un cliente que no ha pagado.</div>
+
+  <p>Y recibiste un correo correcto, educado y absolutamente genérico. Uno que no puedes enviar sin reescribirlo entero. Conclusión: "la IA no sirve para lo mío".</p>
+
+  <div class="callout warn">
+    <p><strong>Lo que realmente pasó:</strong> le pediste a alguien que no conoce tu negocio, ni tu cliente, ni tu tono, ni tu historia con esa persona, que escribiera en tu nombre. Cualquier humano en esa situación también habría escrito algo genérico.</p>
+  </div>
+
+  <p>El modelo no adivina el contexto. <em>Solo sabe lo que tú le pones enfrente.</em> Mira el mismo encargo, con contexto:</p>
+
+  <div class="pbox good"><span class="tag good">Mismo encargo, con contexto</span>Actúa como gerente de cobranza de una empresa de servicios B2B.
+
+Contexto: el cliente es Distribuidora Andina, lleva 3 años con nosotros
+y nunca se había atrasado. Debe la factura de agosto, 18 días vencida.
+La relación es buena y quiero cuidarla.
+
+Objetivo: conseguir el pago sin dañar la relación.
+
+Restricciones: máximo 120 palabras, tono cordial pero claro, sin
+amenazas legales, y ofrece la opción de pagar en dos partes.
+
+Formato: asunto + cuerpo, listo para copiar y pegar.</div>
+
+  <p>Mismo modelo, misma cuenta gratuita, mismo día. Lo único que cambió fue <strong>lo que le diste para trabajar</strong>.</p>
+</section>
+
+<section data-nav="Las cinco piezas" data-min="5">
+  <div class="eyebrow">El núcleo de hoy</div>
+  <h2>Las cinco piezas</h2>
+  <p>Todo prompt que funciona tiene las mismas cinco piezas. No las memorices: entiende qué problema resuelve cada una. Ábrelas todas.</p>
+
+  <div class="anatomy" id="anat">
+    <div class="piece" data-p="1">
+      <div class="piece-n">01</div>
+      <div class="piece-body">
+        <div class="piece-t">Rol — quién debe ser</div>
+        <div class="piece-d">Le dices desde qué experiencia responder. Cambia el vocabulario, las prioridades y lo que da por obvio. Un abogado y un vendedor redactan el mismo correo de forma muy distinta.
+        <code>Actúa como gerente de cobranza de una empresa de servicios B2B.</code></div>
+      </div>
+    </div>
+    <div class="piece" data-p="2">
+      <div class="piece-n">02</div>
+      <div class="piece-body">
+        <div class="piece-t">Contexto — qué necesita saber</div>
+        <div class="piece-d">La pieza que casi todos se saltan y la que más cambia el resultado. Quién es el cliente, qué pasó antes, qué está en juego. Sin esto, el modelo inventa un promedio genérico.
+        <code>Cliente de 3 años, nunca se atrasó. Factura vencida hace 18 días. Quiero cuidar la relación.</code></div>
+      </div>
+    </div>
+    <div class="piece" data-p="3">
+      <div class="piece-n">03</div>
+      <div class="piece-body">
+        <div class="piece-t">Objetivo — qué debe lograr</div>
+        <div class="piece-d">No lo que quieres que <em>escriba</em>, sino lo que quieres que <em>consiga</em>. "Escribe un correo" es una tarea. "Consigue el pago sin dañar la relación" es un objetivo, y obliga al modelo a tomar mejores decisiones.
+        <code>Objetivo: conseguir el pago sin dañar la relación comercial.</code></div>
+      </div>
+    </div>
+    <div class="piece" data-p="4">
+      <div class="piece-n">04</div>
+      <div class="piece-body">
+        <div class="piece-t">Restricciones — los límites</div>
+        <div class="piece-d">Longitud, tono, y sobre todo lo que <strong>no</strong> debe hacer. Las restricciones negativas son las más potentes y las menos usadas: le ahorran al modelo caer en lo que tú ya sabes que no funciona.
+        <code>Máximo 120 palabras. Cordial pero claro. Sin amenazas legales.</code></div>
+      </div>
+    </div>
+    <div class="piece" data-p="5">
+      <div class="piece-n">05</div>
+      <div class="piece-body">
+        <div class="piece-t">Formato — cómo lo quieres recibir</div>
+        <div class="piece-d">La forma exacta de la entrega. Es la diferencia entre recibir un texto que tienes que reorganizar y recibir algo listo para usar tal cual.
+        <code>Formato: asunto + cuerpo, listo para copiar y pegar.</code></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout win">
+    <p><strong>Regla práctica:</strong> si el resultado te decepciona, casi siempre falta <em>contexto</em> o <em>restricciones</em>. Esas dos son las que la gente olvida.</p>
+  </div>
+
+  <div class="media">
+    <div class="media-i">🎧</div>
+    <div class="media-t">Versión en audio de esta lección</div>
+    <div class="media-d">Para escucharla mientras manejas o caminas. Mismo contenido, 12 minutos.</div>
+    <div class="media-badge">Espacio reservado</div>
+  </div>
+</section>
+
+<section data-nav="Tu plantilla" data-min="5">
+  <div class="eyebrow">Tu turno</div>
+  <h2>Construye tu plantilla</h2>
+  <p>Piensa en una tarea que hagas <strong>todas las semanas</strong> y que te aburra: responder cotizaciones, escribir publicaciones, resumir reuniones, redactar propuestas. Esa es la que vamos a convertir en plantilla.</p>
+
+  <div class="builder">
+    <div class="bf"><label>01 · Rol</label><input id="f1" placeholder="Actúa como... (ej: community manager de una tienda de ropa en Miami)"></div>
+    <div class="bf"><label>02 · Contexto</label><textarea id="f2" rows="3" placeholder="Lo que la IA necesita saber de tu negocio y tu cliente para no inventar"></textarea></div>
+    <div class="bf"><label>03 · Objetivo</label><input id="f3" placeholder="Qué debe conseguir, no qué debe escribir"></div>
+    <div class="bf"><label>04 · Restricciones</label><textarea id="f4" rows="2" placeholder="Longitud, tono, y sobre todo qué NO debe hacer"></textarea></div>
+    <div class="bf"><label>05 · Formato</label><input id="f5" placeholder="Cómo quieres recibirlo (ej: 3 opciones numeradas, listas para publicar)"></div>
+    <button class="btn" onclick="build()">Generar mi plantilla</button>
+    <div class="out" id="out">
+      <div class="pbox good" style="margin-top:18px"><span class="tag good">Tu plantilla</span><span id="outTxt"></span></div>
+      <button class="btn ghost" onclick="copyP()" id="cpBtn">Copiar al portapapeles</button>
+      <div class="callout win" style="margin-bottom:0">
+        <p><strong>Ahora úsala.</strong> Abre <a href="https://chatgpt.com" target="_blank" rel="noopener" style="color:var(--violet-l)">chatgpt.com</a>, pégala y mira el resultado. Guárdala: la vas a reutilizar toda la semana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-nav="Comprobación" data-min="2">
+  <div class="eyebrow">Comprobación</div>
+  <h2>¿Qué le falta a este prompt?</h2>
+  <p>Tres prompts reales, cada uno con una pieza faltante. Identifícala.</p>
+  <div id="quiz"></div>
+</section>
+
+<section data-nav="¿Cuál usarías?" data-min="3">
+  <div class="eyebrow">Orientación</div>
+  <h2>¿Cuál usarías?</h2>
+  <p>Esta semana verás siete herramientas. Aquí no hay que memorizar nada: son situaciones concretas donde una es <em>claramente</em> mejor que las demás. Elige y te explico por qué.</p>
+  <div id="scn"></div>
+  <div class="score">Aciertos: <b id="sdone">0</b> de 4</div>
+
+  <div class="callout" style="margin-top:22px">
+    <p><strong>La regla corta:</strong> ChatGPT es el todoterreno y sirve para casi todo. Las otras seis ganan solo cuando hay algo específico en juego: <em>fuentes citables</em> (Perplexity), <em>documentos muy largos</em> (Claude), <em>tus propios archivos</em> (NotebookLM), <em>audio en vivo</em> (Otter), o <em>estar dentro de la app que ya usas</em> (Copilot, Gemini).</p>
+  </div>
+</section>
+
+<section data-nav="Material de apoyo" data-min="1">
+  <div class="eyebrow">Material de apoyo</div>
+  <h2>Para llevarte</h2>
+  <a class="dl" href="../Learn5-30-prompts.pdf" download>
+    <div class="dl-i">📄</div>
+    <div>
+      <div class="dl-t">Guía: 30 prompts listos para usar</div>
+      <div class="dl-d">14 páginas · Ventas, contenido, administración y productividad. Copiar, reemplazar y usar.</div>
+    </div>
+    <div class="dl-a">DESCARGAR ↓</div>
+  </a>
+  <a class="dl" href="../Learn5-infografia-5-piezas.pdf" download>
+    <div class="dl-i">🗺️</div>
+    <div>
+      <div class="dl-t">Infografía: las 5 piezas del prompt</div>
+      <div class="dl-d">Una página para imprimir y tener al lado del computador mientras te acostumbras.</div>
+    </div>
+    <div class="dl-a">DESCARGAR ↓</div>
+  </a>
+</section>
+
+<section data-nav="Reto del día" data-min="2">
+  <div class="eyebrow">Reto del día</div>
+  <h2>Antes de cerrar</h2>
+  <p>Marca cada paso conforme lo completes. Se guarda solo, así que puedes volver mañana si te interrumpen.</p>
+  <div class="card" id="tasks"></div>
+  <div class="callout">
+    <p><strong>Por qué importa hacerlo hoy:</strong> mañana usarás esta misma plantilla con Claude para comparar los dos modelos con el mismo encargo. Si no la tienes escrita, la Lección 2 pierde la mitad de su valor.</p>
+  </div>
+</section>
+
+<section data-nav="Cierre" data-min="1" style="border-bottom:none">
+  <div class="next">
+    <div class="eyebrow" style="justify-content:center">Mañana · Día 2</div>
+    <h2 style="margin-bottom:10px">Claude y los documentos largos</h2>
+    <p style="margin-bottom:0;color:var(--gray2)">Le darás a Claude un documento real de tu negocio — un contrato, un informe, una propuesta — y sacarás en cinco minutos lo que te tomaría una hora leyendo.</p>
+  </div>
+  <div class="footer">
+    <p>IA en 30 Días · <a href="https://learn5.pro/ia-30-dias/">Learn5</a> · Miami, Florida<br>
+    ¿Dudas? <a href="https://wa.me/17865271196" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
+  </div>
+</section>
+
+</div></div>
+
+<script>
+/* ═══ PROGRESO PERSISTENTE ═══ */
+var KEY='learn5_ia30_v2';
+var P=JSON.parse(localStorage.getItem(KEY)||'{"stamps":[],"tasks":[],"prompt":"","tab":"p0","panels":[]}');
+function save(){localStorage.setItem(KEY,JSON.stringify(P));}
+var NAMES={
+ intro:['🧭','Orientado','Ya sabes cómo funciona el programa'],
+ anatomia:['🧬','Anatomista','Desarmaste el prompt pieza por pieza'],
+ builder:['🛠️','Constructor','Escribiste tu primera plantilla'],
+ escenarios:['♟️','Estratega','Herramienta correcta, situación correcta'],
+ quiz:['🎯','Ojo crítico','Detectaste lo que le faltaba'],
+ reto:['🏁','Terminador','Completaste el reto del día']
+};
+function grant(k){
+  if(P.stamps.indexOf(k)>-1) return;
+  P.stamps.push(k); save(); paint();
+  var n=NAMES[k]; if(!n) return;
+  document.getElementById('ti').textContent=n[0];
+  document.getElementById('tt').textContent='Sello: '+n[1];
+  document.getElementById('ts').textContent=n[2];
+  var t=document.getElementById('toast'); t.classList.add('show');
+  clearTimeout(window.__tt); window.__tt=setTimeout(function(){t.classList.remove('show');},3600);
+}
+function paint(){
+  document.querySelectorAll('.stamp').forEach(function(el){
+    el.classList.toggle('on', P.stamps.indexOf(el.dataset.k)>-1);
+  });
+  document.getElementById('sc').textContent=P.stamps.length;
+  document.getElementById('ok-p0').textContent = P.panels.indexOf('p0')>-1?'✓':'';
+  document.getElementById('ok-p1').textContent = P.stamps.length>=6?'✓':'';
+  document.getElementById('pbarF').style.width=Math.round(P.stamps.length/6*100)+'%';
+  document.querySelectorAll('#legendRows .lg-i').forEach(function(el){
+    el.classList.toggle('on', P.stamps.indexOf(el.dataset.k)>-1);
+  });
+}
+
+/* ═══ LEYENDA DE SELLOS ═══ */
+(function(){
+  var c=document.getElementById('legendRows');
+  ['intro','anatomia','builder','escenarios','quiz','reto'].forEach(function(k){
+    var n=NAMES[k];
+    c.insertAdjacentHTML('beforeend',
+      '<div class="lg-row"><div class="lg-i" data-k="'+k+'">'+n[0]+'</div>'+
+      '<div><div class="lg-t">'+n[1]+'</div><div class="lg-d">'+n[2]+'</div></div></div>');
+  });
+  var box=document.getElementById('stamps'), lg=document.getElementById('legend');
+  box.onclick=function(e){ if(e.target.closest('.legend')) return; lg.classList.toggle('on'); };
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)) lg.classList.remove('on'); });
+})();
+
+/* ═══ NAVEGACIÓN LATERAL ═══ */
+var NAV=[];
+(function(){
+  var list=document.getElementById('snList');
+  document.querySelectorAll('#p1 section[data-nav]').forEach(function(s,i){
+    var id='sec'+i; s.id=id; NAV.push(id);
+    list.insertAdjacentHTML('beforeend',
+      '<div class="sn-i" data-s="'+id+'"><div class="sn-d"></div><div class="sn-x">'+
+      '<div class="sn-t">'+s.dataset.nav+'</div><div class="sn-m">'+s.dataset.min+' min</div></div></div>');
+  });
+  list.querySelectorAll('.sn-i').forEach(function(el){
+    el.onclick=function(){
+      var s=document.getElementById(el.dataset.s);
+      if(s) window.scrollTo({top:s.offsetTop-100,behavior:'smooth'});
+    };
+  });
+})();
+function trackNav(){
+  if(!document.getElementById('p1').classList.contains('on')) return;
+  var y=window.scrollY+160, cur=0;
+  NAV.forEach(function(id,i){ var e=document.getElementById(id); if(e&&e.offsetTop<=y) cur=i; });
+  document.querySelectorAll('.sn-i').forEach(function(el,i){
+    el.classList.toggle('on', i===cur);
+    el.classList.toggle('seen', i<cur);
+  });
+}
+window.addEventListener('scroll',trackNav,{passive:true});
+
+/* ═══ RETOMAR DONDE IBA ═══ */
+function goResume(){
+  document.getElementById('resume').classList.remove('on');
+  var pend=['intro','anatomia','builder','quiz','escenarios','reto'].filter(function(k){return P.stamps.indexOf(k)<0;});
+  var map={anatomia:'sec2',builder:'sec3',quiz:'sec4',escenarios:'sec5',reto:'sec7'};
+  var t=document.getElementById(map[pend[0]]||'sec0');
+  if(t) window.scrollTo({top:t.offsetTop-100,behavior:'smooth'});
+}
+
+/* ═══ PESTAÑAS ═══ */
+function show(id){
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id);});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.p===id);});
+  document.getElementById('sidenav').classList.toggle('on', id==='p1');
+  var tb=document.querySelector('.tab[data-p="'+id+'"]');
+  var lt=document.getElementById('legendTitle');
+  if(tb&&lt){
+    var n=tb.querySelector('.tab-n');
+    lt.textContent = (id==='p0') ? 'Tus sellos de la introducción'
+      : 'Tus sellos del Día '+(n?parseInt(n.textContent,10):1);
+  }
+  P.tab=id; save();
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(trackNav,120);
+  if(id==='p1' && P.stamps.length>0 && P.stamps.length<6){
+    document.getElementById('rCount').textContent=P.stamps.length;
+    document.getElementById('resume').classList.add('on');
+  }
+}
+document.querySelectorAll('.tab').forEach(function(t){
+  if(t.classList.contains('lock')||t.tagName==='A') return;
+  t.onclick=function(){ show(t.dataset.p); };
+});
+(function(){
+  var o2=document.getElementById('ok-p2');
+  if(o2 && P.d2 && P.d2.stamps && P.d2.stamps.length>=6) o2.textContent='✓';
+})();
+function doneIntro(){
+  if(P.panels.indexOf('p0')<0){ P.panels.push('p0'); save(); }
+  grant('intro'); paint(); show('p1');
+}
+show(P.tab||'p0');
+
+/* ═══ ANATOMÍA ═══ */
+var opened={};
+document.querySelectorAll('.piece').forEach(function(el){
+  el.onclick=function(){
+    el.classList.toggle('open');
+    if(el.classList.contains('open')){
+      if(el.dataset.p){
+        opened[el.dataset.p]=1;
+        if(Object.keys(opened).length===5) grant('anatomia');
+      }
+    }
+  };
+});
+
+/* ═══ CONSTRUCTOR ═══ */
+function build(){
+  var v=[1,2,3,4,5].map(function(n){return (document.getElementById('f'+n).value||'').trim();});
+  if(v.filter(function(x){return x.length>2;}).length<3){
+    alert('Completa al menos 3 de las 5 piezas para armar una plantilla que sirva.'); return;
+  }
+  var L=['','Contexto: ','Objetivo: ','Restricciones: ','Formato: '];
+  document.getElementById('outTxt').textContent = v.map(function(x,i){return x?(L[i]+x):null;}).filter(Boolean).join('\n\n');
+  document.getElementById('out').classList.add('show');
+  P.prompt=JSON.stringify(v); save(); grant('builder');
+}
+function copyP(){
+  navigator.clipboard.writeText(document.getElementById('outTxt').textContent).then(function(){
+    var b=document.getElementById('cpBtn'); b.textContent='✓ Copiada';
+    setTimeout(function(){b.textContent='Copiar al portapapeles';},2200);
+  });
+}
+if(P.prompt){ try{ JSON.parse(P.prompt).forEach(function(x,i){var f=document.getElementById('f'+(i+1)); if(f)f.value=x;}); }catch(e){} }
+
+/* ═══ QUIZ ═══ */
+var QS=[
+ {p:'Actúa como nutricionista. Dame ideas de desayuno.',
+  o:['Rol','Contexto','Formato'],c:1,
+  ok:'Exacto. ¿Desayuno para quién? ¿Alergias, presupuesto, cuánto tiempo tiene por la mañana? Sin eso recibes una lista de internet.',
+  no:'Mira otra vez: el rol sí está ("nutricionista"). Lo que el modelo no sabe es <em>para quién</em> es ese desayuno.'},
+ {p:'Actúa como copywriter. Contexto: vendo cursos de IA a dueños de negocio en Miami. Objetivo: conseguir registros al webinar. Escribe el anuncio.',
+  o:['Objetivo','Restricciones','Rol'],c:1,
+  ok:'Correcto. Sin límite de longitud, tono ni un "no prometas resultados de ingresos", recibirás algo largo y con promesas que no puedes sostener.',
+  no:'El rol y el objetivo están escritos ahí. Lo que no hay son límites: ni longitud, ni tono, ni qué evitar.'},
+ {p:'Actúa como analista financiero. Contexto: startup de 8 personas, 14 meses de caja. Objetivo: decidir si contratamos a dos personas más. Restricciones: sé conservador, máximo 300 palabras.',
+  o:['Formato','Contexto','No falta nada'],c:0,
+  ok:'Así es, están cuatro de cinco. Sin formato recibirás un texto corrido. Pidiendo "tabla de escenarios + recomendación en una línea" lo llevas a una reunión tal cual.',
+  no:'Vuelve a contarlas: rol, contexto, objetivo y restricciones están. Falta cómo quieres recibir la respuesta.'}
+];
+(function(){
+  var c=document.getElementById('quiz'); if(!c) return;
+  QS.forEach(function(q,i){
+    var d=document.createElement('div'); d.className='scn';
+    d.innerHTML='<div class="scn-h"><span class="scn-n">PROMPT '+(i+1)+' DE '+QS.length+'</span></div>'+
+      '<div class="pbox" style="margin-top:0">'+q.p+'</div>'+
+      '<div class="scn-q">¿Qué pieza falta?</div>'+
+      '<div class="opts">'+q.o.map(function(o,j){return '<button class="opt" data-q="'+i+'" data-j="'+j+'">'+o+'</button>';}).join('')+'</div>'+
+      '<div class="fb" id="fb'+i+'"></div>';
+    c.appendChild(d);
+  });
+  c.querySelectorAll('.opt').forEach(function(b){
+    b.onclick=function(){
+      var i=+b.dataset.q,j=+b.dataset.j,q=QS[i],box=b.parentNode;
+      box.querySelectorAll('.opt').forEach(function(x){x.disabled=true;});
+      var fb=document.getElementById('fb'+i);
+      if(j===q.c){ b.classList.add('ok'); fb.className='fb ok show'; fb.innerHTML='✓ '+q.ok; }
+      else{ b.classList.add('no'); box.querySelectorAll('.opt')[q.c].classList.add('ok');
+            fb.className='fb no show'; fb.innerHTML='Casi. '+q.no; }
+      if(document.querySelectorAll('#quiz .fb.show').length===QS.length) grant('quiz');
+    };
+  });
+})();
+
+/* ═══ ESCENARIOS DE HERRAMIENTAS ═══ */
+var SC=[
+ {q:'Vas a citar una cifra de mercado en una <b>propuesta para un cliente</b>. Necesitas el dato de este año y poder mostrar de dónde salió.',
+  o:['ChatGPT','Perplexity','Claude'],c:1,
+  ok:'Perplexity. Busca en internet en tiempo real y te devuelve el enlace de cada afirmación. Cuando el dato va a un documento que alguien puede cuestionar, necesitas fuente verificable.',
+  no:'ChatGPT y Claude son excelentes redactando, pero pueden equivocarse en cifras recientes y no te dan la fuente. Para algo que vas a citar ante un cliente, necesitas <b>Perplexity</b>.'},
+ {q:'Te llega el <b>contrato de arrendamiento del local</b>, 45 páginas. Quieres saber qué cláusulas te perjudican antes de firmar.',
+  o:['Claude','Otter.ai','Copilot'],c:0,
+  ok:'Claude. Es el mejor leyendo documentos largos completos sin perder detalle, y te señala cláusulas concretas citando dónde están.',
+  no:'Otter transcribe audio y Copilot vive dentro de Office. Para leer y analizar un documento largo de principio a fin, <b>Claude</b> es el más fuerte.'},
+ {q:'Estás <b>en la reunión ahora mismo</b>, hablando. Al terminar quieres los acuerdos y quién quedó responsable de qué.',
+  o:['NotebookLM','ChatGPT','Otter.ai'],c:2,
+  ok:'Otter.ai. Graba y transcribe mientras hablan, identificando quién dice qué. Las otras necesitan que tú ya tengas el texto: Otter es la que captura el audio en vivo.',
+  no:'Ojo al detalle: la reunión está ocurriendo <b>ahora</b>. ChatGPT y NotebookLM necesitan que les pegues un texto que todavía no existe. <b>Otter.ai</b> graba en vivo.'},
+ {q:'Tienes <b>20 documentos internos</b> de tu empresa — manuales, políticas, actas — y quieres preguntarles cosas sin que la IA se invente respuestas.',
+  o:['NotebookLM','Gemini','Perplexity'],c:0,
+  ok:'NotebookLM. Responde <b>solo</b> con lo que hay en los documentos que tú subiste, y te dice en qué página lo encontró. Está diseñado justo para no inventar.',
+  no:'Perplexity busca en internet, no en tus archivos. Gemini es generalista. <b>NotebookLM</b> se limita a tus documentos y cita la página exacta.'}
+];
+var sok=0;
+(function(){
+  var c=document.getElementById('scn'); if(!c) return;
+  SC.forEach(function(s,i){
+    var d=document.createElement('div'); d.className='scn';
+    d.innerHTML='<div class="scn-h"><span class="scn-n">SITUACIÓN '+(i+1)+' DE '+SC.length+'</span></div>'+
+      '<div class="scn-q">'+s.q+'</div>'+
+      '<div class="opts">'+s.o.map(function(o,j){return '<button class="opt" data-s="'+i+'" data-j="'+j+'">'+o+'</button>';}).join('')+'</div>'+
+      '<div class="fb" id="sfb'+i+'"></div>';
+    c.appendChild(d);
+  });
+  c.querySelectorAll('.opt').forEach(function(b){
+    b.onclick=function(){
+      var i=+b.dataset.s,j=+b.dataset.j,s=SC[i],box=b.parentNode;
+      box.querySelectorAll('.opt').forEach(function(x){x.disabled=true;});
+      var fb=document.getElementById('sfb'+i);
+      if(j===s.c){ b.classList.add('ok'); fb.className='fb ok show'; fb.innerHTML='✓ '+s.ok; sok++;
+                   document.getElementById('sdone').textContent=sok; }
+      else{ b.classList.add('no'); box.querySelectorAll('.opt')[s.c].classList.add('ok');
+            fb.className='fb no show'; fb.innerHTML='Casi. '+s.no; }
+      if(document.querySelectorAll('#scn .fb.show').length===SC.length) grant('escenarios');
+    };
+  });
+})();
+
+/* ═══ RETO ═══ */
+var TASKS=[
+ 'Configuré mis instrucciones personalizadas en ChatGPT',
+ 'Escribí mi plantilla con al menos 3 de las 5 piezas',
+ 'La probé en ChatGPT con un caso real de mi negocio',
+ 'Comparé el resultado con lo que obtenía antes',
+ 'Guardé la plantilla en un documento para reutilizarla',
+ 'Identifiqué la tarea semanal que voy a resolver con ella'
+];
+(function(){
+  var c=document.getElementById('tasks'); if(!c) return;
+  TASKS.forEach(function(t,i){
+    var d=document.createElement('div');
+    d.className='task'+(P.tasks.indexOf(i)>-1?' done':'');
+    d.innerHTML='<div class="tbox"></div><div class="ttext">'+t+'</div>';
+    d.onclick=function(){
+      d.classList.toggle('done');
+      var k=P.tasks.indexOf(i);
+      if(k>-1) P.tasks.splice(k,1); else P.tasks.push(i);
+      save();
+      if(P.tasks.length===TASKS.length) grant('reto');
+    };
+    c.appendChild(d);
+  });
+})();
+
+/* ═══ ASISTENTE ═══ */
+var BOT={
+ start:{m:'¡Hola! Soy <b>Chispa</b> ⚡ Vivo aquí abajo y mi único trabajo es que no te atasques. Pregúntame sin pena — llevo 30 días de curso metidos en la cabeza.',
+   o:[['¿Tengo que pagar ChatGPT?','pago'],['¿Qué es un prompt, en cristiano?','prompt'],['¿Cuánto me va a tomar esto?','tiempo'],['¿Se me va a perder el avance?','guardar'],['Ya acabé, ¿y ahora qué?','fin']]},
+ pago:{m:'Nada. Cero. Todo el Día 1 sale con la <b>cuenta gratuita</b> de ChatGPT. Si alguna herramienta más adelante cobra, te aviso antes y te doy la alternativa gratis. No me gustan las sorpresas.',
+   o:[['¿Y las otras 29?','otras'],['Volver','start']]},
+ otras:{m:'La gran mayoría tiene plan gratuito de sobra para aprender. En las poquitas que no, verás una nota mía antes de empezar. Nunca te voy a mandar a pagar sin avisarte.',o:[['Volver','start']]},
+ prompt:{m:'Fácil: un prompt es <b>lo que le escribes a la IA</b>. Ya está, ese es todo el misterio 😄 Lo que cambia el resultado no es la palabra mágica, es cuánta información le diste. Por eso hoy vemos las cinco piezas.',
+   o:[['¿Cuáles cinco piezas?','cinco'],['Volver','start']]},
+ cinco:{m:'Rol, Contexto, Objetivo, Restricciones y Formato. Están desplegables en la sección "Las cinco piezas" — ábrelas todas y te ganas un sello 🧬 Te espero.',o:[['Volver','start']]},
+ tiempo:{m:'De 15 a 20 minutos si lo haces completo, probando tu plantilla en ChatGPT incluido. Y si te interrumpen, tranquilo: guardo todo y retomas donde ibas. Para eso estoy.',o:[['¿Seguro que se guarda?','guardar'],['Volver','start']]},
+ guardar:{m:'Los sellos, el reto y tu plantilla quedan guardados en este navegador. Pero te lo digo de frente: <b>si entras desde otro dispositivo, empiezas de cero</b>. Todavía no tenemos cuentas de alumno. Quédate en el mismo equipo y no hay drama.',o:[['Volver','start']]},
+ fin:{m:'¡Esooo! 🎉 Revisa que tengas los 6 sellos arriba y que hayas guardado tu plantilla en un documento aparte. Mañana la reutilizas con Claude y comparas los dos modelos con el mismo encargo. Va a estar bueno.',
+   o:[['Me quedó otra duda','start'],['Prefiero hablar con un humano','wa']]},
+ wa:{m:'Claro, yo no me ofendo 😅 Escríbeles directo: <a href="https://wa.me/17865271196" target="_blank" rel="noopener" style="color:var(--violet-l)">+1 786 527 1196</a>',o:[['Volver contigo','start']]}
+};
+function toggleChat(){
+  var c=document.getElementById('chat');
+  c.classList.toggle('on');
+  document.getElementById('fabBubble').classList.remove('show');
+  if(c.classList.contains('on') && !document.getElementById('chatB').children.length) botGo('start');
+}
+document.getElementById('fab').onclick=toggleChat;
+
+/* Chispa saluda sola: una vez al entrar, y si el alumno se queda quieto */
+(function(){
+  var b=document.getElementById('fabBubble'), saludos=[
+    '¿Te ayudo con algo? 👋','¿Alguna duda? Estoy aquí ⚡','¿Todo claro hasta ahí?'
+  ], i=0, veces=0;
+  function asoma(txt){
+    if(document.getElementById('chat').classList.contains('on')) return;
+    if(veces>=3) return;
+    veces++;
+    b.textContent = txt || saludos[(i++)%saludos.length];
+    b.classList.add('show');
+    setTimeout(function(){ b.classList.remove('show'); }, 5200);
+  }
+  setTimeout(function(){ asoma('¡Hola! Soy Chispa ⚡'); }, 2600);
+  var t; window.addEventListener('scroll', function(){
+    clearTimeout(t); t=setTimeout(function(){ asoma(); }, 45000);
+  }, {passive:true});
+})();
+function botGo(k,label){
+  var b=document.getElementById('chatB'), o=document.getElementById('chatO'), n=BOT[k];
+  if(!n) return;
+  if(label){ var me=document.createElement('div'); me.className='msg me'; me.textContent=label; b.appendChild(me); }
+  o.innerHTML='';
+  setTimeout(function(){
+    var d=document.createElement('div'); d.className='msg bot'; d.innerHTML=n.m; b.appendChild(d);
+    b.scrollTop=b.scrollHeight;
+    n.o.forEach(function(x){
+      var btn=document.createElement('button'); btn.className='chat-opt'; btn.textContent=x[0];
+      btn.onclick=function(){ botGo(x[1],x[0]); };
+      o.appendChild(btn);
+    });
+  }, label?420:120);
+  b.scrollTop=b.scrollHeight;
+}
+
+paint();
+</script>
+</body>
+</html>
