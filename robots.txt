@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# El aula es para alumnos inscritos: no tiene sentido indexarla
+Disallow: /ia-30-dias/aula/
+
 Sitemap: https://learn5.pro/sitemap.xml
