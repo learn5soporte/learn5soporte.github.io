@@ -1060,6 +1060,42 @@
 .qerr{color:var(--coral);font-size:13px;margin-bottom:10px;display:none}
 .qnote{color:var(--gray3);font-size:12px;text-align:center;margin-top:12px;line-height:1.55}
 @media(max-width:600px){.quiz-card{padding:24px 18px}.quiz-section{padding:52px 16px}}
+
+/* ---------- Opciones de pago en la tarjeta ---------- */
+.pay-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 6px}
+.pay-opt{background:rgba(255,255,255,.04);border:1px solid rgba(175,169,236,.2);border-radius:12px;padding:12px 14px;text-align:center}
+.pay-opt-t{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray3);margin-bottom:4px}
+.pay-opt-n{display:block;font-size:23px;font-weight:700;color:#fff;line-height:1.15}
+.pay-opt-n em{font-style:normal;font-size:15px;color:var(--gray2)}
+.pay-opt-d{display:block;font-size:11.5px;color:var(--gray3);margin-top:4px}
+.btn-secundario{display:block;text-align:center;margin-top:10px;padding:13px;border-radius:10px;border:1px solid rgba(175,169,236,.3);color:var(--gray1);text-decoration:none;font-size:14.5px;font-weight:500;transition:border-color .15s}
+.btn-secundario:hover{border-color:rgba(175,169,236,.6);color:#fff}
+
+/* ---------- Seccion de pago ---------- */
+.pagar{padding:76px 20px;background:var(--navy2)}
+.pagar-in{max-width:960px;margin:0 auto}
+.pagar h2{font-size:clamp(26px,4vw,36px);line-height:1.2;color:#fff;text-align:center;margin-bottom:10px}
+.pagar .sub{text-align:center;color:var(--gray2);font-size:16px;margin-bottom:38px;max-width:600px;margin-left:auto;margin-right:auto}
+.planes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:32px}
+@media(max-width:720px){.planes{grid-template-columns:1fr}.pay-split{grid-template-columns:1fr}}
+.plan{background:rgba(255,255,255,.045);border:1px solid rgba(175,169,236,.22);border-radius:16px;padding:26px 24px;position:relative}
+.plan.destacado{border-color:rgba(212,175,55,.5)}
+.plan-tag{position:absolute;top:-11px;left:24px;background:var(--navy2);padding:2px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold,#D4AF37);border:1px solid rgba(212,175,55,.4);border-radius:20px}
+.plan h3{font-size:17px;color:#fff;margin-bottom:6px}
+.plan .cifra{font-size:38px;font-weight:700;color:#fff;line-height:1.1;margin:10px 0 2px}
+.plan .cifra small{font-size:16px;font-weight:500;color:var(--gray2)}
+.plan .detalle{font-size:13.5px;color:var(--gray3);margin-bottom:16px;line-height:1.6}
+.plan ul{list-style:none;margin:0 0 20px;padding:0}
+.plan li{font-size:14px;color:var(--gray1);padding:5px 0 5px 22px;position:relative;line-height:1.55}
+.plan li:before{content:"";position:absolute;left:0;top:12px;width:11px;height:2px;background:var(--teal-l,#5DCAA5)}
+.zelle{background:rgba(255,255,255,.03);border:1px solid rgba(175,169,236,.18);border-radius:16px;padding:26px 24px}
+.zelle h3{font-size:17px;color:#fff;margin-bottom:14px}
+.pasos{list-style:none;counter-reset:p;margin:0;padding:0}
+.pasos li{counter-increment:p;position:relative;padding:0 0 16px 40px;font-size:14.5px;color:var(--gray1);line-height:1.65}
+.pasos li:last-child{padding-bottom:0}
+.pasos li:before{content:counter(p);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:50%;background:rgba(175,169,236,.14);border:1px solid rgba(175,169,236,.3);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.dato{display:inline-block;background:rgba(0,0,0,.35);border:1px solid rgba(175,169,236,.25);border-radius:7px;padding:3px 9px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#fff;margin:2px 0}
+.aviso-pago{margin-top:22px;padding:14px 17px;background:rgba(212,175,55,.09);border-left:3px solid rgba(212,175,55,.55);border-radius:0 10px 10px 0;font-size:13.5px;color:var(--gray1);line-height:1.65}
 </style>
   <link rel="canonical" href="https://learn5.pro/ia-30-dias/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -1126,13 +1162,13 @@
 
   <!-- BANNER -->
   <div class="banner">
-    🚀 Precio de lanzamiento <b>$96</b> (regular $129) · Acceso inmediato · Empieza hoy mismo · <a href="https://tally.so/r/obYYGN">Quiero mi acceso →</a>
+    Desde <b>$49</b> hoy · Acceso inmediato · ¿No sabes por dónde empezar? <a href="#diagnostico">Haz el diagnóstico gratis →</a>
   </div>
 
   <!-- NAV -->
   <nav>
     <a href="https://learn5.pro" class="nav-logo">LEARN<span>5</span></a>
-    <a href="https://tally.so/r/obYYGN" class="nav-cta">Quiero mi lugar</a>
+    <a href="#diagnostico" class="nav-cta">Diagnóstico gratis</a>
   </nav>
 
   <!-- HERO -->
@@ -1154,7 +1190,7 @@
 
       <!-- PRICE CARD -->
       <div class="price-card">
-        <div class="early-badge">🚀 Precio de lanzamiento · Acceso inmediato</div>
+        <div class="early-badge">Acceso inmediato · Sin suscripción</div>
         <h3>Empieza hoy al precio más bajo</h3>
         <p class="activation">⚡ Acceso inmediato · Empiezas hoy · 12 meses de acceso</p>
 
@@ -1164,14 +1200,18 @@
           <span class="price-badge">25% OFF</span>
         </div>
 
-        <div class="progress-wrap">
-          <div class="progress-label">
-            <span>🚀 Precio de lanzamiento · sube a $129</span>
-            <span>Faltan 18</span>
+        <div class="pay-split">
+          <div class="pay-opt">
+            <span class="pay-opt-t">Pago único</span>
+            <span class="pay-opt-n">$96</span>
+            <span class="pay-opt-d">Zelle o tarjeta</span>
           </div>
-          <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+          <div class="pay-opt">
+            <span class="pay-opt-t">En dos partes</span>
+            <span class="pay-opt-n">$49 <em>+ $49</em></span>
+            <span class="pay-opt-d">La segunda a los 15 días</span>
+          </div>
         </div>
-        <br>
 
         <ul class="price-features">
           <li>4 video-masterclass grabadas (1.5 h c/u)</li>
@@ -1181,16 +1221,32 @@
           <li>Certificado oficial de finalización</li>
         </ul>
 
-        <a href="https://tally.so/r/obYYGN" class="btn-primary">Quiero mi acceso → $96</a>
+        <a href="#diagnostico" class="btn-primary">Empezar por mi diagnóstico gratuito</a>
+        <a href="#pagar" class="btn-secundario">Ya lo tengo claro, quiero inscribirme</a>
         <a href="https://wa.me/17865271196?text=Hola%2C%20quiero%20m%C3%A1s%20info%20del%20programa%20IA%20en%2030%20D%C3%ADas%20Miami" class="btn-whatsapp">💬 ¿Dudas? Escríbenos por WhatsApp</a>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:12px; padding:8px 12px; background:rgba(29,158,117,0.1); border:1px solid rgba(29,158,117,0.3); border-radius:8px;">
           <span style="font-size:14px;">🛡️</span>
           <span style="font-size:12px; color:var(--teal-l); font-weight:600;">Garantía de 7 días · Si no te sirve, te devolvemos tu dinero</span>
         </div>
-        <p class="payment-note">Pago seguro vía Hotmart · Tarjeta, PayPal y más métodos</p>
+        <p class="payment-note">Zelle a contacto@learn5.tech · o tarjeta y PayPal por Hotmart</p>
       </div>
     </div>
   </section>
+
+<!-- QUIZ DIAGNOSTICO -->
+<section class="quiz-section" id="diagnostico">
+  <div class="quiz-wrap">
+    <div class="quiz-head">
+      <div class="quiz-label">Empieza por aqu&iacute; &middot; Gratis</div>
+      <h2>&iquest;Qu&eacute; est&aacute; frenando <span>tus resultados</span> con la IA?</h2>
+      <p>Antes de venderte nada, averig&uuml;emos d&oacute;nde est&aacute;s. 6 preguntas, 90 segundos, y te decimos qu&eacute; te est&aacute; frenando y por d&oacute;nde empezar.</p>
+    </div>
+    <div class="quiz-card">
+      <div class="qbarw"><div class="qbar" id="qBar"></div></div>
+      <div id="qBody"></div>
+    </div>
+  </div>
+</section>
 
   <!-- STATS -->
   <div class="stats">
@@ -1458,20 +1514,7 @@ setPrompt(0);
 
   <!-- CURRICULUM -->
 
-<!-- QUIZ DIAGNOSTICO -->
-<section class="quiz-section" id="diagnostico">
-  <div class="quiz-wrap">
-    <div class="quiz-head">
-      <div class="quiz-label">Diagn&oacute;stico gratuito</div>
-      <h2>&iquest;Qu&eacute; est&aacute; frenando <span>tus resultados</span> con la IA?</h2>
-      <p>6 preguntas &middot; 90 segundos &middot; Recibes tu ruta personalizada</p>
-    </div>
-    <div class="quiz-card">
-      <div class="qbarw"><div class="qbar" id="qBar"></div></div>
-      <div id="qBody"></div>
-    </div>
-  </div>
-</section>
+
 
   <section class="curriculum">
     <div class="section-inner">
@@ -1572,6 +1615,56 @@ setPrompt(0);
     </div>
   </section>
 
+
+  <!-- PAGAR -->
+  <section class="pagar" id="pagar">
+    <div class="pagar-in">
+      <h2>Dos formas de empezar</h2>
+      <p class="sub">Elige la que te acomode. En las dos recibes exactamente lo mismo: el programa completo, desde el primer día.</p>
+
+      <div class="planes">
+        <div class="plan">
+          <h3>Pago único</h3>
+          <div class="cifra">$96 <small>USD</small></div>
+          <p class="detalle">Lo pagas una vez y ya está. Sin suscripción, sin cobros automáticos, sin letra pequeña.</p>
+          <ul>
+            <li>Acceso completo desde hoy</li>
+            <li>Los 30 días, a tu ritmo</li>
+            <li>Guía de 30 prompts descargable</li>
+            <li>Garantía de 7 días</li>
+          </ul>
+        </div>
+
+        <div class="plan destacado">
+          <span class="plan-tag">Más accesible</span>
+          <h3>En dos partes</h3>
+          <div class="cifra">$49 <small>hoy + $49 a los 15 días</small></div>
+          <p class="detalle">Mismo programa, mismo acceso completo desde el primer día. Divides el pago, no el contenido.</p>
+          <ul>
+            <li>Empiezas hoy con $49</li>
+            <li>La segunda parte a los 15 días</li>
+            <li>Total $98 — dos dólares más por dividirlo</li>
+            <li>Garantía de 7 días igual</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="zelle">
+        <h3>Pagar por Zelle</h3>
+        <ol class="pasos">
+          <li>Envía el pago por <b>Zelle</b> a <span class="dato">contacto@learn5.tech</span> — la cuenta está en Bank of America y aparece a nombre de <b>Learn5 LLC</b>.</li>
+          <li>En el concepto escribe tu nombre y <b>IA30</b>, para que lo identifiquemos rápido.</li>
+          <li>Mándanos el comprobante por <a href="https://wa.me/17865271196?text=Hola%2C%20acabo%20de%20pagar%20IA%20en%2030%20D%C3%ADas%20por%20Zelle" target="_blank" rel="noopener" style="color:var(--violet-l,#AFA9EC)">WhatsApp</a> o a <a href="mailto:contacto@learn5.tech" style="color:var(--violet-l,#AFA9EC)">contacto@learn5.tech</a>.</li>
+          <li>Te damos de alta y recibes tu acceso el mismo día.</li>
+        </ol>
+
+        <div class="aviso-pago">
+          <b>Por qué Zelle y no un botón automático:</b> estamos empezando y preferimos dar de alta a cada persona a mano, con nombre y correo. Es un paso más para ti, pero significa que si algo falla hay alguien del otro lado que sabe quién eres. Si prefieres pagar con tarjeta o PayPal, también puedes hacerlo por <a href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener" style="color:var(--violet-l,#AFA9EC)">Hotmart</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- LOGISTICS -->
   <section class="curriculum">
     <div class="section-inner">
@@ -1636,9 +1729,9 @@ setPrompt(0);
   <!-- CTA FINAL -->
   <div class="cta-final">
     <h2>Empieza. Aprende. Transforma.</h2>
-    <p>Precio de lanzamiento de <strong>$96</strong> (regular <strong>$129</strong>). Acceso inmediato: empiezas el mismo día que te inscribes y tienes <strong>12 meses</strong> para completarlo a tu ritmo.</p>
-    <a href="https://tally.so/r/obYYGN" class="cta-btn-big">Empieza hoy → $96 ↗</a>
-    <p class="cta-note">🚀 Precio de lanzamiento $96 · Acceso inmediato · 7 días de garantía</p>
+    <p><strong>$96</strong> de una vez, o <strong>$49 hoy y $49 a los 15 días</strong>. En las dos tienes acceso completo desde el primer día y <strong>12 meses</strong> para completarlo a tu ritmo.</p>
+    <a href="#pagar" class="cta-btn-big">Empezar desde $49 →</a>
+    <p class="cta-note">Pago por Zelle o tarjeta · Acceso el mismo día · 7 días de garantía</p>
     <br>
     <p style="font-size:13px; color: var(--gray3);">¿Dudas? Escríbenos por WhatsApp al <a href="https://wa.me/17865271196" style="color:var(--teal);">+1 786 527 1196</a> o a <a href="mailto:contacto@learn5.tech" style="color:var(--teal);">contacto@learn5.tech</a></p>
   </div>
@@ -1785,7 +1878,7 @@ setPrompt(0);
         ]
       },
       precio: {
-        msg: "El precio de lanzamiento es <strong>$96 USD</strong> (regular $129) — eso es menos de <strong>$3.2 USD por día</strong> de acceso completo al campus 24/7, con 12 meses de acceso. Es un pago único, sin suscripción ni renovaciones automáticas. El precio sube a $129 al cerrar el lanzamiento.",
+        msg: "Son <strong>$96 USD</strong> de una vez, o <strong>$49 hoy y $49 a los 15 días</strong> si prefieres dividirlo. En las dos tienes acceso completo desde el primer día y 12 meses para completarlo. Pago único: sin suscripción ni renovaciones automáticas. Puedes pagar por Zelle a contacto@learn5.tech, o con tarjeta por Hotmart.",
         options: [
           { label: "📅 ¿Cuándo empieza?", next: "fecha" },
           { label: "📦 ¿Qué incluye?", next: "incluye" },
@@ -1812,7 +1905,7 @@ setPrompt(0);
         ]
       },
       obj_precio: {
-        msg: "Te entiendo, pero míralo así: <strong>$96 ÷ 30 días = $3.2 USD/día</strong> — menos que un café. Con solo automatizar UNA tarea repetitiva de tu semana, ya recuperaste la inversión en tiempo. Y el precio solo sube desde aquí.",
+        msg: "Te entiendo. Si $96 de una vez es mucho ahora mismo, puedes empezar con <strong>$49</strong> y pagar los otros $49 a los 15 días — con acceso completo desde el primer día. Y si lo pruebas y no es para ti, tienes 7 días para pedir el reembolso completo. Lo que no quiero es que te endeudes por esto: si no es tu momento, el diagnóstico gratuito ya te deja algo útil.",
         options: [
           { label: "🚀 Quiero registrarme", next: "cta" },
           { label: "📦 Ver todo lo que incluye", next: "incluye" },
@@ -1844,7 +1937,7 @@ setPrompt(0);
         ]
       },
       cta: {
-        msg: "¡Vamos! 🎉 El precio de lanzamiento de $96 sube a $129 al cerrar esta etapa. Haz clic abajo y déjanos tus datos en menos de 1 minuto — el acceso es inmediato tras el pago.",
+        msg: "¡Vamos! 🎉 Puedes empezar con el pago único de $96 o con $49 hoy y $49 a los 15 días. Abajo te explico cómo pagar por Zelle o con tarjeta — el acceso llega el mismo día.",
         options: [
           { label: "🔗 Quiero mi acceso ahora", next: "REDIRECT", cta: true },
           { label: "⬅ Ver más preguntas", next: "menu" },
@@ -1880,7 +1973,7 @@ setPrompt(0);
         btn.textContent = opt.label;
         btn.onclick = () => {
           if (opt.next === 'REDIRECT') {
-            window.open('https://tally.so/r/obYYGN', '_blank');
+            window.location.hash = '#pagar';
             return;
           }
           const userMsg = document.createElement('div');
@@ -2011,7 +2104,7 @@ function qGracias(n){
   '<div class="qbadge">Listo</div>'+
   '<p class="qprof">Gracias, <span>'+qEsc(n)+'</span></p>'+
   '<p class="qdiag">Tu ruta personalizada y los 30 prompts van en camino a tu correo. Si en unos minutos no los ves, revisa la carpeta de spam o promociones.</p>'+
-  '<a class="qbtn" style="text-decoration:none;display:block;box-sizing:border-box" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Empezar ahora por $96</a>'+
+  '<a class="qbtn" style="text-decoration:none;display:block;box-sizing:border-box" href="#pagar">Ver c\u00f3mo empezar desde $49</a>'+
   '<p class="qnote">\u00bfPrefieres preguntar primero? Escr\u00edbenos por <a href="https://wa.me/17865271196" target="_blank" rel="noopener" style="color:var(--violet-l)">WhatsApp</a>.</p>'+
   '</div>';
  qScroll();
