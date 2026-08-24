@@ -1115,6 +1115,24 @@
   .sello-c{padding:6px 11px}
   .portada-sub{font-size:15px}
 }
+
+/* ---------- Portada con dolores ---------- */
+.portada-eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#D4AF37);margin-bottom:16px;font-weight:600}
+.portada-h1{font-size:clamp(29px,5.4vw,46px);font-weight:800;line-height:1.08;color:#fff;letter-spacing:-1px;margin-bottom:14px}
+.portada-h1 .accent{color:var(--hero-blue);font-style:italic;font-weight:700}
+.portada-sub{font-size:17px;color:var(--gray1);line-height:1.6;max-width:540px;margin:0 auto 30px}
+.dolor-intro{font-size:13.5px;color:var(--gray3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.dolores{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
+.dolor{background:rgba(226,75,74,.08);border:1px solid rgba(226,75,74,.22);border-radius:20px;padding:7px 15px;font-size:13.5px;color:#F0B4B4;line-height:1.4}
+.portada-lead{font-size:15.5px;color:var(--gray1);line-height:1.6;max-width:520px;margin:0 auto 24px}
+.portada-lead b{color:#fff}
+.sellos-conf{margin-bottom:6px}
+@media(max-width:600px){
+  .dolor{font-size:12.5px;padding:6px 12px}
+  .dolores{gap:6px;margin-bottom:22px}
+  .portada-sub{font-size:15.5px;margin-bottom:24px}
+  .portada-lead{font-size:14.5px}
+}
 </style>
   <link rel="canonical" href="https://learn5.pro/ia-30-dias/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -1190,19 +1208,32 @@
     <a href="#diagnostico" class="nav-cta">Diagnóstico gratis</a>
   </nav>
 
-  <!-- PORTADA: EL DIAGNOSTICO ES LA PAGINA -->
+  <!-- PORTADA: el dolor primero, luego el diagnostico -->
   <section class="portada">
     <div class="portada-in">
+
+      <p class="portada-eyebrow">IA en 30 Días · Miami · Diagnóstico gratuito</p>
+
+      <h1 class="portada-h1">Probaste la IA.<br><span class="accent">Y seguiste trabajando igual.</span></h1>
+
+      <p class="portada-sub">No fue culpa tuya ni de la herramienta. Fue no saber cuál usar primero, ni para qué.</p>
+
+      <p class="dolor-intro">¿Te suena alguna de estas?</p>
+      <div class="dolores">
+        <span class="dolor">Abro ChatGPT y no sé qué pedirle</span>
+        <span class="dolor">Empecé un curso de IA y lo dejé</span>
+        <span class="dolor">Pierdo horas escribiendo lo mismo</span>
+        <span class="dolor">Todos hablan de IA y yo sigo igual</span>
+        <span class="dolor">Pruebo herramientas sueltas, sin método</span>
+      </div>
+
+      <p class="portada-lead">Responde 6 preguntas y te decimos qué te está frenando y por dónde empezar. <b>90 segundos. Sin costo.</b></p>
 
       <div class="sellos-conf">
         <div class="sello-c"><span class="sc-t">Learn5 LLC</span><span class="sc-d">Miami, Florida</span></div>
         <div class="sello-c"><span class="sc-t">30 herramientas</span><span class="sc-d">Una por día</span></div>
         <div class="sello-c"><span class="sc-t">Sin suscripción</span><span class="sc-d">Pago único</span></div>
       </div>
-
-      <h1 class="portada-h1">IA EN 30 DÍAS<br><span class="accent">Miami Edition</span></h1>
-      <p class="portada-sub">Una herramienta de inteligencia artificial por día, aplicada a tu negocio. Quince minutos diarios.</p>
-      <p class="portada-lead">Antes de venderte nada: responde 6 preguntas y te decimos por dónde empezar.</p>
 
     </div>
   </section>
@@ -1659,37 +1690,6 @@ setPrompt(0);
           <h4>Campus online 24/7</h4>
           <p>Siempre disponible</p>
           <span>Videos + retos + guías. Aprende a tu ritmo.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FACILITATOR -->
-  <section class="facilitator">
-    <div class="section-inner">
-      <p class="section-tag">Quién te acompaña</p>
-      <h2 class="section-title">Tu facilitador</h2>
-      <div class="fac-inner" style="margin-top: 30px;">
-        <img class="fac-avatar" src="gelkin-facilitador.jpg" alt="Gelkin Pulido">
-        <div>
-          <p class="fac-name">Gelkin Pulido</p>
-          <p class="fac-role">Fundador de Learn5 · Educador en tecnología e IA</p>
-          <a href="https://www.linkedin.com/in/gelkinpulidoruiz/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:600; color:var(--violet-l); text-decoration:none; margin-bottom:16px; border:1px solid rgba(83,74,183,0.35); border-radius:20px; padding:6px 14px; background:rgba(83,74,183,0.12); transition:background 0.2s;">
-            <span style="display:flex; align-items:center; justify-content:center; width:16px; height:16px; background:#0A66C2; border-radius:3px; font-size:11px; font-weight:900; color:#fff;">in</span>
-            LinkedIn · Gelkin Pulido Ruiz
-          </a>
-          <p class="fac-bio">Gelkin lleva <strong style="color:var(--white)">15 años</strong> trabajando en proyectos educativos y tecnológicos en América Latina y Estados Unidos. Ha diseñado programas de formación, liderado iniciativas de transformación digital y acompañado a instituciones, empresas y profesionales en el uso estratégico de la tecnología para aprender mejor y trabajar con más impacto.</p>
-          <p class="fac-bio" style="margin-top:10px;">Desde hace <strong style="color:var(--white)">3 años</strong> aplica inteligencia artificial de forma sistemática en su trabajo diario — no como experimento, sino como herramienta real de productividad, creación y enseñanza. Hoy comparte ese aprendizaje con quienes quieren ir más allá de la curiosidad y empezar a usar la IA de verdad.</p>
-          <div class="fac-tags" style="margin-bottom:20px;">
-            <span class="fac-tag">+15 años en educación y tecnología</span>
-            <span class="fac-tag">3 años aplicando IA</span>
-            <span class="fac-tag">LATAM · EE.UU.</span>
-            <span class="fac-tag">Miami, Florida</span>
-          </div>
-          <div style="background:rgba(29,158,117,0.06); border-left:3px solid var(--teal); border-radius:0 10px 10px 0; padding:18px 20px; margin-top:4px;">
-            <p style="font-size:11px; font-weight:700; letter-spacing:2px; color:var(--teal); margin-bottom:10px;">SU FILOSOFÍA</p>
-            <p style="font-size:14px; color:var(--gray2); line-height:1.8; font-style:italic;">"La IA no es magia. Es una herramienta — con la capacidad de construir ecosistemas enteros de productividad. Y como toda herramienta, no sirve de nada si no sabes usarla: se domina con disciplina, con práctica y con la disposición honesta de aprender. Quien llegue aquí buscando un atajo, no encontrará lo que busca. Quien llegue dispuesto a dedicarle tiempo y esfuerzo, va a transformar la forma en que trabaja."</p>
-          </div>
         </div>
       </div>
     </div>
