@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Course","name":"IA en 30 Días — Domina la Inteligencia Artificial","description":"Programa online autogestionado de 30 días para dominar más de 30 herramientas de inteligencia artificial: ChatGPT, Claude, Canva AI, Make, HeyGen y más. Sin programar. Campus disponible 24/7 con 12 meses de acceso y certificado oficial.","url":"https://learn5.pro/ia-30-dias/","inLanguage":"es","provider":{"@type":"Organization","name":"Learn5","url":"https://learn5.pro/","logo":"https://learn5.pro/ia-30-dias/og-image.png","address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"}},"educationalLevel":"Principiante a intermedio","teaches":["Prompting avanzado con ChatGPT y Claude","Creación de contenido visual con IA","Automatización de procesos sin programar","Construcción de agentes de IA"],"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15H","instructor":{"@type":"Person","name":"Gelkin Pulido"}},"offers":{"@type":"Offer","price":"96","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://learn5.pro/ia-30-dias/#pagar","category":"Paid"}}
+{"@context":"https://schema.org","@type":"Course","name":"IA en 30 Días — Domina la Inteligencia Artificial","description":"Programa online autogestionado de 30 días para dominar más de 30 herramientas de inteligencia artificial: ChatGPT, Claude, Canva AI, Make, HeyGen y más. Sin programar. Campus disponible 24/7 con 12 meses de acceso y certificado oficial.","url":"https://learn5.pro/ia-30-dias/","inLanguage":"es","provider":{"@type":"Organization","name":"Learn5","url":"https://learn5.pro/","logo":"https://learn5.pro/ia-30-dias/og-image.png","address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"}},"educationalLevel":"Principiante a intermedio","teaches":["Prompting avanzado con ChatGPT y Claude","Creación de contenido visual con IA","Automatización de procesos sin programar","Construcción de agentes de IA"],"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15H","instructor":{"@type":"Person","name":"Gelkin Pulido"}},"offers":{"@type":"Offer","price":"96","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://learn5.pro/ia-30-dias/","category":"Paid"}}
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"¿Necesito saber programar?","acceptedAnswer":{"@type":"Answer","text":"No. Ninguna de las 30 herramientas pide escribir código."}},
@@ -298,6 +298,21 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 .qnote{font-size:11.5px;color:var(--g3);text-align:center;margin-top:14px;line-height:1.5}
 .qmeta{display:flex;gap:16px;flex-wrap:wrap;margin:18px 0;font-size:12.5px;color:var(--g3)}
 
+
+/* ---------- oferta: solo visible al terminar el diagnostico ---------- */
+.oferta{border-top:1px solid var(--line);margin-top:24px;padding-top:24px}
+.oferta-t{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--g3);font-weight:600;margin-bottom:14px}
+.oferta-p{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+@media(max-width:520px){.oferta-p{grid-template-columns:1fr}}
+.op{background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:12px;padding:14px;text-align:center}
+.op.destacado{border-color:rgba(212,175,55,.45);background:rgba(212,175,55,.05)}
+.op-n{display:block;font-family:'Space Grotesk';font-size:26px;font-weight:700;color:var(--w);line-height:1.1}
+.op-n em{font-style:normal;font-size:15px;color:var(--g2)}
+.op-d{display:block;font-size:12px;color:var(--g3);margin-top:5px}
+.oferta-d{font-size:14px;color:var(--g2);line-height:1.65;margin-bottom:16px}
+.oferta-z{background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-bottom:18px}
+.oferta-z b{display:block;font-family:'Space Grotesk';font-size:14px;color:var(--w);margin-bottom:8px}
+.oferta-z p{font-size:13.5px;color:var(--g1);line-height:1.8}
 </style>
 </head>
 <body>
@@ -483,52 +498,6 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
   </div>
 </section>
 
-<!-- ══ 6 · PRECIO ══ -->
-<section class="sec" id="pagar">
-  <div class="wrap">
-    <p class="eyebrow">Inversión</p>
-    <h2 class="h-sec">Dos formas de empezar</h2>
-    <p class="p-sec">En las dos recibes exactamente lo mismo: el programa completo, desde el primer día. Pago único, sin suscripción ni renovaciones automáticas.</p>
-
-    <div class="precios">
-      <div class="plan">
-        <h3>Pago único</h3>
-        <div class="cifra">$96 <small>USD</small></div>
-        <p class="plan-d">Lo pagas una vez y ya está. Sin letra pequeña.</p>
-        <ul>
-          <li>Acceso completo desde hoy</li>
-          <li>Los 30 días, a tu ritmo</li>
-          <li>Guía de 30 prompts descargable</li>
-          <li>Garantía de 7 días</li>
-        </ul>
-      </div>
-      <div class="plan dest">
-        <span class="plan-tag">Más accesible</span>
-        <h3>En dos partes</h3>
-        <div class="cifra">$49 <small>hoy + $49 a los 15 días</small></div>
-        <p class="plan-d">Divides el pago, no el contenido. Acceso completo desde el primer día igual.</p>
-        <ul>
-          <li>Empiezas hoy con $49</li>
-          <li>La segunda parte a los 15 días</li>
-          <li>Total $98 — dos dólares por dividirlo</li>
-          <li>Garantía de 7 días igual</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="zelle">
-      <h3>Cómo pagar por Zelle</h3>
-      <ol class="pasos-z">
-        <li>Envía el pago por <b>Zelle</b> a <span class="dato">contacto@learn5.tech</span> — la cuenta está en Bank of America, a nombre de <b>Learn5 LLC</b>.</li>
-        <li>En el concepto escribe tu nombre y <b>IA30</b>.</li>
-        <li>Mándanos el comprobante por <a href="https://wa.me/17865271196?text=Hola%2C%20acabo%20de%20pagar%20IA%20en%2030%20D%C3%ADas%20por%20Zelle" target="_blank" rel="noopener">WhatsApp</a> o a <a href="mailto:contacto@learn5.tech">contacto@learn5.tech</a>.</li>
-        <li>Te damos de alta y recibes tu acceso el mismo día.</li>
-      </ol>
-      <div class="nota"><b>Por qué Zelle y no un botón automático:</b> estamos empezando y preferimos dar de alta a cada persona a mano, con nombre y correo. Es un paso más para ti, pero significa que si algo falla hay alguien del otro lado que sabe quién eres.</div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ 7 · PREGUNTAS ══ -->
 <section class="sec">
   <div class="wrap">
@@ -669,7 +638,16 @@ function qSend(){
  var b=document.getElementById("qBtn");
  b.disabled=true; b.textContent="Enviando...";
  var payload={nombre:n,email:e,whatsapp:w,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",origen:"quiz-landing",consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
- fetch("https://hook.us2.make.com/u847uvqt3ip2egw10lyb2xwvy1q93kq1",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+ // El lead se guarda SIEMPRE en nuestra base. Make es un extra:
+ // si Make falla, el contacto no se pierde.
+ var SB="https://axpmcqforouffrxmvgvg.supabase.co", SBK="sb_publishable_4r7sZviCcYUQds3ugyJBoQ_GZaUA17e";
+ var guardar = fetch(SB+"/rest/v1/diagnosticos",{
+   method:"POST",
+   headers:{"Content-Type":"application/json",apikey:SBK,Authorization:"Bearer "+SBK,Prefer:"return=minimal"},
+   body:JSON.stringify({email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",origen:"diagnostico-web"})
+ });
+ fetch("https://hook.us2.make.com/u847uvqt3ip2egw10lyb2xwvy1q93kq1",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
+ guardar
   .then(function(res){ if(!res.ok) throw new Error("http "+res.status); qGracias(n); })
   .catch(function(){
     b.disabled=false; b.textContent="Enviarme mi ruta personalizada";
@@ -680,12 +658,27 @@ function qSend(){
 function qGracias(n){
  qBar(7);
  document.getElementById("qBody").innerHTML=
-  '<div class="qstep on" style="text-align:center;padding:14px 0">'+
+  '<div class="qstep on">'+
   '<div class="qbadge">Listo</div>'+
   '<p class="qprof">Gracias, <span>'+qEsc(n)+'</span></p>'+
-  '<p class="qdiag">Tu ruta personalizada y los 30 prompts van en camino a tu correo. Si en unos minutos no los ves, revisa la carpeta de spam o promociones.</p>'+
-  '<a class="qbtn" style="text-decoration:none;display:block;box-sizing:border-box;text-align:center" href="#pagar">Ver c\u00f3mo empezar desde $49</a>'+
-  '<p class="qnote">\u00bfPrefieres preguntar primero? Escr\u00edbenos por <a href="https://wa.me/17865271196" target="_blank" rel="noopener" style="color:var(--violet-l)">WhatsApp</a>.</p>'+
+  '<p class="qdiag">Tu ruta personalizada y la gu\u00eda de 30 prompts van en camino a tu correo. Si en unos minutos no los ves, revisa spam o promociones.</p>'+
+  '<div class="oferta">'+
+    '<p class="oferta-t">Si quieres el programa completo</p>'+
+    '<div class="oferta-p">'+
+      '<div class="op"><span class="op-n">$96</span><span class="op-d">Pago \u00fanico</span></div>'+
+      '<div class="op destacado"><span class="op-n">$49<em> + $49</em></span><span class="op-d">La segunda a los 15 d\u00edas</span></div>'+
+    '</div>'+
+    '<p class="oferta-d">Los 30 d\u00edas completos, a tu ritmo, con 12 meses de acceso. Garant\u00eda de 7 d\u00edas: si no te sirve, te devolvemos el dinero.</p>'+
+    '<div class="oferta-z">'+
+      '<b>C\u00f3mo pagar</b>'+
+      '<p>1. Zelle a <span class="dato">contacto@learn5.tech</span> — Bank of America, a nombre de Learn5 LLC.<br>'+
+      '2. En el concepto, tu nombre y <b>IA30</b>.<br>'+
+      '3. Mandas el comprobante por WhatsApp o correo.<br>'+
+      '4. Te damos el acceso el mismo d\u00eda.</p>'+
+    '</div>'+
+    '<a class="qbtn" style="text-decoration:none;display:block;box-sizing:border-box;text-align:center" href="https://wa.me/17865271196?text=Hola%2C%20acabo%20de%20hacer%20el%20diagn%C3%B3stico%20y%20quiero%20inscribirme%20en%20IA%20en%2030%20D%C3%ADas" target="_blank" rel="noopener">Quiero inscribirme</a>'+
+  '</div>'+
+  '<p class="qnote">Sin prisa: la ruta que te mandamos ya te sirve aunque no compres nada.</p>'+
   '</div>';
  qScroll();
 }
