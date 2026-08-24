@@ -646,7 +646,7 @@ function qSend(){
    headers:{"Content-Type":"application/json",apikey:SBK,Authorization:"Bearer "+SBK,Prefer:"return=minimal"},
    body:JSON.stringify({email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",origen:"diagnostico-web"})
  });
- fetch("https://hook.us2.make.com/u847uvqt3ip2egw10lyb2xwvy1q93kq1",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
+ fetch("https://hook.us2.make.com/zyp3c379omqerahhxsmqj02z0rbb5myb",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
  guardar
   .then(function(res){ if(!res.ok) throw new Error("http "+res.status); qGracias(n); })
   .catch(function(){
