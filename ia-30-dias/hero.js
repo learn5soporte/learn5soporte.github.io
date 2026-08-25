@@ -31,7 +31,9 @@ var CSS = ''
 +'  mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%)}'
 +'.portada .wrap{position:relative;z-index:2}'
 /* el titular vive dentro de la luz: le damos peso para que no se lave */
-+'.portada h1{text-shadow:0 2px 30px rgba(8,6,26,.92),0 0 70px rgba(8,6,26,.75)}'
++'.portada h1{text-shadow:0 2px 30px rgba(8,6,26,.95),0 0 70px rgba(8,6,26,.85)}'
++'.portada .dolor-t,.portada .portada-lead{text-shadow:0 1px 18px rgba(8,6,26,.98),0 0 40px rgba(8,6,26,.9)}'
++'.portada .dolor{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);background:rgba(226,75,74,.10)}'
 
 /* ── niebla volumetrica: hace que la luz se lea como luz en el aire ── */
 +'.esc-niebla{position:absolute;left:50%;top:-14%;width:1100px;height:760px;'
@@ -72,7 +74,8 @@ var CSS = ''
 /* vidrio ahumado */
 +'.pr-cuerpo{background:linear-gradient(158deg,rgba(255,255,255,.13),rgba(255,255,255,.03) 44%,'
 +'  rgba(62,143,255,.10) 78%,rgba(139,123,245,.13));'
-+'  -webkit-backdrop-filter:blur(7px) saturate(1.35);backdrop-filter:blur(7px) saturate(1.35)}'
++'  -webkit-backdrop-filter:blur(7px) saturate(1.35);backdrop-filter:blur(7px) saturate(1.35);'
++'  filter:drop-shadow(0 0 .7px rgba(255,255,255,.95)) drop-shadow(0 0 12px rgba(150,180,255,.45))}'
 /* aristas biseladas: un triangulo claro con otro oscuro encima */
 +'.pr-arista{background:linear-gradient(126deg,rgba(255,255,255,.62),transparent 26%,'
 +'  transparent 62%,rgba(156,197,255,.5));'
@@ -81,7 +84,7 @@ var CSS = ''
 +'  padding:1.4px}'
 /* el nucleo encendido, donde la luz entra */
 +'.pr-nucleo{background:radial-gradient(circle 62px at 50% 84%,rgba(255,255,255,.5),'
-+'  rgba(180,205,255,.16) 48%,transparent 76%);mix-blend-mode:screen;opacity:.85}'
++'  rgba(180,205,255,.12) 48%,transparent 76%);mix-blend-mode:screen;opacity:.5}'
 /* barrido especular: persigue al cursor por la cara del prisma */
 +'.pr-brillo{background:radial-gradient(circle 74px at var(--bx,42%) var(--by,34%),'
 +'  rgba(255,255,255,.42),rgba(255,255,255,.07) 46%,transparent 72%);'
@@ -94,7 +97,7 @@ var CSS = ''
 /* ── el abanico: cinco haces, uno por dia ── */
 +'.esc-abanico{position:absolute;left:0;top:214px;width:0;height:0;will-change:transform}'
 +'.esc-abanico i{position:absolute;left:-140px;top:0;width:280px;height:660px;'
-+'  transform-origin:50% 0;mix-blend-mode:screen;filter:blur(7px);'
++'  transform-origin:50% 0;mix-blend-mode:screen;filter:blur(13px);'
 +'  clip-path:polygon(49.1% 0,50.9% 0,80% 100%,20% 100%)}'
 +'.esc-abanico i::before{content:"";position:absolute;left:50%;top:0;width:2px;height:52%;'
 +'  margin-left:-1px;background:linear-gradient(180deg,rgba(255,255,255,.85),transparent);'
@@ -128,7 +131,7 @@ function montar(){
   for(var i=0;i<DIAS.length;i++){
     var d = DIAS[i];
     haces += '<i data-h="'+i+'" style="background:linear-gradient(180deg,'
-          +  'rgba('+d.c+',.95) 0%,rgba('+d.c+',.55) 34%,rgba('+d.c+',0) 92%)"></i>';
+          +  'rgba('+d.c+',.70) 0%,rgba('+d.c+',.28) 30%,rgba('+d.c+',0) 74%)"></i>';
   }
 
   var polvo = "";
@@ -198,7 +201,7 @@ function montar(){
     for(var r=0;r<rayos.length;r++){
       var g = ABRE[r]*apertura;
       rayos[r].style.transform = "rotate("+g.toFixed(2)+"deg) scaleY("+(1+avance*0.5).toFixed(3)+")";
-      rayos[r].style.opacity   = (0.62 + Math.max(0,0.30 - Math.abs(g)/150)).toFixed(3);
+      rayos[r].style.opacity   = (0.30 + Math.max(0,0.16 - Math.abs(g)/260)).toFixed(3);
     }
   }
 
