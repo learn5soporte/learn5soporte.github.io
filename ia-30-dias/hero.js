@@ -27,8 +27,8 @@ var DIAS = [
 var CSS = ''
 /* ── el escenario ── */
 +'.escena{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;'
-+'  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%);'
-+'  mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%)}'
++'  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 86%,transparent 100%);'
++'  mask-image:linear-gradient(180deg,#000 0,#000 86%,transparent 100%)}'
 +'.portada .wrap{position:relative;z-index:2}'
 /* el titular vive dentro de la luz: le damos peso para que no se lave */
 +'.portada h1{text-shadow:0 2px 30px rgba(8,6,26,.95),0 0 70px rgba(8,6,26,.85)}'
@@ -56,7 +56,7 @@ var CSS = ''
 +'.esc-fondo{position:absolute;left:0;top:0;will-change:transform}'
 
 /* ── el haz de entrada: una sola pregunta, temblorosa ── */
-+'.esc-entrada{position:absolute;left:-560px;top:-330px;width:660px;height:420px;'
++'.esc-entrada{position:absolute;left:-960px;top:-300px;width:660px;height:430px;'
 +'  background:linear-gradient(118deg,transparent 46.6%,rgba(255,255,255,.5) 49.6%,'
 +'  rgba(214,226,255,.9) 50%,rgba(255,255,255,.45) 50.4%,transparent 53.4%);'
 +'  filter:blur(1.4px);mix-blend-mode:screen;opacity:.6;'
@@ -67,7 +67,7 @@ var CSS = ''
 +'  38%{opacity:.72;filter:blur(1.1px)}64%{opacity:.46;filter:blur(1.9px)}}'
 
 /* ── el prisma ── */
-+'.esc-prisma{position:absolute;left:-84px;top:76px;width:168px;height:146px;'
++'.esc-prisma{position:absolute;left:-402px;top:88px;width:130px;height:113px;'
 +'  transform-style:preserve-3d;will-change:transform}'
 +'.pr-cuerpo,.pr-arista,.pr-brillo,.pr-nucleo{position:absolute;inset:0;'
 +'  clip-path:polygon(50% 0,100% 100%,0 100%)}'
@@ -90,13 +90,13 @@ var CSS = ''
 +'  rgba(255,255,255,.42),rgba(255,255,255,.07) 46%,transparent 72%);'
 +'  mix-blend-mode:screen}'
 /* halo alrededor */
-+'.pr-halo{position:absolute;left:50%;top:52%;width:330px;height:330px;margin:-165px 0 0 -165px;'
++'.pr-halo{position:absolute;left:50%;top:52%;width:230px;height:230px;margin:-115px 0 0 -115px;'
 +'  border-radius:50%;pointer-events:none;'
 +'  background:radial-gradient(circle,rgba(120,150,255,.20),transparent 62%);filter:blur(22px)}'
 
 /* ── el abanico: cinco haces, uno por dia ── */
-+'.esc-abanico{position:absolute;left:0;top:214px;width:0;height:0;will-change:transform}'
-+'.esc-abanico i{position:absolute;left:-140px;top:0;width:280px;height:660px;'
++'.esc-abanico{position:absolute;left:-337px;top:196px;width:0;height:0;will-change:transform}'
++'.esc-abanico i{position:absolute;left:-160px;top:0;width:320px;height:920px;'
 +'  transform-origin:50% 0;mix-blend-mode:screen;filter:blur(13px);'
 +'  clip-path:polygon(49.1% 0,50.9% 0,80% 100%,20% 100%)}'
 +'.esc-abanico i::before{content:"";position:absolute;left:50%;top:0;width:2px;height:52%;'
@@ -109,9 +109,9 @@ var CSS = ''
 +'  filter:blur(16px);mix-blend-mode:screen}'
 
 +'@media(max-width:760px){'
-+'  .esc-prisma{left:-58px;top:52px;width:116px;height:102px}'
-+'  .esc-abanico{top:150px}'
-+'  .esc-abanico i{filter:blur(9px);height:520px}'
++'  .esc-prisma{left:-142px;top:64px;width:94px;height:82px}'
++'  .esc-abanico{left:-95px;top:150px}'
++'  .esc-abanico i{filter:blur(10px);height:700px}'
 +'  .esc-niebla{width:640px}'
 +'}'
 +'@media(prefers-reduced-motion:reduce){'
@@ -172,7 +172,8 @@ function montar(){
   var niebla  = esc.querySelector(".esc-niebla");
 
   /* apertura base del abanico, en grados */
-  var ABRE = [-31,-15.5,0,15.5,31];
+  var angosto = window.innerWidth < 760;
+  var ABRE = angosto ? [11,20,29,38,47] : [24,32.5,41,49.5,58];
 
   function colocar(mx,my,avance){
     /* CAMARA C · el scroll nos mete a traves del prisma */
@@ -201,7 +202,7 @@ function montar(){
     for(var r=0;r<rayos.length;r++){
       var g = ABRE[r]*apertura;
       rayos[r].style.transform = "rotate("+g.toFixed(2)+"deg) scaleY("+(1+avance*0.5).toFixed(3)+")";
-      rayos[r].style.opacity   = (0.30 + Math.max(0,0.16 - Math.abs(g)/260)).toFixed(3);
+      rayos[r].style.opacity   = Math.max(.14,(0.36 - Math.abs(ABRE[2]-g)/230)).toFixed(3);
     }
   }
 
