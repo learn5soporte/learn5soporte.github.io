@@ -101,6 +101,7 @@ var D={
 "30 días de soporte directo":"30 days of direct support",
 ": durante ese mes me escribes y te contesto yo.":": during that month you write to me and I answer you myself.",
 
+"30 herramientas · una por día · ninguna te pide programar":"30 tools · one a day · none of them asks you to code",
 "Inicio":"Home",
 "Privacidad":"Privacy",
 "Términos":"Terms",
@@ -233,7 +234,7 @@ function pasada(dic,frag){
   while((n=w.nextNode()))lista.push(n);
   for(var i=0;i<lista.length;i++){
     var nodo=lista[i], p=nodo.parentNode;
-    if(!p||!p.closest||p.closest("script,style,.lang"))continue;
+    if(!p||!p.closest||p.closest("script,style,.lang,.no-i18n"))continue;
     var v=nodo.nodeValue, t=v.trim();
     if(!t)continue;
     if(Object.prototype.hasOwnProperty.call(dic,t)){
@@ -271,16 +272,28 @@ function poner(l){
   idioma=l;
   remate(l);
   try{ localStorage.setItem("learn5_idioma",l); }catch(e){}
+  try{ window.dispatchEvent(new CustomEvent("learn5:idioma",{detail:l})); }catch(e){}
   setTimeout(function(){ ocupado=false; },0);
 }
 
 /* el diagnostico se redibuja con innerHTML: volvemos a pasar */
-var obs=new MutationObserver(function(){
+var espera=null;
+var obs=new MutationObserver(function(cambios){
   if(ocupado||idioma!=="en")return;
-  ocupado=true;
-  pasada(D,F);
-  remate("en");
-  ocupado=false;
+  var vale=false;
+  for(var i=0;i<cambios.length;i++){
+    var t=cambios[i].target;
+    var e=(t.nodeType===1)?t:t.parentNode;
+    if(e&&e.closest&&!e.closest(".no-i18n")){ vale=true; break; }
+  }
+  if(!vale)return;
+  clearTimeout(espera);
+  espera=setTimeout(function(){
+    ocupado=true;
+    pasada(D,F);
+    remate("en");
+    ocupado=false;
+  },60);
 });
 
 function arrancar(){
