@@ -173,7 +173,8 @@ function montar(){
 
   /* apertura base del abanico, en grados */
   var angosto = window.innerWidth < 760;
-  var ABRE = angosto ? [11,20,29,38,47] : [24,32.5,41,49.5,58];
+  /* negativo = la luz barre hacia la derecha, hacia la tarjeta */
+  var ABRE = angosto ? [-11,-20,-29,-38,-47] : [-24,-32.5,-41,-49.5,-58];
 
   function colocar(mx,my,avance){
     /* CAMARA C · el scroll nos mete a traves del prisma */
