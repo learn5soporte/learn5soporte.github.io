@@ -109,9 +109,18 @@ b,strong{color:var(--w);font-weight:600}
 .dolor-t{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--g3);margin-bottom:var(--s2)}
 .dolores{display:flex;flex-wrap:wrap;gap:var(--s1);justify-content:center;max-width:760px;margin:0 auto var(--s4)}
 .dolor{
-  background:rgba(226,75,74,.07);border:1px solid rgba(226,75,74,.2);
-  border-radius:100px;padding:8px 16px;font-size:13.5px;color:var(--red-l);
+  background:rgba(226,75,74,.07);border:1px solid rgba(226,75,74,.22);
+  border-radius:100px;padding:13px 20px;font-size:14.5px;color:var(--red-l);
+  font-family:inherit;line-height:1.3;cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s,transform .1s;
 }
+.dolor:hover{background:rgba(226,75,74,.15);border-color:rgba(226,75,74,.45);color:var(--w)}
+.dolor:active{transform:scale(.98)}
+.dolor.on{background:rgba(62,143,255,.16);border-color:rgba(62,143,255,.5);color:var(--blue-l)}
+.dolores.eligio .dolor:not(.on){display:none}
+.qcard{display:none}
+.qcard.on{display:block}
+.portada-lead.oculto{display:none}
 .portada-lead{font-size:16px;color:var(--g1);max-width:500px;margin:0 auto var(--s4)}
 
 /* tarjeta del diagnóstico */
@@ -335,18 +344,18 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
   <div class="wrap">
     <h1>¿Qué te está frenando<br><em>con la IA?</em></h1>
 
-    <p class="dolor-t">¿Te suena alguna de estas?</p>
-    <div class="dolores">
-      <span class="dolor">Abro ChatGPT y no sé qué pedirle</span>
-      <span class="dolor">Empecé un curso de IA y lo dejé</span>
-      <span class="dolor">Pierdo horas escribiendo lo mismo</span>
-      <span class="dolor">Todos hablan de IA y yo sigo igual</span>
-      <span class="dolor">Pruebo herramientas sueltas, sin método</span>
+    <p class="dolor-t">Toca la que más se parezca a ti</p>
+    <div class="dolores" id="dolores">
+      <button class="dolor" data-f="prompt">Abro ChatGPT y no sé qué pedirle</button>
+      <button class="dolor" data-f="abandono">Empecé un curso de IA y lo dejé</button>
+      <button class="dolor" data-f="repetir">Pierdo horas escribiendo lo mismo</button>
+      <button class="dolor" data-f="rezagado">Todos hablan de IA y yo sigo igual</button>
+      <button class="dolor" data-f="metodo">Pruebo herramientas sueltas, sin método</button>
     </div>
 
-    <p class="portada-lead">Responde 6 preguntas y te decimos qué te está frenando y por dónde empezar. <b>90 segundos, sin costo.</b></p>
+    <p class="portada-lead" id="portadaLead">90 segundos, sin costo y sin tarjeta. Al final te decimos por dónde empezar.</p>
 
-    <div class="qcard">
+    <div class="qcard" id="qCard">
       <div class="qbarw"><div class="qbar" id="qBar"></div></div>
       <div id="qBody"></div>
     </div>
@@ -548,11 +557,6 @@ var qQ=[
 ["visual","Crear material visual: im\u00e1genes, video, presentaciones"],
 ["repetitivo","Tareas repetitivas: datos, seguimiento, administraci\u00f3n"],
 ["clientes","Atender clientes y responder lo mismo una y otra vez"]]},
-{k:"freno",q:"\u00bfQu\u00e9 te ha frenado hasta ahora?",o:[
-["empezar","No s\u00e9 por d\u00f3nde empezar, hay demasiadas herramientas"],
-["abandono","Empiezo cursos y nunca los termino"],
-["tecnico","Creo que necesito saber programar"],
-["tiempo","No tengo tiempo"]]},
 {k:"tiempo",q:"\u00bfCu\u00e1nto tiempo real puedes dedicarle al d\u00eda?",o:[
 ["poco","Menos de 15 minutos"],["medio","Entre 15 y 30 minutos"],
 ["bueno","Entre 30 y 60 minutos"],["mucho","M\u00e1s de 1 hora"]]},
@@ -576,6 +580,10 @@ repetitivo:{t:"Tu semana clave: Semana 3",x:"Automatizaci\u00f3n sin programar. 
 clientes:{t:"Tu semana clave: Semana 4",x:"Construyes tu propio agente de IA: atenci\u00f3n al cliente, seguimiento y ventas funcionando sin que t\u00fa est\u00e9s presente. Sales del programa con un agente operativo, no con apuntes."}
 };
 var qE={
+prompt:" Sobre lo que te frena: no es que la IA no sirva, es que le pides como si fuera un buscador. La primera lección es exactamente eso, cómo pedirle para que responda lo que necesitas.",
+repetir:" Sobre lo que te frena: escribir lo mismo cada semana se arregla una sola vez. Sales del programa con tus plantillas hechas, no con apuntes.",
+rezagado:" Sobre lo que te frena: en esto no se llega tarde. La ventaja no es haber empezado antes, es tener un orden, y ese orden es justo lo que te damos.",
+metodo:" Sobre lo que te frena: probar herramientas sueltas es la trampa más común. Aquí van en secuencia, una por día, y cada una se apoya en la anterior.",
 abandono:" Sobre lo que m\u00e1s te ha frenado: por eso el programa es de 1 herramienta al d\u00eda en sesiones cortas, dise\u00f1ado para que termines, no solo para que empieces.",
 tecnico:" Y no, no necesitas programar: ninguna de las 30 herramientas requiere escribir una sola l\u00ednea de c\u00f3digo.",
 tiempo:" Con 15 a 20 minutos al d\u00eda avanzas sin problema: el campus est\u00e1 disponible 24/7 y no hay horarios fijos.",
@@ -583,7 +591,7 @@ empezar:" Por eso el programa va en orden: una herramienta por d\u00eda, en secu
 };
 var qA={},qC=0;
 function qEsc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
-function qBar(n){var b=document.getElementById("qBar");if(b)b.style.width=Math.round((n/7)*100)+"%";}
+function qBar(n){var b=document.getElementById("qBar");if(b)b.style.width=Math.round((n/6)*100)+"%";}
 var qPrimera=true;
 function qScroll(){if(qPrimera){qPrimera=false;return;}var c=document.querySelector(".quiz-card");if(c)c.scrollIntoView({behavior:"smooth",block:"center"});}
 function qIntro(){
@@ -605,7 +613,7 @@ function qShow(i){
 }
 function qPick(k,v){qA[k]=v;qShow(qC+1);}
 function qRes(){
- qBar(7);
+ qBar(6);
  var p=qP[qA.nivel]||qP.casual,k=qK[qA.dolor]||qK.escribir,x=qE[qA.freno]||"";
  if(qA.tiempo==="poco"&&!x)x=qE.tiempo;
  var h='<div class="qstep on"><div class="qbadge">Tu diagn\u00f3stico</div>'+
@@ -656,7 +664,7 @@ function qSend(){
   });
 }
 function qGracias(n){
- qBar(7);
+ qBar(6);
  document.getElementById("qBody").innerHTML=
   '<div class="qstep on">'+
   '<div class="qbadge">Listo</div>'+
@@ -682,7 +690,25 @@ function qGracias(n){
   '</div>';
  qScroll();
 }
-function qArranque(){qA={};qShow(0);}
+function qArranque(){
+ qA={};
+ var cs=document.querySelectorAll(".dolor");
+ var zona=document.getElementById("dolores");
+ var card=document.getElementById("qCard");
+ var lead=document.getElementById("portadaLead");
+ for(var i=0;i<cs.length;i++){
+  (function(b){
+   b.onclick=function(){
+    qA.freno=b.getAttribute("data-f");
+    b.classList.add("on");
+    if(zona)zona.classList.add("eligio");
+    if(lead)lead.classList.add("oculto");
+    if(card)card.classList.add("on");
+    qShow(0);
+   };
+  })(cs[i]);
+ }
+}
 if(document.readyState!=="loading"){qArranque();}else{document.addEventListener("DOMContentLoaded",qArranque);}
 
 
