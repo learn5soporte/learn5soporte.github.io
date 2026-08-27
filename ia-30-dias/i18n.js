@@ -193,7 +193,7 @@ var D={
 
 "Tu nombre":"Your name",
 "Tu correo electrónico":"Your email address",
-"Tu WhatsApp con código de país (opcional)":"Your WhatsApp with country code (optional)"
+"Tu número de teléfono (opcional)":"Your phone number (optional)"
 };
 
 /* --- trozos: el diagnostico concatena perfil + apunte en un solo nodo --- */
