@@ -187,7 +187,7 @@ var D={
 "— Bank of America, a nombre de Learn5 LLC.":"— Bank of America, under Learn5 LLC.",
 "2. En el concepto, tu nombre y":"2. In the memo, your name and",
 "3. Mandas el comprobante por WhatsApp o correo.":"3. Send the receipt by WhatsApp or email.",
-"4. Te damos el acceso el mismo día.":"4. We give you access the same day.",
+"4. Te damos el acceso en menos de 24 horas.":"4. We give you access in under 24 hours.",
 "Quiero inscribirme":"I want to enroll",
 "Sin prisa: la ruta que te mandamos ya te sirve aunque no compres nada.":"No rush: the roadmap we send you is worth having even if you never buy a thing.",
 
