@@ -11,14 +11,13 @@
 var D={
 "¿Qué te está frenando":"What's holding you back",
 "con la IA?":"with AI?",
-"¿Te suena alguna de estas?":"Sound familiar?",
+"Toca la que más se parezca a ti":"Tap the one that sounds most like you",
 "Abro ChatGPT y no sé qué pedirle":"I open ChatGPT and go blank",
 "Empecé un curso de IA y lo dejé":"I started an AI course and quit",
 "Pierdo horas escribiendo lo mismo":"I lose hours writing the same things",
 "Todos hablan de IA y yo sigo igual":"Everyone talks about AI, I'm still the same",
 "Pruebo herramientas sueltas, sin método":"I try random tools, with no method",
-"Responde 6 preguntas y te decimos qué te está frenando y por dónde empezar.":"Answer 6 questions and we'll tell you what's holding you back and where to start.",
-"90 segundos, sin costo.":"90 seconds, free.",
+"90 segundos, sin costo y sin tarjeta. Al final te decimos por dónde empezar.":"90 seconds, free, no card. At the end we tell you where to start.",
 
 "Esto es lo que compras":"What you're actually buying",
 "No son videos. Es un aula donde haces.":"Not videos. A classroom where you do the work.",
@@ -106,12 +105,11 @@ var D={
 "Privacidad":"Privacy",
 "Términos":"Terms",
 
-"Pregunta 1 de 6":"Question 1 of 6",
-"Pregunta 2 de 6":"Question 2 of 6",
-"Pregunta 3 de 6":"Question 3 of 6",
-"Pregunta 4 de 6":"Question 4 of 6",
-"Pregunta 5 de 6":"Question 5 of 6",
-"Pregunta 6 de 6":"Question 6 of 6",
+"Pregunta 1 de 5":"Question 1 of 5",
+"Pregunta 2 de 5":"Question 2 of 5",
+"Pregunta 3 de 5":"Question 3 of 5",
+"Pregunta 4 de 5":"Question 4 of 5",
+"Pregunta 5 de 5":"Question 5 of 5",
 "Volver":"Back",
 
 "¿Cuál describe mejor tu situación hoy?":"Which one describes you best today?",
@@ -200,6 +198,10 @@ var D={
 
 /* --- trozos: el diagnostico concatena perfil + apunte en un solo nodo --- */
 var F={
+" Sobre lo que te frena: no es que la IA no sirva, es que le pides como si fuera un buscador. La primera lección es exactamente eso, cómo pedirle para que responda lo que necesitas.":" About what's holding you back: it isn't that AI doesn't work, it's that you ask it like a search engine. The first lesson is exactly that — how to ask so it answers what you actually need.",
+" Sobre lo que te frena: escribir lo mismo cada semana se arregla una sola vez. Sales del programa con tus plantillas hechas, no con apuntes.":" About what's holding you back: writing the same thing every week gets fixed once. You leave the program with your templates built, not with notes.",
+" Sobre lo que te frena: en esto no se llega tarde. La ventaja no es haber empezado antes, es tener un orden, y ese orden es justo lo que te damos.":" About what's holding you back: you can't be late to this. The advantage isn't starting earlier, it's having an order — and that order is exactly what we give you.",
+" Sobre lo que te frena: probar herramientas sueltas es la trampa más común. Aquí van en secuencia, una por día, y cada una se apoya en la anterior.":" About what's holding you back: trying random tools is the most common trap. Here they come in sequence, one a day, each building on the last.",
 "Estás en el mejor punto de partida posible: sin vicios ni atajos mal aprendidos. Tu riesgo no es la falta de capacidad, es perderte entre las 300 herramientas que aparecen cada mes. Necesitas una secuencia, no un catálogo.":"You're at the best possible starting point: no bad habits, no half-learned shortcuts. Your risk isn't ability, it's getting lost among the 300 tools that show up every month. You need a sequence, not a catalog.",
 "Ya le perdiste el miedo a la IA, pero la usas como buscador y no como sistema. El salto no está en usar más herramientas, sino en aprender a estructurar lo que le pides.":"You've lost your fear of AI, but you use it like a search engine instead of a system. The jump isn't using more tools, it's learning to structure what you ask for.",
 "Este es el perfil más común y el más frustrante: usas IA todos los días y aun así sientes que no avanzas. El problema casi nunca es la herramienta, es que repites el mismo prompt básico. Te falta convertir lo que haces en plantillas y flujos reutilizables.":"This is the most common profile and the most frustrating: you use AI every day and still feel stuck. The problem is almost never the tool, it's that you repeat the same basic prompt. What's missing is turning what you do into reusable templates and flows.",
