@@ -645,7 +645,10 @@ function qSend(){
  if(!c){r.textContent="Necesitamos tu consentimiento para enviarte el diagn\u00f3stico.";r.style.display="block";return;}
  var b=document.getElementById("qBtn");
  b.disabled=true; b.textContent="Enviando...";
- var payload={nombre:n,email:e,whatsapp:w,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",origen:"quiz-landing",consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
+ var qEtq=function(kk,vv){for(var a=0;a<qQ.length;a++){if(qQ[a].k===kk){for(var b2=0;b2<qQ[a].o.length;b2++){if(qQ[a].o[b2][0]===vv)return qQ[a].o[b2][1];}}}return vv||"";};
+ var dP=qP[qA.nivel]||qP.casual, dK=qK[qA.dolor]||qK.escribir, dX=qE[qA.freno]||"";
+ if(qA.tiempo==="poco"&&!dX)dX=qE.tiempo;
+ var payload={nombre:n,email:e,whatsapp:w,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",nivelTexto:qEtq("nivel",qA.nivel),dolorTexto:qEtq("dolor",qA.dolor),frenoTexto:qA.frenoTexto||"",tiempoTexto:qEtq("tiempo",qA.tiempo),dedicacionTexto:qEtq("perfil",qA.perfil),metaTexto:qEtq("meta",qA.meta),diagPerfil:dP.n,diagTexto:dP.d+dX,diagSemana:dK.t,diagSemanaTexto:dK.x,origen:"quiz-landing",consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
  // El lead se guarda SIEMPRE en nuestra base. Make es un extra:
  // si Make falla, el contacto no se pierde.
  var SB="https://axpmcqforouffrxmvgvg.supabase.co", SBK="sb_publishable_4r7sZviCcYUQds3ugyJBoQ_GZaUA17e";
@@ -700,6 +703,7 @@ function qArranque(){
   (function(b){
    b.onclick=function(){
     qA.freno=b.getAttribute("data-f");
+    qA.frenoTexto=(b.textContent||"").trim();
     b.classList.add("on");
     if(zona)zona.classList.add("eligio");
     if(lead)lead.classList.add("oculto");
