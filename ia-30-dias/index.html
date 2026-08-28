@@ -713,7 +713,7 @@ function qSend(){
  });
  fetch("https://hook.us2.make.com/zyp3c379omqerahhxsmqj02z0rbb5myb",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
  guardar
-  .then(function(res){ if(!res.ok) throw new Error("http "+res.status); qGracias(n); })
+  .then(function(res){ if(!res.ok) throw new Error("http "+res.status); mide("completado"); qGracias(n); })
   .catch(function(){
     b.disabled=false; b.textContent="Enviarme mi ruta personalizada";
     r.innerHTML="No pudimos enviarlo. Escr\u00edbenos por <a href=\"https://wa.me/17865271196\" style=\"color:var(--violet-l)\">WhatsApp</a> y te lo mandamos igual.";
@@ -747,8 +747,22 @@ function qGracias(n){
   '</div>';
  qScroll();
 }
+
+/* ---- medicion del embudo: visita, inicio y completado ---- */
+var MSB="https://axpmcqforouffrxmvgvg.supabase.co", MKEY="sb_publishable_4r7sZviCcYUQds3ugyJBoQ_GZaUA17e";
+function mSesion(){try{var s=sessionStorage.getItem("l5s");if(!s){s=Date.now().toString(36)+Math.random().toString(36).slice(2,8);sessionStorage.setItem("l5s",s);}return s;}catch(e){return "anon";}}
+function mide(tipo){
+ try{
+  var u=new URLSearchParams(location.search);
+  var cuerpo={tipo:tipo,sesion:mSesion(),pagina:location.pathname,referente:(document.referrer||"").slice(0,300),
+   utm_source:u.get("utm_source")||"",utm_medium:u.get("utm_medium")||"",utm_campaign:u.get("utm_campaign")||"",
+   dispositivo:(window.innerWidth<760?"movil":"escritorio"),idioma:document.documentElement.lang||"es"};
+  fetch(MSB+"/rest/v1/web_eventos",{method:"POST",headers:{"Content-Type":"application/json",apikey:MKEY,Authorization:"Bearer "+MKEY,Prefer:"return=minimal"},body:JSON.stringify(cuerpo),keepalive:true}).catch(function(){});
+ }catch(e){}
+}
 function qArranque(){
  qA={};
+ mide("visita");
  var cs=document.querySelectorAll(".dolor");
  var zona=document.getElementById("dolores");
  var card=document.getElementById("qCard");
@@ -757,6 +771,7 @@ function qArranque(){
   (function(b){
    b.onclick=function(){
     qA.freno=b.getAttribute("data-f");
+    mide("inicio");
     qA.frenoTexto=(b.textContent||"").trim();
     b.classList.add("on");
     if(zona)zona.classList.add("eligio");
