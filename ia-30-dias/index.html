@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>¿Qué te está frenando con la IA? · Diagnóstico gratuito | Learn5</title>
-<meta name="description" content="Responde 6 preguntas y descubre qué te está frenando con la inteligencia artificial y por dónde empezar. Diagnóstico gratuito. Programa de 30 días, una herramienta por día, desde Miami.">
+<meta name="description" content="Responde unas preguntas y descubre qué te está frenando con la inteligencia artificial y por dónde empezar. Diagnóstico gratuito. Programa de 30 días, una herramienta por día, desde Miami.">
 <link rel="canonical" href="https://learn5.pro/ia-30-dias/">
 <meta property="og:title" content="¿Qué te está frenando con la IA? · Diagnóstico gratuito">
-<meta property="og:description" content="90 segundos y sin tarjeta. Te decimos qué te frena y por dónde empezar.">
+<meta property="og:description" content="2 minutos y sin tarjeta. Te decimos qué te frena y por dónde empezar.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://learn5.pro/ia-30-dias/">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,7 +19,7 @@
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:image" content="https://learn5.pro/ia-30-dias/og-image.png">
 <meta name="twitter:title" content="¿Qué te está frenando con la IA? · Diagnóstico gratuito">
-<meta name="twitter:description" content="90 segundos y sin tarjeta. Te decimos qué te frena y por dónde empezar.">
+<meta name="twitter:description" content="2 minutos y sin tarjeta. Te decimos qué te frena y por dónde empezar.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#08061A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%2308061A%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Helvetica,Arial,sans-serif%27 font-size=%2738%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%233E8FFF%27%3E5%3C/text%3E%3C/svg%3E">
@@ -365,7 +365,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
       <button class="dolor" data-f="metodo">Pruebo herramientas sueltas, sin método</button>
     </div>
 
-    <p class="portada-lead" id="portadaLead">90 segundos, sin costo y sin tarjeta. Al final te decimos por dónde empezar.</p>
+    <p class="portada-lead" id="portadaLead">2 minutos, sin costo y sin tarjeta. Al final te decimos por dónde empezar.</p>
 
     <div class="qcard" id="qCard">
       <div class="qbarw"><div class="qbar" id="qBar"></div></div>
@@ -559,25 +559,51 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 <script>
 
 var qQ=[
-{k:"nivel",q:"\u00bfCu\u00e1l describe mejor tu situaci\u00f3n hoy?",o:[
+{k:"nivel",q:"¿Cuál describe mejor tu situación hoy?",o:[
 ["nuevo","Nunca he usado herramientas de IA en serio"],
-["casual","Uso ChatGPT de vez en cuando, sin m\u00e9todo"],
+["casual","Uso ChatGPT de vez en cuando, sin método"],
 ["estancado","La uso casi a diario, pero siento que le saco poco"],
-["avanzado","Ya automatizo cosas y quiero llevarlo m\u00e1s lejos"]]},
-{k:"dolor",q:"\u00bfEn qu\u00e9 se te va m\u00e1s tiempo cada semana?",o:[
+["avanzado","Ya automatizo cosas y quiero llevarlo más lejos"]]},
+{k:"multi",q:"Además de escribir texto, ¿para qué más has usado la IA?",o:[
+["solotexto","Solo texto. No he probado nada más"],
+["imagen","Para crear imágenes o diseños"],
+["vozvideo","Para voz, audio o video"],
+["docs","Le he pasado documentos o fotos para que los lea"],
+["varias","Varias de estas, pero sin método"]]},
+{k:"dolor",q:"¿En qué se te va más tiempo cada semana?",o:[
 ["escribir","Escribir: correos, propuestas, contenido"],
-["visual","Crear material visual: im\u00e1genes, video, presentaciones"],
-["repetitivo","Tareas repetitivas: datos, seguimiento, administraci\u00f3n"],
+["visual","Crear material visual: imágenes, video, presentaciones"],
+["repetitivo","Tareas repetitivas: datos, seguimiento, administración"],
 ["clientes","Atender clientes y responder lo mismo una y otra vez"]]},
-{k:"tiempo",q:"\u00bfCu\u00e1nto tiempo real puedes dedicarle al d\u00eda?",o:[
+{k:"herr",q:"¿Cuál de estas usas más?",o:[
+["chatgpt","ChatGPT"],
+["gemini","Gemini"],
+["claude","Claude"],
+["copilot","Copilot"],
+["ninguna","Ninguna en concreto, voy probando"]]},
+{k:"sector",q:"¿En qué sector trabajas?",o:[
+["inmobiliaria","Bienes raíces"],
+["servicios","Servicios profesionales o consultoría"],
+["comercio","Comercio, restauración o retail"],
+["salud","Salud o bienestar"],
+["educacion","Educación o formación"],
+["otro","Otro"]]},
+{k:"perfil",q:"¿A qué te dedicas?",o:[
+["emprendedor","Emprendedor o dueño de negocio"],
+["freelance","Freelance o consultor independiente"],
+["empleado","Empleado en una empresa"],
+["docente","Docente o formador"]]},
+{k:"equipo",q:"¿Trabajas solo o con más gente?",o:[
+["solo","Solo, todo lo hago yo"],
+["pocos","Con dos o tres personas"],
+["grande","Tengo un equipo de más de cinco"],
+["consolo","Sin empleados, pero con clientes fijos"]]},
+{k:"tiempo",q:"¿Cuánto tiempo real puedes dedicarle al día?",o:[
 ["poco","Menos de 15 minutos"],["medio","Entre 15 y 30 minutos"],
-["bueno","Entre 30 y 60 minutos"],["mucho","M\u00e1s de 1 hora"]]},
-{k:"perfil",q:"\u00bfA qu\u00e9 te dedicas?",o:[
-["emprendedor","Emprendedor o due\u00f1o de negocio"],["freelance","Freelance o consultor independiente"],
-["empleado","Empleado en una empresa"],["docente","Docente o formador"]]},
-{k:"meta",q:"Si en 30 d\u00edas lograras UNA sola cosa, \u00bfcu\u00e1l ser\u00eda?",o:[
-["horas","Recuperar horas de mi semana"],["vender","Vender m\u00e1s y conseguir clientes"],
-["contenido","Crear contenido sin depender de nadie"],["agente","Tener un agente de IA trabajando para m\u00ed"]]}
+["bueno","Entre 30 y 60 minutos"],["mucho","Más de 1 hora"]]},
+{k:"meta",q:"Si en 30 días lograras UNA sola cosa, ¿cuál sería?",o:[
+["horas","Recuperar horas de mi semana"],["vender","Vender más y conseguir clientes"],
+["contenido","Crear contenido sin depender de nadie"],["agente","Tener un agente de IA trabajando para mí"]]}
 ];
 var qP={
 nuevo:{n:"El Explorador",d:"Est\u00e1s en el mejor punto de partida posible: sin vicios ni atajos mal aprendidos. Tu riesgo no es la falta de capacidad, es perderte entre las 300 herramientas que aparecen cada mes. Necesitas una secuencia, no un cat\u00e1logo."},
@@ -601,9 +627,24 @@ tecnico:" Y no, no necesitas programar: ninguna de las 30 herramientas requiere 
 tiempo:" Con 15 a 20 minutos al d\u00eda avanzas sin problema: el campus est\u00e1 disponible 24/7 y no hay horarios fijos.",
 empezar:" Por eso el programa va en orden: una herramienta por d\u00eda, en secuencia, sin que tengas que decidir qu\u00e9 sigue."
 };
+var qSec={
+inmobiliaria:" Y en bienes raíces esto pesa el doble: las mismas preguntas de precio, disponibilidad y visitas, cada día y a cada contacto.",
+servicios:" En servicios profesionales tu tiempo es el producto, así que cada hora que recuperas es margen directo, no una comodidad.",
+comercio:" En comercio y restauración el cuello de botella casi siempre es el contenido y responder a clientes, y las dos cosas se automatizan.",
+salud:" En salud y bienestar el reto no es ir rápido: es que lo que sale suene a ti y no a una máquina. Eso se resuelve con plantillas propias, no con atajos.",
+educacion:" En educación la IA no te sustituye: te quita la preparación repetitiva y te devuelve las horas para lo que sí necesita criterio.",
+otro:""
+};
+var qMul={
+solotexto:" Y algo importante: solo has usado texto. La mitad de lo que hoy hace la IA es imagen, voz y video, y esa es la semana 2 entera esperándote.",
+imagen:" Ya usas IA para imagen, así que tu salto no está ahí: está en conectar lo que haces para que se ejecute solo.",
+vozvideo:" Haber probado voz o video te pone por delante de la mayoría. Lo que te falta no es herramienta: es orden y repetición.",
+docs:" Que le pases documentos para que los lea es justo la puerta a NotebookLM, que es el día 4 y el que más sorprende a todo el mundo.",
+varias:" Has probado de todo un poco, y ese es exactamente el patrón que produce la sensación de no avanzar. No te falta exploración: te falta secuencia."
+};
 var qA={},qC=0;
 function qEsc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
-function qBar(n){var b=document.getElementById("qBar");if(b)b.style.width=Math.round((n/6)*100)+"%";}
+function qBar(n){var b=document.getElementById("qBar");if(b)b.style.width=Math.round((n/10)*100)+"%";}
 var qPrimera=true;
 function qScroll(){if(qPrimera){qPrimera=false;return;}var c=document.querySelector(".quiz-card");if(c)c.scrollIntoView({behavior:"smooth",block:"center"});}
 function qIntro(){
@@ -611,7 +652,7 @@ function qIntro(){
  document.getElementById("qBody").innerHTML=
   '<div class="qstep on"><p class="qq">La mayor\u00eda no falla por falta de herramientas. Falla por no saber cu\u00e1l usar primero.</p>'+
   '<p style="color:var(--gray2);font-size:15px;line-height:1.7">Responde 6 preguntas y te decimos en qu\u00e9 punto est\u00e1s, qu\u00e9 te est\u00e1 frenando y por d\u00f3nde empezar para ver resultados en los primeros 7 d\u00edas.</p>'+
-  '<div class="qmeta"><span>90 segundos</span><span>Ruta personalizada</span><span>30 prompts gratis</span></div>'+
+  '<div class="qmeta"><span>2 minutos</span><span>Ruta personalizada</span><span>30 prompts gratis</span></div>'+
   '<button class="qbtn" onclick="qStart()">Empezar mi diagn\u00f3stico</button></div>';
 }
 function qStart(){qC=0;qA={};qShow(0);}
@@ -625,12 +666,13 @@ function qShow(i){
 }
 function qPick(k,v){qA[k]=v;qShow(qC+1);}
 function qRes(){
- qBar(6);
+ qBar(10);
  var p=qP[qA.nivel]||qP.casual,k=qK[qA.dolor]||qK.escribir,x=qE[qA.freno]||"";
+ var sct=qSec[qA.sector]||"",mlt=qMul[qA.multi]||"";
  if(qA.tiempo==="poco"&&!x)x=qE.tiempo;
  var h='<div class="qstep on"><div class="qbadge">Tu diagn\u00f3stico</div>'+
  '<p class="qprof">Tu perfil: <span>'+qEsc(p.n)+'</span></p>'+
- '<p class="qdiag">'+qEsc(p.d+x)+'</p>'+
+ '<p class="qdiag">'+qEsc(p.d+x+sct+mlt)+'</p>'+
  '<div class="qkey"><b>'+qEsc(k.t)+'</b><p>'+qEsc(k.x)+'</p></div>'+
  '<div class="qgate"><h4>Recibe tu ruta completa + 30 prompts listos para usar</h4>'+
  '<p>Te enviamos por correo tu plan de 30 d\u00edas adaptado a este resultado, junto con nuestra gu\u00eda de 30 prompts probados. Sin costo.</p>'+
@@ -660,14 +702,14 @@ function qSend(){
  var qEtq=function(kk,vv){for(var a=0;a<qQ.length;a++){if(qQ[a].k===kk){for(var b2=0;b2<qQ[a].o.length;b2++){if(qQ[a].o[b2][0]===vv)return qQ[a].o[b2][1];}}}return vv||"";};
  var dP=qP[qA.nivel]||qP.casual, dK=qK[qA.dolor]||qK.escribir, dX=qE[qA.freno]||"";
  if(qA.tiempo==="poco"&&!dX)dX=qE.tiempo;
- var payload={nombre:n,email:e,whatsapp:w,nivel:qEtq("nivel",qA.nivel),dolor:qEtq("dolor",qA.dolor),freno:qA.frenoTexto||"",tiempo:qEtq("tiempo",qA.tiempo),perfil:qEtq("perfil",qA.perfil),meta:qEtq("meta",qA.meta),clave_nivel:qA.nivel||"",clave_dolor:qA.dolor||"",clave_freno:qA.freno||"",nivelTexto:qEtq("nivel",qA.nivel),dolorTexto:qEtq("dolor",qA.dolor),frenoTexto:qA.frenoTexto||"",tiempoTexto:qEtq("tiempo",qA.tiempo),dedicacionTexto:qEtq("perfil",qA.perfil),metaTexto:qEtq("meta",qA.meta),diagPerfil:dP.n,diagTexto:dP.d+dX,diagSemana:dK.t,diagSemanaTexto:dK.x,origen:"quiz-landing",consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
+ var payload={nombre:n,email:e,whatsapp:w,nivel:qEtq("nivel",qA.nivel),dolor:qEtq("dolor",qA.dolor),freno:qA.frenoTexto||"",tiempo:qEtq("tiempo",qA.tiempo),perfil:qEtq("perfil",qA.perfil),meta:qEtq("meta",qA.meta),clave_nivel:qA.nivel||"",clave_dolor:qA.dolor||"",clave_freno:qA.freno||"",nivelTexto:qEtq("nivel",qA.nivel),dolorTexto:qEtq("dolor",qA.dolor),frenoTexto:qA.frenoTexto||"",tiempoTexto:qEtq("tiempo",qA.tiempo),dedicacionTexto:qEtq("perfil",qA.perfil),metaTexto:qEtq("meta",qA.meta),sectorTexto:qEtq("sector",qA.sector),multiTexto:qEtq("multi",qA.multi),herramientaTexto:qEtq("herr",qA.herr),equipoTexto:qEtq("equipo",qA.equipo),diagPerfil:dP.n,diagTexto:dP.d+dX+(qSec[qA.sector]||"")+(qMul[qA.multi]||""),diagSemana:dK.t,diagSemanaTexto:dK.x,origen:"quiz-landing",consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
  // El lead se guarda SIEMPRE en nuestra base. Make es un extra:
  // si Make falla, el contacto no se pierde.
  var SB="https://axpmcqforouffrxmvgvg.supabase.co", SBK="sb_publishable_4r7sZviCcYUQds3ugyJBoQ_GZaUA17e";
  var guardar = fetch(SB+"/rest/v1/diagnosticos",{
    method:"POST",
    headers:{"Content-Type":"application/json",apikey:SBK,Authorization:"Bearer "+SBK,Prefer:"return=minimal"},
-   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",origen:"diagnostico-web"})
+   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",sector:qA.sector||"",multi:qA.multi||"",herramienta:qA.herr||"",equipo:qA.equipo||"",origen:"diagnostico-web"})
  });
  fetch("https://hook.us2.make.com/zyp3c379omqerahhxsmqj02z0rbb5myb",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
  guardar
@@ -679,7 +721,7 @@ function qSend(){
   });
 }
 function qGracias(n){
- qBar(6);
+ qBar(10);
  document.getElementById("qBody").innerHTML=
   '<div class="qstep on">'+
   '<div class="qbadge">Listo</div>'+
