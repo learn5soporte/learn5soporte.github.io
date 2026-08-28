@@ -284,6 +284,11 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 .qopt:hover{background:rgba(62,143,255,.1);border-color:rgba(62,143,255,.42);color:var(--w)}
 .qopt:active{transform:scale(.995)}
 .qopt:disabled{cursor:default;opacity:.55}
+@media(max-width:760px){
+  .qopt{padding:12px 15px;font-size:14.5px;margin-bottom:7px}
+  .qq{font-size:19px;margin-bottom:16px}
+  .qcard{padding:var(--s3) 18px var(--s3)}
+}
 .qopt.ok{background:rgba(29,158,117,.14);border-color:rgba(29,158,117,.45);color:var(--teal-l);opacity:1}
 .qopt.no{background:rgba(226,75,74,.12);border-color:rgba(226,75,74,.4);color:var(--red-l);opacity:1}
 .qback{background:none;border:none;color:var(--g3);font-family:inherit;font-size:13.5px;cursor:pointer;padding:10px 0 0;text-decoration:underline}
@@ -646,7 +651,7 @@ var qA={},qC=0;
 function qEsc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 function qBar(n){var b=document.getElementById("qBar");if(b)b.style.width=Math.round((n/10)*100)+"%";}
 var qPrimera=true;
-function qScroll(){if(qPrimera){qPrimera=false;return;}var c=document.querySelector(".quiz-card");if(c)c.scrollIntoView({behavior:"smooth",block:"center"});}
+function qScroll(){if(qPrimera){qPrimera=false;return;}var c=document.getElementById("qCard");if(!c)return;var y=0,n=c;while(n){y+=n.offsetTop;n=n.offsetParent;}window.scrollTo({top:Math.max(0,y-76),behavior:"smooth"});}
 function qIntro(){
  qC=0;qBar(0);
  document.getElementById("qBody").innerHTML=
