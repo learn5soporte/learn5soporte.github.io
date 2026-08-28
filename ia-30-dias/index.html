@@ -337,6 +337,11 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 .op-d{display:block;font-size:12px;color:var(--g3);margin-top:5px}
 .oferta-d{font-size:14px;color:var(--g2);line-height:1.65;margin-bottom:16px}
 .oferta-z{background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-bottom:18px}
+.pagarpp{display:block;text-align:center;background:#0070BA;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15.5px;padding:14px;border-radius:11px;text-decoration:none;margin:6px 0 10px;transition:filter .15s}
+.pagarpp:hover{filter:brightness(1.12)}
+.pagarnota{font-size:12px;color:var(--g3);line-height:1.5;margin:0}
+.pagarcomun{font-size:13px;color:var(--g2);line-height:1.6;margin:0 0 16px}
+.oferta-z{margin-bottom:12px}
 .oferta-z b{display:block;font-family:'Space Grotesk';font-size:14px;color:var(--w);margin-bottom:8px}
 .oferta-z p{font-size:13.5px;color:var(--g1);line-height:1.8}
 </style>
@@ -735,17 +740,23 @@ function qGracias(n){
   '<div class="oferta">'+
     '<p class="oferta-t">Si quieres el programa completo</p>'+
     '<div class="oferta-p">'+
-      '<div class="op"><span class="op-n">$96</span><span class="op-d">Pago \u00fanico</span></div>'+
-      '<div class="op destacado"><span class="op-n">$49<em> + $49</em></span><span class="op-d">La segunda a los 15 d\u00edas</span></div>'+
+      '<div class="op"><span class="op-n">$96</span><span class="op-d">Zelle o PayPal</span></div>'+
+      '<div class="op destacado"><span class="op-n">$49<em> + $49</em></span><span class="op-d">A los 15 d\u00edas \u00b7 solo Zelle</span></div>'+
     '</div>'+
     '<p class="oferta-d">Los 30 d\u00edas completos, a tu ritmo. <b>6 meses de acceso</b> y <b>30 d\u00edas de soporte directo</b> conmigo. Garant\u00eda de 7 d\u00edas: si no te sirve, te devolvemos el dinero.</p>'+
     '<div class="oferta-z">'+
-      '<b>C\u00f3mo pagar</b>'+
-      '<p>1. Zelle a <span class="dato">contacto@learn5.tech</span> — Bank of America, a nombre de Learn5 LLC.<br>'+
-      '2. En el concepto, tu nombre y <b>IA30</b>.<br>'+
-      '3. Mandas el comprobante por WhatsApp o correo.<br>'+
-      '4. Te damos el acceso en menos de 24 horas.</p>'+
+      '<b>Si est\u00e1s en Estados Unidos</b>'+
+      '<p>Zelle a <span class="dato">contacto@learn5.tech</span> \u2014 Bank of America, a nombre de Learn5 LLC.<br>'+
+      'En el concepto: tu nombre y <b>IA30</b>.<br>'+
+      'Puedes pagar los $96 de una vez, o $49 ahora y $49 a los 15 d\u00edas.</p>'+
     '</div>'+
+    '<div class="oferta-z">'+
+      '<b>Si est\u00e1s fuera de Estados Unidos</b>'+
+      '<p>Paga con tarjeta o con tu cuenta de PayPal, desde cualquier pa\u00eds.</p>'+
+      '<a class="pagarpp" href="https://paypal.me/GelkinPulidoRuiz/96" target="_blank" rel="noopener">Pagar $96 con PayPal</a>'+
+      '<p class="pagarnota">Pago \u00fanico. El cobro aparece a nombre de Gelkin Pulido, fundador de Learn5.</p>'+
+    '</div>'+
+    '<p class="pagarcomun">En los dos casos: m\u00e1ndanos el comprobante por WhatsApp o por correo y te damos el acceso en menos de 24 horas.</p>'+
     '<a class="qbtn" style="text-decoration:none;display:block;box-sizing:border-box;text-align:center" href="https://wa.me/17865271196?text=Hola%2C%20acabo%20de%20hacer%20el%20diagn%C3%B3stico%20y%20quiero%20inscribirme%20en%20IA%20en%2030%20D%C3%ADas" target="_blank" rel="noopener">Quiero inscribirme</a>'+
   '</div>'+
   '<p class="qnote">Sin prisa: la ruta que te mandamos ya te sirve aunque no compres nada.</p>'+
