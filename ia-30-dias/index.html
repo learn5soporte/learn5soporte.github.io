@@ -110,6 +110,8 @@ b,strong{color:var(--w);font-weight:600}
 
 /* ─────────── 1. diagnóstico (portada) ─────────── */
 .portada{padding:var(--s6) 0 var(--s5);text-align:center;position:relative}
+.portada-eye{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue-l);border:1px solid rgba(62,143,255,.28);background:rgba(62,143,255,.08);border-radius:100px;padding:7px 15px;margin-bottom:var(--s3)}
+.portada-eye i{width:6px;height:6px;border-radius:50%;background:var(--blue);font-style:normal}
 .portada::after{
   content:'';position:absolute;left:50%;top:-80px;transform:translateX(-50%);
   width:820px;height:520px;pointer-events:none;z-index:-1;
@@ -376,6 +378,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 <!-- ══ 1 · EL DIAGNÓSTICO ══ -->
 <section class="portada">
   <div class="wrap">
+    <p class="portada-eye"><i></i>Diagnóstico gratuito de IA</p>
     <h1>¿Qué te está frenando<br><em>con la IA?</em></h1>
 
     <p class="dolor-t">Toca la que más se parezca a ti</p>
