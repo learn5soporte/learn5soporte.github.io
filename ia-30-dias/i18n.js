@@ -136,6 +136,8 @@ var D={
 "Inicio":"Home",
 "Privacidad":"Privacy",
 "Términos":"Terms",
+"Transformamos la educación en LATAM y EE.UU. con inteligencia artificial. EdTech con sede en Miami, Florida. LLC desde marzo 2024.":"We transform education across Latin America and the U.S. with artificial intelligence. An EdTech company based in Miami, Florida. An LLC since March 2024.",
+"© 2024–2026 Learn5 LLC · Miami, Florida · Todos los derechos reservados.":"© 2024–2026 Learn5 LLC · Miami, Florida · All rights reserved.",
 
 "Pregunta 1 de 9":"Question 1 of 9",
 "Pregunta 2 de 9":"Question 2 of 9",
