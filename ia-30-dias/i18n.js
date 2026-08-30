@@ -11,6 +11,7 @@
 var D={
 "¿Qué te está frenando":"What's holding you back",
 "con la IA?":"with AI?",
+"Aprende IA de verdad":"Learn AI for real",
 "Diagnóstico gratuito de IA":"Free AI diagnostic",
 "Toca la que más se parezca a ti":"Tap the one that sounds most like you",
 "Abro ChatGPT y no sé qué pedirle":"I open ChatGPT and go blank",
