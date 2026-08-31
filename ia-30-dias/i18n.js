@@ -11,6 +11,13 @@
 var D={
 "¿Qué te está frenando":"What's holding you back",
 "con la IA?":"with AI?",
+"Los primeros":"The first ones",
+"Lo que dijeron quienes ya entraron":"What the first students said",
+"Todavía somos pocos. Estas son las dos primeras opiniones, tal como nos llegaron.":"We are still few. These are the first two opinions, exactly as we received them.",
+"“Está muy bien. Te da muchos conceptos y temario aplicable.”":"“It is really good. It gives you a lot of concepts and material you can actually apply.”",
+"“Interfaz amigable y sencilla, dirigida a que aprendas.”":"“Friendly, simple interface, built so that you actually learn.”",
+"Acceso anticipado · Semana 1":"Early access · Week 1",
+"Ana y Andrés son de los primeros en entrar y tuvieron acceso sin costo a cambio de su opinión sincera. Lo decimos porque nos parece lo correcto, y porque cuando haya opiniones de alumnos que pagaron, también lo vamos a decir.":"Ana and Andrés were among the first to join and received free access in exchange for their honest opinion. We say so because it is the right thing to do — and when we have reviews from paying students, we will say that too.",
 "Aprende IA de verdad":"Learn AI for real",
 "Diagnóstico gratuito de IA":"Free AI diagnostic",
 "Toca la que más se parezca a ti":"Tap the one that sounds most like you",
