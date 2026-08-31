@@ -239,6 +239,15 @@ b,strong{color:var(--w);font-weight:600}
 
 /* ─────────── 7. preguntas ─────────── */
 .faq{max-width:760px;margin:var(--s5) auto 0}
+.voces{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s4)}
+.voz{margin:0;background:var(--ink2);border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+.voz blockquote{margin:0 0 17px;font-family:'Space Grotesk',sans-serif;font-size:19px;line-height:1.45;color:var(--w);letter-spacing:-.01em}
+.voz figcaption{display:flex;flex-direction:column;gap:3px}
+.voz figcaption b{color:var(--g1);font-size:14px}
+.voz figcaption span{color:var(--g3);font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.voz-nota{margin-top:var(--s3);font-size:12.5px;line-height:1.6;color:var(--g3);max-width:660px}
+@media(max-width:760px){.voces{grid-template-columns:1fr}}
+
 .f{border-bottom:1px solid var(--line)}
 .f button{
   width:100%;background:none;border:none;text-align:left;cursor:pointer;
@@ -544,6 +553,26 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══ 6 · LO QUE DICEN ══ -->
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Los primeros</p>
+    <h2 class="h-sec">Lo que dijeron quienes ya entraron</h2>
+    <p class="p-sec">Todavía somos pocos. Estas son las dos primeras opiniones, tal como nos llegaron.</p>
+    <div class="voces">
+      <figure class="voz">
+        <blockquote>“Está muy bien. Te da muchos conceptos y temario aplicable.”</blockquote>
+        <figcaption><b>Ana Torres</b><span>Acceso anticipado · Semana 1</span></figcaption>
+      </figure>
+      <figure class="voz">
+        <blockquote>“Interfaz amigable y sencilla, dirigida a que aprendas.”</blockquote>
+        <figcaption><b>Andrés Valbuena</b><span>Acceso anticipado · Semana 1</span></figcaption>
+      </figure>
+    </div>
+    <p class="voz-nota">Ana y Andrés son de los primeros en entrar y tuvieron acceso sin costo a cambio de su opinión sincera. Lo decimos porque nos parece lo correcto, y porque cuando haya opiniones de alumnos que pagaron, también lo vamos a decir.</p>
   </div>
 </section>
 
