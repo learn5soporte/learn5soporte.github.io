@@ -73,7 +73,7 @@ var D={
 "Producir material que antes te costaba días o dinero, en una tarde y desde tu computador.":"Producing material that used to cost you days or money, in one afternoon, from your own computer.",
 "Semana 3 · Automatización":"Week 3 · Automation",
 "Que trabaje solo":"Let it run itself",
-"Conectar tus herramientas para que las tareas repetitivas se ejecuten sin ti. Sin escribir código.":"Connecting your tools so the repetitive work runs without you. No code.",
+"Conectar tus herramientas para que lo repetitivo corra con más autonomía. Tú revisas y decides. Sin escribir código.":"Connecting your tools so the repetitive work runs with more autonomy. You review and decide. No code.",
 "Semana 4 · Agentes":"Week 4 · Agents",
 "Tu propio asistente":"Your own assistant",
 "Construyes un agente que atiende, responde y da seguimiento con tus reglas y tu tono.":"You build an agent that handles, answers and follows up using your rules and your tone.",
