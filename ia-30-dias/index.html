@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Course","name":"IA en 30 Días — Domina la Inteligencia Artificial","description":"Programa online autogestionado de 30 días para dominar más de 30 herramientas de inteligencia artificial: ChatGPT, Claude, Canva AI, Make, HeyGen y más. Sin programar. Campus disponible 24/7 con 6 meses de acceso y 30 dias de soporte directo.","url":"https://learn5.pro/ia-30-dias/","inLanguage":"es","provider":{"@type":"Organization","name":"Learn5","url":"https://learn5.pro/","logo":"https://learn5.pro/ia-30-dias/og-image.png","address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"}},"educationalLevel":"Principiante a intermedio","teaches":["Prompting avanzado con ChatGPT y Claude","Creación de contenido visual con IA","Automatización de procesos sin programar","Construcción de agentes de IA"],"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15H","instructor":{"@type":"Person","name":"Gelkin Pulido"}},"offers":{"@type":"Offer","price":"96","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://learn5.pro/ia-30-dias/","category":"Paid"}}
+{"@context":"https://schema.org","@type":"Course","name":"IA en 30 Días — Domina la Inteligencia Artificial","description":"Programa online autogestionado de 30 días para dominar más de 30 herramientas de inteligencia artificial: ChatGPT, Claude, Canva AI, Make, HeyGen y más. Sin programar. Campus disponible 24/7 con 6 meses de acceso y 30 dias de soporte directo.","url":"https://learn5.pro/ia-30-dias/","inLanguage":"es","provider":{"@type":"Organization","name":"Learn5","url":"https://learn5.pro/","logo":"https://learn5.pro/ia-30-dias/og-image.png","address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"}},"educationalLevel":"Principiante a intermedio","teaches":["Prompting avanzado con ChatGPT y Claude","Creación de contenido visual con IA","Automatización de procesos sin programar","Construcción de agentes de IA"],"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15H","instructor":{"@type":"Person","name":"Gelkin Pulido"}},"offers":{"@type":"Offer","price":"39","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://learn5.pro/ia-30-dias/","category":"Paid"}}
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"¿Necesito saber programar?","acceptedAnswer":{"@type":"Answer","text":"No. Ninguna de las 30 herramientas pide escribir código."}},
@@ -370,6 +370,15 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 .oferta-z{margin-bottom:12px}
 .oferta-z b{display:block;font-family:'Space Grotesk';font-size:14px;color:var(--w);margin-bottom:8px}
 .oferta-z p{font-size:13.5px;color:var(--g1);line-height:1.8}
+.pagos{display:grid;gap:9px;margin-bottom:14px}
+.pago{display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:12px;padding:13px 16px;color:var(--g1);font-family:inherit;cursor:pointer;text-decoration:none;transition:background .15s,border-color .15s}
+.pago:hover{background:rgba(62,143,255,.1);border-color:rgba(62,143,255,.42)}
+.pago b{font-family:'Space Grotesk';font-size:15px;color:var(--w);font-weight:600}
+.pago span{font-size:12.5px;color:var(--g3)}
+.pago-1{background:linear-gradient(135deg,var(--blue),var(--violet));border-color:transparent}
+.pago-1:hover{filter:brightness(1.08);background:linear-gradient(135deg,var(--blue),var(--violet))}
+.pago-1 span{color:rgba(255,255,255,.82)}
+.pagarcomun{font-size:12.5px;color:var(--g3);line-height:1.6;margin-top:4px}
 </style>
 </head>
 <body>
@@ -502,25 +511,25 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
         <p class="sem-n">Semana 1 · Fundamentos</p>
         <h3>Hablarle bien a la IA</h3>
         <p style="font-size:14.5px;color:var(--g2)">El método que hace que todo lo demás funcione: qué herramienta usar, cuándo, y cómo pedirle las cosas.</p>
-        <div class="sem-tools"><span class="tool">ChatGPT</span><span class="tool">Claude</span><span class="tool">Perplexity</span><span class="tool">NotebookLM</span><span class="tool">Gemini</span><span class="tool">Copilot</span><span class="tool">Gamma</span></div>
+        <div class="sem-tools"><span class="tool">ChatGPT</span><span class="tool">Claude</span><span class="tool">Perplexity</span><span class="tool">NotebookLM</span><span class="tool">Gemini</span><span class="tool">Copilot</span><span class="tool">Gamma</span><span class="tool">Copilot</span><span class="tool">Gamma</span></div>
       </div>
       <div class="sem" style="--c:#E86A4B">
         <p class="sem-n">Semana 2 · Contenido</p>
         <h3>Imagen, audio y video</h3>
         <p style="font-size:14.5px;color:var(--g2)">Producir material que antes te costaba días o dinero, en una tarde y desde tu computador.</p>
-        <div class="sem-tools"><span class="tool">Canva AI</span><span class="tool">Leonardo</span><span class="tool">ElevenLabs</span><span class="tool">HeyGen</span><span class="tool">Runway</span></div>
+        <div class="sem-tools"><span class="tool">Canva AI</span><span class="tool">Leonardo</span><span class="tool">ElevenLabs</span><span class="tool">HeyGen</span><span class="tool">CapCut</span><span class="tool">Kling AI</span><span class="tool">OpusClip</span><span class="tool">Ideogram</span></div>
       </div>
       <div class="sem" style="--c:#22B8CF">
         <p class="sem-n">Semana 3 · Automatización</p>
         <h3>Que trabaje solo</h3>
         <p style="font-size:14.5px;color:var(--g2)">Conectar tus herramientas para que lo repetitivo corra con más autonomía. Tú revisas y decides. Sin escribir código.</p>
-        <div class="sem-tools"><span class="tool">Make</span><span class="tool">Zapier</span><span class="tool">n8n</span><span class="tool">Notion AI</span><span class="tool">Otter.ai</span></div>
+        <div class="sem-tools"><span class="tool">Make</span><span class="tool">Zapier</span><span class="tool">Airtable</span><span class="tool">WhatsApp Business</span><span class="tool">Otter.ai</span><span class="tool">Cal.com</span><span class="tool">Tally</span></div>
       </div>
       <div class="sem" style="--c:#8B7BF5">
         <p class="sem-n">Semana 4 · Agentes</p>
         <h3>Tu propio asistente</h3>
         <p style="font-size:14.5px;color:var(--g2)">Construyes un agente que atiende, responde y da seguimiento con tus reglas y tu tono.</p>
-        <div class="sem-tools"><span class="tool">Custom GPTs</span><span class="tool">Claude Projects</span><span class="tool">Typebot</span><span class="tool">Voiceflow</span><span class="tool">Dify</span></div>
+        <div class="sem-tools"><span class="tool">Claude Projects</span><span class="tool">Gemini Gems</span><span class="tool">Typebot</span><span class="tool">Botpress</span><span class="tool">Voiceflow</span><span class="tool">Dify</span><span class="tool">Relevance AI</span><span class="tool">Google AI Studio</span></div>
       </div>
     </div>
   </div>
@@ -685,7 +694,7 @@ avanzado:{n:"El Constructor",d:"Ya pasaste la etapa de aprender herramientas sue
 var qK={
 escribir:{t:"Tu semana clave: Semana 1",x:"Fundamentos y prompting avanzado con ChatGPT y Claude. Vas a construir plantillas reutilizables para correos, propuestas y contenido: el trabajo de escritura deja de empezar desde cero cada vez."},
 visual:{t:"Tu semana clave: Semana 2",x:"IA visual y creaci\u00f3n de contenido. Canva AI, Leonardo, ElevenLabs y HeyGen: imagen, audio y video en una fracci\u00f3n del tiempo, sin depender de un dise\u00f1ador para cada pieza."},
-repetitivo:{t:"Tu semana clave: Semana 3",x:"Automatizaci\u00f3n sin programar. Make, Zapier y n8n conectan tus herramientas para que las tareas repetitivas se ejecuten solas. Es la semana con mayor retorno de horas."},
+repetitivo:{t:"Tu semana clave: Semana 3",x:"Automatizaci\u00f3n sin programar. Make, Zapier y Airtable conectan tus herramientas para que lo repetitivo corra sin que tú lo empujes. Es la semana con mayor retorno de horas."},
 clientes:{t:"Tu semana clave: Semana 4",x:"Construyes tu propio agente de IA: atenci\u00f3n al cliente, seguimiento y ventas funcionando sin que t\u00fa est\u00e9s presente. Sales del programa con un agente operativo, no con apuntes."}
 };
 var qE={
@@ -791,6 +800,14 @@ function qSend(){
     r.style.display="block";
   });
 }
+// Enlace de pago con tarjeta. Cuando tengas el de Stripe, pegalo entre las comillas
+// y listo. Mientras este vacio, el boton lleva a WhatsApp: nadie se queda a medias.
+var PAGO_TARJETA="";
+function enlacePago(){
+  if(PAGO_TARJETA) return PAGO_TARJETA;
+  return 'https://wa.me/17865271196?text='+encodeURIComponent('Hola, quiero inscribirme en IA en 30 Dias y pagar con tarjeta.');
+}
+function qZelle(){var z=document.getElementById('zelleBox');if(z)z.style.display=(z.style.display==='none'?'block':'none');}
 function qGracias(n){
  qBar(10);
  document.getElementById("qBody").innerHTML=
@@ -801,23 +818,21 @@ function qGracias(n){
   '<div class="oferta">'+
     '<p class="oferta-t">Si quieres el programa completo</p>'+
     '<div class="oferta-p">'+
-      '<div class="op"><span class="op-n">$96</span><span class="op-d">Zelle o PayPal</span></div>'+
-      '<div class="op destacado"><span class="op-n">$49<em> + $49</em></span><span class="op-d">A los 15 d\u00edas \u00b7 solo Zelle</span></div>'+
+      '<div class="op destacado"><span class="op-n">$39</span><span class="op-d">Lanzamiento \u00b7 primera cohorte</span></div>'+
+      '<div class="op"><span class="op-n" style="color:var(--g2)">$49</span><span class="op-d">Desde la segunda cohorte</span></div>'+
     '</div>'+
     '<p class="oferta-d">Los 30 d\u00edas completos, a tu ritmo. <b>6 meses de acceso</b> y <b>30 d\u00edas de soporte directo</b> conmigo. Garant\u00eda de 7 d\u00edas: si no te sirve, te devolvemos el dinero.</p>'+
-    '<div class="oferta-z">'+
-      '<b>Si est\u00e1s en Estados Unidos</b>'+
+    '<div class="pagos">'+
+      '<a class="pago pago-1" href="'+enlacePago()+'" target="_blank" rel="noopener"><b>Pagar con tarjeta</b><span>D\u00e9bito o cr\u00e9dito \u00b7 pago seguro</span></a>'+
+      '<a class="pago" href="https://paypal.me/GelkinPulidoRuiz/39" target="_blank" rel="noopener"><b>Pagar con PayPal</b><span>Con tu cuenta, o con tarjeta como invitado</span></a>'+
+      '<button class="pago" type="button" onclick="qZelle()"><b>Pagar por Zelle</b><span>Solo EE. UU. \u00b7 sin comisi\u00f3n</span></button>'+
+    '</div>'+
+    '<div class="oferta-z" id="zelleBox" style="display:none">'+
+      '<b>Datos para Zelle</b>'+
       '<p>Zelle a <span class="dato">contacto@learn5.tech</span> \u2014 Bank of America, a nombre de Learn5 LLC.<br>'+
-      'En el concepto: tu nombre y <b>IA30</b>.<br>'+
-      'Puedes pagar los $96 de una vez, o $49 ahora y $49 a los 15 d\u00edas.</p>'+
+      'En el concepto: tu nombre y <b>IA30</b>.</p>'+
     '</div>'+
-    '<div class="oferta-z">'+
-      '<b>Si est\u00e1s fuera de Estados Unidos</b>'+
-      '<p>Paga con tarjeta o con tu cuenta de PayPal, desde cualquier pa\u00eds.</p>'+
-      '<a class="pagarpp" href="https://paypal.me/GelkinPulidoRuiz/96" target="_blank" rel="noopener">Pagar $96 con PayPal</a>'+
-      '<p class="pagarnota">Pago \u00fanico. El cobro aparece a nombre de Gelkin Pulido, fundador de Learn5.</p>'+
-    '</div>'+
-    '<p class="pagarcomun">En los dos casos: m\u00e1ndanos el comprobante por WhatsApp o por correo y te damos el acceso en menos de 24 horas.</p>'+
+    '<p class="pagarcomun">Pagues como pagues, m\u00e1ndanos el comprobante por WhatsApp o por correo y te damos el acceso en menos de 24 horas. El cobro de PayPal aparece a nombre de Gelkin Pulido, fundador de Learn5.</p>'+
     '<a class="qbtn" style="text-decoration:none;display:block;box-sizing:border-box;text-align:center" href="https://wa.me/17865271196?text=Hola%2C%20acabo%20de%20hacer%20el%20diagn%C3%B3stico%20y%20quiero%20inscribirme%20en%20IA%20en%2030%20D%C3%ADas" target="_blank" rel="noopener">Quiero inscribirme</a>'+
   '</div>'+
   '<p class="qnote">Sin prisa: la ruta que te mandamos ya te sirve aunque no compres nada.</p>'+
