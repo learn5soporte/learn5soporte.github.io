@@ -802,7 +802,7 @@ function qSend(){
 }
 // Enlace de pago con tarjeta. Cuando tengas el de Stripe, pegalo entre las comillas
 // y listo. Mientras este vacio, el boton lleva a WhatsApp: nadie se queda a medias.
-var PAGO_TARJETA="";
+var PAGO_TARJETA="https://buy.stripe.com/00wfZ9gHO0tTgNR4qkd3i00";
 function enlacePago(){
   if(PAGO_TARJETA) return PAGO_TARJETA;
   return 'https://wa.me/17865271196?text='+encodeURIComponent('Hola, quiero inscribirme en IA en 30 Dias y pagar con tarjeta.');
