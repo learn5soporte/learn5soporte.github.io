@@ -60,12 +60,12 @@ document.head.appendChild(st);
 
 /* ─────────────── 1 · la cinta ─────────────── */
 var HERR=[
-["🤖","ChatGPT"],["✨","Claude"],["🔮","Gemini"],["🔍","Perplexity"],["📓","NotebookLM"],
-["🪟","Copilot"],["🎨","Canva AI"],["🖼️","Leonardo AI"],["🎙️","ElevenLabs"],["🎬","HeyGen"],
-["✂️","CapCut AI"],["🎥","Runway"],["⚙️","Make"],["⚡","Zapier"],["🔀","n8n"],
-["📋","Notion AI"],["💬","Typebot"],["📊","Gamma"],["🧠","Custom GPTs"],["📁","Claude Projects"],
-["🤝","Dify"],["🗣️","Voiceflow"],["🧑‍💼","Lindy"],["🗃️","Airtable AI"],["💭","Chatbase"],
-["🔊","Suno AI"],["📝","Otter.ai"],["🕸️","Relevance AI"],["📞","Retell AI"],["📈","AdCreative.ai"]
+["🤖","ChatGPT"],["✨","Claude"],["🔍","Perplexity"],["📓","NotebookLM"],["🔮","Gemini"],
+["🪟","Copilot"],["📊","Gamma"],["🎨","Canva AI"],["🖼️","Leonardo"],["🎙️","ElevenLabs"],
+["🎬","HeyGen"],["✂️","CapCut"],["🎞️","Kling AI"],["🔪","OpusClip"],["🖌️","Ideogram"],
+["⚙️","Make"],["⚡","Zapier"],["🗃️","Airtable"],["💚","WhatsApp Business"],["📝","Otter.ai"],
+["📅","Cal.com"],["🧾","Tally"],["📁","Claude Projects"],["💎","Gemini Gems"],["💬","Typebot"],
+["🤖","Botpress"],["🗣️","Voiceflow"],["🤝","Dify"],["🕸️","Relevance AI"],["🛠️","Google AI Studio"]
 ];
 
 function cinta(){
@@ -97,9 +97,9 @@ var ES={
   resp:"Semana lista. <em>Lunes</em>: el detrás de cámara del amasado. <em>Martes</em>: tu producto estrella con texto de venta. <em>Miércoles</em>: la reseña de una clienta, con su permiso…",
   cards:[
    ["📸","Instagram","5 publicaciones escritas","Texto, etiquetas y la hora a la que conviene publicar","ChatGPT + Canva AI"],
-   ["🎬","Video","Un reel de 30 segundos con guion","Qué dices y qué se ve en cada plano","Runway + CapCut"],
+   ["🎬","Video","Un reel de 30 segundos con guion","Qué dices y qué se ve en cada plano","Kling + CapCut"],
    ["🖼️","Imagen","La foto del producto, generada","Sin sesión de fotos y sin fotógrafo","Leonardo AI"],
-   ["📅","Calendario","El mes entero planificado","Y exportado a tu calendario de Google","Notion AI"]]},
+   ["📅","Calendario","El mes entero planificado","Y exportado a tu calendario de Google","Gemini + Cal.com"]]},
  {tab:"Ventas",
   prompt:"Con estas notas de la reunión de hoy, escríbeme la propuesta para el cliente y el correo de seguimiento.",
   resp:"La propuesta va en tres bloques: <em>qué entendí de tu problema</em>, qué propongo y qué cuesta. El correo va aparte, corto, con una sola pregunta al final…",
@@ -120,10 +120,10 @@ var ES={
   prompt:"Quiero un asistente que responda las preguntas de siempre de mis clientes, con mi tono y mis precios.",
   resp:"Le cargamos tus precios, tus horarios y tus respuestas de siempre. <em>Contesta como contestas tú</em> y te avisa cuando la pregunta se sale del guion…",
   cards:[
-   ["💬","Agente","Responde por ti, con tu tono","Precios, horarios y las dudas de siempre","Custom GPTs"],
+   ["💬","Agente","Responde por ti, con tu tono","Precios, horarios y las dudas de siempre","Gemini Gems"],
    ["📲","WhatsApp","Conectado a donde te escriben","Con el mismo número de siempre","Make"],
    ["🔔","Aviso","Te avisa cuando se complica","Solo lo que de verdad necesita tu criterio","Zapier"],
-   ["📈","Reporte","Qué te preguntan más","Para saber qué arreglar en el negocio","Notion AI"]]}
+   ["📈","Reporte","Qué te preguntan más","Para saber qué arreglar en el negocio","Airtable"]]}
  ]
 };
 
@@ -140,9 +140,9 @@ var EN={
   resp:"Week's ready. <em>Monday</em>: behind the scenes at the mixer. <em>Tuesday</em>: your star product with sales copy. <em>Wednesday</em>: a customer review, with her permission…",
   cards:[
    ["📸","Instagram","5 posts, written","Copy, hashtags and the best hour to publish","ChatGPT + Canva AI"],
-   ["🎬","Video","A 30-second reel with a script","What you say and what's on screen in each shot","Runway + CapCut"],
+   ["🎬","Video","A 30-second reel with a script","What you say and what's on screen in each shot","Kling + CapCut"],
    ["🖼️","Image","The product photo, generated","No photo shoot, no photographer","Leonardo AI"],
-   ["📅","Calendar","The whole month planned out","And exported to your Google Calendar","Notion AI"]]},
+   ["📅","Calendar","The whole month planned out","And exported to your Google Calendar","Gemini + Cal.com"]]},
  {tab:"Sales",
   prompt:"From these notes from today's meeting, write me the client proposal and the follow-up email.",
   resp:"The proposal comes in three blocks: <em>what I understood about your problem</em>, what I propose and what it costs. The email goes separately, short, with one question at the end…",
@@ -163,10 +163,10 @@ var EN={
   prompt:"I want an assistant that answers my customers' usual questions, in my tone and with my prices.",
   resp:"We load in your prices, your hours and your usual answers. <em>It answers the way you answer</em> and pings you when the question goes off script…",
   cards:[
-   ["💬","Agent","Answers for you, in your tone","Prices, hours and the usual questions","Custom GPTs"],
+   ["💬","Agent","Answers for you, in your tone","Prices, hours and the usual questions","Gemini Gems"],
    ["📲","WhatsApp","Connected where people write you","On the same number as always","Make"],
    ["🔔","Alert","It pings you when it gets tricky","Only what genuinely needs your judgment","Zapier"],
-   ["📈","Report","What they ask you most","So you know what to fix in the business","Notion AI"]]}
+   ["📈","Report","What they ask you most","So you know what to fix in the business","Airtable"]]}
  ]
 };
 
