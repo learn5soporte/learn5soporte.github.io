@@ -782,14 +782,14 @@ function qSend(){
  var qEtq=function(kk,vv){for(var a=0;a<qQ.length;a++){if(qQ[a].k===kk){for(var b2=0;b2<qQ[a].o.length;b2++){if(qQ[a].o[b2][0]===vv)return qQ[a].o[b2][1];}}}return vv||"";};
  var dP=qP[qA.nivel]||qP.casual, dK=qK[qA.dolor]||qK.escribir, dX=qE[qA.freno]||"";
  if(qA.tiempo==="poco"&&!dX)dX=qE.tiempo;
- var payload={nombre:n,email:e,whatsapp:w,nivel:qEtq("nivel",qA.nivel),dolor:qEtq("dolor",qA.dolor),freno:qA.frenoTexto||"",tiempo:qEtq("tiempo",qA.tiempo),perfil:qEtq("perfil",qA.perfil),meta:qEtq("meta",qA.meta),clave_nivel:qA.nivel||"",clave_dolor:qA.dolor||"",clave_freno:qA.freno||"",nivelTexto:qEtq("nivel",qA.nivel),dolorTexto:qEtq("dolor",qA.dolor),frenoTexto:qA.frenoTexto||"",tiempoTexto:qEtq("tiempo",qA.tiempo),dedicacionTexto:qEtq("perfil",qA.perfil),metaTexto:qEtq("meta",qA.meta),sectorTexto:qEtq("sector",qA.sector),multiTexto:qEtq("multi",qA.multi),herramientaTexto:qEtq("herr",qA.herr),equipoTexto:qEtq("equipo",qA.equipo),diagPerfil:dP.n,diagTexto:dP.d+dX+(qSec[qA.sector]||"")+(qMul[qA.multi]||""),diagSemana:dK.t,diagSemanaTexto:dK.x,origen:"quiz-landing",consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
+ var payload={nombre:n,email:e,whatsapp:w,nivel:qEtq("nivel",qA.nivel),dolor:qEtq("dolor",qA.dolor),freno:qA.frenoTexto||"",tiempo:qEtq("tiempo",qA.tiempo),perfil:qEtq("perfil",qA.perfil),meta:qEtq("meta",qA.meta),clave_nivel:qA.nivel||"",clave_dolor:qA.dolor||"",clave_freno:qA.freno||"",nivelTexto:qEtq("nivel",qA.nivel),dolorTexto:qEtq("dolor",qA.dolor),frenoTexto:qA.frenoTexto||"",tiempoTexto:qEtq("tiempo",qA.tiempo),dedicacionTexto:qEtq("perfil",qA.perfil),metaTexto:qEtq("meta",qA.meta),sectorTexto:qEtq("sector",qA.sector),multiTexto:qEtq("multi",qA.multi),herramientaTexto:qEtq("herr",qA.herr),equipoTexto:qEtq("equipo",qA.equipo),diagPerfil:dP.n,diagTexto:dP.d+dX+(qSec[qA.sector]||"")+(qMul[qA.multi]||""),diagSemana:dK.t,diagSemanaTexto:dK.x,origen:(ES_PERU?"setna-peru":"quiz-landing"),consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
  // El lead se guarda SIEMPRE en nuestra base. Make es un extra:
  // si Make falla, el contacto no se pierde.
  var SB="https://axpmcqforouffrxmvgvg.supabase.co", SBK="sb_publishable_4r7sZviCcYUQds3ugyJBoQ_GZaUA17e";
  var guardar = fetch(SB+"/rest/v1/diagnosticos",{
    method:"POST",
    headers:{"Content-Type":"application/json",apikey:SBK,Authorization:"Bearer "+SBK,Prefer:"return=minimal"},
-   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",sector:qA.sector||"",multi:qA.multi||"",herramienta:qA.herr||"",equipo:qA.equipo||"",origen:"diagnostico-web"})
+   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",sector:qA.sector||"",multi:qA.multi||"",herramienta:qA.herr||"",equipo:qA.equipo||"",origen:(ES_PERU?"setna-peru":"diagnostico-web")})
  });
  fetch("https://hook.us2.make.com/zyp3c379omqerahhxsmqj02z0rbb5myb",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
  guardar
@@ -803,23 +803,52 @@ function qSend(){
 // Enlace de pago con tarjeta. Cuando tengas el de Stripe, pegalo entre las comillas
 // y listo. Mientras este vacio, el boton lleva a WhatsApp: nadie se queda a medias.
 var PAGO_TARJETA="https://buy.stripe.com/00wfZ9gHO0tTgNR4qkd3i00";
+// ---- Peru / Grupo Setna -------------------------------------------------
+// Setna vende en soles con su propio enlace de pago. Para que a su gente le
+// llegue SU precio y no el de Miami, tienen que compartir el enlace con ?ref=setna
+//    https://learn5.pro/ia-30-dias/?ref=setna
+// Pega abajo su enlace de pago y su WhatsApp cuando te los den.
+var PAGO_SETNA="";
+var WA_SETNA="";
+var PRECIO_SETNA="S/ 85";
+var ORIGEN=(function(){
+  try{
+    var p=(new URLSearchParams(location.search).get('ref')||'').toLowerCase();
+    if(p) localStorage.setItem('L5_REF',p);
+    return (localStorage.getItem('L5_REF')||'').toLowerCase();
+  }catch(e){ return ''; }
+})();
+var ES_PERU = ORIGEN.indexOf('setna')>=0;
+function enlaceSetna(){
+  if(PAGO_SETNA) return PAGO_SETNA;
+  if(WA_SETNA) return 'https://wa.me/'+WA_SETNA+'?text='+encodeURIComponent('Hola, hice el diagnostico de IA en 30 Dias y quiero inscribirme.');
+  return 'https://wa.me/17865271196?text='+encodeURIComponent('Hola, hice el diagnostico desde Peru y quiero inscribirme en IA en 30 Dias.');
+}
 function enlacePago(){
   if(PAGO_TARJETA) return PAGO_TARJETA;
   return 'https://wa.me/17865271196?text='+encodeURIComponent('Hola, quiero inscribirme en IA en 30 Dias y pagar con tarjeta.');
 }
 function qZelle(){var z=document.getElementById('zelleBox');if(z)z.style.display=(z.style.display==='none'?'block':'none');}
-function qGracias(n){
- qBar(10);
- document.getElementById("qBody").innerHTML=
-  '<div class="qstep on">'+
-  '<div class="qbadge">Listo</div>'+
-  '<p class="qprof">Gracias, <span>'+qEsc(n)+'</span></p>'+
-  '<p class="qdiag">Tu ruta personalizada y la gu\u00eda de 30 prompts van en camino a tu correo. Si en unos minutos no los ves, revisa spam o promociones.</p>'+
-  '<div class="oferta">'+
+// Dos ofertas: la de Miami y la de Peru (Grupo Setna).
+// Decide sola segun de donde venga la persona (?ref=setna).
+function ofertaHTML(){
+  if(ES_PERU){
+    return '<div class="oferta">'+
+      '<p class="oferta-t">Si quieres el programa completo</p>'+
+      '<div class="oferta-p">'+
+        '<div class="op destacado"><span class="op-n">'+PRECIO_SETNA+'</span><span class="op-d">Precio para Per\u00fa</span></div>'+
+      '</div>'+
+      '<p class="oferta-d">Los 30 d\u00edas completos, a tu ritmo. <b>6 meses de acceso</b> y <b>30 d\u00edas de soporte directo</b>. Garant\u00eda de 7 d\u00edas.</p>'+
+      '<div class="pagos">'+
+        '<a class="pago pago-1" href="'+enlaceSetna()+'" target="_blank" rel="noopener"><b>Inscribirme ('+PRECIO_SETNA+')</b><span>Pago en soles</span></a>'+
+      '</div>'+
+      '<p class="pagarcomun">En Per\u00fa el programa lo gestiona <b>Grupo Setna</b>: ellos cobran y te confirman el acceso al aula. El contenido y el soporte son los mismos.</p>'+
+    '</div>';
+  }
+  return '<div class="oferta">'+
     '<p class="oferta-t">Si quieres el programa completo</p>'+
     '<div class="oferta-p">'+
-      '<div class="op destacado"><span class="op-n">$39</span><span class="op-d">Lanzamiento \u00b7 primera cohorte</span></div>'+
-      '<div class="op"><span class="op-n" style="color:var(--g2)">$49</span><span class="op-d">Desde la segunda cohorte</span></div>'+
+      '<div class="op destacado"><span class="op-n">$39</span><span class="op-d">Pago \u00fanico \u00b7 acceso completo</span></div>'+
     '</div>'+
     '<p class="oferta-d">Los 30 d\u00edas completos, a tu ritmo. <b>6 meses de acceso</b> y <b>30 d\u00edas de soporte directo</b> conmigo. Garant\u00eda de 7 d\u00edas: si no te sirve, te devolvemos el dinero.</p>'+
     '<div class="pagos">'+
@@ -833,6 +862,16 @@ function qGracias(n){
       'En el concepto: tu nombre y <b>IA30</b>.</p>'+
     '</div>'+
     '<p class="pagarcomun">Pagues como pagues, m\u00e1ndanos el comprobante por WhatsApp o por correo y te damos el acceso en menos de 24 horas. El cobro de PayPal aparece a nombre de Gelkin Pulido, fundador de Learn5.</p>'+
+  '</div>';
+}
+function qGracias(n){
+ qBar(10);
+ document.getElementById("qBody").innerHTML=
+  '<div class="qstep on">'+
+  '<div class="qbadge">Listo</div>'+
+  '<p class="qprof">Gracias, <span>'+qEsc(n)+'</span></p>'+
+  '<p class="qdiag">Tu ruta personalizada y la gu\u00eda de 30 prompts van en camino a tu correo. Si en unos minutos no los ves, revisa spam o promociones.</p>'+
+  ofertaHTML()+
     '<a class="qbtn" style="text-decoration:none;display:block;box-sizing:border-box;text-align:center" href="https://wa.me/17865271196?text=Hola%2C%20acabo%20de%20hacer%20el%20diagn%C3%B3stico%20y%20quiero%20inscribirme%20en%20IA%20en%2030%20D%C3%ADas" target="_blank" rel="noopener">Quiero inscribirme</a>'+
   '</div>'+
   '<p class="qnote">Sin prisa: la ruta que te mandamos ya te sirve aunque no compres nada.</p>'+
