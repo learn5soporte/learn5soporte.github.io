@@ -818,7 +818,7 @@ var ORIGEN=(function(){
     return (localStorage.getItem('L5_REF')||'').toLowerCase();
   }catch(e){ return ''; }
 })();
-var ES_PERU = (ORIGEN.indexOf('sedna')>=0||ORIGEN.indexOf('setna')>=0);
+var ES_PERU = ORIGEN.indexOf('sedna')>=0;
 function enlaceSedna(){
   if(PAGO_SEDNA) return PAGO_SEDNA;
   if(WA_SEDNA) return 'https://wa.me/'+WA_SEDNA+'?text='+encodeURIComponent('Hola, hice el diagnostico de IA en 30 Dias y quiero inscribirme.');
