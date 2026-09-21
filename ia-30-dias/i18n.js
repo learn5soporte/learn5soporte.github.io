@@ -9,6 +9,12 @@
 
 /* --- frases completas: coincidencia exacta del nodo --- */
 var D={
+"¿Cuál de estas 30 te conviene primero?":"Which of these 30 should you start with?",
+"Depende de a qué te dediques y de dónde se te va el tiempo. El diagnóstico te lo dice en dos minutos y te llega tu ruta por correo.":"It depends on what you do and where your time goes. The diagnostic tells you in two minutes, and your route arrives by email.",
+"Empieza por saber qué te frena":"Start by finding out what is holding you back",
+"Seis preguntas, dos minutos. Te decimos tu perfil, por dónde empezar y qué herramienta te conviene primero. Te sirve aunque no compres nada.":"Six questions, two minutes. We tell you your profile, where to start and which tool suits you first. Useful even if you never buy anything.",
+"Hacer el diagnóstico gratuito":"Take the free diagnostic",
+"2 minutos · sin costo · sin tarjeta":"2 minutes · free · no card",
 "¿Qué te está frenando":"What's holding you back",
 "con la IA?":"with AI?",
 "Los primeros":"The first ones",
