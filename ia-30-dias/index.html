@@ -383,10 +383,10 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 .ctaD{background:linear-gradient(135deg,rgba(62,143,255,.13),rgba(139,123,245,.09));border:1px solid var(--line2);border-radius:20px;padding:34px 30px;text-align:center}
 .ctaD h3{font-size:clamp(21px,3vw,28px);margin:0 0 10px}
 .ctaD p{margin:0 auto 20px;max-width:520px;font-size:15.5px;line-height:1.65;color:#b3afcc}
-.ctaD button{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));padding:15px 30px;border-radius:12px}
-.ctaD button:hover{filter:brightness(1.08)}
+.ctaD .ctaLink{display:inline-block;border:0;cursor:pointer;text-decoration:none;font:inherit;font-weight:700;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));padding:15px 30px;border-radius:12px}
+.ctaD .ctaLink:hover{filter:brightness(1.08)}
 .ctaD .mini{margin:12px 0 0;font-size:13px;color:#8b87ae}
-@media(max-width:600px){.ctaD{padding:26px 18px}.ctaD button{width:100%}}
+@media(max-width:600px){.ctaD{padding:26px 18px}.ctaD .ctaLink{width:100%}}
 </style>
 </head>
 <body>
@@ -405,7 +405,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 <main>
 
 <!-- ══ 1 · EL DIAGNÓSTICO ══ -->
-<section class="portada">
+<section class="portada" id="empezar">
   <div class="wrap">
     <p class="portada-eye"><i></i>Diagnóstico gratuito de IA</p>
     <h1>¿Qué te está frenando<br><em>con la IA?</em></h1>
@@ -548,7 +548,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
     <div class="ctaD">
       <h3>¿Cuál de estas 30 te conviene primero?</h3>
       <p>Depende de a qué te dediques y de dónde se te va el tiempo. El diagnóstico te lo dice en dos minutos y te llega tu ruta por correo.</p>
-      <button type="button" onclick="irAlDiagnostico()">Hacer el diagnóstico gratuito</button>
+      <a class="ctaLink" href="#empezar" onclick="setTimeout(irAlDiagnostico,380)">Hacer el diagnóstico gratuito</a>
       <p class="mini">2 minutos · sin costo · sin tarjeta</p>
     </div>
   </div></section>
@@ -626,7 +626,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
     <div class="ctaD">
       <h3>Empieza por saber qué te frena</h3>
       <p>Seis preguntas, dos minutos. Te decimos tu perfil, por dónde empezar y qué herramienta te conviene primero. Te sirve aunque no compres nada.</p>
-      <button type="button" onclick="irAlDiagnostico()">Hacer el diagnóstico gratuito</button>
+      <a class="ctaLink" href="#empezar" onclick="setTimeout(irAlDiagnostico,380)">Hacer el diagnóstico gratuito</a>
       <p class="mini">2 minutos · sin costo · sin tarjeta</p>
     </div>
   </div></section>
@@ -838,7 +838,7 @@ var PAGO_TARJETA="https://buy.stripe.com/00wfZ9gHO0tTgNR4qkd3i00";
 // llegue SU precio y no el de Miami, tienen que compartir el enlace con ?ref=sedna
 //    https://learn5.pro/ia-30-dias/?ref=sedna
 // Pega abajo su enlace de pago y su WhatsApp cuando te los den.
-var PAGO_SEDNA="";
+var PAGO_SEDNA="https://express.culqi.com/pago/E34F619E74";
 var WA_SEDNA="";
 var PRECIO_SEDNA="S/ 85";
 var ORIGEN=(function(){
@@ -848,7 +848,7 @@ var ORIGEN=(function(){
     return (localStorage.getItem('L5_REF')||'').toLowerCase();
   }catch(e){ return ''; }
 })();
-var ES_PERU = ORIGEN.indexOf('sedna')>=0;
+var ES_PERU = (ORIGEN.indexOf('sedna')>=0||ORIGEN.indexOf('iicp')>=0);
 function enlaceSedna(){
   if(PAGO_SEDNA) return PAGO_SEDNA;
   if(WA_SEDNA) return 'https://wa.me/'+WA_SEDNA+'?text='+encodeURIComponent('Hola, hice el diagnostico de IA en 30 Dias y quiero inscribirme.');
@@ -872,7 +872,7 @@ function ofertaHTML(){
       '<div class="pagos">'+
         '<a class="pago pago-1" href="'+enlaceSedna()+'" target="_blank" rel="noopener"><b>Inscribirme ('+PRECIO_SEDNA+')</b><span>Pago en soles</span></a>'+
       '</div>'+
-      '<p class="pagarcomun">En Per\u00fa el programa lo gestiona <b>Grupo Sedna</b>: ellos cobran y te confirman el acceso al aula. El contenido y el soporte son los mismos.</p>'+
+      '<p class="pagarcomun">En Per\u00fa el programa lo gestiona el <b>Instituto Internacional de Competencias Profesionales (IICP)</b>: ellos cobran y te confirman el acceso al aula. El contenido y el soporte son los mismos.</p>'+
     '</div>';
   }
   return '<div class="oferta">'+
@@ -957,12 +957,6 @@ document.querySelectorAll('.f button').forEach(function(b){
 <script>
 function irAlDiagnostico(){
   try{ if(typeof qStart==="function") qStart(); }catch(e){}
-  setTimeout(function(){
-    var el=document.getElementById("qCard");
-    var vis = el && getComputedStyle(el).display!=="none";
-    if(vis && el.scrollIntoView){ el.scrollIntoView({behavior:"smooth",block:"center"}); }
-    else { window.scrollTo({top:0,behavior:"smooth"}); }
-  },90);
 }
 </script>
 </body>
