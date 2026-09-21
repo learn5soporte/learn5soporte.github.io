@@ -379,6 +379,14 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 .pago-1:hover{filter:brightness(1.08);background:linear-gradient(135deg,var(--blue),var(--violet))}
 .pago-1 span{color:rgba(255,255,255,.82)}
 .pagarcomun{font-size:12.5px;color:var(--g3);line-height:1.6;margin-top:4px}
+
+.ctaD{background:linear-gradient(135deg,rgba(62,143,255,.13),rgba(139,123,245,.09));border:1px solid var(--line2);border-radius:20px;padding:34px 30px;text-align:center}
+.ctaD h3{font-size:clamp(21px,3vw,28px);margin:0 0 10px}
+.ctaD p{margin:0 auto 20px;max-width:520px;font-size:15.5px;line-height:1.65;color:#b3afcc}
+.ctaD button{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));padding:15px 30px;border-radius:12px}
+.ctaD button:hover{filter:brightness(1.08)}
+.ctaD .mini{margin:12px 0 0;font-size:13px;color:#8b87ae}
+@media(max-width:600px){.ctaD{padding:26px 18px}.ctaD button{width:100%}}
 </style>
 </head>
 <body>
@@ -535,6 +543,17 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
   </div>
 </section>
 
+  <!-- CTA diagnostico . centro -->
+  <section class="sec"><div class="wrap">
+    <div class="ctaD">
+      <h3>¿Cuál de estas 30 te conviene primero?</h3>
+      <p>Depende de a qué te dediques y de dónde se te va el tiempo. El diagnóstico te lo dice en dos minutos y te llega tu ruta por correo.</p>
+      <button type="button" onclick="irAlDiagnostico()">Hacer el diagnóstico gratuito</button>
+      <p class="mini">2 minutos · sin costo · sin tarjeta</p>
+    </div>
+  </div></section>
+
+
 <!-- ══ 5 · PARA QUIÉN ══ -->
 <section class="sec">
   <div class="wrap">
@@ -601,6 +620,17 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
     </div>
   </div>
 </section>
+
+  <!-- CTA diagnostico . cierre -->
+  <section class="sec"><div class="wrap">
+    <div class="ctaD">
+      <h3>Empieza por saber qué te frena</h3>
+      <p>Seis preguntas, dos minutos. Te decimos tu perfil, por dónde empezar y qué herramienta te conviene primero. Te sirve aunque no compres nada.</p>
+      <button type="button" onclick="irAlDiagnostico()">Hacer el diagnóstico gratuito</button>
+      <p class="mini">2 minutos · sin costo · sin tarjeta</p>
+    </div>
+  </div></section>
+
 
 </main>
 
@@ -923,5 +953,17 @@ document.querySelectorAll('.f button').forEach(function(b){
 </script>
 <script src="visual.js" defer></script>
 <script src="i18n.js?v=4" defer></script>
+
+<script>
+function irAlDiagnostico(){
+  try{ if(typeof qStart==="function") qStart(); }catch(e){}
+  setTimeout(function(){
+    var el=document.getElementById("qCard");
+    var vis = el && getComputedStyle(el).display!=="none";
+    if(vis && el.scrollIntoView){ el.scrollIntoView({behavior:"smooth",block:"center"}); }
+    else { window.scrollTo({top:0,behavior:"smooth"}); }
+  },90);
+}
+</script>
 </body>
 </html>
