@@ -548,7 +548,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
     <div class="ctaD">
       <h3>¿Cuál de estas 30 te conviene primero?</h3>
       <p>Depende de a qué te dediques y de dónde se te va el tiempo. El diagnóstico te lo dice en dos minutos y te llega tu ruta por correo.</p>
-      <a class="ctaLink" href="#empezar" onclick="setTimeout(irAlDiagnostico,380)">Hacer el diagnóstico gratuito</a>
+      <a class="ctaLink" href="#empezar">Hacer el diagnóstico gratuito</a>
       <p class="mini">2 minutos · sin costo · sin tarjeta</p>
     </div>
   </div></section>
@@ -626,7 +626,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
     <div class="ctaD">
       <h3>Empieza por saber qué te frena</h3>
       <p>Seis preguntas, dos minutos. Te decimos tu perfil, por dónde empezar y qué herramienta te conviene primero. Te sirve aunque no compres nada.</p>
-      <a class="ctaLink" href="#empezar" onclick="setTimeout(irAlDiagnostico,380)">Hacer el diagnóstico gratuito</a>
+      <a class="ctaLink" href="#empezar">Hacer el diagnóstico gratuito</a>
       <p class="mini">2 minutos · sin costo · sin tarjeta</p>
     </div>
   </div></section>
@@ -954,10 +954,5 @@ document.querySelectorAll('.f button').forEach(function(b){
 <script src="visual.js" defer></script>
 <script src="i18n.js?v=4" defer></script>
 
-<script>
-function irAlDiagnostico(){
-  try{ if(typeof qStart==="function") qStart(); }catch(e){}
-}
-</script>
 </body>
 </html>
