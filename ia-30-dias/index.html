@@ -812,14 +812,14 @@ function qSend(){
  var qEtq=function(kk,vv){for(var a=0;a<qQ.length;a++){if(qQ[a].k===kk){for(var b2=0;b2<qQ[a].o.length;b2++){if(qQ[a].o[b2][0]===vv)return qQ[a].o[b2][1];}}}return vv||"";};
  var dP=qP[qA.nivel]||qP.casual, dK=qK[qA.dolor]||qK.escribir, dX=qE[qA.freno]||"";
  if(qA.tiempo==="poco"&&!dX)dX=qE.tiempo;
- var payload={nombre:n,email:e,whatsapp:w,nivel:qEtq("nivel",qA.nivel),dolor:qEtq("dolor",qA.dolor),freno:qA.frenoTexto||"",tiempo:qEtq("tiempo",qA.tiempo),perfil:qEtq("perfil",qA.perfil),meta:qEtq("meta",qA.meta),clave_nivel:qA.nivel||"",clave_dolor:qA.dolor||"",clave_freno:qA.freno||"",nivelTexto:qEtq("nivel",qA.nivel),dolorTexto:qEtq("dolor",qA.dolor),frenoTexto:qA.frenoTexto||"",tiempoTexto:qEtq("tiempo",qA.tiempo),dedicacionTexto:qEtq("perfil",qA.perfil),metaTexto:qEtq("meta",qA.meta),sectorTexto:qEtq("sector",qA.sector),multiTexto:qEtq("multi",qA.multi),herramientaTexto:qEtq("herr",qA.herr),equipoTexto:qEtq("equipo",qA.equipo),diagPerfil:dP.n,diagTexto:dP.d+dX+(qSec[qA.sector]||"")+(qMul[qA.multi]||""),diagSemana:dK.t,diagSemanaTexto:dK.x,origen:(ES_PERU?"sedna-peru":"quiz-landing"),consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
+ var payload={nombre:n,email:e,whatsapp:w,nivel:qEtq("nivel",qA.nivel),dolor:qEtq("dolor",qA.dolor),freno:qA.frenoTexto||"",tiempo:qEtq("tiempo",qA.tiempo),perfil:qEtq("perfil",qA.perfil),meta:qEtq("meta",qA.meta),clave_nivel:qA.nivel||"",clave_dolor:qA.dolor||"",clave_freno:qA.freno||"",nivelTexto:qEtq("nivel",qA.nivel),dolorTexto:qEtq("dolor",qA.dolor),frenoTexto:qA.frenoTexto||"",tiempoTexto:qEtq("tiempo",qA.tiempo),dedicacionTexto:qEtq("perfil",qA.perfil),metaTexto:qEtq("meta",qA.meta),sectorTexto:qEtq("sector",qA.sector),multiTexto:qEtq("multi",qA.multi),herramientaTexto:qEtq("herr",qA.herr),equipoTexto:qEtq("equipo",qA.equipo),diagPerfil:dP.n,diagTexto:dP.d+dX+(qSec[qA.sector]||"")+(qMul[qA.multi]||""),diagSemana:dK.t,diagSemanaTexto:dK.x,origen:(ES_VZLA?"vzla-venezuela":(ES_PERU?"sedna-peru":"quiz-landing")),consentimiento:true,fecha:new Date().toISOString(),pagina:location.href};
  // El lead se guarda SIEMPRE en nuestra base. Make es un extra:
  // si Make falla, el contacto no se pierde.
  var SB="https://axpmcqforouffrxmvgvg.supabase.co", SBK="sb_publishable_4r7sZviCcYUQds3ugyJBoQ_GZaUA17e";
  var guardar = fetch(SB+"/rest/v1/diagnosticos",{
    method:"POST",
    headers:{"Content-Type":"application/json",apikey:SBK,Authorization:"Bearer "+SBK,Prefer:"return=minimal"},
-   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",sector:qA.sector||"",multi:qA.multi||"",herramienta:qA.herr||"",equipo:qA.equipo||"",origen:(ES_PERU?"sedna-peru":"diagnostico-web")})
+   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",sector:qA.sector||"",multi:qA.multi||"",herramienta:qA.herr||"",equipo:qA.equipo||"",origen:(ES_VZLA?"vzla-venezuela":(ES_PERU?"sedna-peru":"diagnostico-web"))})
  });
  fetch("https://hook.us2.make.com/zyp3c379omqerahhxsmqj02z0rbb5myb",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
  guardar
@@ -838,7 +838,11 @@ var PAGO_TARJETA="https://buy.stripe.com/00wfZ9gHO0tTgNR4qkd3i00";
 // llegue SU precio y no el de Miami, tienen que compartir el enlace con ?ref=sedna
 //    https://learn5.pro/ia-30-dias/?ref=sedna
 // Pega abajo su enlace de pago y su WhatsApp cuando te los den.
-var PAGO_SEDNA="https://express.culqi.com/pago/E34F619E74";
+var PAGO_VZLA="https://bit.ly/InfodeIAen30diasVzla";
+  var GRUPO_VZLA="https://chat.whatsapp.com/BPCk3UAyXSx944bsb6YmLv";
+  var CORREO_VZLA="emprendeyreiventa20@gmail.com";
+  var PRECIO_VZLA="40 USD (BCV)";
+  var PAGO_SEDNA="https://express.culqi.com/pago/E34F619E74";
 var WA_SEDNA="";
 var PRECIO_SEDNA="S/ 85";
 var ORIGEN=(function(){
@@ -849,6 +853,7 @@ var ORIGEN=(function(){
   }catch(e){ return ''; }
 })();
 var ES_PERU = (ORIGEN.indexOf('sedna')>=0||ORIGEN.indexOf('iicp')>=0);
+  var ES_VZLA = ORIGEN.indexOf('vzla')>=0;
 function enlaceSedna(){
   if(PAGO_SEDNA) return PAGO_SEDNA;
   if(WA_SEDNA) return 'https://wa.me/'+WA_SEDNA+'?text='+encodeURIComponent('Hola, hice el diagnostico de IA en 30 Dias y quiero inscribirme.');
@@ -862,6 +867,20 @@ function qZelle(){var z=document.getElementById('zelleBox');if(z)z.style.display
 // Dos ofertas: la de Miami y la de Peru (Grupo Sedna).
 // Decide sola segun de donde venga la persona (?ref=sedna).
 function ofertaHTML(){
+  if(ES_VZLA){
+    return '<div class="oferta">'+
+      '<p class="oferta-t">Si quieres el programa completo</p>'+
+      '<div class="oferta-p">'+
+        '<div class="op destacado"><span class="op-n">'+PRECIO_VZLA+'</span><span class="op-d">Precio para Venezuela</span></div>'+
+      '</div>'+
+      '<p class="oferta-d">Pago \u00fanico. Incluye los 30 d\u00edas a tu ritmo, <b>5 regalos adicionales</b>, <b>6 meses de acceso</b> y <b>30 d\u00edas de soporte directo</b> por WhatsApp.</p>'+
+      '<div class="pagos">'+
+        '<a class="pago pago-1" href="'+PAGO_VZLA+'" target="_blank" rel="noopener"><b>Pagar los '+PRECIO_VZLA+'</b><span>Pago \u00fanico</span></a>'+
+        '<a class="pago" href="'+GRUPO_VZLA+'" target="_blank" rel="noopener"><b>IA 30 Vzla \u2192</b><span>Entra al grupo de WhatsApp</span></a>'+
+      '</div>'+
+      '<p class="pagarcomun"><b>Importante:</b> para recibir los 5 regalos tienes que entrar al grupo de WhatsApp y enviar ah\u00ed la imagen de tu comprobante. Tambi\u00e9n puedes escribir a <b>'+CORREO_VZLA+'</b> y te atiende uno de nuestros gerentes de venta.<br><br>Ambos cobros aparecen a nombre del <b>IICP</b>, aliado estrat\u00e9gico de Learn5.</p>'+
+    '</div>';
+  }
   if(ES_PERU){
     return '<div class="oferta">'+
       '<p class="oferta-t">Si quieres el programa completo</p>'+
