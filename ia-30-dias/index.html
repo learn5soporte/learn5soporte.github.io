@@ -844,7 +844,8 @@ var PAGO_VZLA="https://bit.ly/InfodeIAen30diasVzla";
   var PRECIO_VZLA="40 USD (BCV)";
   var PAGO_SEDNA="https://express.culqi.com/pago/E34F619E74";
 var WA_SEDNA="";
-var PRECIO_SEDNA="S/ 85";
+var INFO_SEDNA="https://bit.ly/infodeIAen30dias";
+  var PRECIO_SEDNA="S/ 85";
 var ORIGEN=(function(){
   try{
     var p=(new URLSearchParams(location.search).get('ref')||'').toLowerCase();
@@ -890,6 +891,7 @@ function ofertaHTML(){
       '<p class="oferta-d">Los 30 d\u00edas completos, a tu ritmo. <b>6 meses de acceso</b> y <b>30 d\u00edas de soporte directo</b>.</p>'+
       '<div class="pagos">'+
         '<a class="pago pago-1" href="'+enlaceSedna()+'" target="_blank" rel="noopener"><b>Inscribirme ('+PRECIO_SEDNA+')</b><span>Pago en soles</span></a>'+
+        '<a class="pago" href="'+INFO_SEDNA+'" target="_blank" rel="noopener"><b>Preguntar por WhatsApp</b><span>Te responde el IICP</span></a>'+
       '</div>'+
       '<p class="pagarcomun">En Per\u00fa el programa lo gestiona el <b>Instituto Internacional de Competencias Profesionales (IICP)</b>: ellos cobran y te confirman el acceso al aula. El contenido y el soporte son los mismos.</p>'+
     '</div>';
