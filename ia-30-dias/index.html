@@ -847,12 +847,24 @@ var WA_SEDNA="";
 var INFO_SEDNA="https://bit.ly/infodeIAen30dias";
   var PRECIO_SEDNA="S/ 85";
 var ORIGEN=(function(){
-  try{
-    var p=(new URLSearchParams(location.search).get('ref')||'').toLowerCase();
-    if(p) localStorage.setItem('L5_REF',p);
-    return (localStorage.getItem('L5_REF')||'').toLowerCase();
-  }catch(e){ return ''; }
-})();
+    try{
+      var p=(new URLSearchParams(location.search).get('ref')||'').toLowerCase();
+      var RESET={us:1,usa:1,miami:1,ninguno:1,reset:1};
+      var MS=30*24*60*60*1000;
+      if(p){
+        if(RESET[p]){ localStorage.removeItem('L5_REF'); return ''; }
+        localStorage.setItem('L5_REF', p+'|'+Date.now());
+        return p;
+      }
+      var g=localStorage.getItem('L5_REF')||'';
+      if(!g) return '';
+      var trozos=g.split('|');
+      var val=(trozos[0]||'').toLowerCase();
+      var ts=parseInt(trozos[1]||'0',10);
+      if(!ts || (Date.now()-ts)>MS){ localStorage.removeItem('L5_REF'); return ''; }
+      return val;
+    }catch(e){ return ''; }
+  })();
 var ES_PERU = (ORIGEN.indexOf('sedna')>=0||ORIGEN.indexOf('iicp')>=0);
   var ES_VZLA = ORIGEN.indexOf('vzla')>=0;
 function enlaceSedna(){
