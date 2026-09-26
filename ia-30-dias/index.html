@@ -33,6 +33,7 @@
 {"@type":"Question","name":"¿Necesito saber programar?","acceptedAnswer":{"@type":"Answer","text":"No. Ninguna de las 30 herramientas pide escribir código."}},
 {"@type":"Question","name":"¿Hay clases en vivo o fechas de inicio?","acceptedAnswer":{"@type":"Answer","text":"No. Empiezas el mismo día que te inscribes y avanzas a tu ritmo."}},
 {"@type":"Question","name":"¿Cuánto tiempo necesito al día?","acceptedAnswer":{"@type":"Answer","text":"Entre quince y veinte minutos, haciendo el ejercicio incluido."}},
+{"@type":"Question","name":"¿En qué idioma está el programa?","acceptedAnswer":{"@type":"Answer","text":"Todo en español: las lecciones, los materiales, los videos y el soporte. No hay versión en inglés."}},
 {"@type":"Question","name":"¿Y si no me sirve?","acceptedAnswer":{"@type":"Answer","text":"Haz primero el diagnóstico gratuito: son dos minutos y te dice si el programa encaja con lo que necesitas. Si ya dentro algo no cuadra, escríbeme y lo hablamos."}}]}</script>
 <style>
 /* ═══════════════════════════════════════════════════════════
@@ -100,13 +101,6 @@ b,strong{color:var(--w);font-weight:600}
 .top-in{max-width:var(--max);margin:0 auto;padding:14px var(--s3);display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'Space Grotesk';font-weight:700;font-size:19px;color:var(--w);letter-spacing:-.03em}
 .logo span{color:var(--blue)}
-.top-r{display:flex;align-items:center;gap:var(--s2)}
-.lang{display:flex;border:1px solid var(--line2);border-radius:8px;overflow:hidden}
-.lang button{
-  background:none;border:none;color:var(--g2);font-family:inherit;
-  font-size:12px;font-weight:600;padding:6px 11px;cursor:pointer;letter-spacing:.04em;
-}
-.lang button.on{background:var(--blue);color:var(--w)}
 
 /* ─────────── 1. diagnóstico (portada) ─────────── */
 .portada{padding:var(--s6) 0 var(--s5);text-align:center;position:relative}
@@ -236,6 +230,12 @@ b,strong{color:var(--w);font-weight:600}
 }
 .dato{display:inline-block;background:rgba(0,0,0,.4);border:1px solid var(--line2);border-radius:7px;padding:3px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--w)}
 .nota{margin-top:var(--s3);padding:14px 18px;background:rgba(212,175,55,.07);border-left:3px solid rgba(212,175,55,.5);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.65}
+
+/* ─────────── video de presentación ─────────── */
+.vid{max-width:720px;margin:var(--s5) auto 0}
+.vid-m{position:relative;aspect-ratio:16/9;border-radius:var(--r2);overflow:hidden;background:var(--ink1);border:1px solid var(--line2)}
+.vid-m iframe,.vid-m video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;object-fit:cover}
+.vid-pie{font-size:13.5px;color:var(--g3);text-align:center;margin-top:14px;line-height:1.6}
 
 /* ─────────── 7. preguntas ─────────── */
 .faq{max-width:760px;margin:var(--s5) auto 0}
@@ -393,8 +393,6 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
 <header class="top">
   <div class="top-in">
     <a href="https://learn5.pro" class="logo">LEARN<span>5</span></a>
-    <div class="top-r">
-    </div>
   </div>
 </header>
 
@@ -515,13 +513,13 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
         <p class="sem-n">Semana 1 · Fundamentos</p>
         <h3>Hablarle bien a la IA</h3>
         <p style="font-size:14.5px;color:var(--g2)">El método que hace que todo lo demás funcione: qué herramienta usar, cuándo, y cómo pedirle las cosas.</p>
-        <div class="sem-tools"><span class="tool">ChatGPT</span><span class="tool">Claude</span><span class="tool">Perplexity</span><span class="tool">NotebookLM</span><span class="tool">Gemini</span><span class="tool">Copilot</span><span class="tool">Gamma</span></div>
+        <div class="sem-tools"><span class="tool">ChatGPT</span><span class="tool">Claude</span><span class="tool">Perplexity</span><span class="tool">NotebookLM</span><span class="tool">Gemini</span><span class="tool">Copilot</span></div>
       </div>
       <div class="sem" style="--c:#E86A4B">
         <p class="sem-n">Semana 2 · Contenido</p>
         <h3>Imagen, audio y video</h3>
         <p style="font-size:14.5px;color:var(--g2)">Producir material que antes te costaba días o dinero, en una tarde y desde tu computador.</p>
-        <div class="sem-tools"><span class="tool">Canva AI</span><span class="tool">Leonardo</span><span class="tool">ElevenLabs</span><span class="tool">HeyGen</span><span class="tool">CapCut</span><span class="tool">Kling AI</span><span class="tool">OpusClip</span><span class="tool">Ideogram</span></div>
+        <div class="sem-tools"><span class="tool">Gamma</span><span class="tool">Canva AI</span><span class="tool">Leonardo</span><span class="tool">ElevenLabs</span><span class="tool">HeyGen</span><span class="tool">CapCut</span><span class="tool">Kling AI</span><span class="tool">OpusClip</span><span class="tool">Ideogram</span></div>
       </div>
       <div class="sem" style="--c:#22B8CF">
         <p class="sem-n">Semana 3 · Automatización</p>
@@ -533,7 +531,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
         <p class="sem-n">Semana 4 · Agentes</p>
         <h3>Tu propio asistente</h3>
         <p style="font-size:14.5px;color:var(--g2)">Construyes un agente que atiende, responde y da seguimiento con tus reglas y tu tono.</p>
-        <div class="sem-tools"><span class="tool">Claude Projects</span><span class="tool">Gemini Gems</span><span class="tool">Typebot</span><span class="tool">Botpress</span><span class="tool">Voiceflow</span><span class="tool">Dify</span><span class="tool">Relevance AI</span><span class="tool">Google AI Studio</span></div>
+        <div class="sem-tools"><span class="tool">Claude Projects</span><span class="tool">Gemini Gems</span><span class="tool">Typebot</span><span class="tool">Botpress</span><span class="tool">Voiceflow</span><span class="tool">Google Labs</span><span class="tool">Relevance AI</span><span class="tool">Google AI Studio</span></div>
       </div>
     </div>
   </div>
@@ -550,6 +548,42 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
   </div></section>
 
 
+<!-- ══════════════════════════════════════════════════════════════════
+     QUIÉN ESTÁ DETRÁS · sección del video de presentación
+
+     Está comentada a propósito: una caja vacía que diga "próximamente"
+     en una página de venta resta en vez de sumar. En cuanto exista el
+     video, se borra esta línea de apertura y la de cierre de abajo, se
+     elige una de las dos opciones de reproductor, y queda publicada.
+
+     Opción A · YouTube sin listar (lo más simple y lo más ligero):
+       <div class="vid-m"><iframe src="https://www.youtube-nocookie.com/embed/PON_AQUI_EL_ID"
+         title="Quién está detrás de Learn5" loading="lazy"
+         allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; fullscreen"
+         allowfullscreen></iframe></div>
+
+     Opción B · MP4 en este mismo repositorio, si pesa menos de 15 MB:
+       <div class="vid-m"><video controls preload="none" poster="portada-video.jpg">
+         <source src="presentacion.mp4" type="video/mp4"></video></div>
+
+     En las dos: sin autoplay y sin sonido automático. El poster o la
+     miniatura es lo único que carga hasta que alguien le da al play.
+     ══════════════════════════════════════════════════════════════════ -->
+<!--
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Quién está detrás</p>
+    <h2 class="h-sec">Con quién vas a aprender</h2>
+    <p class="p-sec">Un minuto para que sepas quién soy, por qué existe este programa y qué recibes el día que entras.</p>
+
+    <div class="vid">
+      <div class="vid-m">PON_AQUI_EL_REPRODUCTOR</div>
+      <p class="vid-pie">Soy Gelkin Pulido, fundador de Learn5. Durante los primeros 30 días me escribes tú a mí y te contesto yo.</p>
+    </div>
+  </div>
+</section>
+-->
+
 <!-- ══ 5 · PARA QUIÉN ══ -->
 <section class="sec">
   <div class="wrap">
@@ -565,6 +599,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
           <li>Ya probaste alguna herramienta de IA y te quedaste a medias</li>
           <li>Puedes dedicarle quince minutos al día, de verdad</li>
           <li>Quieres aplicarlo a tu trabajo, no coleccionar certificados</li>
+          <li>Entiendes español: el programa entero está en español</li>
         </ul>
       </div>
       <div class="qbox no">
@@ -612,6 +647,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
       <div class="f"><button>¿Hay clases en vivo o fechas de inicio?</button><div class="f-r"><p>No. Empiezas el mismo día que te inscribes y avanzas a tu ritmo. No hay horarios ni sesiones que perderte.</p></div></div>
       <div class="f"><button>¿Cuánto tiempo necesito al día?</button><div class="f-r"><p>Entre quince y veinte minutos, haciendo el ejercicio incluido. Si un día no puedes, el avance queda guardado y retomas donde ibas.</p></div></div>
       <div class="f"><button>¿Y si no me sirve?</button><div class="f-r"><p>Haz primero el diagnóstico gratuito: son dos minutos y te dice si el programa encaja con lo que necesitas. Si ya dentro algo no cuadra, escríbeme y lo hablamos.</p></div></div>
+      <div class="f"><button>¿En qué idioma está el programa?</button><div class="f-r"><p>Todo en español: las lecciones, los materiales, los videos y el soporte. No hay versión en inglés.</p></div></div>
       <div class="f"><button>¿Por cuánto tiempo tengo acceso?</button><div class="f-r"><p>Seis meses desde que entras. Son seis veces la duración del programa, así que si te atrasas no pasa nada. Aparte del acceso, tienes <b>30 días de soporte directo</b>: durante ese mes me escribes y te contesto yo.</p></div></div>
     </div>
   </div>
