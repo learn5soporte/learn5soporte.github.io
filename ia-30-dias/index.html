@@ -394,10 +394,6 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s4);margin-top
   <div class="top-in">
     <a href="https://learn5.pro" class="logo">LEARN<span>5</span></a>
     <div class="top-r">
-      <div class="lang">
-        <button class="on" data-idioma="es">ES</button>
-        <button data-idioma="en">EN</button>
-      </div>
     </div>
   </div>
 </header>
@@ -816,18 +812,27 @@ function qSend(){
  // El lead se guarda SIEMPRE en nuestra base. Make es un extra:
  // si Make falla, el contacto no se pierde.
  var SB="https://axpmcqforouffrxmvgvg.supabase.co", SBK="sb_publishable_4r7sZviCcYUQds3ugyJBoQ_GZaUA17e";
+ // Corte de seguridad: si la red se cuelga, el boton no puede quedarse en "Enviando..."
+ var corte = ("AbortController" in window) ? new AbortController() : null;
+ var vencio = false;
+ var reloj = setTimeout(function(){ vencio = true; if(corte) corte.abort(); }, 12000);
  var guardar = fetch(SB+"/rest/v1/diagnosticos",{
    method:"POST",
    headers:{"Content-Type":"application/json",apikey:SBK,Authorization:"Bearer "+SBK,Prefer:"return=minimal"},
-   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",sector:qA.sector||"",multi:qA.multi||"",herramienta:qA.herr||"",equipo:qA.equipo||"",origen:(ES_VZLA?"vzla-venezuela":(ES_PERU?"sedna-peru":"diagnostico-web"))})
+   body:JSON.stringify({nombre:n,whatsapp:w,email:e,nivel:qA.nivel||"",dolor:qA.dolor||"",freno:qA.freno||"",tiempo:qA.tiempo||"",perfil:qA.perfil||"",meta:qA.meta||"",sector:qA.sector||"",multi:qA.multi||"",herramienta:qA.herr||"",equipo:qA.equipo||"",origen:(ES_VZLA?"vzla-venezuela":(ES_PERU?"sedna-peru":"diagnostico-web"))}),
+   signal: corte ? corte.signal : undefined
  });
- fetch("https://hook.us2.make.com/zyp3c379omqerahhxsmqj02z0rbb5myb",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){})
+ fetch("https://hook.us2.make.com/zyp3c379omqerahhxsmqj02z0rbb5myb",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){ mide("correo_fallido"); })
  guardar
-  .then(function(res){ if(!res.ok) throw new Error("http "+res.status); mide("completado"); qGracias(n); })
+  .then(function(res){ clearTimeout(reloj); if(!res.ok) throw new Error("http "+res.status); mide("completado"); qGracias(n); })
   .catch(function(){
+    clearTimeout(reloj);
     b.disabled=false; b.textContent="Enviarme mi ruta personalizada";
-    r.innerHTML="No pudimos enviarlo. Escr\u00edbenos por <a href=\"https://wa.me/17865271196\" style=\"color:var(--violet-l)\">WhatsApp</a> y te lo mandamos igual.";
+    r.innerHTML = vencio
+      ? "Se est\u00e1 tardando m\u00e1s de la cuenta. Int\u00e9ntalo otra vez o escr\u00edbenos por <a href=\"https://wa.me/17865271196\" style=\"color:var(--violet-l)\">WhatsApp</a> y te lo mandamos igual."
+      : "No pudimos enviarlo. Escr\u00edbenos por <a href=\"https://wa.me/17865271196\" style=\"color:var(--violet-l)\">WhatsApp</a> y te lo mandamos igual.";
     r.style.display="block";
+    mide("envio_fallido");
   });
 }
 // Enlace de pago con tarjeta. Cuando tengas el de Stripe, pegalo entre las comillas
@@ -985,7 +990,6 @@ document.querySelectorAll('.f button').forEach(function(b){
 
 </script>
 <script src="visual.js" defer></script>
-<script src="i18n.js?v=4" defer></script>
 
 </body>
 </html>
