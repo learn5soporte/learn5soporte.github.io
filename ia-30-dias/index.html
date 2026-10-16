@@ -43,7 +43,7 @@
 
 :root{
   /* superficies */
-  --ink:#F1F6FD; --ink1:#FFFFFF; --ink2:#FFFFFF; --ink3:#E3ECF9;
+  --ink:#E2EDFA; --ink1:#FFFFFF; --ink2:#FFFFFF; --ink3:#D2E2F6;
   /* texto */
   --w:#15132E; --g1:#3C3957; --g2:#5F5B80; --g3:#6B6789;
   /* acentos por herramienta, los mismos del aula */
@@ -95,7 +95,7 @@ b,strong{color:var(--w);font-weight:600}
 /* ─────────── barra superior ─────────── */
 .top{
   position:sticky;top:0;z-index:60;
-  background:rgba(241,246,253,.86);backdrop-filter:blur(14px);
+  background:rgba(226,237,250,.86);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
 .top-in{max-width:var(--max);margin:0 auto;padding:14px var(--s3);display:flex;align-items:center;justify-content:space-between}
@@ -976,7 +976,7 @@ footer .pie-b a{color:#7FB0FF}
 
 
 <!-- ══ 7 · PREGUNTAS ══ -->
-<section class="sec">
+<section class="sec" id="preguntas">
   <div class="wrap">
     <p class="eyebrow">Dudas</p>
     <h2 class="h-sec">Lo que suelen preguntarnos</h2>
@@ -1525,5 +1525,23 @@ document.querySelectorAll('.f button').forEach(function(b){
 </script>
 <script src="visual.js" defer></script>
 
+
+<script>
+/* La seccion de la demo la inyecta visual.js al final de la pagina.
+   La movemos delante de las preguntas frecuentes, que deben cerrar. */
+(function(){
+  function colocar(){
+    var demo=document.getElementById('demo');
+    var faq=document.getElementById('preguntas');
+    if(demo&&faq&&demo.compareDocumentPosition(faq)&Node.DOCUMENT_POSITION_PRECEDING){
+      faq.parentNode.insertBefore(demo,faq); return true;
+    }
+    return !!(demo&&faq);
+  }
+  var intentos=0;
+  var reloj=setInterval(function(){ if(colocar()||++intentos>40) clearInterval(reloj); },150);
+  window.addEventListener('load',colocar);
+})();
+</script>
 </body>
 </html>
