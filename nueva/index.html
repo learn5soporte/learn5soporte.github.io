@@ -120,9 +120,15 @@ h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
 .hero-pie svg{width:18px;height:18px;color:var(--azul-hondo);flex:none}
 
 /* lema sobre la zona oscura, en blanco y cian como en el arte */
-.lema{position:relative;margin:0;padding:0 22px 0 0;line-height:1.45;letter-spacing:.06em;white-space:nowrap}
+/* altura calculada: en el arte el lema ocupa del 12% al 46% de la banda,
+   que es la única franja realmente oscura. Más abajo entra el borde
+   iluminado de la Tierra y el cian deja de leerse. */
+/* color:var(--cyan) es para los corchetes: los atajos border-top/border-right
+   de abajo reinician el color a currentColor y se perdía el cian. */
+.lema{position:relative;align-self:start;margin:14px 0 0;padding:0 22px 0 0;color:var(--cyan);
+  line-height:1.45;letter-spacing:.06em;white-space:nowrap}
 .lema span{display:block;font-size:clamp(14px,1.5vw,21px);font-weight:500;color:#fff;text-transform:uppercase;
-  text-shadow:0 1px 16px rgba(0,16,38,.55)}
+  text-shadow:0 1px 3px rgba(0,16,38,.72), 0 2px 20px rgba(0,16,38,.65)}
 .lema .f{font-weight:800}
 .lema .c{color:var(--cyan);font-weight:800}
 .lema::before,.lema::after{content:'';position:absolute;width:17px;height:17px;border-color:var(--cyan)}
