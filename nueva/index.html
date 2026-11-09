@@ -101,36 +101,33 @@ h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
 .hamb{display:none;background:none;border:1.5px solid var(--borde-2);border-radius:11px;width:46px;height:46px;align-items:center;justify-content:center;cursor:pointer;flex:none}
 .hamb svg{width:21px;height:21px}
 
-/* ── HERO · astronauta integrado, sin tarjeta ── */
-.hero{position:relative;overflow:hidden;
-  background:radial-gradient(1200px 620px at 72% 38%,rgba(0,188,210,.22),transparent 64%),
-             radial-gradient(760px 420px at 10% 6%,rgba(1,119,182,.10),transparent 62%),
-             linear-gradient(180deg,#F6FCFE 0%,#ECF7FD 46%,#FFFFFF 100%)}
-.hero-in{max-width:var(--max);margin:0 auto;padding:58px 24px 74px;display:grid;grid-template-columns:.93fr 1.07fr;gap:34px;align-items:center}
-.hero h1{font-size:clamp(34px,4.3vw,55px);margin:14px 0 20px}
+/* ── HERO · banda fotográfica a sangre, como el arte aprobado ──
+   La banda es la propia ilustración del arte (2048×586). El texto
+   incrustado se borró del archivo; todo el texto es HTML real.      */
+.hero{position:relative;overflow:hidden;background:#F2FAFE}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,#FFFFFF 0%,rgba(255,255,255,.97) 25%,rgba(255,255,255,.74) 40%,rgba(255,255,255,0) 58%)}
+.hero-in{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:36px 24px 20px;
+  min-height:clamp(366px,28.6vw,442px);
+  display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.hero .eyebrow{margin-bottom:10px}
+.hero h1{font-size:clamp(29px,3.05vw,44px);line-height:1.08;margin:0 0 22px;max-width:560px}
 .hero h1 em{font-style:normal;color:var(--cyan)}
-.hero-sub{font-size:17.5px;color:var(--txt-2);max-width:500px;margin-bottom:30px;line-height:1.62}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
-.hero-pie{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--txt-3);font-weight:500}
-.hero-pie svg{width:19px;height:19px;color:var(--azul-hondo);flex:none}
+.hero-sub{font-size:16px;color:var(--txt-2);max-width:470px;margin-bottom:22px;line-height:1.5}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.hero-pie{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--txt-3);font-weight:500}
+.hero-pie svg{width:18px;height:18px;color:var(--azul-hondo);flex:none}
 
-.hero-art{position:relative;margin:0;display:grid;grid-template-columns:minmax(300px,1.5fr) minmax(130px,.72fr);align-items:center;gap:12px}
-.hero-fig{position:relative}
-.hero-fig::before{content:'';position:absolute;inset:-10% -6%;border-radius:50%;
-  background:radial-gradient(circle,rgba(0,188,210,.32),rgba(0,188,210,.10) 50%,transparent 72%);filter:blur(12px)}
-.hero-fig img{position:relative;width:100%;height:auto;
-  -webkit-mask-image:radial-gradient(ellipse 66% 70% at 52% 46%,#000 40%,rgba(0,0,0,.72) 62%,rgba(0,0,0,.22) 82%,transparent 94%);
-          mask-image:radial-gradient(ellipse 66% 70% at 52% 46%,#000 40%,rgba(0,0,0,.72) 62%,rgba(0,0,0,.22) 82%,transparent 94%);
-  -webkit-mask-size:100% 100%; mask-size:100% 100%;
-  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
-  -webkit-mask-position:center; mask-position:center}
-.lema{position:relative;line-height:1.2;letter-spacing:.055em;padding-right:6px}
-.lema span{display:block;font-size:clamp(13px,1.35vw,19px);font-weight:600;color:var(--navy);text-transform:uppercase}
+/* lema sobre la zona oscura, en blanco y cian como en el arte */
+.lema{position:relative;margin:0;padding:0 22px 0 0;line-height:1.45;letter-spacing:.06em;white-space:nowrap}
+.lema span{display:block;font-size:clamp(14px,1.5vw,21px);font-weight:500;color:#fff;text-transform:uppercase;
+  text-shadow:0 1px 16px rgba(0,16,38,.55)}
 .lema .f{font-weight:800}
 .lema .c{color:var(--cyan);font-weight:800}
-.lema::before,.lema::after{content:'';position:absolute;width:18px;height:18px;border-color:var(--cyan);opacity:.9}
-.lema::before{top:-18px;right:0;border-top:2.5px solid;border-right:2.5px solid;border-radius:0 6px 0 0}
-.lema::after{bottom:-18px;right:0;border-bottom:2.5px solid;border-right:2.5px solid;border-radius:0 0 6px 0}
+.lema::before,.lema::after{content:'';position:absolute;width:17px;height:17px;border-color:var(--cyan)}
+.lema::before{top:-14px;right:0;border-top:2.5px solid;border-right:2.5px solid;border-radius:0 5px 0 0}
+.lema::after{bottom:-14px;right:0;border-bottom:2.5px solid;border-right:2.5px solid;border-radius:0 0 5px 0}
 
 /* ── TRES CAMINOS ── */
 .sec{padding:var(--s7) 0}
@@ -289,8 +286,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   .menu.abierto .ca{display:none}
   .hamb{display:flex}
   .nav-cta{margin-left:auto;padding:12px 18px;font-size:14px;min-height:44px}
-  .hero-in{grid-template-columns:1fr;gap:30px;padding-top:42px}
-  .hero-art{order:-1;grid-template-columns:1.3fr .7fr}
+  /* la banda deja de ser fondo y pasa a ser imagen apilada */
+  .hero{background:#fff}
+  .hero::after{display:none}
+  .hero-bg{position:static;width:100%;height:auto;aspect-ratio:16/7;object-position:68% 50%}
+  .hero-in{grid-template-columns:1fr;min-height:0;gap:20px;padding:28px 24px 44px}
+  .lema{white-space:normal;padding:0}
+  .lema span{color:var(--navy);font-size:clamp(14px,2.5vw,19px);text-shadow:none}
+  .lema::before,.lema::after{display:none}
   .caminos{grid-template-columns:1fr}
   .camino-tx{max-width:62%}
   .cursos{grid-template-columns:repeat(2,1fr)}
@@ -309,9 +312,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   .sec{padding:var(--s6) 0}
   .nav-cta span{display:none}
   .nav-cta{padding:12px;width:44px;height:44px;border-radius:50%}
-  .hero-art{grid-template-columns:1fr;gap:18px}
-  .lema{padding:0}
-  .lema::before,.lema::after{display:none}
+  .hero-bg{aspect-ratio:5/4;object-position:62% 46%}
   .cursos{grid-template-columns:1fr}
   .camino-tx{max-width:100%}
   .camino-art{opacity:.26;width:60%}
@@ -395,6 +396,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
 
 <!-- ══ 2 · HERO ══ -->
 <section class="hero">
+  <img class="hero-bg" src="assets/hero-banda.jpg" width="2048" height="586" fetchpriority="high"
+       alt="Astronauta con un planeta digital reflejado en el casco, sobre la Tierra iluminada">
   <div class="hero-in">
     <div>
       <p class="eyebrow">EdTech · IA · Formación · Consultoría · Soluciones</p>
@@ -412,15 +415,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         Para personas, profesionales, empresas e instituciones educativas.
       </p>
     </div>
-    <figure class="hero-art">
-      <span class="hero-fig">
-        <img src="assets/hero-astronauta.jpg" width="1240" height="1216" fetchpriority="high"
-             alt="Astronauta sosteniendo un planeta digital luminoso, símbolo de la exploración tecnológica de Learn5">
-      </span>
-      <figcaption class="lema" aria-label="Enseña al presente, imagina el futuro">
-        <span>Enseña</span><span>al presente,</span><span class="f">Imagina</span><span class="c">el futuro.</span>
-      </figcaption>
-    </figure>
+    <p class="lema" aria-label="Enseña al presente, imagina el futuro">
+      <span>Enseña</span><span>al presente,</span><span class="f">Imagina</span><span class="c">el futuro.</span>
+    </p>
   </div>
 </section>
 
