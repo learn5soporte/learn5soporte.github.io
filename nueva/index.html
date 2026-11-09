@@ -1016,13 +1016,25 @@ function enviar(datos){
          y no mandamos nada. */
       if(trampa.checked) return;
 
-      var datos = { _subject: ASUNTOS[tipo] || "Learn5 · Mensaje desde la web", Formulario: tipo };
+      /* El correo que llega lleva estos rótulos, no los nombres
+         internos de los campos: se lee de un vistazo. */
+      var ETIQUETAS = {
+        nombre:"Nombre", email:"Correo", organizacion:"Organización",
+        telefono:"Teléfono", disponibilidad:"Disponibilidad",
+        categoria:"Categoría", tipo:"Tipo de alianza",
+        mensaje:"Mensaje", consent:"Acepta privacidad"
+      };
+      var datos = { _subject: ASUNTOS[tipo] || "Learn5 · Mensaje desde la web" };
+      var correoPersona = "";
       Array.prototype.forEach.call(f.elements, function(c){
         if(!c.name || c.name === "botcheck") return;
-        datos[c.name] = (c.type === "checkbox") ? (c.checked ? "sí" : "no") : c.value.trim();
+        if(c.name === "email") correoPersona = c.value.trim();
+        datos[ETIQUETAS[c.name] || c.name] =
+          (c.type === "checkbox") ? (c.checked ? "sí" : "no") : c.value.trim();
       });
-      /* Así puedes responder dándole a "Responder" en tu correo. */
-      if(datos.email) datos._replyto = datos.email;
+      datos["Formulario"] = tipo;
+      /* Así respondes con el botón Responder, directo a la persona. */
+      if(correoPersona) datos._replyto = correoPersona;
 
       var textoBoton = boton.textContent;
       boton.disabled = true; boton.textContent = "Enviando…";
