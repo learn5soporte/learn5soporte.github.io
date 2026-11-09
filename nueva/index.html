@@ -226,11 +226,9 @@ h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
 .comu-lista{display:grid;gap:11px}
 .comu-lista li{list-style:none;display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--txt-2)}
 .comu-lista svg{width:17px;height:17px;color:var(--turquesa);flex:none;margin-top:3px}
-.comu-form{display:flex;gap:10px;flex-wrap:wrap}
-.comu-campo{flex:1;min-width:180px;position:relative;display:flex;align-items:center}
-.comu-campo svg{position:absolute;left:16px;width:18px;height:18px;color:var(--txt-3);pointer-events:none}
-.comu-campo input{width:100%;height:52px;padding:0 18px 0 46px;border:1.5px solid var(--borde);border-radius:100px;background:#fff;font-size:15px}
-.comu-campo input:focus{outline:none;border-color:var(--azul)}
+.comu-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.comu-nota{font-size:13.5px;color:var(--txt-3);line-height:1.55}
+.comu-nota .enlace{font-size:13.5px}
 .comu-cons{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--txt-3);line-height:1.5;flex-basis:100%}
 .comu-cons input{margin-top:3px;accent-color:var(--azul-hondo);width:16px;height:16px;flex:none}
 .comu-cons a{color:var(--azul-hondo);font-weight:600}
@@ -634,20 +632,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Contenido exclusivo sobre IA y EdTech</li>
         </ul>
       </div>
-      <div>
-        <form class="comu-form" novalidate id="formSus">
-          <label class="solo-lectores" for="correo">Tu correo electrónico</label>
-          <span class="comu-campo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
-            <input id="correo" name="correo" type="email" placeholder="Tu correo electrónico" autocomplete="email" required>
-          </span>
-          <button class="btn btn-3" type="submit">Suscribirme</button>
-          <label class="comu-cons">
-            <input type="checkbox" id="consent" required>
-            <span>Acepto recibir comunicaciones de Learn5 y la <a href="/privacidad.html">política de privacidad</a>.</span>
-          </label>
-          <p class="aviso" id="avisoSus" role="status" aria-live="polite"></p>
-        </form>
+      <div class="comu-cta">
+        <a class="btn btn-3" href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".9" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg>
+          Suscribirme a Clase Futura
+        </a>
+        <p class="comu-nota">Se publica en LinkedIn, cada semana. ¿Prefieres escribirnos?
+          <button class="enlace" type="button" data-modal="reunion">Hablemos</button>
+        </p>
       </div>
     </div>
   </div>
@@ -695,6 +687,16 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
     <div class="campo-2">
       <div class="campo"><label for="r-org">Organización</label><input id="r-org" name="organizacion" autocomplete="organization"></div>
       <div class="campo"><label for="r-tel">Teléfono</label><input id="r-tel" name="telefono" type="tel" autocomplete="tel"></div>
+    </div>
+    <div class="campo"><label for="r-cuando">¿Cuándo te viene bien? *</label>
+      <select id="r-cuando" name="disponibilidad" required>
+        <option value="">— Selecciona —</option>
+        <option>Entre semana, por la mañana</option>
+        <option>Entre semana, a mediodía</option>
+        <option>Entre semana, por la tarde</option>
+        <option>Fin de semana</option>
+        <option>Me adapto a lo que tengas</option>
+      </select>
     </div>
     <div class="campo"><label for="r-msg">¿De qué quieres que hablemos?</label><textarea id="r-msg" name="mensaje"></textarea></div>
     <label class="comu-cons"><input type="checkbox" name="consent" required><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
@@ -907,13 +909,52 @@ var CURSOS = [
 })();
 
 /* ══════════════════════════════════════════════════════════════
-   3 · MODALES · PENDIENTE DE INTEGRACIÓN
-   No hay servicio de formularios ni agenda conectados. El envío
-   valida y lo dice con honestidad; NO finge que se envió.
-   Para conectarlo: ENVIO_CONECTADO = true y completar enviar().
+   3 · ENVÍO DE FORMULARIOS · FormSubmit
+   Los tres formularios (reunión, propuesta y alianza) mandan a
+   FormSubmit y el correo llega a contacto@learn5.tech.
+   No hay servidor, no hay base de datos y NO hay cuenta que crear:
+   el primer envío dispara un correo de confirmación y, al pulsar
+   el enlace, queda activo para siempre.
+
+   DESTINO: para no dejar la dirección a la vista de los robots,
+   FormSubmit da un alias aleatorio después de confirmar. Cuando lo
+   tengas, basta con cambiar FS_DESTINO por ese alias: el resto del
+   código no se toca.
    ══════════════════════════════════════════════════════════════ */
-var ENVIO_CONECTADO = false;
-var ENDPOINT = "";
+var FS_DESTINO = "contacto@learn5.tech";
+var FS_URL     = "https://formsubmit.co/ajax/" + FS_DESTINO;
+var CORREO     = "contacto@learn5.tech";
+var WHATSAPP   = "https://wa.me/17865271196";
+
+function fallo(aviso){
+  aviso.className = "aviso err";
+  aviso.innerHTML = "No hemos podido enviarlo. Puede ser tu conexión. " +
+    'Inténtalo otra vez o escríbenos a <a href="mailto:'+CORREO+'" style="color:inherit;text-decoration:underline">'+CORREO+'</a> ' +
+    'o por <a href="'+WHATSAPP+'" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
+}
+
+/* Corte de seguridad: si la red se cuelga, el botón no puede
+   quedarse en "Enviando..." para siempre. */
+function enviar(datos){
+  var corte = ("AbortController" in window) ? new AbortController() : null;
+  var reloj = corte ? setTimeout(function(){ corte.abort(); }, 12000) : null;
+  datos._template = "table";   // correo legible en vez de un volcado
+  datos._captcha  = "false";   // obligatorio al enviar por AJAX
+  return fetch(FS_URL, {
+    method:"POST",
+    headers:{ "Content-Type":"application/json", Accept:"application/json" },
+    body: JSON.stringify(datos),
+    signal: corte ? corte.signal : undefined
+  }).then(function(r){
+    if(reloj) clearTimeout(reloj);
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    return r.json();
+  }).then(function(j){
+    /* FormSubmit devuelve success como cadena "true", no como booleano. */
+    if(String(j.success) !== "true") throw new Error(j.message || "rechazado");
+    return true;
+  });
+}
 
 (function(){
   var ultimoFoco = null;
@@ -935,10 +976,25 @@ var ENDPOINT = "";
     d.addEventListener("click", function(e){ if(e.target === d) d.close(); });
   });
 
+  var ASUNTOS = {
+    reunion:   "Learn5 · Solicitud de reunión",
+    propuesta: "Learn5 · Solicitud de propuesta",
+    alianza:   "Learn5 · Propuesta de alianza"
+  };
+
   Array.prototype.forEach.call(document.querySelectorAll("form[data-form]"), function(f){
+    /* Trampa antispam de Web3Forms: un bot la rellena, una persona no. */
+    var trampa = document.createElement("input");
+    trampa.type = "checkbox"; trampa.name = "botcheck";
+    trampa.style.cssText = "position:absolute;left:-9999px";
+    trampa.tabIndex = -1; trampa.setAttribute("aria-hidden","true");
+    f.appendChild(trampa);
+
     f.addEventListener("submit", function(e){
       e.preventDefault();
+      var tipo  = f.getAttribute("data-form");
       var aviso = f.querySelector(".aviso");
+      var boton = f.querySelector("[type=submit]");
       aviso.className = "aviso";
 
       var falla = null;
@@ -956,51 +1012,41 @@ var ENDPOINT = "";
         falla.focus();
         return;
       }
-      if(!ENVIO_CONECTADO){
-        aviso.className = "aviso err";
-        aviso.innerHTML = "Todavía no está conectado el servicio de formularios, así que esta solicitud <b>no se ha enviado</b>. " +
-          'Escríbenos a <a href="mailto:contacto@learn5.tech" style="color:inherit;text-decoration:underline">contacto@learn5.tech</a> ' +
-          'o por <a href="https://wa.me/17865271196" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a> y te atendemos igual.';
-        return;
-      }
-      /* PENDIENTE · envío real al servicio de formularios (ENDPOINT) */
+      /* Trampa antispam: si está marcada es un bot. Fingimos normalidad
+         y no mandamos nada. */
+      if(trampa.checked) return;
+
+      var datos = { _subject: ASUNTOS[tipo] || "Learn5 · Mensaje desde la web", Formulario: tipo };
+      Array.prototype.forEach.call(f.elements, function(c){
+        if(!c.name || c.name === "botcheck") return;
+        datos[c.name] = (c.type === "checkbox") ? (c.checked ? "sí" : "no") : c.value.trim();
+      });
+      /* Así puedes responder dándole a "Responder" en tu correo. */
+      if(datos.email) datos._replyto = datos.email;
+
+      var textoBoton = boton.textContent;
+      boton.disabled = true; boton.textContent = "Enviando…";
+
+      enviar(datos).then(function(){
+        /* A partir de aquí el mensaje YA está enviado: ningún error de
+           repintado puede convertir un éxito en un fallo. */
+        try{
+          f.querySelector(".md > p").textContent = "";
+          aviso.className = "aviso ok";
+          aviso.textContent = "Recibido. Te respondemos desde " + CORREO + ", normalmente el mismo día.";
+          Array.prototype.forEach.call(f.querySelectorAll(".campo, .campo-2, .comu-cons"), function(n){ n.style.display = "none"; });
+          boton.textContent = "Enviado";
+        }catch(err){ /* enviado igualmente */ }
+      }).catch(function(){
+        fallo(aviso);
+        boton.disabled = false; boton.textContent = textoBoton;
+      });
     });
   });
 })();
 
 /* ══════════════════════════════════════════════════════════════
-   4 · NEWSLETTER · misma honestidad
-   ══════════════════════════════════════════════════════════════ */
-var NEWSLETTER_CONECTADO = false;
-
-document.getElementById("formSus").addEventListener("submit", function(e){
-  e.preventDefault();
-  var correo = document.getElementById("correo");
-  var cons   = document.getElementById("consent");
-  var aviso  = document.getElementById("avisoSus");
-  aviso.className = "aviso";
-
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(correo.value.trim())){
-    aviso.className = "aviso err";
-    aviso.textContent = "Revisa tu correo, parece que tiene un error.";
-    correo.focus(); return;
-  }
-  if(!cons.checked){
-    aviso.className = "aviso err";
-    aviso.textContent = "Necesitamos tu consentimiento para escribirte.";
-    cons.focus(); return;
-  }
-  if(!NEWSLETTER_CONECTADO){
-    aviso.className = "aviso err";
-    aviso.innerHTML = "Todavía no está conectado el servicio de newsletter, así que <b>no te hemos dado de alta</b>. " +
-      'Suscríbete a <a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Clase Futura en LinkedIn</a>, que sí está activa.';
-    return;
-  }
-  /* PENDIENTE · alta real en el proveedor de email marketing */
-});
-
-/* ══════════════════════════════════════════════════════════════
-   5 · entradas suaves al hacer scroll
+   4 · entradas suaves al hacer scroll
    ══════════════════════════════════════════════════════════════ */
 (function(){
   var nodos = document.querySelectorAll(".rev");
