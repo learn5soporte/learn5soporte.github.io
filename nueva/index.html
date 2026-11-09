@@ -109,8 +109,7 @@ h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
 .hero::after{content:'';position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(90deg,#FFFFFF 0%,rgba(255,255,255,.97) 25%,rgba(255,255,255,.74) 40%,rgba(255,255,255,0) 58%)}
 .hero-in{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:36px 24px 20px;
-  min-height:clamp(366px,28.6vw,442px);
-  display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+  min-height:clamp(366px,28.6vw,442px);display:flex;flex-direction:column;justify-content:center}
 .hero .eyebrow{margin-bottom:10px}
 .hero h1{font-size:clamp(29px,3.05vw,44px);line-height:1.08;margin:0 0 22px;max-width:560px}
 .hero h1 em{font-style:normal;color:var(--cyan)}
@@ -119,13 +118,15 @@ h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
 .hero-pie{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--txt-3);font-weight:500}
 .hero-pie svg{width:18px;height:18px;color:var(--azul-hondo);flex:none}
 
-/* lema sobre la zona oscura, en blanco y cian como en el arte */
-/* altura calculada: en el arte el lema ocupa del 12% al 46% de la banda,
-   que es la única franja realmente oscura. Más abajo entra el borde
-   iluminado de la Tierra y el cian deja de leerse. */
-/* color:var(--cyan) es para los corchetes: los atajos border-top/border-right
-   de abajo reinician el color a currentColor y se perdía el cian. */
-.lema{position:relative;align-self:start;margin:14px 0 0;padding:0 22px 0 0;color:var(--cyan);
+/* Lema sobre la zona oscura, en blanco y cian como en el arte.
+   Va anclado a la BANDA, no a la columna de texto. La franja oscura de la
+   foto está entre el 78% y el 97% de ancho y entre el 10% y el 50% de alto;
+   fuera de ahí entra el borde iluminado de la Tierra y el cian se pierde.
+   Colgándolo del contenedor central se salía de esa franja en pantallas
+   anchas: con top/right en porcentaje de la banda se queda dentro siempre.
+   color:var(--cyan) es para los corchetes: los atajos border-top y
+   border-right reinician el color a currentColor. */
+.lema{position:absolute;z-index:2;top:9%;right:5.6%;margin:0;padding:0 22px 0 0;color:var(--cyan);
   line-height:1.45;letter-spacing:.06em;white-space:nowrap}
 .lema span{display:block;font-size:clamp(14px,1.5vw,21px);font-weight:500;color:#fff;text-transform:uppercase;
   text-shadow:0 1px 3px rgba(0,16,38,.72), 0 2px 20px rgba(0,16,38,.65)}
@@ -296,8 +297,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   .hero{background:#fff}
   .hero::after{display:none}
   .hero-bg{position:static;width:100%;height:auto;aspect-ratio:16/7;object-position:68% 50%}
-  .hero-in{grid-template-columns:1fr;min-height:0;gap:20px;padding:28px 24px 44px}
-  .lema{white-space:normal;padding:0}
+  .hero-in{min-height:0;gap:20px;padding:28px 24px 10px}
+  .lema{position:static;white-space:normal;padding:0 24px 40px;max-width:var(--max);margin:0 auto}
   .lema span{color:var(--navy);font-size:clamp(14px,2.5vw,19px);text-shadow:none}
   .lema::before,.lema::after{display:none}
   .caminos{grid-template-columns:1fr}
@@ -421,10 +422,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         Para personas, profesionales, empresas e instituciones educativas.
       </p>
     </div>
-    <p class="lema" aria-label="Enseña al presente, imagina el futuro">
-      <span>Enseña</span><span>al presente,</span><span class="f">Imagina</span><span class="c">el futuro.</span>
-    </p>
   </div>
+  <p class="lema" aria-label="Enseña al presente, imagina el futuro">
+    <span>Enseña</span><span>al presente,</span><span class="f">Imagina</span><span class="c">el futuro.</span>
+  </p>
 </section>
 
 <!-- ══ 3 · TRES CAMINOS ══ -->
