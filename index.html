@@ -238,6 +238,7 @@ section[id],.ancla{scroll-margin-top:84px}
 .aviso{font-size:13.5px;font-weight:600;display:none;border-radius:12px;padding:11px 14px;flex-basis:100%}
 .aviso.err{display:block;background:#FDEDED;color:#9B1C1C;border:1px solid #F5C6C6}
 .aviso.ok{display:block;background:#E9F9F2;color:#04603F;border:1px solid #BFE9D7}
+.aviso.info{display:block;background:var(--hielo);color:var(--azul-hondo);border:1px solid var(--borde-2)}
 
 /* ── CTA FINAL ── */
 .cierre{position:relative;overflow:hidden;text-align:center;padding:var(--s7) 0 210px;background:linear-gradient(180deg,#FFFFFF 0%,#F2FBFE 100%)}
@@ -934,51 +935,91 @@ var CURSOS = [
 })();
 
 /* ══════════════════════════════════════════════════════════════
-   3 · ENVÍO DE FORMULARIOS · FormSubmit
-   Los tres formularios (reunión, propuesta y alianza) mandan a
-   FormSubmit y el correo llega a contacto@learn5.tech.
-   No hay servidor, no hay base de datos y NO hay cuenta que crear:
-   el primer envío dispara un correo de confirmación y, al pulsar
-   el enlace, queda activo para siempre.
+   3 · ENVÍO DE FORMULARIOS · Web3Forms con FormSubmit de respaldo
 
-   DESTINO: para no dejar la dirección a la vista de los robots,
-   FormSubmit da un alias aleatorio después de confirmar. Cuando lo
-   tengas, basta con cambiar FS_DESTINO por ese alias: el resto del
-   código no se toca.
+   Los tres formularios mandan a Web3Forms, y el correo llega a
+   contacto@learn5.tech. Si Web3Forms falla o tarda demasiado, el
+   mismo envío se reintenta por FormSubmit sin que el visitante se
+   entere. Dos servicios tienen que caerse a la vez para perder un
+   mensaje.
+
+   POR QUÉ: el 10-nov-2026 FormSubmit tardó 24,8 s en confirmar un
+   envío que sí había entregado. Sigue como red de seguridad, no
+   como vía principal.
+
+   PARA ACTIVAR WEB3FORMS: pega la clave en W3F_KEY. Mientras esté
+   vacía todo sale por FormSubmit, así que nada deja de funcionar.
+   La clave puede ir a la vista: es un alias del correo, no una
+   contraseña.
    ══════════════════════════════════════════════════════════════ */
+var W3F_KEY    = "";
+var W3F_URL    = "https://api.web3forms.com/submit";
 var FS_DESTINO = "contacto@learn5.tech";
 var FS_URL     = "https://formsubmit.co/ajax/" + FS_DESTINO;
 var CORREO     = "contacto@learn5.tech";
 var WHATSAPP   = "https://wa.me/17865271196";
 
+/* OJO con el texto de este aviso. FormSubmit a veces recibe el mensaje
+   pero tarda 25 s en contestar, así que un corte por tiempo NO significa
+   que no haya llegado. Decir "no se ha enviado" provocaría que la gente
+   lo mandara tres veces o se fuera creyendo que falló. */
 function fallo(aviso){
   aviso.className = "aviso err";
-  aviso.innerHTML = "No hemos podido enviarlo. Puede ser tu conexión. " +
-    'Inténtalo otra vez o escríbenos a <a href="mailto:'+CORREO+'" style="color:inherit;text-decoration:underline">'+CORREO+'</a> ' +
+  aviso.innerHTML = "No hemos podido confirmar el envío. Es posible que sí haya llegado, " +
+    "así que mejor no lo repitas. Para asegurarte, escríbenos a " +
+    '<a href="mailto:'+CORREO+'" style="color:inherit;text-decoration:underline">'+CORREO+'</a> ' +
     'o por <a href="'+WHATSAPP+'" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
 }
 
-/* Corte de seguridad: si la red se cuelga, el botón no puede
-   quedarse en "Enviando..." para siempre. */
-function enviar(datos){
+/* Petición con corte por tiempo: si la red se cuelga, el botón no
+   puede quedarse en "Enviando..." para siempre. */
+function pedir(url, cuerpo, ms){
   var corte = ("AbortController" in window) ? new AbortController() : null;
-  var reloj = corte ? setTimeout(function(){ corte.abort(); }, 12000) : null;
-  datos._template = "table";   // correo legible en vez de un volcado
-  datos._captcha  = "false";   // obligatorio al enviar por AJAX
-  return fetch(FS_URL, {
+  var reloj = corte ? setTimeout(function(){ corte.abort(); }, ms) : null;
+  return fetch(url, {
     method:"POST",
     headers:{ "Content-Type":"application/json", Accept:"application/json" },
-    body: JSON.stringify(datos),
+    body: JSON.stringify(cuerpo),
     signal: corte ? corte.signal : undefined
   }).then(function(r){
     if(reloj) clearTimeout(reloj);
     if(!r.ok) throw new Error("HTTP "+r.status);
     return r.json();
   }).then(function(j){
-    /* FormSubmit devuelve success como cadena "true", no como booleano. */
+    /* Los dos servicios devuelven success, uno como booleano y el
+       otro como la cadena "true". */
     if(String(j.success) !== "true") throw new Error(j.message || "rechazado");
     return true;
   });
+}
+
+function copiar(o){ var c={}; for(var k in o){ if(Object.prototype.hasOwnProperty.call(o,k)) c[k]=o[k]; } return c; }
+
+function viaWeb3Forms(asunto, correoPersona, campos){
+  var d = copiar(campos);
+  d.access_key = W3F_KEY;
+  d.subject    = asunto;
+  d.from_name  = "Web Learn5";
+  if(correoPersona) d.replyto = correoPersona;
+  return pedir(W3F_URL, d, 15000);
+}
+
+function viaFormSubmit(asunto, correoPersona, campos){
+  var d = copiar(campos);
+  d._subject  = asunto;
+  d._template = "table";   // correo legible en vez de un volcado
+  d._captcha  = "false";   // obligatorio al enviar por AJAX
+  if(correoPersona) d._replyto = correoPersona;
+  return pedir(FS_URL, d, 35000);
+}
+
+/* Web3Forms primero, con 15 s de margen. Si no responde o devuelve
+   error, el mismo mensaje sale por FormSubmit antes de darlo por
+   perdido. El visitante no ve ninguna de las dos cosas. */
+function enviar(asunto, correoPersona, campos){
+  if(!W3F_KEY) return viaFormSubmit(asunto, correoPersona, campos);
+  return viaWeb3Forms(asunto, correoPersona, campos)
+    .catch(function(){ return viaFormSubmit(asunto, correoPersona, campos); });
 }
 
 (function(){
@@ -1060,7 +1101,7 @@ function enviar(datos){
         categoria:"Categoría", tipo:"Tipo de alianza",
         mensaje:"Mensaje", consent:"Acepta privacidad"
       };
-      var datos = { _subject: ASUNTOS[tipo] || "Learn5 · Mensaje desde la web" };
+      var datos = {};
       var correoPersona = "";
       Array.prototype.forEach.call(f.elements, function(c){
         if(!c.name || c.name === "botcheck") return;
@@ -1069,13 +1110,20 @@ function enviar(datos){
           (c.type === "checkbox") ? (c.checked ? "sí" : "no") : c.value.trim();
       });
       datos["Formulario"] = tipo;
-      /* Así respondes con el botón Responder, directo a la persona. */
-      if(correoPersona) datos._replyto = correoPersona;
+      var asunto = ASUNTOS[tipo] || "Learn5 · Mensaje desde la web";
 
       var textoBoton = boton.textContent;
       boton.disabled = true; boton.textContent = "Enviando…";
 
-      enviar(datos).then(function(){
+      /* A los 7 s, si el servicio todavía no ha contestado, avisamos en
+         tono neutro. No es un error: el envío sigue en curso. */
+      var paciencia = setTimeout(function(){
+        aviso.className = "aviso info";
+        aviso.textContent = "Seguimos enviándolo. El servicio va lento hoy, dale unos segundos.";
+      }, 7000);
+
+      enviar(asunto, correoPersona, datos).then(function(){
+        clearTimeout(paciencia);
         /* A partir de aquí el mensaje YA está enviado: ningún error de
            repintado puede convertir un éxito en un fallo. */
         f.setAttribute("data-enviado","si");
@@ -1087,8 +1135,11 @@ function enviar(datos){
           boton.textContent = "Enviado";
         }catch(err){ /* enviado igualmente */ }
       }).catch(function(){
+        clearTimeout(paciencia);
         fallo(aviso);
-        boton.disabled = false; boton.textContent = textoBoton;
+        /* El botón NO vuelve a habilitarse: como el mensaje puede haber
+           llegado igualmente, reenviar solo produciría duplicados. */
+        boton.textContent = "No confirmado";
       });
     });
   });
