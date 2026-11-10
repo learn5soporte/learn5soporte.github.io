@@ -1,1363 +1,1114 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Learn5 — Transformamos la educación con IA. Cursos para docentes y profesionales. Consultoría institucional. LATAM y EE.UU. | We transform education with AI. Courses for teachers and professionals. Institutional consulting. LATAM & USA.">
-<title>Learn5 — AI EdTech Solutions · LATAM & USA</title>
+<title>Learn5 — Formación, consultoría y soluciones EdTech con IA</title>
+<meta name="description" content="Formación, consultoría y soluciones EdTech para personas, profesionales e instituciones. Impulsa el futuro del aprendizaje, la innovación y la IA. Miami, Florida · LATAM y EE. UU.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://learn5.pro/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Learn5">
+<meta property="og:title" content="Learn5 — Impulsa el futuro del aprendizaje, la innovación y la IA">
+<meta property="og:description" content="Formación, consultoría y soluciones EdTech para personas, profesionales e instituciones que quieren evolucionar de verdad.">
+<meta property="og:url" content="https://learn5.pro/">
+<meta name="twitter:card" content="summary_large_image">
+<!-- PENDIENTE · og:image necesita un arte social autorizado de 1200×630. -->
+
+<!-- Favicon PROVISIONAL. Sustituir por el logotipo oficial cuando lo suministres. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23001D3D'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial' font-size='34' font-weight='bold' fill='%23fff' text-anchor='middle'%3EL%3Ctspan fill='%2300BCD2'%3E5%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-/* ── TOKENS ── */
-:root {
-  --blue-900:#05091A; --blue-800:#0A1230; --blue-700:#0F1E52;
-  --blue-600:#1A3080; --blue-500:#2150C8; --blue-400:#3B7FE8;
-  --cyan-500:#00C8E8; --cyan-400:#30DCF5;
-  --violet-500:#6040C8; --violet-400:#8060E0;
-  --fd:'Bricolage Grotesque',sans-serif;
-  --fb:'Plus Jakarta Sans',sans-serif;
-  --r-sm:10px; --r-md:16px; --r-lg:24px; --r-xl:32px;
-  --ease:cubic-bezier(0.4,0,0.2,1);
+/* ══════════════════════════════════════════════════════════════
+   LEARN5 · sistema de diseño · paleta muestreada del arte aprobado
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  color-scheme: light;
+  --navy:#001D3D; --navy-2:#002243; --navy-3:#00325B;
+  --cyan:#00BCD2; --cyan-claro:#00C7E5; --turquesa:#00A6B0;
+  --azul:#0177B6; --azul-hondo:#006D8E;
+  --blanco:#FFFFFF; --hielo:#EAF9FF; --hielo-2:#F4FBFE;
+  --borde:#DAEAF2; --borde-2:#C5DEEC;
+  --txt:#001D3D; --txt-2:rgba(0,29,61,.78); --txt-3:rgba(0,29,61,.60);
+  --max:1280px;
+  --r:16px; --r2:22px; --r3:28px; --r4:40px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:88px;
+  --sombra:0 2px 4px rgba(0,45,90,.04), 0 12px 32px rgba(0,45,90,.07);
+  --sombra-2:0 4px 8px rgba(0,45,90,.06), 0 24px 56px rgba(0,45,90,.11);
 }
-[data-theme="dark"] {
-  --bg:#070B1A; --bg2:#0C1228; --bg3:#111A38;
-  --surf:rgba(255,255,255,0.04); --surf2:rgba(255,255,255,0.07);
-  --border:rgba(255,255,255,0.08); --border2:rgba(255,255,255,0.15);
-  --text:#EEF2FF; --muted:#8899CC; --faint:#3A4A70;
-  --accent:var(--cyan-400); --accent2:var(--blue-400);
-  --nav-bg:rgba(7,11,26,0.80);
-}
-[data-theme="light"] {
-  --bg:#F2F5FF; --bg2:#FFFFFF; --bg3:#E8EEFF;
-  --surf:rgba(30,50,140,0.05); --surf2:rgba(30,50,140,0.09);
-  --border:rgba(30,50,140,0.10); --border2:rgba(30,50,140,0.20);
-  --text:#0A0F2E; --muted:#4A5C9A; --faint:#B0BEDE;
-  --accent:var(--blue-500); --accent2:var(--violet-500);
-  --nav-bg:rgba(242,245,255,0.88);
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;transition:background .3s var(--ease),color .3s var(--ease)}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer;font-family:var(--fb)}
-img{display:block;max-width:100%}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color:var(--txt);background:var(--blanco);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:6px}
+.solo-lectores{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* anclas heredadas de la web anterior: no ocupan nada */
+.ancla{display:block;height:0;overflow:hidden}
+section[id],.ancla{scroll-margin-top:84px}
+.saltar{position:absolute;left:-9999px;top:0;z-index:200;background:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700}
+.saltar:focus{left:0}
 
-/* ── GLOW ── */
-.bg-glow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.bg-glow::before{content:'';position:absolute;top:-20%;left:15%;width:70vw;height:70vw;background:radial-gradient(ellipse,rgba(48,220,245,0.07) 0%,transparent 65%);animation:glowDrift 20s ease-in-out infinite alternate}
-.bg-glow::after{content:'';position:absolute;bottom:-10%;right:5%;width:50vw;height:50vw;background:radial-gradient(ellipse,rgba(96,64,200,0.08) 0%,transparent 65%);animation:glowDrift 25s ease-in-out infinite alternate-reverse}
-@keyframes glowDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(3%,5%) scale(1.08)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;
+  padding:14px 26px;border:0;border-radius:100px;font-size:15.5px;font-weight:700;
+  text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s,color .2s}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-1{background:linear-gradient(100deg,var(--turquesa),var(--azul-hondo));color:#fff;box-shadow:0 6px 20px rgba(0,150,170,.30)}
+.btn-1:hover{box-shadow:0 10px 28px rgba(0,150,170,.42)}
+.btn-2{background:#fff;color:var(--navy);border:1.5px solid var(--borde-2)}
+.btn-2:hover{border-color:var(--azul);background:var(--hielo-2)}
+.btn-3{background:var(--cyan);color:#00202c}
+.btn-3:hover{filter:brightness(1.06)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.enlace{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--azul-hondo);text-decoration:none;font-size:15px;background:none;border:0;cursor:pointer;padding:0}
+.enlace:hover{color:var(--navy)}
+.enlace svg{width:16px;height:16px;transition:transform .18s}
+.enlace:hover svg{transform:translateX(3px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--azul-hondo);margin-bottom:14px}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;inset-x:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s var(--ease)}
-.nav-wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem;height:62px;display:flex;align-items:center;gap:2rem}
-.nav-logo{font-family:var(--fd);font-size:20px;font-weight:800;letter-spacing:-0.5px;flex-shrink:0}
-.nav-logo .num{color:var(--accent)}
-.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none;flex:1}
-.nav-links a{font-size:14px;font-weight:500;color:var(--muted);transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-end{display:flex;align-items:center;gap:10px}
-.pill-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:100px;font-size:13px;font-weight:600;border:1px solid var(--border2);background:var(--surf);color:var(--muted);transition:all .2s}
-.pill-btn:hover{color:var(--text);border-color:var(--accent)}
-.cta-nav{padding:8px 20px;border-radius:100px;background:var(--accent);color:var(--bg);font-size:14px;font-weight:700;border:none;transition:opacity .2s,transform .2s;white-space:nowrap}
-.cta-nav:hover{opacity:.88;transform:translateY(-1px)}
-.hamburger{display:none;background:none;border:none;color:var(--muted);font-size:22px;padding:4px}
+/* ── NAVBAR con desplegables reales ── */
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.90);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,45,90,.07)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:22px;position:relative}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;flex:none}
+.logo-n{font-size:26px;font-weight:800;letter-spacing:-.04em;color:var(--navy)}
+.logo-n span{color:var(--cyan)}
+.logo-d{font-size:8.5px;font-weight:700;letter-spacing:.17em;color:var(--txt-3);margin-top:3px}
+.menu{display:flex;align-items:center;gap:2px;margin-left:auto;list-style:none}
+.menu>li{position:relative}
+.menu a,.menu button.mt{display:inline-flex;align-items:center;gap:5px;padding:9px 13px;border-radius:9px;
+  font-size:14.5px;font-weight:600;color:var(--txt-2);text-decoration:none;background:none;border:0;cursor:pointer}
+.menu a:hover,.menu button.mt:hover{color:var(--navy);background:var(--hielo-2)}
+.menu a[aria-current="page"]{color:var(--cyan)}
+.menu .ca{width:10px;height:10px;opacity:.55;transition:transform .18s}
+.menu button.mt[aria-expanded="true"] .ca{transform:rotate(180deg)}
+.sub{position:absolute;left:0;top:calc(100% + 8px);min-width:252px;background:#fff;border:1px solid var(--borde);
+  border-radius:var(--r);box-shadow:0 20px 44px rgba(0,45,90,.14);padding:8px;list-style:none;display:none;z-index:90}
+.sub.on{display:block}
+.sub a,.sub button{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  padding:10px 12px;border-radius:9px;font-size:14.5px;font-weight:600;color:var(--txt-2)}
+.sub a:hover,.sub button:hover{background:var(--hielo-2);color:var(--navy)}
+.sub small{display:block;font-weight:500;font-size:12.5px;color:var(--txt-3);margin-top:2px}
+.nav-cta{flex:none}
+.hamb{display:none;background:none;border:1.5px solid var(--borde-2);border-radius:11px;width:46px;height:46px;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.hamb svg{width:21px;height:21px}
 
-/* ── MOBILE MENU ── */
-.mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--bg);padding:80px 2rem 2rem;flex-direction:column;gap:4px;overflow-y:auto}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-family:var(--fd);font-size:22px;font-weight:700;color:var(--muted);padding:12px 0;border-bottom:1px solid var(--border);transition:color .2s}
-.mobile-menu a:hover{color:var(--accent)}
+/* ── HERO · banda fotográfica a sangre, como el arte aprobado ──
+   La banda es la propia ilustración del arte (2048×586). El texto
+   incrustado se borró del archivo; todo el texto es HTML real.      */
+.hero{position:relative;overflow:hidden;background:#F2FAFE}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,#FFFFFF 0%,rgba(255,255,255,.97) 25%,rgba(255,255,255,.74) 40%,rgba(255,255,255,0) 58%)}
+.hero-in{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:36px 24px 20px;
+  min-height:clamp(366px,28.6vw,442px);display:flex;flex-direction:column;justify-content:center}
+.hero .eyebrow{margin-bottom:10px}
+.hero h1{font-size:clamp(29px,3.05vw,44px);line-height:1.08;margin:0 0 22px;max-width:560px}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero-sub{font-size:16px;color:var(--txt-2);max-width:470px;margin-bottom:22px;line-height:1.5}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.hero-pie{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--txt-3);font-weight:500}
+.hero-pie svg{width:18px;height:18px;color:var(--azul-hondo);flex:none}
 
-/* ── HERO CAROUSEL ── */
-.hero-media{margin-bottom:2.5rem;border-radius:var(--r-lg);overflow:hidden;position:relative;aspect-ratio:16/7;background:var(--bg3);border:1px solid var(--border)}
-.hero-media .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--ease);overflow:hidden}
-.hero-media .slide.active{opacity:1}
-.hero-media .slide img{width:100%;height:100%;object-fit:cover}
-.carousel-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(7,11,26,0.78) 38%,transparent 100%);display:flex;align-items:center}
-.carousel-caption{padding:0 2.5rem;color:#fff;max-width:560px}
-.carousel-caption h2{font-family:var(--fd);font-size:clamp(22px,3vw,36px);font-weight:800;line-height:1.1;margin-bottom:.75rem;letter-spacing:-1px}
-.carousel-caption h2 em{font-style:normal;color:var(--cyan-400)}
-.carousel-caption p{font-size:15px;opacity:.85;margin-bottom:1.25rem;line-height:1.55;max-width:40ch}
-.carousel-caption a{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--blue-700);padding:.55rem 1.25rem;border-radius:100px;font-size:13px;font-weight:700;transition:opacity .2s}
-.carousel-caption a:hover{opacity:.88}
-.carousel-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
-.cdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;padding:0;cursor:pointer;transition:all .2s}
-.cdot.active{background:var(--accent);width:18px;border-radius:3px}
-.carousel-nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;width:100%;padding:0 12px;z-index:2;pointer-events:none}
-.cnav-btn{width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;pointer-events:all;transition:background .2s}
-.cnav-btn:hover{background:rgba(0,0,0,0.65)}
+/* Lema sobre la zona oscura, en blanco y cian como en el arte.
+   Va anclado a la BANDA, no a la columna de texto. La franja oscura de la
+   foto está entre el 78% y el 97% de ancho y entre el 10% y el 50% de alto;
+   fuera de ahí entra el borde iluminado de la Tierra y el cian se pierde.
+   Colgándolo del contenedor central se salía de esa franja en pantallas
+   anchas: con top/right en porcentaje de la banda se queda dentro siempre.
+   color:var(--cyan) es para los corchetes: los atajos border-top y
+   border-right reinician el color a currentColor. */
+.lema{position:absolute;z-index:2;top:9%;right:5.6%;margin:0;padding:0 22px 0 0;color:var(--cyan);
+  line-height:1.45;letter-spacing:.06em;white-space:nowrap}
+.lema span{display:block;font-size:clamp(14px,1.5vw,21px);font-weight:500;color:#fff;text-transform:uppercase;
+  text-shadow:0 1px 3px rgba(0,16,38,.72), 0 2px 20px rgba(0,16,38,.65)}
+.lema .f{font-weight:800}
+.lema .c{color:var(--cyan);font-weight:800}
+.lema::before,.lema::after{content:'';position:absolute;width:17px;height:17px;border-color:var(--cyan)}
+.lema::before{top:-14px;right:0;border-top:2.5px solid;border-right:2.5px solid;border-radius:0 5px 0 0}
+.lema::after{bottom:-14px;right:0;border-bottom:2.5px solid;border-right:2.5px solid;border-radius:0 0 5px 0}
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;padding:78px 1.5rem 60px;position:relative}
-.hero-wrap{max-width:1180px;margin:0 auto;width:100%;position:relative;z-index:1}
-.hero-ribbon{display:inline-flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;border:1px solid var(--border2);border-radius:100px;background:var(--surf);margin-bottom:2rem;font-size:13px;font-weight:500;color:var(--muted)}
-.ribbon-badge{background:var(--accent);color:var(--bg);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-.hero-headline{font-family:var(--fd);font-size:clamp(42px,7vw,82px);font-weight:800;line-height:1.0;letter-spacing:-3px;margin-bottom:1.5rem;max-width:820px}
-.hero-headline .line2{color:var(--accent);display:block}
-.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--muted);line-height:1.7;max-width:560px;margin-bottom:2.5rem;font-weight:400}
-.hero-audience{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:3rem}
-.aud-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:1px solid var(--border2);border-radius:var(--r-md);background:var(--surf);color:var(--text);font-size:14px;font-weight:600;transition:all .2s var(--ease);text-decoration:none}
-.aud-btn:hover{border-color:var(--accent);background:rgba(48,220,245,0.07);transform:translateY(-2px)}
-.aud-btn .aud-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:var(--surf2)}
-.aud-btn .arrow{margin-left:4px;color:var(--faint);transition:transform .2s,color .2s}
-.aud-btn:hover .arrow{transform:translateX(4px);color:var(--accent)}
-.hero-stats{display:flex;flex-wrap:wrap;gap:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
-.stat-n{font-family:var(--fd);font-size:32px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-1px}
-.stat-l{font-size:12px;font-weight:500;color:var(--muted);margin-top:4px;letter-spacing:.02em}
+/* ── TRES CAMINOS ── */
+.sec{padding:var(--s7) 0}
+.sec-c{text-align:center;max-width:720px;margin:0 auto var(--s5)}
+.sec-c h2{font-size:clamp(28px,3.3vw,40px);margin-bottom:14px}
+.sec-c h2 em{font-style:normal;color:var(--turquesa)}
+.sec-c p{font-size:17px;color:var(--txt-2)}
+.caminos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.camino{position:relative;display:flex;background:linear-gradient(165deg,#FFFFFF 0%,#EFF9FE 62%,#E4F4FC 100%);
+  border:1px solid var(--borde);border-radius:var(--r3);overflow:hidden;box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
+.camino:hover{transform:translateY(-4px);box-shadow:var(--sombra-2)}
+.camino-tx{padding:28px 24px 30px;display:flex;flex-direction:column;flex:1;position:relative;z-index:1;max-width:63%}
+.camino-ico{width:44px;height:44px;color:var(--cyan);margin-bottom:14px}
+.camino-tx h3{font-size:27px;color:var(--navy);margin-bottom:11px}
+.camino-tx p{font-size:14.5px;color:var(--txt-2);line-height:1.6;margin-bottom:18px;flex:1}
+.camino-art{position:absolute;right:-4%;top:0;bottom:0;width:52%;pointer-events:none;display:grid;place-items:center;overflow:hidden}
+.camino-art svg{width:100%;height:auto}
 
-/* ── SECTIONS ── */
-.section{padding:96px 1.5rem;position:relative;z-index:1}
-.inner{max-width:1180px;margin:0 auto}
-.sec-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
-.sec-title{font-family:var(--fd);font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.08;letter-spacing:-1.5px;margin-bottom:1rem}
-.sec-sub{font-size:17px;color:var(--muted);line-height:1.7;max-width:540px}
+/* ── FORMACIÓN ── */
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:var(--s4);flex-wrap:wrap}
+.sec-h h2{font-size:clamp(26px,3vw,36px)}
+.cursos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.curso{background:#fff;border:1px solid var(--borde);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sombra);
+  display:flex;flex-direction:column;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.curso:hover{transform:translateY(-4px);box-shadow:var(--sombra-2);border-color:var(--borde-2)}
+.curso-im{position:relative;aspect-ratio:232/86;overflow:hidden;background:var(--hielo-2)}
+.curso-im img{width:100%;height:100%;object-fit:cover}
+.curso-badge{position:absolute;left:12px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;
+  background:rgba(0,29,61,.82);color:#fff;font-size:11px;font-weight:700;padding:6px 11px;border-radius:100px}
+.curso-badge svg{width:12px;height:12px}
+.curso-tx{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;gap:9px}
+.curso-tx h3{font-size:18.5px;color:var(--navy);line-height:1.22}
+.curso-tx p{font-size:14px;color:var(--txt-2);line-height:1.58;flex:1}
+.curso-fl{align-self:flex-end;width:34px;height:34px;border-radius:50%;background:var(--azul-hondo);color:#fff;display:grid;place-items:center;flex:none}
+.curso-fl svg{width:16px;height:16px}
 
-/* ── FOR YOU ── */
-.for-you-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-top:3rem}
-.for-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;gap:1rem;text-decoration:none}
-.for-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.for-card-emoji{font-size:36px}
-.for-card-title{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-0.3px}
-.for-card-desc{font-size:14px;color:var(--muted);line-height:1.65;flex:1}
-.for-card-cta{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--accent);margin-top:auto;transition:gap .15s}
-.for-card:hover .for-card-cta{gap:10px}
+/* ── INSTITUCIONES ── */
+.inst{background:linear-gradient(180deg,#FFFFFF,#F3FAFE)}
+.inst-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center}
+.inst-im{position:relative;align-self:stretch;min-height:370px;overflow:hidden;margin:0}
+.inst-im img{width:100%;height:100%;object-fit:cover}
+.inst-tx{padding:var(--s6) 24px var(--s6) var(--s6);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
+.inst-tx h2{font-size:clamp(26px,3vw,36px);margin-bottom:14px;max-width:520px}
+.inst-tx>div>p{font-size:16px;color:var(--txt-2);max-width:520px;margin-bottom:28px;line-height:1.62}
+.inst-ben{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:560px}
+.inst-ben div{text-align:center}
+.inst-ben svg{width:30px;height:30px;color:var(--azul-hondo);margin:0 auto 9px}
+.inst-ben b{display:block;font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.35}
+.inst-pill{flex:none;width:152px;height:152px;border-radius:50%;border:0;cursor:pointer;
+  background:linear-gradient(145deg,var(--turquesa),var(--azul-hondo));color:#fff;display:grid;place-items:center;
+  text-align:center;font-size:15px;font-weight:700;line-height:1.3;padding:18px;
+  box-shadow:0 14px 36px rgba(0,140,165,.34);transition:transform .2s,box-shadow .2s}
+.inst-pill:hover{transform:scale(1.04);box-shadow:0 18px 44px rgba(0,140,165,.44)}
+.inst-pill svg{width:18px;height:18px;margin:8px auto 0}
 
-/* ── COURSES ── */
-.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-top:3rem}
-.course-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
-.course-card:hover{border-color:var(--accent);transform:translateY(-4px)}
-.course-top{height:140px;display:flex;align-items:center;justify-content:center;font-size:52px}
-.ct-blue{background:linear-gradient(135deg,rgba(33,80,200,0.25) 0%,rgba(48,220,245,0.10) 100%)}
-.ct-violet{background:linear-gradient(135deg,rgba(96,64,200,0.25) 0%,rgba(59,127,232,0.10) 100%)}
-.ct-cyan{background:linear-gradient(135deg,rgba(0,200,232,0.18) 0%,rgba(33,80,200,0.08) 100%)}
-.ct-gold{background:linear-gradient(135deg,rgba(212,175,55,0.25) 0%,rgba(83,74,183,0.12) 100%)}
-.course-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
-.course-tag{display:inline-block;background:var(--surf);border:1px solid var(--border);color:var(--muted);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.75rem}
-.course-title{font-family:var(--fd);font-size:17px;font-weight:700;letter-spacing:-0.3px;margin-bottom:.5rem}
-.course-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:1.25rem}
-.btn-full{display:block;width:100%;padding:12px;border-radius:var(--r-sm);border:none;background:var(--accent);color:var(--bg);font-size:14px;font-weight:700;font-family:var(--fb);text-align:center;transition:opacity .2s,transform .2s}
-.btn-full:hover{opacity:.88;transform:translateY(-1px)}
-.btn-full-outline{display:block;width:100%;padding:12px;border-radius:var(--r-sm);border:1px solid var(--border2);background:transparent;color:var(--text);font-size:14px;font-weight:600;font-family:var(--fb);text-align:center;transition:border-color .2s,color .2s}
-.btn-full-outline:hover{border-color:var(--accent);color:var(--accent)}
+/* ── BANDA ALIANZAS ── */
+.alianzas{padding:var(--s5) 0}
+.banda{position:relative;overflow:hidden;border-radius:var(--r4);
+  background:linear-gradient(104deg,var(--navy) 0%,var(--navy-2) 52%,var(--navy-3) 100%);
+  padding:40px 46px;display:grid;grid-template-columns:auto 1fr auto;gap:38px;align-items:center}
+.banda-glow{position:absolute;right:0;top:0;bottom:0;width:48%;height:100%;pointer-events:none;z-index:0}
+.banda-tx{position:relative;z-index:1;min-width:226px;padding-right:38px;border-right:1px solid rgba(255,255,255,.16)}
+.banda-tx .eyebrow{color:var(--cyan);margin-bottom:10px}
+.banda-tx h2{font-size:clamp(21px,2.3vw,28px);color:#fff;line-height:1.2}
+.banda-cat{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.banda-cat div{text-align:center;color:#fff}
+.banda-cat svg{width:32px;height:32px;margin:0 auto 11px;opacity:.95}
+.banda-cat b{display:block;font-size:13px;font-weight:600;line-height:1.4;color:rgba(255,255,255,.92)}
+.banda-cta{position:relative;z-index:1;flex:none}
 
-/* ── NEWSLETTER ── */
-.newsletter-band{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.nl-inner{max-width:680px;margin:0 auto;text-align:center}
-.nl-linkedin-btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg);padding:14px 32px;border-radius:100px;font-size:16px;font-weight:700;margin-top:1.75rem;transition:opacity .2s,transform .2s}
-.nl-linkedin-btn:hover{opacity:.88;transform:translateY(-1px)}
-.nl-note{font-size:13px;color:var(--faint);margin-top:.75rem}
+/* ── EXPERIENCIA ── */
+.exp-in{display:grid;grid-template-columns:.78fr 1.22fr;gap:52px;align-items:center}
+.exp-tx h2{font-size:clamp(26px,3vw,34px);margin-bottom:14px}
+.exp-tx p{font-size:16px;color:var(--txt-2);line-height:1.65}
+.exp-num{display:grid;grid-template-columns:repeat(4,1fr)}
+.exp-num div{text-align:center;padding:0 18px;border-left:1px solid var(--borde)}
+.exp-num div:first-child{border-left:0}
+.exp-num svg{width:34px;height:34px;color:var(--cyan);margin:0 auto 12px}
+.exp-num .n{display:block;font-size:26px;font-weight:800;color:var(--navy);line-height:1.1;margin-bottom:5px}
+.exp-num small{display:block;font-size:13px;color:var(--txt-2);line-height:1.45;font-weight:500}
 
-/* ── B2B ── */
-.divider-section{background:var(--bg2);border-top:1px solid var(--border)}
-.tabs-row{display:flex;gap:6px;background:var(--bg3);border:1px solid var(--border);padding:5px;border-radius:100px;width:fit-content;margin-bottom:2.5rem}
-.tab-b{background:transparent;border:none;color:var(--muted);padding:8px 18px;border-radius:100px;font-size:13px;font-weight:600;font-family:var(--fb);transition:all .2s}
-.tab-b.on{background:var(--accent);color:var(--bg)}
-.tab-b:hover:not(.on){color:var(--text)}
-.pane{display:none}
-.pane.on{display:block}
-.b2b-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-.b2b-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
-.b2b-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.b2b-top-line{position:absolute;top:0;left:0;right:0;height:2px}
-.tl-blue{background:linear-gradient(90deg,var(--blue-400),var(--cyan-400))}
-.tl-violet{background:linear-gradient(90deg,var(--violet-400),var(--blue-400))}
-.tl-cyan{background:linear-gradient(90deg,var(--cyan-500),var(--blue-500))}
-.tl-coral{background:linear-gradient(90deg,#F97316,#F59E0B)}
-.b2b-chip{display:inline-block;background:var(--surf);border:1px solid var(--border);color:var(--faint);padding:2px 9px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1rem}
-.b2b-icon{font-size:26px;margin-bottom:.75rem}
-.b2b-title{font-family:var(--fd);font-size:17px;font-weight:700;letter-spacing:-0.3px;margin-bottom:.5rem}
-.b2b-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1.25rem}
-.b2b-features{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:1.25rem}
-.b2b-features li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px}
-.b2b-features li::before{content:'→';color:var(--accent);font-size:11px;margin-top:1px;flex-shrink:0}
-.b2b-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:5px;transition:gap .15s}
-.b2b-card:hover .b2b-link{gap:9px}
-.models-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
-.model-c{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-md);padding:1.5rem;transition:border-color .2s}
-.model-c:hover{border-color:var(--border2)}
-.model-n{font-family:var(--fd);font-size:42px;font-weight:800;color:var(--faint);line-height:1;margin-bottom:1rem}
-.model-t{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:3px}
-.model-s{font-size:12px;color:var(--muted);margin-bottom:1rem}
-.model-list{list-style:none;display:flex;flex-direction:column;gap:4px}
-.model-list li{font-size:12px;color:var(--muted);display:flex;gap:6px}
-.model-list li::before{content:'·';color:var(--accent);flex-shrink:0}
+/* ── COMUNIDAD ── */
+.comu{padding:0 0 var(--s7)}
+.comu-caja{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r4);padding:34px 40px;
+  display:grid;grid-template-columns:1fr .92fr .86fr;gap:36px;align-items:center;box-shadow:var(--sombra)}
+.comu-et{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:700;color:var(--azul-hondo);margin-bottom:12px}
+.comu-et svg{width:21px;height:21px;color:var(--cyan)}
+.comu-caja h2{font-size:clamp(21px,2.3vw,28px);line-height:1.22}
+.comu-lista{display:grid;gap:11px}
+.comu-lista li{list-style:none;display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--txt-2)}
+.comu-lista svg{width:17px;height:17px;color:var(--turquesa);flex:none;margin-top:3px}
+.comu-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.comu-nota{font-size:13.5px;color:var(--txt-3);line-height:1.55}
+.comu-nota .enlace{font-size:13.5px}
+.comu-cons{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--txt-3);line-height:1.5;flex-basis:100%}
+.comu-cons input{margin-top:3px;accent-color:var(--azul-hondo);width:16px;height:16px;flex:none}
+.comu-cons a{color:var(--azul-hondo);font-weight:600}
+.aviso{font-size:13.5px;font-weight:600;display:none;border-radius:12px;padding:11px 14px;flex-basis:100%}
+.aviso.err{display:block;background:#FDEDED;color:#9B1C1C;border:1px solid #F5C6C6}
+.aviso.ok{display:block;background:#E9F9F2;color:#04603F;border:1px solid #BFE9D7}
 
-/* ── PROCESS ── */
-.process-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-top:3rem}
-.proc-step{background:var(--bg2);padding:2rem 1.75rem}
-.proc-num{font-family:var(--fd);font-size:44px;font-weight:800;color:var(--accent);opacity:.5;line-height:1;margin-bottom:1rem}
-.proc-title{font-family:var(--fd);font-size:16px;font-weight:700;margin-bottom:.5rem}
-.proc-desc{font-size:13px;color:var(--muted);line-height:1.6}
+/* ── CTA FINAL ── */
+.cierre{position:relative;overflow:hidden;text-align:center;padding:var(--s7) 0 210px;background:linear-gradient(180deg,#FFFFFF 0%,#F2FBFE 100%)}
+.cierre .wrap{position:relative;z-index:1}
+.cierre h2{font-size:clamp(32px,4.2vw,52px);line-height:1.1;margin-bottom:18px}
+.cierre h2 em{display:block;font-style:italic;color:var(--cyan);font-weight:800}
+.cierre p{font-size:17.5px;color:var(--txt-2);margin-bottom:30px}
+.cierre-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cierre-ondas{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:min(290px,24vw);pointer-events:none;display:block;z-index:0}
 
-/* ── PROFESSOR AI ── */
-.professor-strip{background:linear-gradient(135deg,rgba(33,80,200,0.15),rgba(96,64,200,0.10));border:1px solid rgba(59,127,232,0.25);border-radius:var(--r-xl);padding:2.5rem 3rem;display:flex;align-items:center;gap:2rem;position:relative;overflow:hidden}
-.professor-strip::before{content:'';position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(48,220,245,0.06),transparent 65%);pointer-events:none}
-.prof-icon{width:72px;height:72px;flex-shrink:0;background:rgba(48,220,245,0.1);border:1px solid rgba(48,220,245,0.2);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:32px}
-.prof-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);color:#F59E0B;padding:3px 12px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
-.prof-badge::before{content:'';width:5px;height:5px;background:#F59E0B;border-radius:50%}
-.prof-title{font-family:var(--fd);font-size:22px;font-weight:800;letter-spacing:-0.5px}
-.prof-desc{font-size:14px;color:var(--muted);margin-top:.25rem}
-.prof-cta{margin-left:auto;flex-shrink:0}
-.btn-outline{padding:11px 24px;border-radius:100px;border:1px solid var(--border2);background:transparent;color:var(--text);font-size:14px;font-weight:600;font-family:var(--fb);transition:all .2s;white-space:nowrap}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── CONTACT ── */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.contact-form-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-xl);padding:2.5rem}
-.form-audience-toggle{display:flex;gap:6px;background:var(--bg3);border:1px solid var(--border);padding:4px;border-radius:100px;margin-bottom:1.75rem}
-.tog{flex:1;background:transparent;border:none;color:var(--muted);padding:9px 14px;border-radius:100px;font-size:13px;font-weight:600;font-family:var(--fb);transition:all .2s}
-.tog.on{background:var(--accent);color:var(--bg)}
-.fg{margin-bottom:1.1rem}
-.fl{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px;letter-spacing:.03em}
-.fi,.fs,.ft{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:11px 14px;border-radius:var(--r-sm);font-size:14px;font-family:var(--fb);outline:none;transition:border-color .2s;-webkit-appearance:none}
-.fi:focus,.fs:focus,.ft:focus{border-color:var(--accent)}
-.fi::placeholder,.ft::placeholder{color:var(--faint)}
-.fs option{background:var(--bg2)}
-.ft{resize:vertical;min-height:90px}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.submit-btn{width:100%;padding:13px;border-radius:var(--r-sm);border:none;background:var(--accent);color:var(--bg);font-size:15px;font-weight:700;font-family:var(--fb);transition:opacity .2s,transform .2s;margin-top:.5rem}
-.submit-btn:hover{opacity:.88;transform:translateY(-1px)}
-.ci-title{font-family:var(--fd);font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
-.ci-sub{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:2rem}
-.ci-items{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
-.ci-item{display:flex;align-items:center;gap:12px}
-.ci-item-ic{width:40px;height:40px;flex-shrink:0;background:var(--surf);border:1px solid var(--border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:18px}
-.ci-item-t{font-size:14px;color:var(--muted)}
-.ci-item-t a{color:var(--muted);transition:color .2s}
-.ci-item-t a:hover{color:var(--accent)}
-.socials{display:flex;gap:8px}
-.soc{width:40px;height:40px;background:var(--surf);border:1px solid var(--border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s}
-.soc svg{width:18px;height:18px;fill:currentColor}
-.soc:hover{border-color:var(--accent);color:var(--accent)}
+/* ── MODALES ── */
+dialog:not([open]){display:none}
+/* OJO: el reset global *{margin:0} pisa el margin:auto que el navegador
+   da a <dialog>, y el modal se pega a la esquina superior izquierda.
+   Hay que devolverlo explícitamente. */
+dialog{border:0;padding:0;margin:auto;border-radius:var(--r3);
+  max-width:560px;width:calc(100% - 32px);
+  max-height:min(88dvh,820px);overflow:auto;
+  box-shadow:0 30px 80px rgba(0,30,60,.3)}
+dialog::backdrop{background:rgba(0,22,46,.55);backdrop-filter:blur(3px)}
+.md{padding:30px 32px 32px}
+.md-h{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:6px}
+.md h3{font-size:24px;color:var(--navy)}
+.md>p{font-size:14.5px;color:var(--txt-2);margin-bottom:20px}
+.md-x{background:none;border:0;cursor:pointer;color:var(--txt-3);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none}
+.md-x:hover{background:var(--hielo-2);color:var(--navy)}
+.md-x svg{width:20px;height:20px}
+.campo{margin-bottom:14px}
+.campo label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.campo input,.campo select,.campo textarea{width:100%;border:1.5px solid var(--borde);border-radius:12px;padding:12px 14px;font-size:15px;background:#fff}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--azul)}
+.campo textarea{min-height:92px;resize:vertical}
+.campo-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.md .comu-cons{margin:6px 0 16px}
+.md .btn{width:100%}
 
 /* ── FOOTER ── */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 1.5rem 2rem;position:relative;z-index:1}
-.footer-inner{max-width:1180px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
-.f-logo{font-family:var(--fd);font-size:18px;font-weight:800;margin-bottom:.75rem}
-.f-logo .num{color:var(--accent)}
-.f-tagline{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1.25rem}
-.f-col-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem}
-.f-links{list-style:none;display:flex;flex-direction:column;gap:8px}
-.f-links a{font-size:13px;color:var(--muted);transition:color .2s}
-.f-links a:hover{color:var(--accent)}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--faint)}
-
-/* ── WHATSAPP ── */
-.wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:99;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 18px rgba(37,211,102,0.35);transition:transform .2s,box-shadow .2s;text-decoration:none}
-.wa:hover{transform:scale(1.1);box-shadow:0 6px 26px rgba(37,211,102,0.5)}
-
-/* ── TOAST ── */
-.toast{position:fixed;bottom:1.75rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg2);border:1px solid rgba(48,220,245,0.3);border-radius:100px;padding:11px 22px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;z-index:200;transition:transform .35s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 8px 32px rgba(0,0,0,0.3);white-space:nowrap}
-.toast.show{transform:translateX(-50%) translateY(0)}
-.toast .chk{color:var(--accent);font-size:16px}
-
-/* ── FADE ── */
-.fup{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
-.fup.vis{opacity:1;transform:none}
+footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 var(--s4);font-size:14.5px}
+.pie{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:var(--s5)}
+.pie h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:700}
+.pie ul{list-style:none;display:grid;gap:10px}
+.pie a,.pie button{color:rgba(255,255,255,.82);text-decoration:none;
+  background:none;border:0;padding:0;cursor:pointer;font:inherit;text-align:left}
+.pie a:hover,.pie button:hover{color:#fff}
+.pie .logo-n{color:#fff;font-size:24px}
+.pie .logo-d{color:rgba(255,255,255,.5)}
+.pie p{margin-top:16px;max-width:330px;line-height:1.65;color:rgba(255,255,255,.62)}
+.pie-soc{display:flex;gap:10px;margin-top:20px}
+.pie-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center}
+.pie-soc a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.45)}
+.pie-soc svg{width:17px;height:17px}
+.pie-b{border-top:1px solid rgba(255,255,255,.14);padding-top:var(--s3);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55)}
+.pie-b a{color:rgba(255,255,255,.55)}
 
 /* ── RESPONSIVE ── */
-@media(max-width:960px){
-  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
-  .process-row{grid-template-columns:1fr;gap:1px}
-  .professor-strip{flex-direction:column;text-align:center}
-  .prof-cta{margin-left:0}
+@media(max-width:1180px){
+  .menu{display:none}
+  .menu.abierto{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;
+    gap:2px;background:#fff;padding:12px;margin:0;border-bottom:1px solid var(--borde);box-shadow:0 18px 40px rgba(0,45,90,.12);max-height:76vh;overflow:auto}
+  .menu.abierto .sub{position:static;display:block;box-shadow:none;border:0;padding:0 0 6px 12px;min-width:0}
+  .menu.abierto .ca{display:none}
+  .hamb{display:flex}
+  .nav-cta{margin-left:auto;padding:12px 18px;font-size:14px;min-height:44px}
+  /* la banda deja de ser fondo y pasa a ser imagen apilada */
+  .hero{background:#fff}
+  .hero::after{display:none}
+  .hero-bg{position:static;width:100%;height:auto;aspect-ratio:16/7;object-position:68% 50%}
+  .hero-in{min-height:0;gap:20px;padding:28px 24px 10px}
+  .lema{position:static;white-space:normal;padding:0 24px 40px;max-width:var(--max);margin:0 auto}
+  .lema span{color:var(--navy);font-size:clamp(14px,2.5vw,19px);text-shadow:none}
+  .lema::before,.lema::after{display:none}
+  .caminos{grid-template-columns:1fr}
+  .camino-tx{max-width:62%}
+  .cursos{grid-template-columns:repeat(2,1fr)}
+  .inst-in{grid-template-columns:1fr}
+  .inst-im{min-height:230px;order:2}
+  .inst-tx{grid-template-columns:1fr;padding:var(--s6) 24px;gap:28px}
+  .inst-pill{width:100%;height:auto;border-radius:100px;padding:18px 26px;display:flex;align-items:center;justify-content:center;gap:10px}
+  .inst-pill svg{margin:0}
+  .banda{grid-template-columns:1fr;gap:26px;padding:34px 28px}
+  .banda-tx{border-right:0;border-bottom:1px solid rgba(255,255,255,.16);padding:0 0 22px}
+  .exp-in{grid-template-columns:1fr;gap:34px}
+  .comu-caja{grid-template-columns:1fr;gap:24px;padding:30px 26px}
+  .pie{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media(max-width:640px){
-  .nav-links{display:none}
-  .hamburger{display:block}
-  .nav-end .cta-nav{display:none}
-  .hero{padding:78px 1.25rem 50px}
-  .section{padding:60px 1.25rem}
-  .fr{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
-  .hero-stats{gap:1.5rem}
-  .courses-grid{grid-template-columns:1fr}
-  .b2b-grid{grid-template-columns:1fr}
-  .professor-strip{padding:1.75rem}
-  .tabs-row{flex-wrap:wrap;border-radius:var(--r-md)}
+  .sec{padding:var(--s6) 0}
+  .nav-cta span{display:none}
+  .nav-cta{padding:12px;width:44px;height:44px;border-radius:50%}
+  .hero-bg{aspect-ratio:5/4;object-position:62% 46%}
+  .cursos{grid-template-columns:1fr}
+  .camino-tx{max-width:100%}
+  .camino-art{opacity:.26;width:60%}
+  .inst-ben{grid-template-columns:repeat(2,1fr);gap:22px}
+  .banda-cat{grid-template-columns:repeat(2,1fr);gap:22px}
+  .exp-num{grid-template-columns:repeat(2,1fr);gap:28px 0}
+  .exp-num div{border-left:0;padding:0 10px}
+  .hero-cta .btn,.cierre-cta .btn{width:100%}
+  .campo-2{grid-template-columns:1fr}
+  .pie{grid-template-columns:1fr}
+  .cierre{padding-bottom:150px}
+  .md{padding:24px 22px 26px}
 }
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rev.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<a class="saltar" href="#principal">Saltar al contenido</a>
 
-<div class="bg-glow"></div>
+<!-- ══ 1 · NAVBAR ══ -->
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="/" aria-label="Learn5 · inicio">
+      <span class="logo-n">Learn<span>5</span></span>
+      <span class="logo-d">AI &amp; EDTECH SOLUTIONS</span>
+    </a>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#para-ti" onclick="closeMM()">¿Para quién?</a>
-  <a href="#cursos" onclick="closeMM()">Cursos</a>
-  <a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" onclick="closeMM()">Newsletter</a>
-  <a href="#soluciones" onclick="closeMM()">Instituciones</a>
-  <a href="#contacto" onclick="closeMM()">Contacto</a>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-wrap">
-    <a href="#" class="nav-logo">Learn<span class="num">5</span></a>
-    <ul class="nav-links">
-      <li><a href="#para-ti">¿Para quién?</a></li>
-      <li><a href="#cursos">Cursos</a></li>
-      <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank">Newsletter</a></li>
-      <li><a href="#soluciones">Instituciones B2B</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+    <ul class="menu" id="menu">
+      <li><a href="/" aria-current="page">Inicio</a></li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-form">Formación
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-form">
+          <li><a href="#formacion">Formación destacada<small>Los cuatro programas</small></a></li>
+          <li><a href="https://learn5.pro/ia-30-dias/">Domina la IA en 30 Días<small>Programa guiado</small></a></li>
+          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Catálogo completo<small>Se abre en Hotmart</small></a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-sol">Soluciones
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-sol">
+          <li><a href="#soluciones">Para instituciones y empresas</a></li>
+          <li><button type="button" data-modal="propuesta">Solicitar una propuesta<small>Formulario B2B</small></button></li>
+          <li><button type="button" data-modal="reunion">Agendar una reunión</button></li>
+        </ul>
+      </li>
+      <li><a href="#alianzas">Alianzas</a></li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-com">Comunidad
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-com">
+          <li><a href="#comunidad">Comunidad Learn5</a></li>
+          <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Newsletter en LinkedIn</small></a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-rec">Recursos
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-rec">
+          <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Ideas y tendencias, cada semana</small></a></li>
+          <li><a href="https://go.hotmart.com/X98102417D?dp=1" target="_blank" rel="noopener">Guía Digital del Educador<small>Pack de 11 ebooks, en Hotmart</small></a></li>
+        </ul>
+      </li>
     </ul>
-    <div class="nav-end">
-      <button class="pill-btn" onclick="toggleLang()" aria-label="Change language">
-        <span>🌐</span><span id="langTxt">EN</span>
-      </button>
-      <button class="pill-btn" onclick="toggleTheme()" style="padding:7px 10px;">
-        <span id="themeIco">☀️</span>
-      </button>
-      <a href="#contacto" class="cta-nav" id="navCta">Solicitar propuesta</a>
-      <button class="hamburger" onclick="toggleMM()">☰</button>
-    </div>
-  </div>
-</nav>
 
-<!-- HERO -->
+    <button class="btn btn-3 nav-cta" type="button" data-modal="reunion" aria-label="Agendar reunión">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+      <span>Agendar reunión</span>
+    </button>
+    <button class="hamb" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="principal">
+
+<!-- ══ 2 · HERO ══ -->
 <section class="hero">
-  <div class="hero-wrap">
-    <div class="fup">
-      <div class="hero-ribbon">
-        <span class="ribbon-badge">EdTech</span>
-        <span id="ribbonText">Miami, FL · LATAM & EE.UU. · LLC desde 2024</span>
+  <img class="hero-bg" src="assets/hero-banda.jpg" width="2048" height="586" fetchpriority="high"
+       alt="Astronauta con un planeta digital reflejado en el casco, sobre la Tierra iluminada">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow">EdTech · IA · Formación · Consultoría · Soluciones</p>
+      <h1>Impulsa el futuro del aprendizaje, la innovación <em>y la IA.</em></h1>
+      <p class="hero-sub">Formación, consultoría y soluciones EdTech para personas, profesionales e instituciones que quieren evolucionar de verdad.</p>
+      <div class="hero-cta">
+        <a class="btn btn-1" href="#formacion">Explorar formación
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <button class="btn btn-2" type="button" data-modal="reunion">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+          Agendar una reunión</button>
       </div>
+      <p class="hero-pie">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c3 .2 5.5 2.2 5.5 5.4"/></svg>
+        Para personas, profesionales, empresas e instituciones educativas.
+      </p>
+    </div>
+  </div>
+  <p class="lema" aria-label="Enseña al presente, imagina el futuro">
+    <span>Enseña</span><span>al presente,</span><span class="f">Imagina</span><span class="c">el futuro.</span>
+  </p>
+</section>
 
-      <!-- CAROUSEL -->
-      <div class="hero-media" id="heroCarousel">
-        <div class="slide active">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/04fd68abf60f3fbf73b142e96d7487634815e590.jpg" alt="Docentes usando IA" loading="eager">
-          <div class="carousel-overlay">
-            <div class="carousel-caption">
-              <h2 id="cap1t">Professor AI — <em>Lanzamiento 2026</em></h2>
-              <p id="cap1p">La primera app de Learn5 para el desarrollo profesional docente con inteligencia artificial.</p>
-              <a href="https://learn5.pro/professor-ai-web/login/" target="_blank" id="cap1a">Probar demo gratis →</a>
-            </div>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d652f8c66f6c80ffa5a33fd8c7a58ad2d7f66510.jpg" alt="+700 educadores" loading="lazy">
-          <div class="carousel-overlay">
-            <div class="carousel-caption">
-              <h2 id="cap2t">+700 educadores en <em>Aula Futura</em></h2>
-              <p id="cap2p">La comunidad de docentes más activa de LATAM aprendiendo IA para el aula.</p>
-              <a href="#soluciones" id="cap2a">Conocer más →</a>
-            </div>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/831d05388e38ce6750f7cc8201ae95bf048819c7.jpg" alt="Newsletter Clase Futura" loading="lazy">
-          <div class="carousel-overlay">
-            <div class="carousel-caption">
-              <h2 id="cap3t">📬 <em>Clase Futura</em> — cada semana</h2>
-              <p id="cap3p">Estrategias de IA para educadores directamente en tu correo. Gratis.</p>
-              <a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" id="cap3a">Suscribirme gratis →</a>
-            </div>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/dddfaa8b870d21fe04f02099ad722df422f12f1d.jpg" alt="Transformación institucional" loading="lazy">
-          <div class="carousel-overlay">
-            <div class="carousel-caption">
-              <h2 id="cap4t">Transforma tu institución con <em>IA estratégica</em></h2>
-              <p id="cap4p">Diagnóstico gratuito en 30 min. Sin compromiso. Resultados desde el día uno.</p>
-              <a href="#contacto" id="cap4a">Diagnóstico gratuito →</a>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-nav">
-          <button class="cnav-btn" onclick="carouselPrev()">‹</button>
-          <button class="cnav-btn" onclick="carouselNext()">›</button>
-        </div>
-        <div class="carousel-dots" id="carouselDots">
-          <button class="cdot active" onclick="goSlide(0)"></button>
-          <button class="cdot" onclick="goSlide(1)"></button>
-          <button class="cdot" onclick="goSlide(2)"></button>
-          <button class="cdot" onclick="goSlide(3)"></button>
-        </div>
-      </div>
+<span class="ancla" id="para-ti" aria-hidden="true"></span>
+<!-- ══ 3 · TRES CAMINOS ══ -->
+<section class="sec" id="caminos">
+  <div class="wrap">
+    <div class="sec-c rev">
+      <h2>Elige cómo transformar con <em>Learn5</em></h2>
+      <p>Tres caminos, un mismo propósito: potenciar el talento, la educación y la innovación con IA.</p>
+    </div>
+    <div class="caminos">
 
-      <h1 class="hero-headline">
-        <span id="heroLine1">Enseña al presente.</span>
-        <span class="line2" id="heroLine2">Imagina el futuro.</span>
-      </h1>
-      <p class="hero-sub" id="heroSub">Transformamos la educación con inteligencia artificial. Cursos para docentes y profesionales. Consultoría estratégica para instituciones. Todo en español e inglés, para LATAM y EE.UU.</p>
+      <article class="camino rev">
+        <div class="camino-tx">
+          <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M5 10.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-5.5"/></svg>
+          <h3>Aprende</h3>
+          <p>Desarrolla nuevas habilidades con cursos, talleres y programas prácticos de IA y tecnología.</p>
+          <a class="enlace" href="#formacion">Ver formación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="camino-art" aria-hidden="true">
+          <svg viewBox="0 0 220 240">
+            <defs>
+              <linearGradient id="a1" x1=".1" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#BFF0FA"/><stop offset="1" stop-color="#1AA7C9"/></linearGradient>
+              <linearGradient id="a2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FE3F4"/><stop offset="1" stop-color="#0E90B6"/></linearGradient>
+            </defs>
+            <ellipse cx="118" cy="206" rx="86" ry="16" fill="#0FA8C6" opacity=".12"/>
+            <path d="M44 56 L192 34 L192 150 L44 172 Z" fill="url(#a1)" opacity=".42"/>
+            <path d="M44 56 L192 34 L192 150 L44 172 Z" fill="none" stroke="#17B6D4" stroke-width="2.6" opacity=".85"/>
+            <path d="M44 172 L192 150 L206 166 L58 190 Z" fill="url(#a2)" opacity=".5"/>
+            <path d="M103 80 L144 102 L103 124 Z" fill="#fff" opacity=".95"/>
+            <path d="M60 72h40M60 86h26" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+            <circle cx="186" cy="60" r="6" fill="#00C7E5" opacity=".9"/>
+            <circle cx="30" cy="124" r="4" fill="#00C7E5" opacity=".65"/>
+          </svg>
+        </div>
+      </article>
 
-      <p style="font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem;" id="audLabel">¿Quién eres tú?</p>
-      <div class="hero-audience">
-        <a href="#cursos" class="aud-btn"><span class="aud-icon">🎓</span><span id="aud1">Soy docente</span><span class="arrow">→</span></a>
-        <a href="#cursos" class="aud-btn"><span class="aud-icon">💼</span><span id="aud2">Soy profesional</span><span class="arrow">→</span></a>
-        <a href="#soluciones" class="aud-btn"><span class="aud-icon">🏫</span><span id="aud3">Represento una institución</span><span class="arrow">→</span></a>
-        <a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" class="aud-btn"><span class="aud-icon">📬</span><span id="aud4">Quiero el newsletter</span><span class="arrow">→</span></a>
-      </div>
+      <article class="camino rev">
+        <div class="camino-tx">
+          <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V8l6-4 6 4v13"/><path d="M9 12h2M13 12h2M9 16h2M13 16h2"/></svg>
+          <h3>Transforma</h3>
+          <p>Impulsa la evolución de tu organización con consultoría, capacitación y estrategias de impacto.</p>
+          <a class="enlace" href="#soluciones">Conocer soluciones <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="camino-art" aria-hidden="true">
+          <svg viewBox="0 0 220 240">
+            <defs>
+              <linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DE8F7"/><stop offset="1" stop-color="#1395BC"/></linearGradient>
+              <linearGradient id="b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00C7E5"/><stop offset="1" stop-color="#0E7FB8"/></linearGradient>
+            </defs>
+            <ellipse cx="112" cy="208" rx="88" ry="15" fill="#0FA8C6" opacity=".12"/>
+            <path d="M34 196 L34 150 L64 140 L64 196 Z" fill="url(#b1)" opacity=".48"/>
+            <path d="M34 150 L64 140 L78 148 L48 158 Z" fill="#BFF0FA" opacity=".55"/>
+            <path d="M78 196 L78 122 L108 112 L108 196 Z" fill="url(#b1)" opacity=".62"/>
+            <path d="M78 122 L108 112 L122 120 L92 130 Z" fill="#BFF0FA" opacity=".6"/>
+            <path d="M122 196 L122 92 L152 82 L152 196 Z" fill="url(#b1)" opacity=".76"/>
+            <path d="M122 92 L152 82 L166 90 L136 100 Z" fill="#CFF4FC" opacity=".65"/>
+            <path d="M166 196 L166 58 L196 48 L196 196 Z" fill="url(#b1)" opacity=".9"/>
+            <path d="M166 58 L196 48 L210 56 L180 66 Z" fill="#DFF8FD" opacity=".7"/>
+            <path d="M30 118 L74 86 L118 60 L176 20" fill="none" stroke="url(#b2)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M152 18 L180 16 L178 44" fill="none" stroke="url(#b2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </article>
 
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-n">+700</div><div class="stat-l" id="stat1">Educadores en la comunidad</div></div>
-        <div class="stat"><div class="stat-n">7</div><div class="stat-l" id="stat2">Soluciones B2B</div></div>
-        <div class="stat"><div class="stat-n">2</div><div class="stat-l" id="stat3">Cursos activos en Hotmart</div></div>
-        <div class="stat"><div class="stat-n">LATAM</div><div class="stat-l" id="stat4">& EE.UU. — mercado 2026</div></div>
-      </div>
+      <article class="camino rev">
+        <div class="camino-tx">
+          <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg>
+          <h3>Innova</h3>
+          <p>Implementa tecnología educativa, produce contenidos de alto valor y diseña experiencias de aprendizaje.</p>
+          <a class="enlace" href="#soluciones">Ver servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="camino-art" aria-hidden="true">
+          <svg viewBox="0 0 220 240">
+            <defs>
+              <linearGradient id="c1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#CFF4FC"/><stop offset="1" stop-color="#1395BC"/></linearGradient>
+              <linearGradient id="c2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FE3F4"/><stop offset="1" stop-color="#0B7FA6"/></linearGradient>
+            </defs>
+            <ellipse cx="110" cy="214" rx="84" ry="14" fill="#0FA8C6" opacity=".12"/>
+            <path d="M110 160 L186 190 L110 220 L34 190 Z" fill="url(#c2)" opacity=".42"/>
+            <path d="M110 160 L186 190 L110 220 L34 190 Z" fill="none" stroke="#17B6D4" stroke-width="1.8" opacity=".5"/>
+            <path d="M110 122 L186 152 L110 182 L34 152 Z" fill="url(#c1)" opacity=".62"/>
+            <path d="M110 122 L186 152 L110 182 L34 152 Z" fill="none" stroke="#17B6D4" stroke-width="1.8" opacity=".6"/>
+            <path d="M110 84 L186 114 L110 144 L34 114 Z" fill="url(#c1)" opacity=".86"/>
+            <path d="M110 84 L186 114 L110 144 L34 114 Z" fill="none" stroke="#17B6D4" stroke-width="2.2"/>
+            <rect x="82" y="26" width="56" height="44" rx="9" fill="#EAFBFF" stroke="#17B6D4" stroke-width="2.6"/>
+            <rect x="96" y="40" width="28" height="16" rx="4" fill="#17B6D4" opacity=".55"/>
+            <path d="M94 26v-9M110 26v-9M126 26v-9M94 70v9M110 70v9M126 70v9" stroke="#17B6D4" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-
-<!-- IA EN 30 DIAS - MINI SITIO ESTILO CAMPANA -->
-<section id="ia30dias" style="position:relative;overflow:hidden;background:#0D0B2A;padding:5rem 0 4rem;">
-  <div id="i30Stars" style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;"></div>
-  <div style="position:absolute;top:-15%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(83,74,183,0.45),transparent 70%);filter:blur(80px);z-index:0;"></div>
-  <div style="position:absolute;bottom:-15%;right:-10%;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,0.35),transparent 70%);filter:blur(80px);z-index:0;"></div>
-
-  <div class="inner" style="position:relative;z-index:1;">
-    <div class="fup" style="text-align:center;max-width:720px;margin:0 auto;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;color:#D4AF37;text-transform:uppercase;margin-bottom:1rem;" id="i30Label">Nuevo · Acceso Anticipado</p>
-      <h2 style="font-family:var(--fd);font-size:clamp(36px,5.5vw,56px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;color:#fff;margin-bottom:1rem;">
-        <span id="i30TitleA">DOMINA LA IA</span><br><span id="i30TitleB" style="color:#3E8FFF;">EN 30 DÍAS</span>
-      </h2>
-      <p style="font-size:16px;color:#AFA9EC;line-height:1.6;margin-bottom:2.5rem;" id="i30Sub">1 herramienta de IA por día. 4 sesiones en vivo. Sin relleno, sin teoría genérica — resultados desde el primer día.</p>
+<!-- Anclas de la web anterior. Si alguien tiene guardado o enlazado
+     learn5.pro/#cursos, learn5.pro/#ia30dias, #newsletter o #para-ti,
+     sigue aterrizando donde debe en vez de quedarse arriba. -->
+<span class="ancla" id="cursos" aria-hidden="true"></span>
+<span class="ancla" id="ia30dias" aria-hidden="true"></span>
+<!-- ══ 4 · FORMACIÓN DESTACADA ══ -->
+<section class="sec" id="formacion" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h rev">
+      <h2>Formación destacada</h2>
+      <a class="enlace" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Ver todos los programas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
-
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin:0 0 3rem;">
-      <div style="background:rgba(29,158,117,0.12);border:1px solid rgba(29,158,117,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;color:#fff;">$96</div>
-        <div style="font-size:11px;color:#9FE1CB;margin-top:2px;" id="i30s1">Precio Early Bird</div>
-      </div>
-      <div style="background:rgba(83,74,183,0.15);border:1px solid rgba(83,74,183,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;color:#fff;">17 AGO</div>
-        <div style="font-size:11px;color:#AFA9EC;margin-top:2px;" id="i30s2">Fecha de inicio</div>
-      </div>
-      <div style="background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;color:#fff;">20</div>
-        <div style="font-size:11px;color:#FAEEDA;margin-top:2px;" id="i30s3">Cupos disponibles</div>
-      </div>
-      <div style="background:rgba(62,143,255,0.12);border:1px solid rgba(62,143,255,0.4);border-radius:12px;padding:16px 22px;min-width:130px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;color:#fff;">7 días</div>
-        <div style="font-size:11px;color:#AAD4FF;margin-top:2px;" id="i30s4">Garantía de devolución</div>
-      </div>
-    </div>
-
-    <!-- CARRUSEL DE HERRAMIENTAS -->
-    <p style="text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;color:#7F77DD;text-transform:uppercase;margin-bottom:1.2rem;">30 herramientas reales · 1 por día</p>
-    <div style="overflow:hidden;position:relative;mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);margin-bottom:3.5rem;">
-      <div id="i30Carousel" style="display:flex;gap:14px;width:max-content;animation:i30scroll 40s linear infinite;">
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🤖</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">ChatGPT</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">✨</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Claude</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🔮</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Gemini</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">🔍</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Perplexity</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🪟</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Copilot</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">📓</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">NotebookLM</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">📝</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Otter.ai</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">🎨</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Canva AI</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🖼️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Leonardo</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🎙️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">ElevenLabs</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🎬</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">HeyGen</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">✂️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">CapCut</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🎥</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Runway</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🔊</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Suno AI</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">📈</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">AdCreative</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">⚙️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Make</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">⚡</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Zapier</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">📋</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Notion AI</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">💬</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Typebot</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">🔀</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">n8n</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">📊</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Gamma</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🗃️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Airtable</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🧠</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Custom GPTs</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">📁</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Claude Projects</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🤝</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Dify</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🗣️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Voiceflow</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🧑‍💼</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Lindy</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">💭</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Chatbase</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🕸️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Relevance</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">📞</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Retell AI</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🤖</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">ChatGPT</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">✨</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Claude</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🔮</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Gemini</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">🔍</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Perplexity</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🪟</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Copilot</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">📓</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">NotebookLM</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">📝</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Otter.ai</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">🎨</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Canva AI</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🖼️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Leonardo</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🎙️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">ElevenLabs</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🎬</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">HeyGen</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">✂️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">CapCut</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🎥</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Runway</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🔊</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Suno AI</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">📈</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">AdCreative</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">⚙️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Make</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">⚡</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Zapier</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">📋</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Notion AI</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">💬</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Typebot</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">🔀</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">n8n</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">📊</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Gamma</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🗃️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Airtable</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🧠</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Custom GPTs</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">📁</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Claude Projects</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🤝</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Dify</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">🗣️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Voiceflow</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.06));border:1.5px solid rgba(212,175,55,0.6);margin-bottom:6px;">🧑‍💼</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Lindy</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(62,143,255,0.32),rgba(62,143,255,0.06));border:1.5px solid rgba(62,143,255,0.6);margin-bottom:6px;">💭</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Chatbase</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(83,74,183,0.32),rgba(83,74,183,0.06));border:1.5px solid rgba(83,74,183,0.6);margin-bottom:6px;">🕸️</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Relevance</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;width:74px;flex-shrink:0;text-align:center;">
-          <div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(29,158,117,0.32),rgba(29,158,117,0.06));border:1.5px solid rgba(29,158,117,0.6);margin-bottom:6px;">📞</div>
-          <span style="font-size:10px;font-weight:600;color:#CECBF6;line-height:1.2;">Retell AI</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- METODOLOGIA -->
-    <p style="text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;color:#7F77DD;text-transform:uppercase;margin-bottom:1.2rem;">Metodología · 4 semanas</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;max-width:1000px;margin:0 auto 3.5rem;">
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(83,74,183,0.3);border-radius:14px;padding:20px;">
-        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(83,74,183,0.35),rgba(83,74,183,0.08));border:1.5px solid rgba(83,74,183,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">🧩</div>
-        <div style="font-size:11px;color:#9FE1CB;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;">Semana 1</div>
-        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Fundamentos y Prompting</div>
-        <div style="font-size:12px;color:#AFA9EC;line-height:1.5;">ChatGPT, Claude, Gemini, Perplexity, Copilot, NotebookLM, Otter.ai</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(29,158,117,0.3);border-radius:14px;padding:20px;">
-        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(29,158,117,0.35),rgba(29,158,117,0.08));border:1.5px solid rgba(29,158,117,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">🎨</div>
-        <div style="font-size:11px;color:#9FE1CB;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;">Semana 2</div>
-        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Creación de Contenido</div>
-        <div style="font-size:12px;color:#9FE1CB;line-height:1.5;">Canva AI, Leonardo, ElevenLabs, HeyGen, CapCut, Runway, Suno, AdCreative</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.3);border-radius:14px;padding:20px;">
-        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(212,175,55,0.35),rgba(212,175,55,0.08));border:1.5px solid rgba(212,175,55,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">⚙️</div>
-        <div style="font-size:11px;color:#D4AF37;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;">Semana 3</div>
-        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Automatización de Procesos</div>
-        <div style="font-size:12px;color:#FAEEDA;line-height:1.5;">Make, Zapier, Notion AI, Typebot, n8n, Gamma, Airtable AI</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(62,143,255,0.3);border-radius:14px;padding:20px;">
-        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(62,143,255,0.35),rgba(62,143,255,0.08));border:1.5px solid rgba(62,143,255,0.6);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">🤖</div>
-        <div style="font-size:11px;color:#AAD4FF;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px;">Semana 4</div>
-        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Agentes de IA para Negocios</div>
-        <div style="font-size:12px;color:#AAD4FF;line-height:1.5;">Custom GPTs, Claude Projects, Dify, Voiceflow, Lindy, Chatbase, Relevance AI, Retell AI</div>
-      </div>
-    </div>
-
-    <!-- BENEFICIOS + ZONA DE INSCRIPCION -->
-    <div style="max-width:600px;margin:0 auto;background:linear-gradient(135deg,rgba(83,74,183,0.18),rgba(29,158,117,0.1));border:1px solid rgba(83,74,183,0.4);border-radius:20px;padding:2.5rem 2rem;text-align:center;">
-      <p style="font-size:11px;font-weight:700;letter-spacing:2px;color:#D4AF37;text-transform:uppercase;margin-bottom:1rem;">Tu cupo incluye</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;max-width:420px;margin:0 auto 2rem;">
-        <div style="font-size:13px;color:#EEE;">✓ 4 sesiones en vivo</div>
-        <div style="font-size:13px;color:#EEE;">✓ Campus 24/7</div>
-        <div style="font-size:13px;color:#EEE;">✓ 30 herramientas reales</div>
-        <div style="font-size:13px;color:#EEE;">✓ Certificado oficial</div>
-      </div>
-      <a href="https://ai-workshop-miami.vercel.app/?utm_source=learn5pro&utm_medium=website&utm_campaign=seccion-ia30" target="_blank" style="display:block;padding:18px;border-radius:14px;background:#534AB7;color:#fff;font-size:17px;font-weight:800;text-decoration:none;box-shadow:0 8px 30px rgba(83,74,183,0.5);margin-bottom:.8rem;" id="i30Cta">Reservar mi cupo → $96</a>
-      <p style="font-size:12px;color:#8899CC;">Cupos limitados · Garantía de 7 días · El precio sube a $129 al completarse</p>
-    </div>
-  </div>
-
-  <style>
-    @keyframes i30scroll { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
-    @keyframes i30twinkle { 0%,100%{opacity:0.1;} 50%{opacity:0.6;} }
-  </style>
-  <script>
-    (function(){
-      const c = document.getElementById('i30Stars');
-      if (!c) return;
-      for (let i=0;i<50;i++){
-        const s = document.createElement('div');
-        const size = (Math.random()*2+1).toFixed(1);
-        s.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:#fff;left:${(Math.random()*100).toFixed(2)}%;top:${(Math.random()*100).toFixed(2)}%;opacity:${(Math.random()*0.4+0.15).toFixed(2)};animation:i30twinkle ${(Math.random()*4+3).toFixed(1)}s ease-in-out infinite;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
-        c.appendChild(s);
-      }
-    })();
-  </script>
-</section>
-
-<!-- FOR YOU -->
-<section class="section" id="para-ti" style="background:var(--bg2);border-top:1px solid var(--border);">
-  <div class="inner">
-    <div class="fup">
-      <p class="sec-label" id="forLabel">Para ti</p>
-      <h2 class="sec-title" id="forTitle">La IA ya cambió la educación.<br>¿Estás listo?</h2>
-      <p class="sec-sub" id="forSub">Tanto si eres docente, profesional independiente o líder de una institución — en Learn5 tienes un camino claro.</p>
-    </div>
-    <div class="for-you-grid">
-      <a href="#cursos" class="for-card fup" style="transition-delay:.05s">
-        <div class="for-card-emoji">🎓</div>
-        <div class="for-card-title" id="fc1t">Soy docente o educador</div>
-        <div class="for-card-desc" id="fc1d">Aprende a usar ChatGPT, Claude y otras herramientas de IA directamente en tu aula. Casos prácticos, prompts y comunidad de +700 colegas.</div>
-        <span class="for-card-cta" id="fc1c">Ver cursos para docentes →</span>
-      </a>
-      <a href="#cursos" class="for-card fup" style="transition-delay:.1s">
-        <div class="for-card-emoji">💼</div>
-        <div class="for-card-title" id="fc2t">Soy profesional o emprendedor</div>
-        <div class="for-card-desc" id="fc2d">Automatiza tu trabajo, crea productos digitales y aplica la IA a tu negocio o carrera. Estrategias reales, no teoría genérica.</div>
-        <span class="for-card-cta" id="fc2c">Ver cursos para profesionales →</span>
-      </a>
-      <a href="#soluciones" class="for-card fup" style="transition-delay:.15s">
-        <div class="for-card-emoji">🏫</div>
-        <div class="for-card-title" id="fc3t">Represento una institución</div>
-        <div class="for-card-desc" id="fc3d">Diagnóstico gratuito en 30 min, propuesta en 48h. Consultoría, formación docente y tecnología educativa para tu institución.</div>
-        <span class="for-card-cta" id="fc3c">Ver soluciones institucionales →</span>
-      </a>
-    </div>
+    <div class="cursos" id="listaCursos"></div>
   </div>
 </section>
 
-<!-- COURSES -->
-<section class="section" id="cursos">
-  <div class="inner">
-    <div class="fup">
-      <p class="sec-label" id="coursesLabel">Cursos · Hotmart</p>
-      <h2 class="sec-title" id="coursesTitle">Aprende IA. Aplícala hoy mismo.</h2>
-      <p class="sec-sub" id="coursesSub">100% prácticos, en español, con comunidad activa y acceso inmediato. Sin suscripciones.</p>
-    </div>
-    <div class="courses-grid">
-      <div class="course-card fup" style="transition-delay:.05s">
-        <div class="course-top ct-blue">🧠</div>
-        <div class="course-body">
-          <span class="course-tag" id="ct1">Para docentes · Hotmart</span>
-          <div class="course-title" id="ctitle1">IA en el Aula 2026</div>
-          <div class="course-desc" id="cdesc1">ChatGPT, Claude y las herramientas clave para tu aula. Casos reales, biblioteca de prompts pedagógicos y comunidad de +700 educadores activos.</div>
-          <a href="https://hotmart.com/es/club/learn5/products" target="_blank" class="btn-full" id="cbtn1">Ver curso en Hotmart →</a>
-        </div>
-      </div>
-      <div class="course-card fup" style="transition-delay:.1s">
-        <div class="course-top ct-violet">🚀</div>
-        <div class="course-body">
-          <span class="course-tag" id="ct2">Para profesionales · Hotmart</span>
-          <div class="course-title" id="ctitle2">Transforma tu Futuro con IA</div>
-          <div class="course-desc" id="cdesc2">Automatización real, creación de productos digitales y estrategias de IA para emprendedores y profesionales. Sin relleno — solo lo que funciona.</div>
-          <a href="https://hotmart.com/es/club/learn5/products" target="_blank" class="btn-full" id="cbtn2">Ver curso en Hotmart →</a>
-        </div>
-      </div>
-      <div class="course-card fup" style="transition-delay:.15s">
-        <div class="course-top ct-cyan">🎫</div>
-        <div class="course-body">
-          <span class="course-tag" id="ct3">eBook + Mentoría · Hotmart</span>
-          <div class="course-title" id="ctitle3">Guía del Educador + Learn5 Pass</div>
-          <div class="course-desc" id="cdesc3">El eBook práctico con framework de competencias digitales. El Learn5 Pass te da acceso total al ecosistema: diagnóstico, ruta personalizada y acompañamiento real.</div>
-          <a href="https://hotmart.com/es/club/learn5/products" target="_blank" class="btn-full-outline" id="cbtn3">Ver catálogo completo →</a>
-        </div>
-      </div>
-      <div class="course-card fup" style="transition-delay:.2s">
-        <div class="course-top ct-gold">🗓️</div>
-        <div class="course-body">
-          <span class="course-tag" id="ct4">Nuevo · Acceso Anticipado</span>
-          <div class="course-title" id="ctitle4">Domina la IA en 30 Días</div>
-          <div class="course-desc" id="cdesc4">1 herramienta de IA por día durante 30 días. 4 sesiones en vivo, campus online 24/7 y certificado. Precio Early Bird por tiempo limitado.</div>
-          <a href="https://ai-workshop-miami.vercel.app/?utm_source=learn5pro&utm_medium=website&utm_campaign=cursos" target="_blank" class="btn-full" id="cbtn4">Reservar mi cupo →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="section newsletter-band" id="newsletter">
-  <div class="inner">
-    <div class="nl-inner fup">
-      <p class="sec-label" id="nlLabel">Newsletter · LinkedIn · Gratis</p>
-      <h2 class="sec-title" style="font-size:clamp(26px,4vw,42px);">📬 Clase Futura</h2>
-      <p class="sec-sub" style="margin:0 auto;" id="nlSub">Estrategias de IA para educadores, cada semana, directo a tu correo. Únete a +700 docentes. Gratis, en LinkedIn.</p>
-      <a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" class="nl-linkedin-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        <span id="nlBtn">Suscribirme en LinkedIn →</span>
-      </a>
-      <p class="nl-note" id="nlNote">Se abre LinkedIn. Gratis, sin spam. +700 educadores ya suscritos.</p>
-    </div>
-  </div>
-</section>
-
-<!-- B2B SOLUTIONS -->
-<section class="section divider-section" id="soluciones">
-  <div class="inner">
-    <div class="fup">
-      <p class="sec-label" id="b2bLabel">Instituciones · B2B</p>
-      <h2 class="sec-title" id="b2bTitle">Transformación institucional con IA.</h2>
-      <p class="sec-sub" id="b2bSub">Diagnóstico gratuito en 30 min. Sin compromiso. Para colegios, universidades y empresas en LATAM y EE.UU.</p>
-    </div>
-    <div class="tabs-row" style="margin-top:2.5rem">
-      <button class="tab-b on" onclick="switchTab('sol',this)" id="tab1">Soluciones</button>
-      <button class="tab-b" onclick="switchTab('mod',this)" id="tab2">Modelos de trabajo</button>
-    </div>
-
-    <div class="pane on" id="pane-sol">
-      <div class="b2b-grid">
-        <div class="b2b-card fup"><div class="b2b-top-line tl-blue"></div><span class="b2b-chip">B2B · Consultoría</span><div class="b2b-icon">🗺️</div><div class="b2b-title">Learn Consulting</div><div class="b2b-desc">Diagnóstico de madurez digital, plan estratégico y acompañamiento continuo a equipos directivos.</div><ul class="b2b-features"><li>Diagnóstico personalizado de madurez digital</li><li>Hoja de ruta estratégica medible</li><li>Mentoría ejecutiva al equipo directivo</li></ul><a href="#contacto" class="b2b-link" id="blnk1">Diagnóstico gratuito →</a></div>
-        <div class="b2b-card fup" style="transition-delay:.07s"><div class="b2b-top-line tl-violet"></div><span class="b2b-chip">B2B + B2C · Formación</span><div class="b2b-icon">👩‍🏫</div><div class="b2b-title">Aula Futura</div><div class="b2b-desc">Formación docente en IA exclusiva para educadores. Comunidad de +700 docentes. Licenciamiento institucional disponible.</div><ul class="b2b-features"><li>Talleres prácticos, no solo teoría</li><li>Biblioteca de prompts pedagógicos</li><li>Certificación de competencias digitales</li></ul><a href="#contacto" class="b2b-link" id="blnk2">Solicitar propuesta →</a></div>
-        <div class="b2b-card fup" style="transition-delay:.14s"><div class="b2b-top-line tl-cyan"></div><span class="b2b-chip">B2B · Contenido</span><div class="b2b-icon">🎬</div><div class="b2b-title">LearnFactory</div><div class="b2b-desc">Producción de contenido educativo con IA: eBooks, microcursos, podcasts y evaluaciones inteligentes para su institución.</div><ul class="b2b-features"><li>eBooks, microcursos, podcasts y multimedia</li><li>Evaluaciones inteligentes y rúbricas</li><li>Menor tiempo y costo con IA</li></ul><a href="#contacto" class="b2b-link" id="blnk3">Solicitar propuesta →</a></div>
-        <div class="b2b-card fup"><div class="b2b-top-line tl-blue"></div><span class="b2b-chip">B2B · Tecnología</span><div class="b2b-icon">💻</div><div class="b2b-title">Learn Tech</div><div class="b2b-desc">Distribución e integración de tecnología educativa de vanguardia para su institución.</div><ul class="b2b-features"><li>Selección y evaluación para su contexto</li><li>Acompañamiento en integración y adopción</li></ul><a href="#contacto" class="b2b-link" id="blnk4">Consultar →</a></div>
-        <div class="b2b-card fup" style="transition-delay:.1s"><div class="b2b-top-line tl-coral"></div><span class="b2b-chip">B2B · Soporte</span><div class="b2b-icon">🛠️</div><div class="b2b-title">Learn Support</div><div class="b2b-desc">Mesa de ayuda educativa. Soporte técnico y pedagógico post-implementación para docentes y estudiantes.</div><ul class="b2b-features"><li>Soporte nivel 1 y 2 especializado</li><li>Resolución de incidencias continua</li></ul><a href="#contacto" class="b2b-link" id="blnk5">Solicitar propuesta →</a></div>
-        <div class="b2b-card fup" style="transition-delay:.15s"><div class="b2b-top-line tl-violet"></div><span class="b2b-chip">B2B · Alianzas</span><div class="b2b-icon">🤝</div><div class="b2b-title">Learn Alliance</div><div class="b2b-desc">Para instituciones y empresas que quieren co-crear el futuro educativo. Acceso al ecosistema y certificaciones conjuntas.</div><ul class="b2b-features"><li>Co-desarrollo de programas y certificaciones</li><li>Presencia en eventos LATAM & EE.UU.</li></ul><a href="#contacto" class="b2b-link" id="blnk6">Ser aliado →</a></div>
-      </div>
-    </div>
-
-    <div class="pane" id="pane-mod">
-      <div class="models-grid">
-        <div class="model-c fup"><div class="model-n">01</div><div class="model-t" id="m1t">Consulta Estratégica</div><span class="model-s" id="m1s">30 min · Gratis · Sin compromiso</span><ul class="model-list"><li id="m1f1">Evaluación rápida de necesidades</li><li id="m1f2">Recomendaciones accionables</li></ul></div>
-        <div class="model-c fup" style="transition-delay:.07s"><div class="model-n">02</div><div class="model-t" id="m2t">Piloto Institucional</div><span class="model-s" id="m2s">30–90 días · Bajo riesgo</span><ul class="model-list"><li id="m2f1">Implementación a escala reducida</li><li id="m2f2">Métricas de impacto desde el día 1</li></ul></div>
-        <div class="model-c fup" style="transition-delay:.14s"><div class="model-n">03</div><div class="model-t" id="m3t">Transformación Integral</div><span class="model-s" id="m3s">Proyecto completo · Personalizado</span><ul class="model-list"><li id="m3f1">Diagnóstico + Estrategia + Implementación</li><li id="m3f2">Soporte continuo post-lanzamiento</li></ul></div>
-        <div class="model-c fup" style="transition-delay:.21s"><div class="model-n">04</div><div class="model-t" id="m4t">Alianza Continua</div><span class="model-s" id="m4s">Retainer mensual · Ecosistema completo</span><ul class="model-list"><li id="m4f1">Prioridad en nuevas soluciones</li><li id="m4f2">Co-branding y certificaciones conjuntas</li></ul></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROFESSOR AI -->
-<section class="section">
-  <div class="inner">
-    <div class="professor-strip fup">
-      <div class="prof-icon">🤖</div>
+<!-- ══ 5 · SOLUCIONES PARA INSTITUCIONES ══ -->
+<section class="inst" id="soluciones">
+  <div class="inst-in">
+    <figure class="inst-im">
+      <img src="assets/institucional-edificio.jpg" loading="lazy" width="1254" height="588" alt="Edificio institucional moderno con un birrete luminoso, que representa la transformación de centros educativos">
+    </figure>
+    <div class="inst-tx">
       <div>
-        <div class="prof-badge">🚀 <span id="profBadge">Lanzamiento 2026</span></div>
-        <div class="prof-title">Professor AI</div>
-        <div class="prof-desc" id="profDesc">La primera app propia de Learn5 — ruta personalizada, práctica real en el aula y certificación de competencias en IA. Pilotos institucionales disponibles ahora.</div>
+        <p class="eyebrow">Soluciones para instituciones y empresas</p>
+        <h2>Para instituciones y empresas que quieren evolucionar</h2>
+        <p>Acompañamos tu proceso de transformación con estrategias, formación y tecnología educativa de alto impacto.</p>
+        <div class="inst-ben">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z"/><path d="M4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5"/></svg><b>Consultoría estratégica</b></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg><b>Capacitación corporativa</b></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg><b>Producción educativa</b></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><b>Integración tecnológica</b></div>
+        </div>
       </div>
-      <div class="prof-cta">
-        <a href="#contacto" class="btn-outline" id="profCta">Solicitar piloto →</a>
+      <button class="inst-pill" type="button" data-modal="propuesta">
+        <span>Solicitar<br>una propuesta
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6 · ALIANZAS Y CONVENIOS · entre instituciones y confianza ══ -->
+<section class="alianzas" id="alianzas">
+  <div class="wrap">
+    <div class="banda rev">
+      <svg class="banda-glow" viewBox="0 0 520 240" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00BCD2" stop-opacity="0"/><stop offset="1" stop-color="#00BCD2" stop-opacity=".40"/></linearGradient></defs>
+        <path d="M0 182 C 150 120, 250 206, 520 108 L520 240 L0 240 Z" fill="url(#bg1)" opacity=".55"/>
+        <path d="M90 240 C 230 150, 330 190, 520 44 L520 240 Z" fill="url(#bg1)" opacity=".75"/>
+      </svg>
+      <div class="banda-tx">
+        <p class="eyebrow">Alianzas y convenios</p>
+        <h2>Partners estratégicos para un mayor impacto</h2>
+      </div>
+      <div class="banda-cat">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 11l3-3 4 4 3-3"/><path d="M3 14.5l4.5-4.5 4 4 4.5-4.5L21 13"/><path d="M3 20h18"/></svg><b>Convenios institucionales</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l9 4.5-9 4.5-9-4.5L12 4z"/><path d="M7 11v5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5"/></svg><b>Alianzas académicas</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.6 8.7L11 15.8M16.4 8.7L13 15.8M8.3 7h7.4"/></svg><b>Partners tecnológicos</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8.5 13.5l3-3 4 4"/><path d="M3 17l4.5-9L12 14l3-5 6 8z"/></svg><b>Colaboración en programas</b></div>
+      </div>
+      <div class="banda-cta">
+        <button class="btn btn-ghost" type="button" data-modal="alianza">Conversemos sobre una alianza</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section" id="contacto" style="background:var(--bg2);border-top:1px solid var(--border);">
-  <div class="inner">
-    <div class="contact-grid">
-      <div class="contact-form-box fup">
-        <p class="sec-label" style="margin-bottom:.5rem;" id="formLabel">Escríbenos</p>
-        <h3 style="font-family:var(--fd);font-size:26px;font-weight:800;letter-spacing:-0.75px;margin-bottom:.5rem;" id="formTitle">¿Hablamos?</h3>
-        <p style="font-size:14px;color:var(--muted);margin-bottom:1.75rem;" id="formSub">Gelkin te responde en menos de 24 horas.</p>
-        <div class="form-audience-toggle">
-          <button class="tog on" onclick="setMode('person',this)" id="togPerson">Soy persona</button>
-          <button class="tog" onclick="setMode('inst',this)" id="togInst">Represento institución</button>
-        </div>
-        <form action="https://formspree.io/f/mpqbbwvq" method="POST" id="contactForm">
-          <div class="fr">
-            <div class="fg"><label class="fl" id="lName">Nombre</label><input type="text" class="fi" name="nombre" required placeholder="Tu nombre"></div>
-            <div class="fg"><label class="fl">Email</label><input type="email" class="fi" name="email" required placeholder="tucorreo@email.com"></div>
-          </div>
-          <div class="fg" id="instFg" style="display:none">
-            <label class="fl" id="lInst">Institución</label>
-            <input type="text" class="fi" name="institucion" placeholder="Nombre de tu institución">
-          </div>
-          <div class="fg">
-            <label class="fl" id="lInt">¿Qué te interesa?</label>
-            <select class="fs" name="solucion">
-              <option value="">— Selecciona —</option>
-              <option value="curso-aula">Curso IA en el Aula 2026</option>
-              <option value="curso-futuro">Curso Transforma tu Futuro con IA</option>
-              <option value="mentoria">Mentoría personalizada</option>
-              <option value="consulting">Learn Consulting</option>
-              <option value="aula-futura">Aula Futura</option>
-              <option value="professor-ai">Professor AI — piloto</option>
-              <option value="otro">Otro / General</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label class="fl" id="lMsg">Mensaje (opcional)</label>
-            <textarea class="ft" name="mensaje" rows="3" placeholder="Cuéntanos brevemente..."></textarea>
-          </div>
-          <button type="submit" class="submit-btn" id="submitBtn">Enviar solicitud →</button>
-        </form>
-        <div id="formSuccess" style="display:none;text-align:center;padding:2rem;">
-          <div style="font-size:2.5rem">✅</div>
-          <p style="font-family:var(--fd);font-size:20px;font-weight:800;margin:.75rem 0 .5rem;" id="successTitle">¡Solicitud enviada!</p>
-          <p style="font-size:14px;color:var(--muted);" id="successSub">Gelkin te responde en menos de 24h.</p>
-        </div>
+<!-- ══ 7 · EXPERIENCIA Y CONFIANZA ══ -->
+<section class="sec" id="experiencia">
+  <div class="wrap">
+    <div class="exp-in">
+      <div class="exp-tx rev">
+        <h2>Experiencia y confianza</h2>
+        <p>Una red de profesionales, educadores e instituciones que ya están aprendiendo, transformando e innovando con Learn5.</p>
       </div>
-
-      <div class="fup" style="transition-delay:.15s">
-        <h2 class="ci-title" id="ciTitle">Estamos aquí para transformar tu educación.</h2>
-        <p class="ci-sub" id="ciSub">Desde Miami, Florida, trabajamos con docentes, profesionales e instituciones en todo LATAM y EE.UU. Escríbenos en español o en inglés.</p>
-        <div class="ci-items">
-          <div class="ci-item"><div class="ci-item-ic">✉️</div><div class="ci-item-t"><a href="mailto:contacto@learn5.tech">contacto@learn5.tech</a></div></div>
-          <div class="ci-item"><div class="ci-item-ic">📱</div><div class="ci-item-t"><a href="tel:+17865271196">+1 786 527-1196</a></div></div>
-          <div class="ci-item"><div class="ci-item-ic">📍</div><div class="ci-item-t" id="ciLoc">Miami, Florida, EE.UU.</div></div>
-          <div class="ci-item"><div class="ci-item-ic">🛒</div><div class="ci-item-t"><a href="https://hotmart.com/es/club/learn5/products" target="_blank" id="ciHotmart">Cursos en Hotmart</a></div></div>
+      <div class="exp-num rev">
+        <!-- La cifra de +700 viene de la web actual. PENDIENTE de confirmar su vigencia antes de publicar en la raíz. -->
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg>
+          <span class="n">+700</span><small>Educadores<br>en nuestra comunidad</small>
         </div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/company/learn5/" target="_blank" class="soc" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://www.instagram.com/learn5_tech/" target="_blank" class="soc" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61586614326014" target="_blank" class="soc" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://wa.me/17865271196" target="_blank" class="soc" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a href="https://hotmart.com/es/club/learn5/products" target="_blank" class="soc" title="Hotmart"><svg viewBox="0 0 24 24"><path d="M16.747 0H7.253A7.253 7.253 0 000 7.253v9.494A7.253 7.253 0 007.253 24h9.494A7.253 7.253 0 0024 16.747V7.253A7.253 7.253 0 0016.747 0zM12 18.245a6.245 6.245 0 110-12.49 6.245 6.245 0 010 12.49zm0-10.245a4 4 0 100 8 4 4 0 000-8z"/></svg></a>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h3M8 17.5h7"/></svg>
+          <span class="n">Programas</span><small>y talleres<br>especializados</small>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
+          <span class="n">Alcance</span><small>en Latinoamérica<br>y Estados Unidos</small>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 22l5-2.6L17 22l-1.5-8.5"/></svg>
+          <span class="n">Alianzas</span><small>académicas<br>y estratégicas</small>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<span class="ancla" id="newsletter" aria-hidden="true"></span>
+<!-- ══ 8 · COMUNIDAD LEARN5 ══ -->
+<section class="comu" id="comunidad">
+  <div class="wrap">
+    <div class="comu-caja rev">
+      <div>
+        <p class="comu-et">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c3 .2 5.5 2.2 5.5 5.4"/></svg>
+          Comunidad Learn5
+        </p>
+        <h2>Únete a la comunidad que está imaginando el futuro del aprendizaje.</h2>
+      </div>
+      <div>
+        <ul class="comu-lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Clase Futura: ideas, tendencias y recursos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Invitaciones a talleres y eventos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Nuevos programas y lanzamientos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Contenido exclusivo sobre IA y EdTech</li>
+        </ul>
+      </div>
+      <div class="comu-cta">
+        <a class="btn btn-3" href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".9" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg>
+          Suscribirme a Clase Futura
+        </a>
+        <p class="comu-nota">Se publica en LinkedIn, cada semana. ¿Prefieres escribirnos?
+          <button class="enlace" type="button" data-modal="reunion">Hablemos</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9 · CTA FINAL ══ -->
+<section class="cierre" id="contacto">
+  <div class="wrap">
+    <h2 class="rev">El futuro no se espera.<em>Se diseña.</em></h2>
+    <p class="rev">Con Learn5 puedes aprender, transformar e innovar con propósito.</p>
+    <div class="cierre-cta rev">
+      <a class="btn btn-1" href="#formacion">Quiero comenzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      <button class="btn btn-2" type="button" data-modal="reunion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+        Hablar con un asesor</button>
+    </div>
+  </div>
+  <svg class="cierre-ondas" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="o1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E7FC4"/><stop offset="1" stop-color="#012A52"/></linearGradient>
+      <linearGradient id="o2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#15B9DC"/><stop offset="1" stop-color="#0A6FB4"/></linearGradient>
+      <linearGradient id="o3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8FE6F5"/><stop offset="1" stop-color="#2DA9D8"/></linearGradient>
+    </defs>
+    <path d="M0 196 C 250 120, 420 232, 700 190 C 980 148, 1180 236, 1440 168 L1440 300 L0 300 Z" fill="url(#o3)" opacity=".42"/>
+    <path d="M0 228 C 270 158, 460 262, 760 214 C 1030 170, 1220 258, 1440 206 L1440 300 L0 300 Z" fill="url(#o2)" opacity=".72"/>
+    <path d="M0 262 C 300 206, 500 290, 820 250 C 1100 214, 1260 286, 1440 248 L1440 300 L0 300 Z" fill="url(#o1)"/>
+  </svg>
+</section>
+
+</main>
+
+<!-- ══ MODALES · tres recorridos comerciales distintos ══ -->
+<dialog id="md-reunion" aria-labelledby="t-reunion">
+  <form method="dialog" class="md" novalidate data-form="reunion">
+    <div class="md-h">
+      <h3 id="t-reunion">Agendar una reunión</h3>
+      <button class="md-x" type="button" data-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p>Treinta minutos, sin compromiso. Cuéntanos qué necesitas y te proponemos un horario.</p>
+    <div class="campo-2">
+      <div class="campo"><label for="r-nom">Nombre y apellidos *</label><input id="r-nom" name="nombre" required autocomplete="name"></div>
+      <div class="campo"><label for="r-mail">Correo *</label><input id="r-mail" name="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div class="campo-2">
+      <div class="campo"><label for="r-org">Organización</label><input id="r-org" name="organizacion" autocomplete="organization"></div>
+      <div class="campo"><label for="r-tel">Teléfono</label><input id="r-tel" name="telefono" type="tel" autocomplete="tel"></div>
+    </div>
+    <div class="campo"><label for="r-cuando">¿Cuándo te viene bien? *</label>
+      <select id="r-cuando" name="disponibilidad" required>
+        <option value="">— Selecciona —</option>
+        <option>Entre semana, por la mañana</option>
+        <option>Entre semana, a mediodía</option>
+        <option>Entre semana, por la tarde</option>
+        <option>Fin de semana</option>
+        <option>Me adapto a lo que tengas</option>
+      </select>
+    </div>
+    <div class="campo"><label for="r-msg">¿De qué quieres que hablemos?</label><textarea id="r-msg" name="mensaje"></textarea></div>
+    <label class="comu-cons"><input type="checkbox" name="consent" required><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
+    <p class="aviso" role="status" aria-live="polite"></p>
+    <button class="btn btn-1" type="submit">Enviar solicitud</button>
+  </form>
+</dialog>
+
+<dialog id="md-propuesta" aria-labelledby="t-propuesta">
+  <form method="dialog" class="md" novalidate data-form="propuesta">
+    <div class="md-h">
+      <h3 id="t-propuesta">Solicitar una propuesta</h3>
+      <button class="md-x" type="button" data-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p>Para instituciones y empresas. Cuéntanos tu contexto y preparamos una propuesta a medida.</p>
+    <div class="campo-2">
+      <div class="campo"><label for="p-nom">Nombre y apellidos *</label><input id="p-nom" name="nombre" required autocomplete="name"></div>
+      <div class="campo"><label for="p-mail">Correo corporativo *</label><input id="p-mail" name="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div class="campo-2">
+      <div class="campo"><label for="p-org">Organización *</label><input id="p-org" name="organizacion" required autocomplete="organization"></div>
+      <div class="campo"><label for="p-cat">Categoría de servicio *</label>
+        <select id="p-cat" name="categoria" required>
+          <option value="">— Selecciona —</option>
+          <option>Consultoría estratégica</option>
+          <option>Capacitación corporativa</option>
+          <option>Producción educativa</option>
+          <option>Integración tecnológica</option>
+          <option>Varias / no lo tengo claro</option>
+        </select>
+      </div>
+    </div>
+    <div class="campo"><label for="p-msg">Describe tu necesidad *</label><textarea id="p-msg" name="mensaje" required placeholder="Qué quieres resolver, a cuánta gente afecta y en qué plazo."></textarea></div>
+    <label class="comu-cons"><input type="checkbox" name="consent" required><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
+    <p class="aviso" role="status" aria-live="polite"></p>
+    <button class="btn btn-1" type="submit">Enviar solicitud</button>
+  </form>
+</dialog>
+
+<dialog id="md-alianza" aria-labelledby="t-alianza">
+  <form method="dialog" class="md" novalidate data-form="alianza">
+    <div class="md-h">
+      <h3 id="t-alianza">Conversemos sobre una alianza</h3>
+      <button class="md-x" type="button" data-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p>Convenios, alianzas académicas, partners tecnológicos y colaboración en programas.</p>
+    <div class="campo-2">
+      <div class="campo"><label for="al-org">Organización *</label><input id="al-org" name="organizacion" required autocomplete="organization"></div>
+      <div class="campo"><label for="al-tipo">Tipo de alianza *</label>
+        <select id="al-tipo" name="tipo" required>
+          <option value="">— Selecciona —</option>
+          <option>Convenio institucional</option>
+          <option>Alianza académica</option>
+          <option>Partner tecnológico</option>
+          <option>Colaboración en programas</option>
+        </select>
+      </div>
+    </div>
+    <div class="campo-2">
+      <div class="campo"><label for="al-nom">Persona de contacto *</label><input id="al-nom" name="nombre" required autocomplete="name"></div>
+      <div class="campo"><label for="al-mail">Correo *</label><input id="al-mail" name="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div class="campo"><label for="al-tel">Teléfono</label><input id="al-tel" name="telefono" type="tel" autocomplete="tel"></div>
+    <div class="campo"><label for="al-msg">Tu propuesta *</label><textarea id="al-msg" name="mensaje" required placeholder="Qué propones, qué aporta cada parte y en qué plazo."></textarea></div>
+    <label class="comu-cons"><input type="checkbox" name="consent" required><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
+    <p class="aviso" role="status" aria-live="polite"></p>
+    <button class="btn btn-1" type="submit">Enviar propuesta</button>
+  </form>
+</dialog>
+
+<!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+  <div class="wrap">
+    <div class="pie">
       <div>
-        <div class="f-logo">Learn<span class="num">5</span></div>
-        <div class="f-tagline" id="fTagline">Transformamos la educación en LATAM y EE.UU. con inteligencia artificial. EdTech con sede en Miami, Florida. LLC desde marzo 2024.</div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/company/learn5/" target="_blank" class="soc" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://www.instagram.com/learn5_tech/" target="_blank" class="soc" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61586614326014" target="_blank" class="soc" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <span class="logo-n">Learn<span style="color:var(--cyan)">5</span></span>
+        <span class="logo-d" style="display:block;margin-top:4px">AI &amp; EDTECH SOLUTIONS</span>
+        <p>Formación, consultoría y soluciones EdTech con inteligencia artificial para personas, profesionales e instituciones. Miami, Florida · LLC desde marzo de 2024.</p>
+        <div class="pie-soc">
+          <a href="https://www.linkedin.com/company/learn5/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".8" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg></a>
+          <a href="https://www.instagram.com/learn5_tech/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="https://wa.me/17865271196" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.6-4.6a8.4 8.4 0 1 1 15.4-4.3z"/></svg></a>
         </div>
       </div>
       <div>
-        <div class="f-col-title" id="fCursos">Cursos</div>
-        <ul class="f-links">
-          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" id="fl1">IA en el Aula 2026</a></li>
-          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" id="fl2">Transforma tu Futuro con IA</a></li>
-          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" id="fl3">Guía Digital del Educador</a></li>
-          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank">Learn5 Pass</a></li>
+        <h4>Formación</h4>
+        <ul>
+          <li><a href="#formacion">Formación destacada</a></li>
+          <li><a href="https://learn5.pro/ia-30-dias/">Domina la IA en 30 Días</a></li>
+          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Catálogo completo</a></li>
         </ul>
       </div>
       <div>
-        <div class="f-col-title" id="fSol">Soluciones</div>
-        <ul class="f-links">
-          <li><a href="#soluciones">Learn Consulting</a></li>
-          <li><a href="#soluciones">Aula Futura</a></li>
-          <li><a href="#soluciones">LearnFactory</a></li>
-          <li><a href="#soluciones">Professor AI</a></li>
-          <li><a href="#soluciones">Learn Alliance</a></li>
+        <h4>Soluciones</h4>
+        <ul>
+          <li><a href="#soluciones">Para instituciones y empresas</a></li>
+          <li><button type="button" data-modal="propuesta">Solicitar una propuesta</button></li>
+          <li><a href="#alianzas">Alianzas y convenios</a></li>
+          <li><button type="button" data-modal="reunion">Agendar una reunión</button></li>
         </ul>
       </div>
       <div>
-        <div class="f-col-title" id="fEmp">Empresa</div>
-        <ul class="f-links">
-          <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" id="fl4">Newsletter Clase Futura</a></li>
-          <li><a href="#contacto" id="fl5">Contacto</a></li>
+        <h4>Contacto</h4>
+        <ul>
           <li><a href="mailto:contacto@learn5.tech">contacto@learn5.tech</a></li>
           <li><a href="tel:+17865271196">+1 786 527-1196</a></li>
+          <li>Miami, Florida, EE. UU.</li>
+          <li><a href="#comunidad">Comunidad Learn5</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2024–2026 Learn5 LLC · Miami, Florida · <span id="fRights">Todos los derechos reservados.</span></span>
-      <span style="color:var(--accent);font-weight:700;font-family:var(--fd);">learn5.pro</span>
+    <div class="pie-b">
+      <span>© 2024–2026 Learn5 LLC · Miami, Florida · Todos los derechos reservados.</span>
+      <span><a href="/privacidad.html">Privacidad</a> · <a href="/terminos.html">Términos</a></span>
     </div>
   </div>
 </footer>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/17865271196?text=Hola%20Gelkin%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Learn5" target="_blank" class="wa" aria-label="WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- TOAST -->
-<div class="toast" id="toast"><span class="chk">✓</span><span id="toastMsg"></span></div>
-
 <script>
-// ── TRANSLATIONS ──
-var T = {
-  es: {
-    navCta:'Solicitar propuesta', langTxt:'EN', ribbonText:'Miami, FL · LATAM & EE.UU. · LLC desde 2024',
-    heroLine1:'Enseña al presente.', heroLine2:'Imagina el futuro.',
-    heroSub:'Transformamos la educación con inteligencia artificial. Cursos para docentes y profesionales. Consultoría estratégica para instituciones. Todo en español e inglés, para LATAM y EE.UU.',
-    audLabel:'¿Quién eres tú?', aud1:'Soy docente', aud2:'Soy profesional', aud3:'Represento una institución', aud4:'Quiero el newsletter',
-    stat1:'Educadores en la comunidad', stat2:'Soluciones B2B', stat3:'Cursos activos en Hotmart', stat4:'& EE.UU. — mercado 2026',
-    forLabel:'Para ti', forTitle:'La IA ya cambió la educación.<br>¿Estás listo?', forSub:'Tanto si eres docente, profesional independiente o líder de una institución — en Learn5 tienes un camino claro.',
-    fc1t:'Soy docente o educador', fc1d:'Aprende a usar ChatGPT, Claude y otras herramientas de IA directamente en tu aula. Casos prácticos, prompts y comunidad de +700 colegas.', fc1c:'Ver cursos para docentes →',
-    fc2t:'Soy profesional o emprendedor', fc2d:'Automatiza tu trabajo, crea productos digitales y aplica la IA a tu negocio o carrera. Estrategias reales, no teoría genérica.', fc2c:'Ver cursos para profesionales →',
-    fc3t:'Represento una institución', fc3d:'Diagnóstico gratuito en 30 min, propuesta en 48h. Consultoría, formación docente y tecnología educativa para tu institución.', fc3c:'Ver soluciones institucionales →',
-    coursesLabel:'Cursos · Hotmart', coursesTitle:'Aprende IA. Aplícala hoy mismo.', coursesSub:'100% prácticos, en español, con comunidad activa y acceso inmediato. Sin suscripciones.',
-    ct1:'Para docentes · Hotmart', ctitle1:'IA en el Aula 2026', cdesc1:'ChatGPT, Claude y las herramientas clave para tu aula. Casos reales, biblioteca de prompts pedagógicos y comunidad de +700 educadores activos.', cbtn1:'Ver curso en Hotmart →',
-    ct2:'Para profesionales · Hotmart', ctitle2:'Transforma tu Futuro con IA', cdesc2:'Automatización real, creación de productos digitales y estrategias de IA para emprendedores y profesionales. Sin relleno — solo lo que funciona.', cbtn2:'Ver curso en Hotmart →',
-    ct3:'eBook + Mentoría · Hotmart', ctitle3:'Guía del Educador + Learn5 Pass', cdesc3:'El eBook práctico con framework de competencias digitales. El Learn5 Pass te da acceso total al ecosistema: diagnóstico, ruta personalizada y acompañamiento real.', cbtn3:'Ver catálogo completo →',
-    ct4:'Nuevo · Acceso Anticipado', ctitle4:'Domina la IA en 30 Días', cdesc4:'1 herramienta de IA por día durante 30 días. 4 sesiones en vivo, campus online 24/7 y certificado. Precio Early Bird por tiempo limitado.', cbtn4:'Reservar mi cupo →',
-    i30Label:'Nuevo · Acceso Anticipado', i30Title:'Domina la IA en 30 Días', i30Sub:'1 herramienta de IA por día. 4 sesiones en vivo. Sin relleno, sin teoría genérica — resultados desde el primer día.',
-    i30s1:'Precio Early Bird', i30s2:'Fecha de inicio', i30s3:'Cupos disponibles', i30s4:'Garantía de devolución',
-    i30w1t:'Semana 1', i30w1h:'Fundamentos y Prompting', i30w1d:'ChatGPT, Claude, Gemini, Perplexity, Copilot, NotebookLM, Otter.ai',
-    i30w2t:'Semana 2', i30w2h:'Creación de Contenido', i30w2d:'Canva AI, Leonardo, ElevenLabs, HeyGen, CapCut, Runway, Suno, AdCreative',
-    i30w3t:'Semana 3', i30w3h:'Automatización de Procesos', i30w3d:'Make, Zapier, Notion AI, Typebot, n8n, Gamma, Airtable AI',
-    i30w4t:'Semana 4', i30w4h:'Agentes de IA para Negocios', i30w4d:'Custom GPTs, Claude Projects, Dify, Voiceflow, Lindy, Chatbase, Relevance AI, Retell AI',
-    i30Cta:'Reservar mi cupo →', i30Note:'Cupos limitados · Garantía de 7 días · El precio sube a $129 al completarse',
-    nlLabel:'Newsletter · LinkedIn · Gratis', nlSub:'Estrategias de IA para educadores, cada semana, directo a tu correo. Únete a +700 docentes. Gratis, en LinkedIn.', nlBtn:'Suscribirme en LinkedIn →', nlNote:'Se abre LinkedIn. Gratis, sin spam. +700 educadores ya suscritos.',
-    b2bLabel:'Instituciones · B2B', b2bTitle:'Transformación institucional con IA.', b2bSub:'Diagnóstico gratuito en 30 min. Sin compromiso. Para colegios, universidades y empresas en LATAM y EE.UU.',
-    tab1:'Soluciones', tab2:'Modelos de trabajo',
-    blnk1:'Diagnóstico gratuito →', blnk2:'Solicitar propuesta →', blnk3:'Solicitar propuesta →', blnk4:'Consultar →', blnk5:'Solicitar propuesta →', blnk6:'Ser aliado →',
-    m1t:'Consulta Estratégica', m1s:'30 min · Gratis · Sin compromiso', m1f1:'Evaluación rápida de necesidades', m1f2:'Recomendaciones accionables',
-    m2t:'Piloto Institucional', m2s:'30–90 días · Bajo riesgo', m2f1:'Implementación a escala reducida', m2f2:'Métricas de impacto desde el día 1',
-    m3t:'Transformación Integral', m3s:'Proyecto completo · Personalizado', m3f1:'Diagnóstico + Estrategia + Implementación', m3f2:'Soporte continuo post-lanzamiento',
-    m4t:'Alianza Continua', m4s:'Retainer mensual · Ecosistema completo', m4f1:'Prioridad en nuevas soluciones', m4f2:'Co-branding y certificaciones conjuntas',
-    procLabel:'Proceso · 3 pasos', procTitle:'Empezamos en 30 minutos.',
-    p1t:'Diagnóstico gratuito', p1d:'Sesión de 30 min. Sin costo ni compromiso.', p2t:'Propuesta en 48h', p2d:'Soluciones, cronograma y presupuesto a medida.', p3t:'Implementación con impacto', p3d:'Acompañamiento continuo y métricas desde el día 1.',
-    profBadge:'Lanzamiento 2026', profDesc:'La primera app propia de Learn5 — ruta personalizada, práctica real en el aula y certificación de competencias en IA. Pilotos institucionales disponibles ahora.', profCta:'Solicitar piloto →',
-    formLabel:'Escríbenos', formTitle:'¿Hablamos?', formSub:'Gelkin te responde en menos de 24 horas.',
-    togPerson:'Soy persona', togInst:'Represento institución', lName:'Nombre', lInst:'Institución', lInt:'¿Qué te interesa?', lMsg:'Mensaje (opcional)', submitBtn:'Enviar solicitud →',
-    successTitle:'¡Solicitud enviada!', successSub:'Gelkin te responde en menos de 24h.',
-    ciTitle:'Estamos aquí para transformar tu educación.', ciSub:'Desde Miami, Florida, trabajamos con docentes, profesionales e instituciones en todo LATAM y EE.UU. Escríbenos en español o en inglés.',
-    ciLoc:'Miami, Florida, EE.UU.', ciHotmart:'Cursos en Hotmart',
-    fTagline:'Transformamos la educación en LATAM y EE.UU. con inteligencia artificial. EdTech con sede en Miami, Florida. LLC desde marzo 2024.',
-    fCursos:'Cursos', fSol:'Soluciones', fEmp:'Empresa', fl1:'IA en el Aula 2026', fl2:'Transforma tu Futuro con IA', fl3:'Guía Digital del Educador', fl4:'Newsletter Clase Futura', fl5:'Contacto', fRights:'Todos los derechos reservados.',
-    cap1t:'Professor AI — Lanzamiento 2026', cap1p:'La primera app de Learn5 para el desarrollo profesional docente con inteligencia artificial.', cap1a:'Probar demo gratis →',
-    cap2t:'+700 educadores en Aula Futura', cap2p:'La comunidad de docentes más activa de LATAM aprendiendo IA para el aula.', cap2a:'Conocer más →',
-    cap3t:'📬 Clase Futura — cada semana', cap3p:'Estrategias de IA para educadores directamente en tu correo. Gratis.', cap3a:'Suscribirme gratis →',
-    cap4t:'Transforma tu institución con IA estratégica', cap4p:'Diagnóstico gratuito en 30 min. Sin compromiso. Resultados desde el día uno.', cap4a:'Diagnóstico gratuito →',
-    toast:'¡Enviado! Gelkin te responde en menos de 24h.'
-  },
-  en: {
-    navCta:'Request a Proposal', langTxt:'ES', ribbonText:'Miami, FL · LATAM & USA · LLC since 2024',
-    heroLine1:'Teach the present.', heroLine2:'Imagine the future.',
-    heroSub:'We transform education with artificial intelligence. Courses for teachers and professionals. Strategic consulting for institutions. In Spanish and English, for LATAM and the USA.',
-    audLabel:'Who are you?', aud1:'I\'m a teacher', aud2:'I\'m a professional', aud3:'I represent an institution', aud4:'I want the newsletter',
-    stat1:'Educators in the community', stat2:'B2B Solutions', stat3:'Active courses on Hotmart', stat4:'& USA — 2026 market',
-    forLabel:'For you', forTitle:'AI has already changed education.<br>Are you ready?', forSub:'Whether you\'re a teacher, independent professional or institutional leader — at Learn5 you have a clear path.',
-    fc1t:'I\'m a teacher or educator', fc1d:'Learn to use ChatGPT, Claude and other AI tools directly in your classroom. Practical cases, prompts and a community of 700+ colleagues.', fc1c:'See courses for teachers →',
-    fc2t:'I\'m a professional or entrepreneur', fc2d:'Automate your work, create digital products and apply AI to your business or career. Real strategies, not generic theory.', fc2c:'See courses for professionals →',
-    fc3t:'I represent an institution', fc3d:'Free 30-min diagnosis, proposal in 48h. Consulting, teacher training and educational technology for your institution.', fc3c:'See institutional solutions →',
-    coursesLabel:'Courses · Hotmart', coursesTitle:'Learn AI. Apply it today.', coursesSub:'100% practical, in Spanish, with an active community and immediate access. No subscriptions.',
-    ct1:'For teachers · Hotmart', ctitle1:'AI in the Classroom 2026', cdesc1:'ChatGPT, Claude and key tools for your classroom. Real cases, pedagogical prompt library and community of 700+ active educators.', cbtn1:'View course on Hotmart →',
-    ct2:'For professionals · Hotmart', ctitle2:'Transform Your Future with AI', cdesc2:'Real automation, digital product creation and AI strategies for entrepreneurs and professionals. No fluff — only what works.', cbtn2:'View course on Hotmart →',
-    ct3:'eBook + Mentoring · Hotmart', ctitle3:'Educator\'s Guide + Learn5 Pass', cdesc3:'The practical eBook with digital competency framework. The Learn5 Pass gives you full ecosystem access: assessment, personalized path and real coaching.', cbtn3:'See full catalog →',
-    ct4:'New · Early Access', ctitle4:'Master AI in 30 Days', cdesc4:'1 AI tool per day for 30 days. 4 live sessions, 24/7 online campus and certificate. Early Bird price for a limited time.', cbtn4:'Reserve my spot →',
-    i30Label:'New · Early Access', i30Title:'Master AI in 30 Days', i30Sub:'1 AI tool per day. 4 live sessions. No filler, no generic theory — results from day one.',
-    i30s1:'Early Bird Price', i30s2:'Start date', i30s3:'Spots available', i30s4:'Money-back guarantee',
-    i30w1t:'Week 1', i30w1h:'Fundamentals & Prompting', i30w1d:'ChatGPT, Claude, Gemini, Perplexity, Copilot, NotebookLM, Otter.ai',
-    i30w2t:'Week 2', i30w2h:'Content Creation', i30w2d:'Canva AI, Leonardo, ElevenLabs, HeyGen, CapCut, Runway, Suno, AdCreative',
-    i30w3t:'Week 3', i30w3h:'Process Automation', i30w3d:'Make, Zapier, Notion AI, Typebot, n8n, Gamma, Airtable AI',
-    i30w4t:'Week 4', i30w4h:'AI Agents for Business', i30w4d:'Custom GPTs, Claude Projects, Dify, Voiceflow, Lindy, Chatbase, Relevance AI, Retell AI',
-    i30Cta:'Reserve my spot →', i30Note:'Limited spots · 7-day guarantee · Price rises to $129 once full',
-    nlLabel:'Newsletter · LinkedIn · Free', nlSub:'AI strategies for educators, every week, straight to your inbox. Join 700+ teachers. Free, on LinkedIn.', nlBtn:'Subscribe on LinkedIn →', nlNote:'Opens LinkedIn. Free, no spam. 700+ educators already subscribed.',
-    b2bLabel:'Institutions · B2B', b2bTitle:'Institutional transformation with AI.', b2bSub:'Free 30-min diagnosis. No commitment. For schools, universities and companies in LATAM and the USA.',
-    tab1:'Solutions', tab2:'Engagement Models',
-    blnk1:'Free diagnosis →', blnk2:'Request proposal →', blnk3:'Request proposal →', blnk4:'Inquire →', blnk5:'Request proposal →', blnk6:'Become a partner →',
-    m1t:'Strategic Consultation', m1s:'30 min · Free · No commitment', m1f1:'Quick needs assessment', m1f2:'Actionable recommendations',
-    m2t:'Institutional Pilot', m2s:'30–90 days · Low risk', m2f1:'Reduced-scale implementation', m2f2:'Impact metrics from day 1',
-    m3t:'Full Transformation', m3s:'Full project · Customized', m3f1:'Diagnosis + Strategy + Implementation', m3f2:'Ongoing post-launch support',
-    m4t:'Ongoing Alliance', m4s:'Monthly retainer · Full ecosystem', m4f1:'Priority access to new solutions', m4f2:'Co-branding and joint certifications',
-    procLabel:'Process · 3 steps', procTitle:'We start in 30 minutes.',
-    p1t:'Free diagnosis', p1d:'30-min session. No cost, no commitment.', p2t:'Proposal in 48h', p2d:'Custom solutions, timeline and budget.', p3t:'Impact-driven implementation', p3d:'Continuous coaching and metrics from day 1.',
-    profBadge:'Launching 2026', profDesc:'Learn5\'s first proprietary app — personalized path, real classroom practice and AI competency certification. Institutional pilots available now.', profCta:'Request pilot →',
-    formLabel:'Write to us', formTitle:'Let\'s talk?', formSub:'Gelkin responds within 24 hours.',
-    togPerson:'I\'m an individual', togInst:'I represent an institution', lName:'Name', lInst:'Institution', lInt:'What interests you?', lMsg:'Message (optional)', submitBtn:'Send request →',
-    successTitle:'Request sent!', successSub:'Gelkin will respond within 24 hours.',
-    ciTitle:'We\'re here to transform your education.', ciSub:'From Miami, Florida, we work with teachers, professionals and institutions across LATAM and the USA. Write to us in Spanish or English.',
-    ciLoc:'Miami, Florida, USA', ciHotmart:'Courses on Hotmart',
-    fTagline:'We transform education in LATAM and the USA with artificial intelligence. EdTech headquartered in Miami, Florida. LLC since March 2024.',
-    fCursos:'Courses', fSol:'Solutions', fEmp:'Company', fl1:'AI in the Classroom 2026', fl2:'Transform Your Future with AI', fl3:'Educator\'s Digital Guide', fl4:'Clase Futura Newsletter', fl5:'Contact', fRights:'All rights reserved.',
-    cap1t:'Professor AI — Launching 2026', cap1p:'Learn5\'s first app for teacher professional development with artificial intelligence.', cap1a:'Try free demo →',
-    cap2t:'700+ educators in Aula Futura', cap2p:'The most active teacher community in LATAM learning AI for the classroom.', cap2a:'Learn more →',
-    cap3t:'📬 Clase Futura — every week', cap3p:'AI strategies for educators delivered to your inbox. Free.', cap3a:'Subscribe free →',
-    cap4t:'Transform your institution with strategic AI', cap4p:'Free 30-min diagnosis. No commitment. Results from day one.', cap4a:'Free diagnosis →',
-    toast:'Sent! Gelkin will respond within 24 hours.'
-  }
-};
+/* ══════════════════════════════════════════════════════════════
+   1 · CATÁLOGO DE FORMACIÓN · editable sin tocar el maquetado
+   `individual:false` = todavía no tiene página propia; va al
+   catálogo, que sí existe, en vez de a un enlace inventado.
+   ══════════════════════════════════════════════════════════════ */
+var CATALOGO = "https://hotmart.com/es/club/learn5/products";
+var CURSOS = [
+  { titulo:"IA en el Aula",
+    bajada:"Integra la IA en tu práctica docente de forma ética y creativa.",
+    etiqueta:"Curso online", img:"assets/curso-1.jpg",
+    url:"https://go.hotmart.com/G97993169E?dp=1", individual:true },
+  { titulo:"Transforma tu Futuro con IA",
+    bajada:"Potencia tu productividad, crea contenido y aplica la IA a tus proyectos y negocios.",
+    etiqueta:"Curso completo", img:"assets/curso-2.jpg",
+    url:"https://go.hotmart.com/W103286625X?dp=1", individual:true },
+  { titulo:"Domina la IA en 30 Días",
+    bajada:"Un plan paso a paso para usar la IA con confianza, propósito y resultados reales.",
+    etiqueta:"Programa guiado", img:"assets/curso-3.jpg",
+    url:"https://learn5.pro/ia-30-dias/", individual:true },
+  /* El producto real en Hotmart se llama "Educador Digital Total" y son
+     11 ebooks, no una guía suelta. El rótulo de la tarjeta viene del arte
+     aprobado; pendiente de que Gelkin decida si se renombra. */
+  { titulo:"Guía Digital del Educador",
+    bajada:"Once guías sobre IA, ciberseguridad, realidad aumentada y futuro del trabajo.",
+    etiqueta:"Pack de 11 ebooks", img:"assets/curso-4.jpg",
+    url:"https://go.hotmart.com/X98102417D?dp=1", individual:true }
+];
 
-var lang = 'es';
+(function pintarCursos(){
+  var cont = document.getElementById("listaCursos");
+  if(!cont) return;
+  function esc(t){ return String(t).replace(/[<>&"]/g, function(c){
+    return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  cont.innerHTML = CURSOS.map(function(c){
+    var cuerpo =
+      '<div class="curso-im">'+
+        '<span class="curso-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'+esc(c.etiqueta)+'</span>'+
+        '<img src="'+esc(c.img)+'" loading="lazy" width="928" height="344" alt="">'+
+      '</div>'+
+      '<div class="curso-tx"><h3>'+esc(c.titulo)+'</h3><p>'+esc(c.bajada)+'</p>'+
+      '<span class="curso-fl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></div>';
+    if(!c.url) return '<article class="curso rev" aria-disabled="true">'+cuerpo+'</article>';
+    var fuera = c.url.indexOf("http") === 0 && c.url.indexOf("learn5.pro") < 0;
+    return '<a class="curso rev" href="'+esc(c.url)+'"'+(fuera?' target="_blank" rel="noopener"':'')+'>'+cuerpo+'</a>';
+  }).join("");
+})();
 
-function applyLang(l) {
-  lang = l;
-  var t = T[l];
-  Object.keys(t).forEach(function(k) {
-    var el = document.getElementById(k);
-    if (!el) return;
-    if (el.innerHTML && el.innerHTML.includes('<br>')) el.innerHTML = t[k];
-    else el.textContent = t[k];
-  });
-  document.documentElement.lang = l === 'es' ? 'es' : 'en';
-}
+/* ══════════════════════════════════════════════════════════════
+   2 · NAVEGACIÓN · desplegables y menú móvil accesibles
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var menu  = document.getElementById("menu");
+  var hamb  = document.querySelector(".hamb");
+  var tiras = Array.prototype.slice.call(document.querySelectorAll(".menu .mt"));
 
-function toggleLang() { applyLang(lang === 'es' ? 'en' : 'es'); }
-
-// ── THEME ──
-var theme = 'dark';
-function applyTheme(t) {
-  theme = t;
-  document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('themeIco').textContent = t === 'dark' ? '☀️' : '🌙';
-}
-function toggleTheme() { applyTheme(theme === 'dark' ? 'light' : 'dark'); }
-
-// ── MOBILE MENU ──
-function toggleMM() { document.getElementById('mobileMenu').classList.toggle('open'); }
-function closeMM() { document.getElementById('mobileMenu').classList.remove('open'); }
-
-// ── TABS ──
-function switchTab(id, btn) {
-  document.querySelectorAll('.pane').forEach(function(p){ p.classList.remove('on'); });
-  document.querySelectorAll('.tab-b').forEach(function(b){ b.classList.remove('on'); });
-  document.getElementById('pane-' + id).classList.add('on');
-  btn.classList.add('on');
-}
-
-// ── FORM MODE ──
-function setMode(m, btn) {
-  document.querySelectorAll('.tog').forEach(function(b){ b.classList.remove('on'); });
-  btn.classList.add('on');
-  document.getElementById('instFg').style.display = m === 'inst' ? 'block' : 'none';
-}
-
-// ── FORM SUBMIT ──
-document.addEventListener('DOMContentLoaded', function(){
-  var form = document.getElementById('contactForm');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var btn = form.querySelector('.submit-btn');
-      btn.style.opacity = '.6';
-      btn.disabled = true;
-      var data = {};
-      new FormData(form).forEach(function(v,k){ data[k]=v; });
-      fetch('https://formspree.io/f/mpqbbwvq', {
-        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
-      }).finally(function(){
-        form.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      });
+  function cerrarSubs(salvo){
+    tiras.forEach(function(b){
+      if(b === salvo) return;
+      b.setAttribute("aria-expanded","false");
+      document.getElementById(b.getAttribute("aria-controls")).classList.remove("on");
     });
   }
-});
+  tiras.forEach(function(b){
+    var panel = document.getElementById(b.getAttribute("aria-controls"));
+    b.addEventListener("click", function(){
+      var abierto = b.getAttribute("aria-expanded") === "true";
+      cerrarSubs(b);
+      b.setAttribute("aria-expanded", String(!abierto));
+      panel.classList.toggle("on", !abierto);
+    });
+  });
+  document.addEventListener("click", function(e){
+    if(!e.target.closest(".menu")) cerrarSubs(null);
+  });
 
-// ── CAROUSEL ──
-var slideIdx = 0;
-var slides = document.querySelectorAll('#heroCarousel .slide');
-var dots = document.querySelectorAll('#carouselDots .cdot');
-var carouselTimer;
+  function cerrarMenu(){
+    menu.classList.remove("abierto");
+    hamb.setAttribute("aria-expanded","false");
+    cerrarSubs(null);
+  }
+  hamb.addEventListener("click", function(){
+    var abierto = hamb.getAttribute("aria-expanded") === "true";
+    if(abierto){ cerrarMenu(); return; }
+    menu.classList.add("abierto");
+    hamb.setAttribute("aria-expanded","true");
+    var primero = menu.querySelector("a,button");
+    if(primero) primero.focus();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Escape") return;
+    if(menu.classList.contains("abierto")){ cerrarMenu(); hamb.focus(); }
+    else cerrarSubs(null);
+  });
+  menu.addEventListener("click", function(e){
+    /* También los botones que abren modal, no solo los enlaces. */
+    if((e.target.closest("a") || e.target.closest("[data-modal]")) &&
+       menu.classList.contains("abierto")) cerrarMenu();
+  });
+})();
 
-function goSlide(n) {
-  slides[slideIdx].classList.remove('active');
-  dots[slideIdx].classList.remove('active');
-  slideIdx = (n + slides.length) % slides.length;
-  slides[slideIdx].classList.add('active');
-  dots[slideIdx].classList.add('active');
-  resetCarouselTimer();
+/* ══════════════════════════════════════════════════════════════
+   3 · ENVÍO DE FORMULARIOS · FormSubmit
+   Los tres formularios (reunión, propuesta y alianza) mandan a
+   FormSubmit y el correo llega a contacto@learn5.tech.
+   No hay servidor, no hay base de datos y NO hay cuenta que crear:
+   el primer envío dispara un correo de confirmación y, al pulsar
+   el enlace, queda activo para siempre.
+
+   DESTINO: para no dejar la dirección a la vista de los robots,
+   FormSubmit da un alias aleatorio después de confirmar. Cuando lo
+   tengas, basta con cambiar FS_DESTINO por ese alias: el resto del
+   código no se toca.
+   ══════════════════════════════════════════════════════════════ */
+var FS_DESTINO = "contacto@learn5.tech";
+var FS_URL     = "https://formsubmit.co/ajax/" + FS_DESTINO;
+var CORREO     = "contacto@learn5.tech";
+var WHATSAPP   = "https://wa.me/17865271196";
+
+function fallo(aviso){
+  aviso.className = "aviso err";
+  aviso.innerHTML = "No hemos podido enviarlo. Puede ser tu conexión. " +
+    'Inténtalo otra vez o escríbenos a <a href="mailto:'+CORREO+'" style="color:inherit;text-decoration:underline">'+CORREO+'</a> ' +
+    'o por <a href="'+WHATSAPP+'" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
 }
-function carouselNext() { goSlide(slideIdx + 1); }
-function carouselPrev() { goSlide(slideIdx - 1); }
-function resetCarouselTimer() {
-  clearInterval(carouselTimer);
-  carouselTimer = setInterval(carouselNext, 5000);
+
+/* Corte de seguridad: si la red se cuelga, el botón no puede
+   quedarse en "Enviando..." para siempre. */
+function enviar(datos){
+  var corte = ("AbortController" in window) ? new AbortController() : null;
+  var reloj = corte ? setTimeout(function(){ corte.abort(); }, 12000) : null;
+  datos._template = "table";   // correo legible en vez de un volcado
+  datos._captcha  = "false";   // obligatorio al enviar por AJAX
+  return fetch(FS_URL, {
+    method:"POST",
+    headers:{ "Content-Type":"application/json", Accept:"application/json" },
+    body: JSON.stringify(datos),
+    signal: corte ? corte.signal : undefined
+  }).then(function(r){
+    if(reloj) clearTimeout(reloj);
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    return r.json();
+  }).then(function(j){
+    /* FormSubmit devuelve success como cadena "true", no como booleano. */
+    if(String(j.success) !== "true") throw new Error(j.message || "rechazado");
+    return true;
+  });
 }
-if (slides.length) resetCarouselTimer();
 
-// ── SCROLL FADE ──
-var obs = new IntersectionObserver(function(entries){
-  entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('vis'); obs.unobserve(en.target); }});
-}, { threshold: 0.08 });
-document.querySelectorAll('.fup').forEach(function(el){ obs.observe(el); });
+(function(){
+  var ultimoFoco = null;
 
-// ── INIT ──
-applyTheme(theme);
-applyLang(lang);
-</script>
-
-<!-- CHAT ASSISTANT WIDGET -->
-<style>
-  .l5chat-bubble{position:fixed;bottom:24px;right:24px;background:#534AB7;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(83,74,183,0.5);z-index:999;transition:transform .2s;border:none}
-  .l5chat-bubble:hover{transform:scale(1.08)}
-  .l5chat-panel{display:none;position:fixed;bottom:88px;right:24px;width:340px;max-width:calc(100vw - 48px);height:460px;max-height:calc(100vh - 140px);background:#1A1250;border:1px solid rgba(83,74,183,0.4);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.5);z-index:1000;flex-direction:column;overflow:hidden;font-family:'Poppins',sans-serif}
-  .l5chat-panel.open{display:flex}
-  .l5chat-header{background:linear-gradient(135deg,#534AB7,#3C3489);padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
-  .l5chat-header-info{display:flex;align-items:center;gap:10px}
-  .l5chat-avatar{width:38px;height:38px;background:linear-gradient(135deg,#D4AF37,#8A6D1F);border-radius:50%;display:flex;align-items:center;justify-content:center}
-  .l5chat-title{font-size:13px;font-weight:700;color:#fff;margin:0}
-  .l5chat-status{font-size:11px;color:#9FE1CB;margin:0}
-  .l5chat-close{background:none;border:none;color:#fff;font-size:16px;cursor:pointer;opacity:.8;width:26px;height:26px}
-  .l5chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
-  .l5chat-msg{font-size:13px;line-height:1.6;padding:10px 13px;border-radius:12px;max-width:88%}
-  .l5chat-msg.bot{background:rgba(83,74,183,0.22);color:#EEE;align-self:flex-start;border-bottom-left-radius:4px}
-  .l5chat-msg.user{background:#534AB7;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
-  .l5chat-qr{padding:10px 16px 16px;display:flex;flex-wrap:wrap;gap:8px;border-top:1px solid rgba(255,255,255,0.08)}
-  .l5chat-qr-btn{background:rgba(255,255,255,0.07);border:1px solid rgba(83,74,183,0.4);color:#AFA9EC;font-size:12px;font-weight:600;padding:8px 12px;border-radius:20px;cursor:pointer}
-  .l5chat-qr-btn:hover{background:rgba(83,74,183,0.28)}
-  .l5chat-qr-btn.cta{background:#1D9E75;border-color:#1D9E75;color:#fff;width:100%;text-align:center}
-  @media(max-width:480px){.l5chat-panel{right:12px;left:12px;width:auto}.l5chat-bubble{right:16px}}
-</style>
-
-<button class="l5chat-bubble" onclick="l5toggleChat()" aria-label="Abrir asistente">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 6.5 3 11c0 2.4 1.2 4.5 3.1 6L5 21l4-1.5c1 .3 2 .5 3 .5 5 0 9-3.5 9-8s-4-8-9-8z" fill="#fff"/></svg>
-</button>
-
-<div class="l5chat-panel" id="l5chatPanel">
-  <div class="l5chat-header">
-    <div class="l5chat-header-info">
-      <div class="l5chat-avatar">
-        <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
-          <ellipse cx="20" cy="22" rx="14" ry="13" fill="#F1EFE8"/>
-          <path d="M8 14 L13 6 L16 15 Z" fill="#8A6D1F"/>
-          <path d="M32 14 L27 6 L24 15 Z" fill="#8A6D1F"/>
-          <circle cx="14" cy="20" r="6.5" fill="#fff"/>
-          <circle cx="26" cy="20" r="6.5" fill="#fff"/>
-          <circle cx="14" cy="20" r="3.4" fill="#2C2C2A"/>
-          <circle cx="26" cy="20" r="3.4" fill="#2C2C2A"/>
-          <circle cx="12.7" cy="18.7" r="1" fill="#fff"/>
-          <circle cx="24.7" cy="18.7" r="1" fill="#fff"/>
-          <path d="M18 25 L20 28 L22 25 Z" fill="#D4AF37"/>
-          <path d="M9 25 Q14 30 20 29 Q26 30 31 25" stroke="#C9A876" stroke-width="1.5" fill="none"/>
-        </svg>
-      </div>
-      <div>
-        <p class="l5chat-title">Búho de Learn5</p>
-        <p class="l5chat-status">● En línea</p>
-      </div>
-    </div>
-    <button class="l5chat-close" onclick="l5toggleChat()" aria-label="Cerrar">✕</button>
-  </div>
-  <div class="l5chat-messages" id="l5chatMessages">
-    <div class="l5chat-msg bot">¡Hola! 🦉 Soy el asistente de Learn5. ¿En qué te puedo ayudar? Puedo contarte sobre nuestros cursos, el programa <strong>Domina la IA en 30 Días</strong>, o nuestras soluciones para instituciones.</div>
-  </div>
-  <div class="l5chat-qr" id="l5chatQr"></div>
-</div>
-
-<script>
-  const l5FAQ = {
-    start: {
-      options: [
-        { label: "🎓 Soy docente", next: "docente" },
-        { label: "💼 Soy profesional", next: "profesional" },
-        { label: "🏫 Represento institución", next: "institucion" },
-        { label: "🗓️ Domina la IA en 30 Días", next: "ia30" },
-      ]
-    },
-    docente: {
-      msg: "Tenemos el curso <strong>IA en el Aula 2026</strong> y la comunidad <strong>Aula Futura</strong> con +700 educadores. ¿Quieres ver los cursos o unirte a la comunidad?",
-      options: [
-        { label: "Ver cursos", next: "REDIRECT_CURSOS" },
-        { label: "🗓️ Ver Domina la IA en 30 Días", next: "ia30" },
-        { label: "⬅ Volver", next: "start" },
-      ]
-    },
-    profesional: {
-      msg: "Te recomiendo <strong>Transforma tu Futuro con IA</strong> (Hotmart) o nuestro programa nuevo <strong>Domina la IA en 30 Días</strong> — más intensivo, con sesiones en vivo.",
-      options: [
-        { label: "🗓️ Ver Domina la IA en 30 Días", next: "ia30" },
-        { label: "Ver todos los cursos", next: "REDIRECT_CURSOS" },
-        { label: "⬅ Volver", next: "start" },
-      ]
-    },
-    institucion: {
-      msg: "Ofrecemos diagnóstico gratuito en 30 min y propuesta en 48h. Learn Consulting, Aula Futura institucional, LearnFactory y más.",
-      options: [
-        { label: "Solicitar diagnóstico gratuito", next: "REDIRECT_CONTACTO" },
-        { label: "⬅ Volver", next: "start" },
-      ]
-    },
-    ia30: {
-      msg: "🗓️ <strong>Domina la IA en 30 Días</strong> — 1 herramienta por día, 4 sesiones en vivo, certificado. Precio Early Bird <strong>$96 USD</strong> (antes $129). Inicia el 17 de agosto, solo 20 cupos, con garantía de 7 días.",
-      options: [
-        { label: "🚀 Reservar mi cupo", next: "REDIRECT_IA30" },
-        { label: "⬅ Volver", next: "start" },
-      ]
+  document.addEventListener("click", function(e){
+    var lanza = e.target.closest("[data-modal]");
+    if(lanza){
+      e.preventDefault();
+      var d = document.getElementById("md-" + lanza.getAttribute("data-modal"));
+      if(d){ ultimoFoco = lanza; d.showModal(); }
+      return;
     }
+    var x = e.target.closest("[data-cerrar]");
+    if(x){ x.closest("dialog").close(); }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll("dialog"), function(d){
+    d.addEventListener("close", function(){
+      if(ultimoFoco) ultimoFoco.focus();
+      /* Limpiar el mensaje de error al cerrar: si no, al reabrir el
+         formulario aparece el aviso de la vez anterior. Un envío ya
+         hecho sí se conserva, para no invitar a mandarlo dos veces. */
+      var f = d.querySelector("form");
+      if(f && f.getAttribute("data-enviado") !== "si"){
+        var a = f.querySelector(".aviso");
+        if(a){ a.className = "aviso"; a.textContent = ""; }
+      }
+      d.scrollTop = 0;
+    });
+    d.addEventListener("click", function(e){ if(e.target === d) d.close(); });
+  });
+
+  var ASUNTOS = {
+    reunion:   "Learn5 · Solicitud de reunión",
+    propuesta: "Learn5 · Solicitud de propuesta",
+    alianza:   "Learn5 · Propuesta de alianza"
   };
 
-  function l5toggleChat() {
-    const panel = document.getElementById('l5chatPanel');
-    const isOpen = panel.classList.toggle('open');
-    if (isOpen && document.getElementById('l5chatQr').children.length === 0) {
-      l5renderStep('start');
-    }
-  }
+  Array.prototype.forEach.call(document.querySelectorAll("form[data-form]"), function(f){
+    /* Trampa antispam de Web3Forms: un bot la rellena, una persona no. */
+    var trampa = document.createElement("input");
+    trampa.type = "checkbox"; trampa.name = "botcheck";
+    trampa.style.cssText = "position:absolute;left:-9999px";
+    trampa.tabIndex = -1; trampa.setAttribute("aria-hidden","true");
+    f.appendChild(trampa);
 
-  function l5renderStep(stepKey) {
-    const step = l5FAQ[stepKey];
-    const messagesEl = document.getElementById('l5chatMessages');
-    const qrEl = document.getElementById('l5chatQr');
-    if (step.msg) {
-      const botMsg = document.createElement('div');
-      botMsg.className = 'l5chat-msg bot';
-      botMsg.innerHTML = step.msg;
-      messagesEl.appendChild(botMsg);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-    qrEl.innerHTML = '';
-    step.options.forEach(opt => {
-      const btn = document.createElement('button');
-      btn.className = 'l5chat-qr-btn' + (opt.next.startsWith('REDIRECT') ? ' cta' : '');
-      btn.textContent = opt.label;
-      btn.onclick = () => {
-        if (opt.next === 'REDIRECT_CURSOS') { window.location.hash = '#cursos'; return; }
-        if (opt.next === 'REDIRECT_CONTACTO') { window.location.hash = '#contacto'; return; }
-        if (opt.next === 'REDIRECT_IA30') { window.open('https://ai-workshop-miami.vercel.app/?utm_source=learn5pro&utm_medium=chat&utm_campaign=seccion-ia30', '_blank'); return; }
-        const userMsg = document.createElement('div');
-        userMsg.className = 'l5chat-msg user';
-        userMsg.textContent = opt.label;
-        messagesEl.appendChild(userMsg);
-        messagesEl.scrollTop = messagesEl.scrollHeight;
-        setTimeout(() => l5renderStep(opt.next), 300);
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var tipo  = f.getAttribute("data-form");
+      var aviso = f.querySelector(".aviso");
+      var boton = f.querySelector("[type=submit]");
+      aviso.className = "aviso";
+
+      var falla = null;
+      Array.prototype.forEach.call(f.querySelectorAll("[required]"), function(c){
+        if(falla) return;
+        var vacio = (c.type === "checkbox") ? !c.checked : !c.value.trim();
+        if(vacio) falla = c;
+        if(!falla && c.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c.value.trim())) falla = c;
+      });
+      if(falla){
+        aviso.className = "aviso err";
+        aviso.textContent = (falla.type === "checkbox")
+          ? "Necesitamos tu consentimiento para poder responderte."
+          : "Revisa los campos obligatorios: falta alguno o el correo no es válido.";
+        falla.focus();
+        return;
+      }
+      /* Trampa antispam: si está marcada es un bot. Fingimos normalidad
+         y no mandamos nada. */
+      if(trampa.checked) return;
+
+      /* El correo que llega lleva estos rótulos, no los nombres
+         internos de los campos: se lee de un vistazo. */
+      var ETIQUETAS = {
+        nombre:"Nombre", email:"Correo", organizacion:"Organización",
+        telefono:"Teléfono", disponibilidad:"Disponibilidad",
+        categoria:"Categoría", tipo:"Tipo de alianza",
+        mensaje:"Mensaje", consent:"Acepta privacidad"
       };
-      qrEl.appendChild(btn);
-    });
-  }
-</script>
+      var datos = { _subject: ASUNTOS[tipo] || "Learn5 · Mensaje desde la web" };
+      var correoPersona = "";
+      Array.prototype.forEach.call(f.elements, function(c){
+        if(!c.name || c.name === "botcheck") return;
+        if(c.name === "email") correoPersona = c.value.trim();
+        datos[ETIQUETAS[c.name] || c.name] =
+          (c.type === "checkbox") ? (c.checked ? "sí" : "no") : c.value.trim();
+      });
+      datos["Formulario"] = tipo;
+      /* Así respondes con el botón Responder, directo a la persona. */
+      if(correoPersona) datos._replyto = correoPersona;
 
+      var textoBoton = boton.textContent;
+      boton.disabled = true; boton.textContent = "Enviando…";
+
+      enviar(datos).then(function(){
+        /* A partir de aquí el mensaje YA está enviado: ningún error de
+           repintado puede convertir un éxito en un fallo. */
+        f.setAttribute("data-enviado","si");
+        try{
+          f.querySelector(".md > p").textContent = "";
+          aviso.className = "aviso ok";
+          aviso.textContent = "Recibido. Te respondemos desde " + CORREO + ", normalmente el mismo día.";
+          Array.prototype.forEach.call(f.querySelectorAll(".campo, .campo-2, .comu-cons"), function(n){ n.style.display = "none"; });
+          boton.textContent = "Enviado";
+        }catch(err){ /* enviado igualmente */ }
+      }).catch(function(){
+        fallo(aviso);
+        boton.disabled = false; boton.textContent = textoBoton;
+      });
+    });
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   4 · entradas suaves al hacer scroll
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var nodos = document.querySelectorAll(".rev");
+  if(!("IntersectionObserver" in window) ||
+     window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    for(var i=0;i<nodos.length;i++) nodos[i].classList.add("on");
+    return;
+  }
+  var ob = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("on"); ob.unobserve(en.target); } });
+  }, { rootMargin:"0px 0px -8% 0px", threshold:.08 });
+  for(var j=0;j<nodos.length;j++) ob.observe(nodos[j]);
+})();
+</script>
 </body>
 </html>
