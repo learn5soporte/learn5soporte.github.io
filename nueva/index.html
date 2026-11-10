@@ -94,8 +94,9 @@ h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
 .sub{position:absolute;left:0;top:calc(100% + 8px);min-width:252px;background:#fff;border:1px solid var(--borde);
   border-radius:var(--r);box-shadow:0 20px 44px rgba(0,45,90,.14);padding:8px;list-style:none;display:none;z-index:90}
 .sub.on{display:block}
-.sub a{display:block;padding:10px 12px;border-radius:9px;font-size:14.5px;font-weight:600;color:var(--txt-2)}
-.sub a:hover{background:var(--hielo-2);color:var(--navy)}
+.sub a,.sub button{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  padding:10px 12px;border-radius:9px;font-size:14.5px;font-weight:600;color:var(--txt-2)}
+.sub a:hover,.sub button:hover{background:var(--hielo-2);color:var(--navy)}
 .sub small{display:block;font-weight:500;font-size:12.5px;color:var(--txt-3);margin-top:2px}
 .nav-cta{flex:none}
 .hamb{display:none;background:none;border:1.5px solid var(--borde-2);border-radius:11px;width:46px;height:46px;align-items:center;justify-content:center;cursor:pointer;flex:none}
@@ -247,7 +248,13 @@ h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
 
 /* ── MODALES ── */
 dialog:not([open]){display:none}
-dialog{border:0;padding:0;border-radius:var(--r3);max-width:560px;width:calc(100% - 32px);box-shadow:0 30px 80px rgba(0,30,60,.3)}
+/* OJO: el reset global *{margin:0} pisa el margin:auto que el navegador
+   da a <dialog>, y el modal se pega a la esquina superior izquierda.
+   Hay que devolverlo explícitamente. */
+dialog{border:0;padding:0;margin:auto;border-radius:var(--r3);
+  max-width:560px;width:calc(100% - 32px);
+  max-height:min(88dvh,820px);overflow:auto;
+  box-shadow:0 30px 80px rgba(0,30,60,.3)}
 dialog::backdrop{background:rgba(0,22,46,.55);backdrop-filter:blur(3px)}
 .md{padding:30px 32px 32px}
 .md-h{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:6px}
@@ -270,8 +277,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
 .pie{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:var(--s5)}
 .pie h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:700}
 .pie ul{list-style:none;display:grid;gap:10px}
-.pie a{color:rgba(255,255,255,.72);text-decoration:none}
-.pie a:hover{color:#fff}
+.pie a,.pie button{color:rgba(255,255,255,.82);text-decoration:none;
+  background:none;border:0;padding:0;cursor:pointer;font:inherit;text-align:left}
+.pie a:hover,.pie button:hover{color:#fff}
 .pie .logo-n{color:#fff;font-size:24px}
 .pie .logo-d{color:rgba(255,255,255,.5)}
 .pie p{margin-top:16px;max-width:330px;line-height:1.65;color:rgba(255,255,255,.62)}
@@ -364,8 +372,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
           <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-sol">
           <li><a href="#soluciones">Para instituciones y empresas</a></li>
-          <li><a href="#" data-modal="propuesta">Solicitar una propuesta<small>Formulario B2B</small></a></li>
-          <li><a href="#" data-modal="reunion">Agendar una reunión</a></li>
+          <li><button type="button" data-modal="propuesta">Solicitar una propuesta<small>Formulario B2B</small></button></li>
+          <li><button type="button" data-modal="reunion">Agendar una reunión</button></li>
         </ul>
       </li>
       <li><a href="#alianzas">Alianzas</a></li>
@@ -382,7 +390,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
           <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-rec">
           <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Ideas y tendencias, cada semana</small></a></li>
-          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Guía Digital del Educador<small>Se abre en Hotmart</small></a></li>
+          <li><a href="https://go.hotmart.com/X98102417D?dp=1" target="_blank" rel="noopener">Guía Digital del Educador<small>Pack de 11 ebooks, en Hotmart</small></a></li>
         </ul>
       </li>
     </ul>
@@ -778,7 +786,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <div class="pie-soc">
           <a href="https://www.linkedin.com/company/learn5/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".8" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg></a>
           <a href="https://www.instagram.com/learn5_tech/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61586614326014" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 4h-2.2C10.6 4 9.5 5.3 9.5 7.4V10H7v3.2h2.5V21h3.3v-7.8H15l.6-3.2h-3.1V7.7c0-.8.4-1.2 1.3-1.2H15V4z"/></svg></a>
           <a href="https://wa.me/17865271196" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.6-4.6a8.4 8.4 0 1 1 15.4-4.3z"/></svg></a>
         </div>
       </div>
@@ -794,9 +801,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <h4>Soluciones</h4>
         <ul>
           <li><a href="#soluciones">Para instituciones y empresas</a></li>
-          <li><a href="#" data-modal="propuesta">Solicitar una propuesta</a></li>
+          <li><button type="button" data-modal="propuesta">Solicitar una propuesta</button></li>
           <li><a href="#alianzas">Alianzas y convenios</a></li>
-          <li><a href="#" data-modal="reunion">Agendar una reunión</a></li>
+          <li><button type="button" data-modal="reunion">Agendar una reunión</button></li>
         </ul>
       </div>
       <div>
@@ -826,16 +833,23 @@ var CATALOGO = "https://hotmart.com/es/club/learn5/products";
 var CURSOS = [
   { titulo:"IA en el Aula",
     bajada:"Integra la IA en tu práctica docente de forma ética y creativa.",
-    etiqueta:"Curso online", img:"assets/curso-1.jpg", url:CATALOGO, individual:false },
+    etiqueta:"Curso online", img:"assets/curso-1.jpg",
+    url:"https://go.hotmart.com/G97993169E?dp=1", individual:true },
   { titulo:"Transforma tu Futuro con IA",
     bajada:"Potencia tu productividad, crea contenido y aplica la IA a tus proyectos y negocios.",
-    etiqueta:"Programa práctico", img:"assets/curso-2.jpg", url:CATALOGO, individual:false },
+    etiqueta:"Curso completo", img:"assets/curso-2.jpg",
+    url:"https://go.hotmart.com/W103286625X?dp=1", individual:true },
   { titulo:"Domina la IA en 30 Días",
     bajada:"Un plan paso a paso para usar la IA con confianza, propósito y resultados reales.",
-    etiqueta:"Programa guiado", img:"assets/curso-3.jpg", url:"https://learn5.pro/ia-30-dias/", individual:true },
+    etiqueta:"Programa guiado", img:"assets/curso-3.jpg",
+    url:"https://learn5.pro/ia-30-dias/", individual:true },
+  /* El producto real en Hotmart se llama "Educador Digital Total" y son
+     11 ebooks, no una guía suelta. El rótulo de la tarjeta viene del arte
+     aprobado; pendiente de que Gelkin decida si se renombra. */
   { titulo:"Guía Digital del Educador",
-    bajada:"Recursos, herramientas y estrategias para enseñar en la era de la IA.",
-    etiqueta:"Guía digital", img:"assets/curso-4.jpg", url:CATALOGO, individual:false }
+    bajada:"Once guías sobre IA, ciberseguridad, realidad aumentada y futuro del trabajo.",
+    etiqueta:"Pack de 11 ebooks", img:"assets/curso-4.jpg",
+    url:"https://go.hotmart.com/X98102417D?dp=1", individual:true }
 ];
 
 (function pintarCursos(){
@@ -904,7 +918,9 @@ var CURSOS = [
     else cerrarSubs(null);
   });
   menu.addEventListener("click", function(e){
-    if(e.target.closest("a") && menu.classList.contains("abierto")) cerrarMenu();
+    /* También los botones que abren modal, no solo los enlaces. */
+    if((e.target.closest("a") || e.target.closest("[data-modal]")) &&
+       menu.classList.contains("abierto")) cerrarMenu();
   });
 })();
 
@@ -972,7 +988,18 @@ function enviar(datos){
   });
 
   Array.prototype.forEach.call(document.querySelectorAll("dialog"), function(d){
-    d.addEventListener("close", function(){ if(ultimoFoco) ultimoFoco.focus(); });
+    d.addEventListener("close", function(){
+      if(ultimoFoco) ultimoFoco.focus();
+      /* Limpiar el mensaje de error al cerrar: si no, al reabrir el
+         formulario aparece el aviso de la vez anterior. Un envío ya
+         hecho sí se conserva, para no invitar a mandarlo dos veces. */
+      var f = d.querySelector("form");
+      if(f && f.getAttribute("data-enviado") !== "si"){
+        var a = f.querySelector(".aviso");
+        if(a){ a.className = "aviso"; a.textContent = ""; }
+      }
+      d.scrollTop = 0;
+    });
     d.addEventListener("click", function(e){ if(e.target === d) d.close(); });
   });
 
@@ -1042,6 +1069,7 @@ function enviar(datos){
       enviar(datos).then(function(){
         /* A partir de aquí el mensaje YA está enviado: ningún error de
            repintado puede convertir un éxito en un fallo. */
+        f.setAttribute("data-enviado","si");
         try{
           f.querySelector(".md > p").textContent = "";
           aviso.className = "aviso ok";
