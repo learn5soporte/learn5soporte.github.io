@@ -182,10 +182,25 @@ section[id],.ancla{scroll-margin-top:84px}
 .inst-tx{padding:var(--s6) 24px var(--s6) var(--s6);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
 .inst-tx h2{font-size:clamp(26px,3vw,36px);margin-bottom:14px;max-width:520px}
 .inst-tx>div>p{font-size:16px;color:var(--txt-2);max-width:520px;margin-bottom:28px;line-height:1.62}
-.inst-ben{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:560px}
-.inst-ben div{text-align:center}
-.inst-ben svg{width:30px;height:30px;color:var(--azul-hondo);margin:0 auto 9px}
-.inst-ben b{display:block;font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.35}
+.inst-ben{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:600px}
+.ben{text-align:center;background:none;border:1.5px solid transparent;border-radius:15px;
+  padding:14px 8px 11px;cursor:pointer;transition:background .18s,border-color .18s}
+.ben:hover{background:#fff;border-color:var(--borde)}
+.ben[aria-expanded="true"]{background:#fff;border-color:var(--azul);box-shadow:var(--sombra)}
+.ben svg{display:block;width:30px;height:30px;color:var(--azul-hondo);margin:0 auto 9px}
+.ben b{display:block;font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.35}
+.ben-mas{display:block;margin-top:7px;font-size:10.5px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--azul-hondo);opacity:.7}
+.ben[aria-expanded="true"] .ben-mas{opacity:0}
+
+.serv{max-width:600px;margin-top:14px;background:#fff;border:1.5px solid var(--borde);
+  border-radius:var(--r2);padding:22px 24px;box-shadow:var(--sombra)}
+.serv[hidden]{display:none}
+.serv h3{font-size:18.5px;color:var(--navy);margin-bottom:8px}
+.serv>p{font-size:14.5px;color:var(--txt-2);line-height:1.6;margin-bottom:15px;max-width:none}
+.serv ul{list-style:none;display:grid;gap:9px}
+.serv li{display:flex;gap:9px;font-size:14px;color:var(--txt-2);line-height:1.5}
+.serv li svg{width:16px;height:16px;color:var(--turquesa);flex:none;margin-top:3px}
 .inst-pill{flex:none;width:152px;height:152px;border-radius:50%;border:0;cursor:pointer;
   background:linear-gradient(145deg,var(--turquesa),var(--azul-hondo));color:#fff;display:grid;place-items:center;
   text-align:center;font-size:15px;font-weight:700;line-height:1.3;padding:18px;
@@ -557,12 +572,71 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
       <div>
         <p class="eyebrow">Soluciones para instituciones y empresas</p>
         <h2>Para instituciones y empresas que quieren evolucionar</h2>
-        <p>Acompañamos tu proceso de transformación con estrategias, formación y tecnología educativa de alto impacto.</p>
+        <p>Acompañamos tu proceso de transformación con estrategias, formación y tecnología educativa. La inteligencia artificial atraviesa los cuatro servicios: no es un añadido al final, es cómo trabajamos.</p>
+
         <div class="inst-ben">
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z"/><path d="M4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5"/></svg><b>Consultoría estratégica</b></div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg><b>Capacitación corporativa</b></div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg><b>Producción educativa</b></div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><b>Integración tecnológica</b></div>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-consultoria">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z"/><path d="M4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5"/></svg>
+            <b>Consultoría estratégica</b><span class="ben-mas">Ver más</span>
+          </button>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-capacitacion">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg>
+            <b>Capacitación corporativa</b><span class="ben-mas">Ver más</span>
+          </button>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-produccion">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
+            <b>Producción educativa</b><span class="ben-mas">Ver más</span>
+          </button>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-integracion">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+            <b>Integración tecnológica</b><span class="ben-mas">Ver más</span>
+          </button>
+        </div>
+
+        <!-- Contenido validado con el propietario el 10-nov-2026.
+             Sin precios, sin plazos y sin nombres de terceros. -->
+        <div class="serv" id="serv-consultoria" role="region" hidden>
+          <h3>Consultoría estratégica</h3>
+          <p>Acompañamos la adopción de procesos formativos en línea y los programas de aprendizaje y desarrollo, con la IA integrada desde el diseño.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diagnóstico de los procesos de formación actuales</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Estrategia de adopción de educación en línea</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Apoyo a los procesos de aprendizaje y desarrollo</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Criterios de calidad y planes de mejora</li>
+          </ul>
+        </div>
+
+        <div class="serv" id="serv-capacitacion" role="region" hidden>
+          <h3>Capacitación corporativa</h3>
+          <p>Formación a medida para equipos y comunidades, con herramientas de IA aplicadas al trabajo real de cada grupo.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción a la compañía y acogida de nuevos equipos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción para estudiantes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Programas formativos para profesores</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Programas formativos para emprendedores</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Programas formativos para perfiles creativos</li>
+          </ul>
+        </div>
+
+        <div class="serv" id="serv-produccion" role="region" hidden>
+          <h3>Producción educativa</h3>
+          <p>Diseñamos y producimos la formación completa, del esquema pedagógico al programa terminado.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diseño instruccional, pedagógico y curricular</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Producción de cursos y de programas en línea completos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Creación de experiencias de aprendizaje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>IA aplicada a la producción y a la experiencia del alumno</li>
+          </ul>
+        </div>
+
+        <div class="serv" id="serv-integracion" role="region" hidden>
+          <h3>Integración tecnológica</h3>
+          <p>Adecuamos espacios de aprendizaje con tecnología e innovación, para que el entorno acompañe a la forma de enseñar y no al revés.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Adecuación tecnológica de espacios de aprendizaje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Entornos digitales, creativos e innovadores</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Incorporación de herramientas de IA al espacio formativo</li>
+          </ul>
         </div>
       </div>
       <button class="inst-pill" type="button" data-modal="propuesta">
@@ -1146,7 +1220,37 @@ function enviar(asunto, correoPersona, campos){
 })();
 
 /* ══════════════════════════════════════════════════════════════
-   4 · entradas suaves al hacer scroll
+   4 · DETALLE DE SERVICIOS · un panel abierto cada vez
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var botones = Array.prototype.slice.call(document.querySelectorAll(".ben"));
+  if(!botones.length) return;
+  botones.forEach(function(b){
+    var panel = document.getElementById(b.getAttribute("aria-controls"));
+    panel.setAttribute("aria-labelledby", panel.id + "-btn");
+    b.id = panel.id + "-btn";
+    b.addEventListener("click", function(){
+      var abierto = b.getAttribute("aria-expanded") === "true";
+      botones.forEach(function(o){
+        o.setAttribute("aria-expanded","false");
+        document.getElementById(o.getAttribute("aria-controls")).hidden = true;
+      });
+      if(!abierto){
+        b.setAttribute("aria-expanded","true");
+        panel.hidden = false;
+      }
+    });
+  });
+  /* Escape cierra el que esté abierto, como en el resto de la página. */
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Escape") return;
+    var abierto = botones.filter(function(b){ return b.getAttribute("aria-expanded") === "true"; })[0];
+    if(abierto){ abierto.click(); abierto.focus(); }
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   5 · entradas suaves al hacer scroll
    ══════════════════════════════════════════════════════════════ */
 (function(){
   var nodos = document.querySelectorAll(".rev");
