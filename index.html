@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn5 — Formación, consultoría y soluciones EdTech con IA</title>
-<meta name="description" content="Formación, consultoría y soluciones EdTech para personas, profesionales e instituciones. Impulsa el futuro del aprendizaje, la innovación y la IA. Miami, Florida · LATAM y EE. UU.">
+<title>Learn5 | Innovación Educativa, Tecnología y Transformación</title>
+<meta name="description" content="Learn5 impulsa la innovación educativa mediante formación, consultoría, tecnología y alianzas estratégicas para instituciones, organizaciones y profesionales.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://learn5.pro/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Learn5">
-<meta property="og:title" content="Learn5 — Impulsa el futuro del aprendizaje, la innovación y la IA">
-<meta property="og:description" content="Formación, consultoría y soluciones EdTech para personas, profesionales e instituciones que quieren evolucionar de verdad.">
+<meta property="og:title" content="Learn5 | Innovación Educativa, Tecnología y Transformación">
+<meta property="og:description" content="Conectamos conocimiento, tecnología y oportunidades para transformar la educación y acompañar la evolución de personas, instituciones y organizaciones.">
 <meta property="og:url" content="https://learn5.pro/">
 <meta name="twitter:card" content="summary_large_image">
 <!-- PENDIENTE · og:image necesita un arte social autorizado de 1200×630. -->
@@ -158,7 +158,8 @@ section[id],.ancla{scroll-margin-top:84px}
 
 /* ── FORMACIÓN ── */
 .sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:var(--s4);flex-wrap:wrap}
-.sec-h h2{font-size:clamp(26px,3vw,36px)}
+.sec-h h2{font-size:clamp(25px,2.8vw,34px);max-width:640px}
+.sec-h-sub{font-size:15.5px;color:var(--txt-2);max-width:580px;margin-top:10px;line-height:1.6}
 .cursos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .curso{background:#fff;border:1px solid var(--borde);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sombra);
   display:flex;flex-direction:column;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
@@ -201,7 +202,8 @@ section[id],.ancla{scroll-margin-top:84px}
 .serv ul{list-style:none;display:grid;gap:9px}
 .serv li{display:flex;gap:9px;font-size:14px;color:var(--txt-2);line-height:1.5}
 .serv li svg{width:16px;height:16px;color:var(--turquesa);flex:none;margin-top:3px}
-.inst-pill{flex:none;width:152px;height:152px;border-radius:50%;border:0;cursor:pointer;
+.inst-acc{display:flex;flex-direction:column;align-items:center;gap:16px;flex:none}
+.inst-pill{flex:none;width:158px;height:158px;border-radius:50%;border:0;cursor:pointer;
   background:linear-gradient(145deg,var(--turquesa),var(--azul-hondo));color:#fff;display:grid;place-items:center;
   text-align:center;font-size:15px;font-weight:700;line-height:1.3;padding:18px;
   box-shadow:0 14px 36px rgba(0,140,165,.34);transition:transform .2s,box-shadow .2s}
@@ -216,7 +218,8 @@ section[id],.ancla{scroll-margin-top:84px}
 .banda-glow{position:absolute;right:0;top:0;bottom:0;width:48%;height:100%;pointer-events:none;z-index:0}
 .banda-tx{position:relative;z-index:1;min-width:226px;padding-right:38px;border-right:1px solid rgba(255,255,255,.16)}
 .banda-tx .eyebrow{color:var(--cyan);margin-bottom:10px}
-.banda-tx h2{font-size:clamp(21px,2.3vw,28px);color:#fff;line-height:1.2}
+.banda-tx h2{font-size:clamp(20px,2.1vw,26px);color:#fff;line-height:1.22}
+.banda-p{font-size:13.5px;color:rgba(255,255,255,.76);line-height:1.6;margin-top:12px}
 .banda-cat{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .banda-cat div{text-align:center;color:#fff}
 .banda-cat svg{width:32px;height:32px;margin:0 auto 11px;opacity:.95}
@@ -233,6 +236,19 @@ section[id],.ancla{scroll-margin-top:84px}
 .exp-num svg{width:34px;height:34px;color:var(--cyan);margin:0 auto 12px}
 .exp-num .n{display:block;font-size:26px;font-weight:800;color:var(--navy);line-height:1.1;margin-bottom:5px}
 .exp-num small{display:block;font-size:13px;color:var(--txt-2);line-height:1.45;font-weight:500}
+
+/* ── NOSOTROS ── */
+.nos{background:linear-gradient(180deg,#FFFFFF,#F4FBFE);padding-top:var(--s6)}
+.nos-in{display:grid;grid-template-columns:1.25fr .85fr;gap:52px;align-items:start}
+.nos-tx h2{font-size:clamp(26px,3vw,36px);margin-bottom:20px;max-width:560px}
+.nos-tx p{font-size:16px;color:var(--txt-2);line-height:1.7;margin-bottom:16px;max-width:620px}
+.nos-lema{font-size:17px!important;font-weight:800;color:var(--navy);margin-top:26px!important;letter-spacing:-.01em}
+.nos-lema span{color:var(--turquesa)}
+.nos-pts{list-style:none;display:grid;gap:14px}
+.nos-pts li{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r2);padding:20px 22px;box-shadow:var(--sombra)}
+.nos-pts svg{width:26px;height:26px;color:var(--azul-hondo);margin-bottom:10px}
+.nos-pts b{display:block;font-size:15.5px;color:var(--navy);margin-bottom:5px}
+.nos-pts span{display:block;font-size:14px;color:var(--txt-2);line-height:1.55}
 
 /* ── COMUNIDAD ── */
 .comu{padding:0 0 var(--s7)}
@@ -331,11 +347,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   .inst-in{grid-template-columns:1fr}
   .inst-im{min-height:230px;order:2}
   .inst-tx{grid-template-columns:1fr;padding:var(--s6) 24px;gap:28px}
+  .inst-acc{align-items:flex-start;width:100%}
   .inst-pill{width:100%;height:auto;border-radius:100px;padding:18px 26px;display:flex;align-items:center;justify-content:center;gap:10px}
+  .inst-pill span br{display:none}
   .inst-pill svg{margin:0}
   .banda{grid-template-columns:1fr;gap:26px;padding:34px 28px}
   .banda-tx{border-right:0;border-bottom:1px solid rgba(255,255,255,.16);padding:0 0 22px}
   .exp-in{grid-template-columns:1fr;gap:34px}
+  .nos-in{grid-template-columns:1fr;gap:32px}
   .comu-caja{grid-template-columns:1fr;gap:24px;padding:30px 26px}
   .pie{grid-template-columns:1fr 1fr;gap:32px}
 }
@@ -377,21 +396,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
     <ul class="menu" id="menu">
       <li><a href="/" aria-current="page">Inicio</a></li>
       <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-sol">Soluciones
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-sol">
+          <li><a href="#soluciones">Para instituciones y organizaciones</a></li>
+          <li><button type="button" data-modal="propuesta">Solicitar una propuesta<small>Formulario B2B</small></button></li>
+          <li><button type="button" data-modal="reunion">Conversemos sobre tu proyecto</button></li>
+        </ul>
+      </li>
+      <li>
         <button class="mt" type="button" aria-expanded="false" aria-controls="sub-form">Formación
           <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-form">
           <li><a href="#formacion">Formación destacada<small>Los cuatro programas</small></a></li>
           <li><a href="https://learn5.pro/ia-30-dias/">Domina la IA en 30 Días<small>Programa guiado</small></a></li>
           <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Catálogo completo<small>Se abre en Hotmart</small></a></li>
-        </ul>
-      </li>
-      <li>
-        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-sol">Soluciones
-          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
-        <ul class="sub" id="sub-sol">
-          <li><a href="#soluciones">Para instituciones y empresas</a></li>
-          <li><button type="button" data-modal="propuesta">Solicitar una propuesta<small>Formulario B2B</small></button></li>
-          <li><button type="button" data-modal="reunion">Agendar una reunión</button></li>
         </ul>
       </li>
       <li><a href="#alianzas">Alianzas</a></li>
@@ -404,18 +423,19 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         </ul>
       </li>
       <li>
-        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-rec">Recursos
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-nos">Nosotros
           <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
-        <ul class="sub" id="sub-rec">
+        <ul class="sub" id="sub-nos">
+          <li><a href="#nosotros">Quiénes somos<small>Propósito y capacidades</small></a></li>
+          <li><a href="#experiencia">Experiencia y confianza</a></li>
           <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Ideas y tendencias, cada semana</small></a></li>
-          <li><a href="https://go.hotmart.com/X98102417D?dp=1" target="_blank" rel="noopener">Guía Digital del Educador<small>Pack de 11 ebooks, en Hotmart</small></a></li>
         </ul>
       </li>
     </ul>
 
-    <button class="btn btn-3 nav-cta" type="button" data-modal="reunion" aria-label="Agendar reunión">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
-      <span>Agendar reunión</span>
+    <button class="btn btn-3 nav-cta" type="button" data-modal="reunion" aria-label="Conversemos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.6-4.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+      <span>Conversemos</span>
     </button>
     <button class="hamb" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -431,15 +451,15 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
        alt="Astronauta con un planeta digital reflejado en el casco, sobre la Tierra iluminada">
   <div class="hero-in">
     <div>
-      <p class="eyebrow">EdTech · IA · Formación · Consultoría · Soluciones</p>
-      <h1>Impulsa el futuro del aprendizaje, la innovación <em>y la IA.</em></h1>
-      <p class="hero-sub">Formación, consultoría y soluciones EdTech para personas, profesionales e instituciones que quieren evolucionar de verdad.</p>
+      <p class="eyebrow">Educación · Innovación · Tecnología · Transformación</p>
+      <h1>Impulsamos la innovación educativa <em>sin fronteras.</em></h1>
+      <p class="hero-sub">Conectamos conocimiento, tecnología y oportunidades para transformar la educación y acompañar la evolución de personas, instituciones y organizaciones.</p>
       <div class="hero-cta">
-        <a class="btn btn-1" href="#formacion">Explorar formación
+        <a class="btn btn-1" href="#soluciones">Explorar soluciones
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-        <button class="btn btn-2" type="button" data-modal="reunion">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
-          Agendar una reunión</button>
+        <a class="btn btn-2" href="#nosotros">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8.5h.01"/></svg>
+          Conocer Learn5</a>
       </div>
       <p class="hero-pie">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c3 .2 5.5 2.2 5.5 5.4"/></svg>
@@ -458,7 +478,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   <div class="wrap">
     <div class="sec-c rev">
       <h2>Elige cómo transformar con <em>Learn5</em></h2>
-      <p>Tres caminos, un mismo propósito: potenciar el talento, la educación y la innovación con IA.</p>
+      <p>Tres caminos, un mismo propósito: impulsar la innovación educativa y la evolución de quienes la hacen posible.</p>
     </div>
     <div class="caminos">
 
@@ -466,8 +486,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <div class="camino-tx">
           <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M5 10.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-5.5"/></svg>
           <h3>Aprende</h3>
-          <p>Desarrolla nuevas habilidades con cursos, talleres y programas prácticos de IA y tecnología.</p>
-          <a class="enlace" href="#formacion">Ver formación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+          <p>Desarrollamos experiencias de aprendizaje que potencian capacidades, fortalecen competencias y preparan a las personas para nuevos desafíos.</p>
+          <a class="enlace" href="#formacion">Explorar formación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="camino-art" aria-hidden="true">
           <svg viewBox="0 0 220 240">
@@ -491,7 +511,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <div class="camino-tx">
           <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V8l6-4 6 4v13"/><path d="M9 12h2M13 12h2M9 16h2M13 16h2"/></svg>
           <h3>Transforma</h3>
-          <p>Impulsa la evolución de tu organización con consultoría, capacitación y estrategias de impacto.</p>
+          <p>Acompañamos a instituciones y organizaciones en sus procesos de innovación, evolución educativa y desarrollo estratégico.</p>
           <a class="enlace" href="#soluciones">Conocer soluciones <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="camino-art" aria-hidden="true">
@@ -519,8 +539,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <div class="camino-tx">
           <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg>
           <h3>Innova</h3>
-          <p>Implementa tecnología educativa, produce contenidos de alto valor y diseña experiencias de aprendizaje.</p>
-          <a class="enlace" href="#soluciones">Ver servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+          <p>Integramos conocimiento, tecnología y creatividad para desarrollar soluciones y experiencias educativas con impacto.</p>
+          <a class="enlace" href="#soluciones">Descubrir cómo innovamos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="camino-art" aria-hidden="true">
           <svg viewBox="0 0 220 240">
@@ -555,8 +575,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
 <section class="sec" id="formacion" style="padding-top:0">
   <div class="wrap">
     <div class="sec-h rev">
-      <h2>Formación destacada</h2>
-      <a class="enlace" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Ver todos los programas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      <div>
+        <h2>El aprendizaje es el inicio de nuevas posibilidades.</h2>
+        <p class="sec-h-sub">Explora experiencias formativas diseñadas para desarrollar habilidades y aplicar el conocimiento en contextos reales.</p>
+      </div>
+      <a class="enlace" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Explorar toda la formación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="cursos" id="listaCursos"></div>
   </div>
@@ -570,34 +593,34 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
     </figure>
     <div class="inst-tx">
       <div>
-        <p class="eyebrow">Soluciones para instituciones y empresas</p>
-        <h2>Para instituciones y empresas que quieren evolucionar</h2>
-        <p>Acompañamos tu proceso de transformación con estrategias, formación y tecnología educativa. La inteligencia artificial atraviesa los cuatro servicios: no es un añadido al final, es cómo trabajamos.</p>
+        <p class="eyebrow">Soluciones para instituciones y organizaciones</p>
+        <h2>La innovación educativa comienza cuando transformamos posibilidades en acciones.</h2>
+        <p>Acompañamos a instituciones educativas, empresas y organizaciones en el desarrollo de capacidades, la adopción de tecnología, la innovación de sus procesos y la creación de nuevas experiencias de aprendizaje. La inteligencia artificial atraviesa las cuatro capacidades: no es un añadido al final, es cómo trabajamos.</p>
 
         <div class="inst-ben">
           <button class="ben" type="button" aria-expanded="false" aria-controls="serv-consultoria">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z"/><path d="M4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5"/></svg>
-            <b>Consultoría estratégica</b><span class="ben-mas">Ver más</span>
+            <b>Consultoría y transformación</b><span class="ben-mas">Ver más</span>
           </button>
           <button class="ben" type="button" aria-expanded="false" aria-controls="serv-capacitacion">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg>
-            <b>Capacitación corporativa</b><span class="ben-mas">Ver más</span>
-          </button>
-          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-produccion">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
-            <b>Producción educativa</b><span class="ben-mas">Ver más</span>
+            <b>Formación y desarrollo</b><span class="ben-mas">Ver más</span>
           </button>
           <button class="ben" type="button" aria-expanded="false" aria-controls="serv-integracion">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
-            <b>Integración tecnológica</b><span class="ben-mas">Ver más</span>
+            <b>Tecnología e innovación</b><span class="ben-mas">Ver más</span>
+          </button>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-produccion">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
+            <b>Contenidos y experiencias</b><span class="ben-mas">Ver más</span>
           </button>
         </div>
 
         <!-- Contenido validado con el propietario el 10-nov-2026.
              Sin precios, sin plazos y sin nombres de terceros. -->
         <div class="serv" id="serv-consultoria" role="region" hidden>
-          <h3>Consultoría estratégica</h3>
-          <p>Acompañamos la adopción de procesos formativos en línea y los programas de aprendizaje y desarrollo, con la IA integrada desde el diseño.</p>
+          <h3>Consultoría y transformación</h3>
+          <p>Estrategias y acompañamiento para evolucionar modelos educativos y organizacionales, con la IA integrada desde el diseño.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diagnóstico de los procesos de formación actuales</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Estrategia de adopción de educación en línea</li>
@@ -607,8 +630,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         </div>
 
         <div class="serv" id="serv-capacitacion" role="region" hidden>
-          <h3>Capacitación corporativa</h3>
-          <p>Formación a medida para equipos y comunidades, con herramientas de IA aplicadas al trabajo real de cada grupo.</p>
+          <h3>Formación y desarrollo</h3>
+          <p>Programas y experiencias para fortalecer competencias individuales y colectivas, con herramientas de IA aplicadas al trabajo real de cada grupo.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción a la compañía y acogida de nuevos equipos</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción para estudiantes</li>
@@ -619,8 +642,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         </div>
 
         <div class="serv" id="serv-produccion" role="region" hidden>
-          <h3>Producción educativa</h3>
-          <p>Diseñamos y producimos la formación completa, del esquema pedagógico al programa terminado.</p>
+          <h3>Contenidos y experiencias</h3>
+          <p>Diseño y desarrollo de recursos, programas y experiencias educativas, del esquema pedagógico al programa terminado.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diseño instruccional, pedagógico y curricular</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Producción de cursos y de programas en línea completos</li>
@@ -630,8 +653,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         </div>
 
         <div class="serv" id="serv-integracion" role="region" hidden>
-          <h3>Integración tecnológica</h3>
-          <p>Adecuamos espacios de aprendizaje con tecnología e innovación, para que el entorno acompañe a la forma de enseñar y no al revés.</p>
+          <h3>Tecnología e innovación</h3>
+          <p>Evaluación, integración y adopción de soluciones adaptadas a cada contexto, para que el entorno acompañe a la forma de enseñar y no al revés.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Adecuación tecnológica de espacios de aprendizaje</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Entornos digitales, creativos e innovadores</li>
@@ -639,10 +662,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
           </ul>
         </div>
       </div>
-      <button class="inst-pill" type="button" data-modal="propuesta">
-        <span>Solicitar<br>una propuesta
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-      </button>
+      <div class="inst-acc">
+        <button class="inst-pill" type="button" data-modal="reunion">
+          <span>Conversemos<br>sobre tu<br>proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="enlace" type="button" data-modal="propuesta">Solicitar una propuesta
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
   </div>
 </section>
@@ -657,17 +684,18 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <path d="M90 240 C 230 150, 330 190, 520 44 L520 240 Z" fill="url(#bg1)" opacity=".75"/>
       </svg>
       <div class="banda-tx">
-        <p class="eyebrow">Alianzas y convenios</p>
-        <h2>Partners estratégicos para un mayor impacto</h2>
+        <p class="eyebrow">Alianzas · Colaboración · Oportunidades</p>
+        <h2>Conectamos capacidades para impulsar la innovación educativa.</h2>
+        <p class="banda-p">Promovemos iniciativas de colaboración y el intercambio de conocimiento, experiencias y soluciones entre Estados Unidos y Latinoamérica.</p>
       </div>
       <div class="banda-cat">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 11l3-3 4 4 3-3"/><path d="M3 14.5l4.5-4.5 4 4 4.5-4.5L21 13"/><path d="M3 20h18"/></svg><b>Convenios institucionales</b></div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l9 4.5-9 4.5-9-4.5L12 4z"/><path d="M7 11v5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5"/></svg><b>Alianzas académicas</b></div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.6 8.7L11 15.8M16.4 8.7L13 15.8M8.3 7h7.4"/></svg><b>Partners tecnológicos</b></div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8.5 13.5l3-3 4 4"/><path d="M3 17l4.5-9L12 14l3-5 6 8z"/></svg><b>Colaboración en programas</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l9 4.5-9 4.5-9-4.5L12 4z"/><path d="M7 11v5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5"/></svg><b>Alianzas académicas e institucionales</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.6 8.7L11 15.8M16.4 8.7L13 15.8M8.3 7h7.4"/></svg><b>Colaboración tecnológica</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8.5 13.5l3-3 4 4"/><path d="M3 17l4.5-9L12 14l3-5 6 8z"/></svg><b>Desarrollo conjunto de programas</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h12l-3-3M20 16H8l3 3"/><circle cx="12" cy="12" r="9" opacity=".45"/></svg><b>Intercambio de conocimiento y experiencias</b></div>
       </div>
       <div class="banda-cta">
-        <button class="btn btn-ghost" type="button" data-modal="alianza">Conversemos sobre una alianza</button>
+        <button class="btn btn-ghost" type="button" data-modal="alianza">Exploremos una alianza</button>
       </div>
     </div>
   </div>
@@ -678,28 +706,65 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   <div class="wrap">
     <div class="exp-in">
       <div class="exp-tx rev">
-        <h2>Experiencia y confianza</h2>
-        <p>Una red de profesionales, educadores e instituciones que ya están aprendiendo, transformando e innovando con Learn5.</p>
+        <h2>Experiencia que conecta educación, tecnología e innovación.</h2>
+        <p>Nuestra visión nace de la experiencia en educación, desarrollo de proyectos, tecnología y colaboración con distintos actores del ecosistema educativo.</p>
       </div>
+      <!-- Capacidades, no cifras. Las métricas anteriores no eran comprobables
+           y se retiraron a petición del propietario (15-nov-2026). -->
       <div class="exp-num rev">
-        <!-- La cifra de +700 viene de la web actual. PENDIENTE de confirmar su vigencia antes de publicar en la raíz. -->
         <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg>
-          <span class="n">+700</span><small>Educadores<br>en nuestra comunidad</small>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M7 11.5V17c0 1.5 2.2 2.6 5 2.6s5-1.1 5-2.6v-5.5"/></svg>
+          <span class="n">Educación</span><small>Práctica docente<br>y diseño formativo</small>
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h3M8 17.5h7"/></svg>
-          <span class="n">Programas</span><small>y talleres<br>especializados</small>
+          <span class="n">Proyectos</span><small>Desarrollo y producción<br>de programas</small>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          <span class="n">Tecnología</span><small>Integración de la IA<br>en el aprendizaje</small>
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
-          <span class="n">Alcance</span><small>en Latinoamérica<br>y Estados Unidos</small>
-        </div>
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 22l5-2.6L17 22l-1.5-8.5"/></svg>
-          <span class="n">Alianzas</span><small>académicas<br>y estratégicas</small>
+          <span class="n">Colaboración</span><small>Entre Estados Unidos<br>y Latinoamérica</small>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7bis · NOSOTROS ══
+     Destino del CTA "Conocer Learn5" del hero y de la entrada Nosotros
+     del menú. Comunica el Modelo Puente como principio, nunca como
+     acuerdo cerrado: no se nombra ningún convenio ni socio. -->
+<section class="sec nos" id="nosotros">
+  <div class="wrap">
+    <div class="nos-in rev">
+      <div class="nos-tx">
+        <p class="eyebrow">Nosotros</p>
+        <h2>La innovación educativa no reconoce fronteras.</h2>
+        <p>Learn5 es una empresa EdTech de origen estadounidense y proyección internacional, comprometida con impulsar la innovación educativa y ampliar las oportunidades de aprendizaje, desarrollo y transformación.</p>
+        <p>Integramos formación, consultoría, tecnología, creación de contenidos y colaboración estratégica para acompañar a personas, instituciones y organizaciones en su evolución.</p>
+        <p>Por eso promovemos el intercambio de experiencias, conocimientos y soluciones entre Estados Unidos y Latinoamérica, reconociendo el talento y el potencial de ambos contextos. Nuestro propósito es contribuir a una educación más innovadora, conectada y capaz de responder a los desafíos del presente y las posibilidades del futuro.</p>
+        <p class="nos-lema">Enseña al presente, <span>imagina el futuro.</span></p>
+      </div>
+      <ul class="nos-pts">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h12l-3-3M20 16H8l3 3"/></svg>
+          <b>Intercambio en dos direcciones</b>
+          <span>Latinoamérica también genera innovación, conocimiento y oportunidades.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z"/><path d="M4 12l8 4.5 8-4.5"/></svg>
+          <b>Más que cursos</b>
+          <span>Formación, consultoría, tecnología y contenidos como un mismo sistema.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+          <b>La IA como herramienta</b>
+          <span>Una capacidad estratégica para transformar, no la razón de existir.</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -714,20 +779,20 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c3 .2 5.5 2.2 5.5 5.4"/></svg>
           Comunidad Learn5
         </p>
-        <h2>Únete a la comunidad que está imaginando el futuro del aprendizaje.</h2>
+        <h2>Una comunidad para aprender, compartir e imaginar nuevas posibilidades.</h2>
       </div>
       <div>
         <ul class="comu-lista">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Clase Futura: ideas, tendencias y recursos</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Invitaciones a talleres y eventos</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Nuevos programas y lanzamientos</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Contenido exclusivo sobre IA y EdTech</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Ideas y tendencias sobre educación e innovación</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Experiencias y aprendizajes de otros docentes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Invitaciones a talleres, eventos y programas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Tecnología aplicada al aprendizaje, con criterio</li>
         </ul>
       </div>
       <div class="comu-cta">
         <a class="btn btn-3" href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".9" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg>
-          Suscribirme a Clase Futura
+          Únete a nuestra comunidad
         </a>
         <p class="comu-nota">Se publica en LinkedIn, cada semana. ¿Prefieres escribirnos?
           <button class="enlace" type="button" data-modal="reunion">Hablemos</button>
@@ -740,14 +805,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
 <!-- ══ 9 · CTA FINAL ══ -->
 <section class="cierre" id="contacto">
   <div class="wrap">
-    <h2 class="rev">El futuro no se espera.<em>Se diseña.</em></h2>
-    <p class="rev">Con Learn5 puedes aprender, transformar e innovar con propósito.</p>
+    <h2 class="rev">El futuro de la educación<em>se construye juntos.</em></h2>
+    <p class="rev">Creemos en el poder del conocimiento, la innovación y la colaboración para abrir nuevas oportunidades.</p>
     <div class="cierre-cta rev">
-      <a class="btn btn-1" href="#formacion">Quiero comenzar
+      <a class="btn btn-1" href="#soluciones">Descubre nuestras soluciones
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       <button class="btn btn-2" type="button" data-modal="reunion">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
-        Hablar con un asesor</button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.6-4.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        Conversemos</button>
     </div>
   </div>
   <svg class="cierre-ondas" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -866,7 +931,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
       <div>
         <span class="logo-n">Learn<span style="color:var(--cyan)">5</span></span>
         <span class="logo-d" style="display:block;margin-top:4px">AI &amp; EDTECH SOLUTIONS</span>
-        <p>Formación, consultoría y soluciones EdTech con inteligencia artificial para personas, profesionales e instituciones. Miami, Florida · LLC desde marzo de 2024.</p>
+        <p>Empresa EdTech de origen estadounidense y proyección internacional. Conectamos conocimiento, tecnología y oportunidades para impulsar la innovación educativa. Miami, Florida · LLC desde marzo de 2024.</p>
         <div class="pie-soc">
           <a href="https://www.linkedin.com/company/learn5/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".8" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg></a>
           <a href="https://www.instagram.com/learn5_tech/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
@@ -884,10 +949,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
       <div>
         <h4>Soluciones</h4>
         <ul>
-          <li><a href="#soluciones">Para instituciones y empresas</a></li>
+          <li><a href="#soluciones">Para instituciones y organizaciones</a></li>
           <li><button type="button" data-modal="propuesta">Solicitar una propuesta</button></li>
-          <li><a href="#alianzas">Alianzas y convenios</a></li>
-          <li><button type="button" data-modal="reunion">Agendar una reunión</button></li>
+          <li><a href="#alianzas">Alianzas y colaboración</a></li>
+          <li><button type="button" data-modal="reunion">Conversemos</button></li>
         </ul>
       </div>
       <div>
