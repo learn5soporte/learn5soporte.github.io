@@ -160,6 +160,8 @@ section[id],.ancla{scroll-margin-top:84px}
 .sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:var(--s4);flex-wrap:wrap}
 .sec-h h2{font-size:clamp(25px,2.8vw,34px);max-width:640px}
 .sec-h-sub{font-size:15.5px;color:var(--txt-2);max-width:580px;margin-top:10px;line-height:1.6}
+.form-nota{margin-top:26px;font-size:13.5px;color:var(--txt-3);line-height:1.6;max-width:620px;
+  border-left:2.5px solid var(--borde-2);padding-left:16px}
 .cursos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .curso{background:#fff;border:1px solid var(--borde);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sombra);
   display:flex;flex-direction:column;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
@@ -183,6 +185,14 @@ section[id],.ancla{scroll-margin-top:84px}
 .inst-tx{padding:var(--s6) 24px var(--s6) var(--s6);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
 .inst-tx h2{font-size:clamp(26px,3vw,36px);margin-bottom:14px;max-width:520px}
 .inst-tx>div>p{font-size:16px;color:var(--txt-2);max-width:520px;margin-bottom:28px;line-height:1.62}
+/* V3 · a quién ayudamos */
+.aud{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:600px;margin:0 0 22px}
+.aud li{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r);padding:16px 16px 18px}
+.aud svg{width:24px;height:24px;color:var(--turquesa);margin-bottom:9px}
+.aud b{display:block;font-size:13.5px;color:var(--navy);line-height:1.3;margin-bottom:6px}
+.aud span{display:block;font-size:12.5px;color:var(--txt-2);line-height:1.5}
+.inst-ia{font-size:14px!important;color:var(--txt-3)!important;font-style:italic;margin-bottom:22px!important;max-width:560px}
+
 .inst-ben{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:600px}
 .ben{text-align:center;background:none;border:1.5px solid transparent;border-radius:15px;
   padding:14px 8px 11px;cursor:pointer;transition:background .18s,border-color .18s}
@@ -226,10 +236,42 @@ section[id],.ancla{scroll-margin-top:84px}
 .banda-cat b{display:block;font-size:13px;font-weight:600;line-height:1.4;color:rgba(255,255,255,.92)}
 .banda-cta{position:relative;z-index:1;flex:none}
 
+/* ── V4 · DE LAS IDEAS A LA TRANSFORMACIÓN ── */
+.ideas{background:linear-gradient(180deg,#F6FCFE,#FFFFFF)}
+.ideas-in{display:grid;grid-template-columns:1.02fr 1fr;gap:52px;align-items:center}
+.ideas-im{margin:0}
+.ideas-im img{width:100%;height:auto;display:block;border-radius:var(--r3);box-shadow:var(--sombra-2)}
+.ideas-tx h2{font-size:clamp(25px,2.9vw,34px);margin-bottom:16px;max-width:520px}
+.ideas-tx>p{font-size:16px;color:var(--txt-2);line-height:1.68;margin-bottom:26px;max-width:540px}
+.ideas-pasos{list-style:none;display:grid;gap:18px;margin-bottom:28px}
+.ideas-pasos li{display:grid;grid-template-columns:auto 1fr;column-gap:16px;row-gap:3px;align-items:baseline}
+.paso{grid-row:span 2;font-size:13px;font-weight:800;color:var(--cyan);letter-spacing:.06em;
+  border:1.5px solid var(--borde-2);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;align-self:start}
+.ideas-pasos b{font-size:16px;color:var(--navy)}
+.ideas-pasos em{font-style:normal;font-size:14.5px;color:var(--txt-2);line-height:1.58}
+
+/* ── V4 · ECOSISTEMA DE COLABORACIÓN ── */
+.eco{margin-top:34px;background:#fff;border:1.5px solid var(--borde);border-radius:var(--r4);
+  padding:38px 42px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;box-shadow:var(--sombra)}
+.eco-tx h3{font-size:clamp(21px,2.3vw,28px);color:var(--navy);line-height:1.22;margin-bottom:14px;max-width:460px}
+.eco-tx>p{font-size:15.5px;color:var(--txt-2);line-height:1.65;margin-bottom:22px;max-width:520px}
+.eco-ambitos{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-bottom:26px}
+.eco-ambitos dt{font-size:14px;font-weight:700;color:var(--azul-hondo);margin-bottom:3px}
+.eco-ambitos dd{margin:0;font-size:13.5px;color:var(--txt-2);line-height:1.5}
+.eco-im{margin:0}
+.eco-im img{width:100%;height:auto;display:block;border-radius:var(--r3)}
+
 /* ── EXPERIENCIA ── */
 .exp-in{display:grid;grid-template-columns:.78fr 1.22fr;gap:52px;align-items:center}
 .exp-tx h2{font-size:clamp(26px,3vw,34px);margin-bottom:14px}
 .exp-tx p{font-size:16px;color:var(--txt-2);line-height:1.65}
+/* V3 · evidencia */
+.exp-ev{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.exp-ev li{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r2);padding:20px 22px;box-shadow:var(--sombra)}
+.exp-ev svg{width:26px;height:26px;color:var(--azul-hondo);margin-bottom:10px}
+.exp-ev b{display:block;font-size:15px;color:var(--navy);margin-bottom:5px;line-height:1.3}
+.exp-ev span{display:block;font-size:13.5px;color:var(--txt-2);line-height:1.55}
+
 .exp-num{display:grid;grid-template-columns:repeat(4,1fr)}
 .exp-num div{text-align:center;padding:0 18px;border-left:1px solid var(--borde)}
 .exp-num div:first-child{border-left:0}
@@ -244,7 +286,10 @@ section[id],.ancla{scroll-margin-top:84px}
 .nos-tx p{font-size:16px;color:var(--txt-2);line-height:1.7;margin-bottom:16px;max-width:620px}
 .nos-lema{font-size:17px!important;font-weight:800;color:var(--navy);margin-top:26px!important;letter-spacing:-.01em}
 .nos-lema span{color:var(--turquesa)}
-.nos-pts{list-style:none;display:grid;gap:14px}
+.globo{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.globo img{width:100%;max-width:440px;height:auto;display:block;border-radius:var(--r3)}
+.globo figcaption{font-size:13.5px;color:var(--txt-3);text-align:center;line-height:1.55;max-width:340px}
+.nos-pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
 .nos-pts li{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r2);padding:20px 22px;box-shadow:var(--sombra)}
 .nos-pts svg{width:26px;height:26px;color:var(--azul-hondo);margin-bottom:10px}
 .nos-pts b{display:block;font-size:15.5px;color:var(--navy);margin-bottom:5px}
@@ -355,6 +400,15 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   .banda-tx{border-right:0;border-bottom:1px solid rgba(255,255,255,.16);padding:0 0 22px}
   .exp-in{grid-template-columns:1fr;gap:34px}
   .nos-in{grid-template-columns:1fr;gap:32px}
+  .nos-pts{grid-template-columns:1fr;margin-top:28px}
+  .aud{grid-template-columns:1fr;max-width:none}
+  .exp-ev{grid-template-columns:1fr}
+  /* V4 · la imagen cae debajo del texto en pantallas estrechas */
+  .ideas-in{grid-template-columns:1fr;gap:30px}
+  .ideas-im{order:2}
+  .eco{grid-template-columns:1fr;gap:28px;padding:30px 26px}
+  .eco-im{order:2}
+  .eco-ambitos{grid-template-columns:1fr}
   .comu-caja{grid-template-columns:1fr;gap:24px;padding:30px 26px}
   .pie{grid-template-columns:1fr 1fr;gap:32px}
 }
@@ -581,6 +635,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
       </div>
       <a class="enlace" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Explorar toda la formación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
+    <!-- Learn5 Academy: declarada como iniciativa EN DESARROLLO. No se
+         afirma que esté operativa ni se enlaza a nada que no exista. -->
+    <p class="form-nota rev">Learn5 Academy, nuestra plataforma formativa, está en desarrollo. Mientras tanto, los programas vigentes se imparten y se adquieren por los canales actuales.</p>
     <div class="cursos" id="listaCursos"></div>
   </div>
 </section>
@@ -595,7 +652,29 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
       <div>
         <p class="eyebrow">Soluciones para instituciones y organizaciones</p>
         <h2>La innovación educativa comienza cuando transformamos posibilidades en acciones.</h2>
-        <p>Acompañamos a instituciones educativas, empresas y organizaciones en el desarrollo de capacidades, la adopción de tecnología, la innovación de sus procesos y la creación de nuevas experiencias de aprendizaje. La inteligencia artificial atraviesa las cuatro capacidades: no es un añadido al final, es cómo trabajamos.</p>
+        <p>Acompañamos a instituciones educativas, empresas y organizaciones en el desarrollo de capacidades, la adopción de tecnología, la innovación de sus procesos y la creación de nuevas experiencias de aprendizaje.</p>
+
+        <!-- V3 · capa de audiencia: primero a quién ayudamos, luego cómo.
+             Antes la sección empezaba por el catálogo de servicios. -->
+        <ul class="aud">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9.5 13h2M13 13h1.5M9.5 16.5h5"/></svg>
+            <b>Instituciones educativas</b>
+            <span>Evolucionan su modelo formativo y lo llevan a entornos digitales sin perder criterio pedagógico.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M3 12.5h18"/></svg>
+            <b>Empresas y organizaciones</b>
+            <span>Forman a sus equipos, ordenan la inducción y adoptan IA con una ruta clara en vez de herramientas sueltas.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.3"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>
+            <b>Profesionales y docentes</b>
+            <span>Incorporan la IA a su trabajo diario y a su aula, con criterio y sin quedarse en la moda.</span>
+          </li>
+        </ul>
+
+        <p class="inst-ia">La inteligencia artificial atraviesa las cuatro capacidades: no es un añadido al final, es cómo trabajamos.</p>
 
         <div class="inst-ben">
           <button class="ben" type="button" aria-expanded="false" aria-controls="serv-consultoria">
@@ -620,7 +699,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
              Sin precios, sin plazos y sin nombres de terceros. -->
         <div class="serv" id="serv-consultoria" role="region" hidden>
           <h3>Consultoría y transformación</h3>
-          <p>Estrategias y acompañamiento para evolucionar modelos educativos y organizacionales, con la IA integrada desde el diseño.</p>
+          <p>Para quien sabe que su formación tiene que cambiar y no sabe por dónde empezar. Ordenamos el punto de partida y trazamos la ruta.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diagnóstico de los procesos de formación actuales</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Estrategia de adopción de educación en línea</li>
@@ -631,7 +710,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
 
         <div class="serv" id="serv-capacitacion" role="region" hidden>
           <h3>Formación y desarrollo</h3>
-          <p>Programas y experiencias para fortalecer competencias individuales y colectivas, con herramientas de IA aplicadas al trabajo real de cada grupo.</p>
+          <p>Para equipos que necesitan capacidades nuevas y comunidades que quieren aprender. Programas a medida del trabajo real de cada grupo.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción a la compañía y acogida de nuevos equipos</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción para estudiantes</li>
@@ -643,7 +722,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
 
         <div class="serv" id="serv-produccion" role="region" hidden>
           <h3>Contenidos y experiencias</h3>
-          <p>Diseño y desarrollo de recursos, programas y experiencias educativas, del esquema pedagógico al programa terminado.</p>
+          <p>Para quien necesita formación propia y no la encuentra en un catálogo. Del esquema pedagógico al programa terminado.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diseño instruccional, pedagógico y curricular</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Producción de cursos y de programas en línea completos</li>
@@ -654,7 +733,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
 
         <div class="serv" id="serv-integracion" role="region" hidden>
           <h3>Tecnología e innovación</h3>
-          <p>Evaluación, integración y adopción de soluciones adaptadas a cada contexto, para que el entorno acompañe a la forma de enseñar y no al revés.</p>
+          <p>Para quien tiene herramientas sueltas o espacios que se quedaron atrás. Evaluamos qué sirve en su contexto y lo integramos.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Adecuación tecnológica de espacios de aprendizaje</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Entornos digitales, creativos e innovadores</li>
@@ -674,14 +753,67 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   </div>
 </section>
 
+<!-- ══ 5bis · DE LAS IDEAS A LA TRANSFORMACIÓN (V4) ══
+     Va entre Soluciones y Alianzas por indicación expresa del brief V4.
+     Sin promesas de resultado ni metodología propietaria. -->
+<section class="sec ideas" id="ideas">
+  <div class="wrap">
+    <div class="ideas-in rev">
+      <figure class="ideas-im">
+        <img src="assets/ideas-transformacion.jpg" width="1180" height="885" loading="lazy"
+             alt="Espacio de aprendizaje luminoso con un panel holográfico que muestra iconos de formación, progreso, equipo y configuración">
+      </figure>
+      <div class="ideas-tx">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>De las ideas a la transformación educativa.</h2>
+        <p>La innovación educativa no comienza con una herramienta, sino con la comprensión de un desafío. Acompañamos a instituciones y organizaciones desde la identificación de oportunidades hasta el diseño de estrategias, experiencias de aprendizaje y soluciones adaptadas a su realidad.</p>
+        <ol class="ideas-pasos">
+          <li><span class="paso">01</span><b>Comprender</b><em>Escuchamos, analizamos el contexto e identificamos necesidades y oportunidades de evolución.</em></li>
+          <li><span class="paso">02</span><b>Diseñar</b><em>Integramos conocimiento pedagógico, creatividad y tecnología para construir respuestas pertinentes.</em></li>
+          <li><span class="paso">03</span><b>Transformar</b><em>Acompañamos la puesta en marcha y el desarrollo de capacidades que permitan sostener la evolución.</em></li>
+        </ol>
+        <button class="btn btn-1" type="button" data-modal="reunion">Conversemos sobre tu proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ 6 · ALIANZAS Y CONVENIOS · entre instituciones y confianza ══ -->
 <section class="alianzas" id="alianzas">
   <div class="wrap">
     <div class="banda rev">
-      <svg class="banda-glow" viewBox="0 0 520 240" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00BCD2" stop-opacity="0"/><stop offset="1" stop-color="#00BCD2" stop-opacity=".40"/></linearGradient></defs>
-        <path d="M0 182 C 150 120, 250 206, 520 108 L520 240 L0 240 Z" fill="url(#bg1)" opacity=".55"/>
-        <path d="M90 240 C 230 150, 330 190, 520 44 L520 240 Z" fill="url(#bg1)" opacity=".75"/>
+      <!-- V3 · red de nodos conectados en vez de ondas planas: la idea de
+           alianza se ve, no solo se lee. Sin texto, sin logos de terceros. -->
+      <svg class="banda-glow" viewBox="0 0 520 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="bgHalo" cx="70%" cy="50%" r="60%">
+            <stop offset="0" stop-color="#00BCD2" stop-opacity=".30"/>
+            <stop offset="100%" stop-color="#00BCD2" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="bgLin" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#00BCD2" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#00BCD2" stop-opacity=".85"/>
+          </linearGradient>
+        </defs>
+        <rect width="520" height="240" fill="url(#bgHalo)"/>
+        <g stroke="url(#bgLin)" stroke-width="1.3" fill="none" opacity=".75">
+          <path d="M60 180 L150 92 L262 142 L356 64 L470 110"/>
+          <path d="M150 92 L262 142 L218 214 L356 64"/>
+          <path d="M60 180 L218 214 L470 110"/>
+          <path d="M262 142 L470 110 M150 92 L356 64"/>
+        </g>
+        <g fill="#00BCD2">
+          <circle cx="150" cy="92" r="3.4" opacity=".55"/>
+          <circle cx="262" cy="142" r="4.6" opacity=".8"/>
+          <circle cx="356" cy="64" r="4" opacity=".85"/>
+          <circle cx="470" cy="110" r="5.2"/>
+          <circle cx="218" cy="214" r="3.2" opacity=".6"/>
+          <circle cx="60" cy="180" r="2.6" opacity=".35"/>
+        </g>
+        <g fill="#FFFFFF" opacity=".5">
+          <circle cx="470" cy="110" r="1.8"/><circle cx="356" cy="64" r="1.4"/>
+        </g>
       </svg>
       <div class="banda-tx">
         <p class="eyebrow">Alianzas · Colaboración · Oportunidades</p>
@@ -698,6 +830,28 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <button class="btn btn-ghost" type="button" data-modal="alianza">Exploremos una alianza</button>
       </div>
     </div>
+
+    <!-- V4 · módulo editorial bajo la franja navy. La franja se conserva
+         como resumen; esto lo desarrolla, sin repetir su texto. Invita a
+         colaborar: no da por firmado ningún convenio. -->
+    <div class="eco rev">
+      <div class="eco-tx">
+        <h3>Las mejores ideas llegan más lejos cuando trabajamos juntos.</h3>
+        <p>Creemos que la colaboración entre instituciones educativas, organizaciones, especialistas y aliados tecnológicos puede ampliar el alcance de la innovación. Buscamos explorar iniciativas que permitan compartir capacidades, desarrollar experiencias conjuntas y acercar soluciones educativas a nuevos entornos.</p>
+        <dl class="eco-ambitos">
+          <div><dt>Académico e institucional</dt><dd>Intercambio de experiencias y desarrollo de iniciativas educativas.</dd></div>
+          <div><dt>Tecnológico</dt><dd>Identificación y aplicación de soluciones pertinentes para distintos escenarios.</dd></div>
+          <div><dt>Formativo</dt><dd>Desarrollo conjunto de experiencias, programas y contenidos.</dd></div>
+          <div><dt>Innovación</dt><dd>Exploración de oportunidades para responder a nuevos desafíos educativos.</dd></div>
+        </dl>
+        <button class="btn btn-1" type="button" data-modal="alianza">Exploremos una alianza
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <figure class="eco-im">
+        <img src="assets/alianzas-ecosistema.jpg" width="1160" height="870" loading="lazy"
+             alt="Anillos de cristal entrelazados conectados con representaciones de instituciones y organizaciones">
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -709,26 +863,32 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
         <h2>Experiencia que conecta educación, tecnología e innovación.</h2>
         <p>Nuestra visión nace de la experiencia en educación, desarrollo de proyectos, tecnología y colaboración con distintos actores del ecosistema educativo.</p>
       </div>
-      <!-- Capacidades, no cifras. Las métricas anteriores no eran comprobables
-           y se retiraron a petición del propietario (15-nov-2026). -->
-      <div class="exp-num rev">
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M7 11.5V17c0 1.5 2.2 2.6 5 2.6s5-1.1 5-2.6v-5.5"/></svg>
-          <span class="n">Educación</span><small>Práctica docente<br>y diseño formativo</small>
-        </div>
-        <div>
+      <!-- V3 · evidencia concreta en vez de cifras. Cada punto es
+           comprobable y ninguno lleva número. El cliente de logística
+           NO se nombra. La ponencia está pendiente de que Gelkin
+           confirme el dato antes de publicar. -->
+      <ul class="exp-ev rev">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg>
+          <b>Formación corporativa en curso</b>
+          <span>Programa de varias sesiones sobre IA aplicada para el equipo administrativo de una empresa de logística.</span>
+        </li>
+        <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h3M8 17.5h7"/></svg>
-          <span class="n">Proyectos</span><small>Desarrollo y producción<br>de programas</small>
-        </div>
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
-          <span class="n">Tecnología</span><small>Integración de la IA<br>en el aprendizaje</small>
-        </div>
-        <div>
+          <b>Programa guiado propio</b>
+          <span>«Domina la IA en 30 Días», publicado y en marcha, con su propia plataforma de aprendizaje.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 1.5z"/><path d="M8 8h7M8 11.5h5"/></svg>
+          <b>Catálogo publicado</b>
+          <span>Cursos y guías disponibles y a la venta para docentes, profesionales y equipos.</span>
+        </li>
+        <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
-          <span class="n">Colaboración</span><small>Entre Estados Unidos<br>y Latinoamérica</small>
-        </div>
-      </div>
+          <b>Presencia internacional</b>
+          <span>Participación como ponente en una conferencia universitaria internacional.</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -741,31 +901,39 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 va
   <div class="wrap">
     <div class="nos-in rev">
       <div class="nos-tx">
-        <p class="eyebrow">Nosotros</p>
-        <h2>La innovación educativa no reconoce fronteras.</h2>
-        <p>Learn5 es una empresa EdTech de origen estadounidense y proyección internacional, comprometida con impulsar la innovación educativa y ampliar las oportunidades de aprendizaje, desarrollo y transformación.</p>
-        <p>Integramos formación, consultoría, tecnología, creación de contenidos y colaboración estratégica para acompañar a personas, instituciones y organizaciones en su evolución.</p>
-        <p>Por eso promovemos el intercambio de experiencias, conocimientos y soluciones entre Estados Unidos y Latinoamérica, reconociendo el talento y el potencial de ambos contextos. Nuestro propósito es contribuir a una educación más innovadora, conectada y capaz de responder a los desafíos del presente y las posibilidades del futuro.</p>
+        <p class="eyebrow">Innovación educativa sin fronteras</p>
+        <h2>El conocimiento no tiene fronteras. La innovación tampoco.</h2>
+        <p>La educación avanza cuando las ideas, las experiencias y las soluciones pueden circular, adaptarse y enriquecerse en contextos distintos.</p>
+        <p>Desde Estados Unidos, Learn5 impulsa una visión de colaboración educativa con Latinoamérica: intercambio de conocimiento, tecnología, talento y oportunidades de desarrollo.</p>
+        <p>No concebimos esta relación en una sola dirección. Reconocemos el potencial innovador de las instituciones, los profesionales y las comunidades educativas de ambos lados.</p>
         <p class="nos-lema">Enseña al presente, <span>imagina el futuro.</span></p>
       </div>
-      <ul class="nos-pts">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h12l-3-3M20 16H8l3 3"/></svg>
-          <b>Intercambio en dos direcciones</b>
-          <span>Latinoamérica también genera innovación, conocimiento y oportunidades.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z"/><path d="M4 12l8 4.5 8-4.5"/></svg>
-          <b>Más que cursos</b>
-          <span>Formación, consultoría, tecnología y contenidos como un mismo sistema.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-          <b>La IA como herramienta</b>
-          <span>Una capacidad estratégica para transformar, no la razón de existir.</span>
-        </li>
-      </ul>
+      <!-- V4 · sustituye al globo SVG de la V3. Proporción 1:1 respetada,
+           sin texto incrustado. En móvil cae debajo del texto. -->
+      <figure class="globo" aria-labelledby="globo-cap">
+        <img src="assets/puente-globo.jpg" width="1000" height="1000" loading="lazy"
+             alt="Globo digital con América del Norte y del Sur conectadas por trayectorias luminosas en ambos sentidos">
+        <figcaption id="globo-cap">Conocimiento, experiencias y soluciones circulando en las dos direcciones.</figcaption>
+      </figure>
     </div>
+
+    <ul class="nos-pts rev">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h12l-3-3M20 16H8l3 3"/></svg>
+        <b>Conectar conocimiento</b>
+        <span>Promover el intercambio de experiencias, modelos y buenas prácticas educativas.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.6 8.7L11 15.8M16.4 8.7L13 15.8M8.3 7h7.4"/></svg>
+        <b>Impulsar colaboración</b>
+        <span>Favorecer oportunidades de trabajo conjunto entre instituciones, especialistas y organizaciones.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
+        <b>Ampliar posibilidades</b>
+        <span>Acercar innovación y soluciones educativas a nuevos contextos y comunidades.</span>
+      </li>
+    </ul>
   </div>
 </section>
 
