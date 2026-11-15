@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn5 | Innovación Educativa, Tecnología y Transformación</title>
+<meta name="description" content="Learn5 impulsa la innovación educativa mediante formación, consultoría, tecnología y alianzas estratégicas para instituciones, organizaciones y profesionales.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://learn5.pro/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Learn5">
+<meta property="og:title" content="Learn5 | Innovación Educativa, Tecnología y Transformación">
+<meta property="og:description" content="Conectamos conocimiento, tecnología y oportunidades para transformar la educación y acompañar la evolución de personas, instituciones y organizaciones.">
+<meta property="og:url" content="https://learn5.pro/">
+<meta name="twitter:card" content="summary_large_image">
+<!-- PENDIENTE · og:image necesita un arte social autorizado de 1200×630. -->
+
+<!-- Favicon PROVISIONAL. Sustituir por el logotipo oficial cuando lo suministres. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23001D3D'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial' font-size='34' font-weight='bold' fill='%23fff' text-anchor='middle'%3EL%3Ctspan fill='%2300BCD2'%3E5%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   LEARN5 · sistema de diseño · paleta muestreada del arte aprobado
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  color-scheme: light;
+  --navy:#001D3D; --navy-2:#002243; --navy-3:#00325B;
+  --cyan:#00BCD2; --cyan-claro:#00C7E5; --turquesa:#00A6B0;
+  --azul:#0177B6; --azul-hondo:#006D8E;
+  --blanco:#FFFFFF; --hielo:#EAF9FF; --hielo-2:#F4FBFE;
+  --borde:#DAEAF2; --borde-2:#C5DEEC;
+  --txt:#001D3D; --txt-2:rgba(0,29,61,.78); --txt-3:rgba(0,29,61,.60);
+  --max:1280px;
+  --r:16px; --r2:22px; --r3:28px; --r4:40px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:88px;
+  --sombra:0 2px 4px rgba(0,45,90,.04), 0 12px 32px rgba(0,45,90,.07);
+  --sombra-2:0 4px 8px rgba(0,45,90,.06), 0 24px 56px rgba(0,45,90,.11);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color:var(--txt);background:var(--blanco);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;font-weight:800}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:6px}
+.solo-lectores{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* anclas heredadas de la web anterior: no ocupan nada */
+.ancla{display:block;height:0;overflow:hidden}
+section[id],.ancla{scroll-margin-top:84px}
+.saltar{position:absolute;left:-9999px;top:0;z-index:200;background:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700}
+.saltar:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;
+  padding:14px 26px;border:0;border-radius:100px;font-size:15.5px;font-weight:700;
+  text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s,color .2s}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-1{background:linear-gradient(100deg,var(--turquesa),var(--azul-hondo));color:#fff;box-shadow:0 6px 20px rgba(0,150,170,.30)}
+.btn-1:hover{box-shadow:0 10px 28px rgba(0,150,170,.42)}
+.btn-2{background:#fff;color:var(--navy);border:1.5px solid var(--borde-2)}
+.btn-2:hover{border-color:var(--azul);background:var(--hielo-2)}
+.btn-3{background:var(--cyan);color:#00202c}
+.btn-3:hover{filter:brightness(1.06)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.enlace{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--azul-hondo);text-decoration:none;font-size:15px;background:none;border:0;cursor:pointer;padding:0}
+.enlace:hover{color:var(--navy)}
+.enlace svg{width:16px;height:16px;transition:transform .18s}
+.enlace:hover svg{transform:translateX(3px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--azul-hondo);margin-bottom:14px}
+
+/* ── NAVBAR con desplegables reales ── */
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.90);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,45,90,.07)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:22px;position:relative}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;flex:none}
+.logo-n{font-size:26px;font-weight:800;letter-spacing:-.04em;color:var(--navy)}
+.logo-n span{color:var(--cyan)}
+.logo-d{font-size:8.5px;font-weight:700;letter-spacing:.17em;color:var(--txt-3);margin-top:3px}
+.menu{display:flex;align-items:center;gap:2px;margin-left:auto;list-style:none}
+.menu>li{position:relative}
+.menu a,.menu button.mt{display:inline-flex;align-items:center;gap:5px;padding:9px 13px;border-radius:9px;
+  font-size:14.5px;font-weight:600;color:var(--txt-2);text-decoration:none;background:none;border:0;cursor:pointer}
+.menu a:hover,.menu button.mt:hover{color:var(--navy);background:var(--hielo-2)}
+.menu a[aria-current="page"]{color:var(--cyan)}
+.menu .ca{width:10px;height:10px;opacity:.55;transition:transform .18s}
+.menu button.mt[aria-expanded="true"] .ca{transform:rotate(180deg)}
+.sub{position:absolute;left:0;top:calc(100% + 8px);min-width:252px;background:#fff;border:1px solid var(--borde);
+  border-radius:var(--r);box-shadow:0 20px 44px rgba(0,45,90,.14);padding:8px;list-style:none;display:none;z-index:90}
+.sub.on{display:block}
+.sub a,.sub button{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  padding:10px 12px;border-radius:9px;font-size:14.5px;font-weight:600;color:var(--txt-2)}
+.sub a:hover,.sub button:hover{background:var(--hielo-2);color:var(--navy)}
+.sub small{display:block;font-weight:500;font-size:12.5px;color:var(--txt-3);margin-top:2px}
+.nav-cta{flex:none}
+.hamb{display:none;background:none;border:1.5px solid var(--borde-2);border-radius:11px;width:46px;height:46px;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.hamb svg{width:21px;height:21px}
+
+/* ── HERO · banda fotográfica a sangre, como el arte aprobado ──
+   La banda es la propia ilustración del arte (2048×586). El texto
+   incrustado se borró del archivo; todo el texto es HTML real.      */
+.hero{position:relative;overflow:hidden;background:#F2FAFE}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,#FFFFFF 0%,rgba(255,255,255,.97) 25%,rgba(255,255,255,.74) 40%,rgba(255,255,255,0) 58%)}
+.hero-in{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:36px 24px 20px;
+  min-height:clamp(366px,28.6vw,442px);display:flex;flex-direction:column;justify-content:center}
+.hero .eyebrow{margin-bottom:10px}
+.hero h1{font-size:clamp(29px,3.05vw,44px);line-height:1.08;margin:0 0 22px;max-width:560px}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero-sub{font-size:16px;color:var(--txt-2);max-width:470px;margin-bottom:22px;line-height:1.5}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.hero-pie{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--txt-3);font-weight:500}
+.hero-pie svg{width:18px;height:18px;color:var(--azul-hondo);flex:none}
+
+/* Lema sobre la zona oscura, en blanco y cian como en el arte.
+   Va anclado a la BANDA, no a la columna de texto. La franja oscura de la
+   foto está entre el 78% y el 97% de ancho y entre el 10% y el 50% de alto;
+   fuera de ahí entra el borde iluminado de la Tierra y el cian se pierde.
+   Colgándolo del contenedor central se salía de esa franja en pantallas
+   anchas: con top/right en porcentaje de la banda se queda dentro siempre.
+   color:var(--cyan) es para los corchetes: los atajos border-top y
+   border-right reinician el color a currentColor. */
+.lema{position:absolute;z-index:2;top:9%;right:5.6%;margin:0;padding:0 22px 0 0;color:var(--cyan);
+  line-height:1.45;letter-spacing:.06em;white-space:nowrap}
+.lema span{display:block;font-size:clamp(14px,1.5vw,21px);font-weight:500;color:#fff;text-transform:uppercase;
+  text-shadow:0 1px 3px rgba(0,16,38,.72), 0 2px 20px rgba(0,16,38,.65)}
+.lema .f{font-weight:800}
+.lema .c{color:var(--cyan);font-weight:800}
+.lema::before,.lema::after{content:'';position:absolute;width:17px;height:17px;border-color:var(--cyan)}
+.lema::before{top:-14px;right:0;border-top:2.5px solid;border-right:2.5px solid;border-radius:0 5px 0 0}
+.lema::after{bottom:-14px;right:0;border-bottom:2.5px solid;border-right:2.5px solid;border-radius:0 0 5px 0}
+
+/* ── TRES CAMINOS ── */
+.sec{padding:var(--s7) 0}
+.sec-c{text-align:center;max-width:720px;margin:0 auto var(--s5)}
+.sec-c h2{font-size:clamp(28px,3.3vw,40px);margin-bottom:14px}
+.sec-c h2 em{font-style:normal;color:var(--turquesa)}
+.sec-c p{font-size:17px;color:var(--txt-2)}
+.caminos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.camino{position:relative;display:flex;background:linear-gradient(165deg,#FFFFFF 0%,#EFF9FE 62%,#E4F4FC 100%);
+  border:1px solid var(--borde);border-radius:var(--r3);overflow:hidden;box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
+.camino:hover{transform:translateY(-4px);box-shadow:var(--sombra-2)}
+.camino-tx{padding:28px 24px 30px;display:flex;flex-direction:column;flex:1;position:relative;z-index:1;max-width:63%}
+.camino-ico{width:44px;height:44px;color:var(--cyan);margin-bottom:14px}
+.camino-tx h3{font-size:27px;color:var(--navy);margin-bottom:11px}
+.camino-tx p{font-size:14.5px;color:var(--txt-2);line-height:1.6;margin-bottom:18px;flex:1}
+.camino-art{position:absolute;right:-4%;top:0;bottom:0;width:52%;pointer-events:none;display:grid;place-items:center;overflow:hidden}
+.camino-art svg{width:100%;height:auto}
+
+/* ── FORMACIÓN ── */
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:var(--s4);flex-wrap:wrap}
+.sec-h h2{font-size:clamp(25px,2.8vw,34px);max-width:640px}
+.sec-h-sub{font-size:15.5px;color:var(--txt-2);max-width:580px;margin-top:10px;line-height:1.6}
+.form-nota{margin-top:26px;font-size:13.5px;color:var(--txt-3);line-height:1.6;max-width:620px;
+  border-left:2.5px solid var(--borde-2);padding-left:16px}
+.cursos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.curso{background:#fff;border:1px solid var(--borde);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sombra);
+  display:flex;flex-direction:column;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.curso:hover{transform:translateY(-4px);box-shadow:var(--sombra-2);border-color:var(--borde-2)}
+.curso-im{position:relative;aspect-ratio:232/86;overflow:hidden;background:var(--hielo-2)}
+.curso-im img{width:100%;height:100%;object-fit:cover}
+.curso-badge{position:absolute;left:12px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;
+  background:rgba(0,29,61,.82);color:#fff;font-size:11px;font-weight:700;padding:6px 11px;border-radius:100px}
+.curso-badge svg{width:12px;height:12px}
+.curso-tx{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;gap:9px}
+.curso-tx h3{font-size:18.5px;color:var(--navy);line-height:1.22}
+.curso-tx p{font-size:14px;color:var(--txt-2);line-height:1.58;flex:1}
+.curso-fl{align-self:flex-end;width:34px;height:34px;border-radius:50%;background:var(--azul-hondo);color:#fff;display:grid;place-items:center;flex:none}
+.curso-fl svg{width:16px;height:16px}
+
+/* ── INSTITUCIONES ── */
+.inst{background:linear-gradient(180deg,#FFFFFF,#F3FAFE)}
+.inst-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center}
+.inst-im{position:relative;align-self:stretch;min-height:370px;overflow:hidden;margin:0}
+.inst-im img{width:100%;height:100%;object-fit:cover}
+.inst-tx{padding:var(--s6) 24px var(--s6) var(--s6);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
+.inst-tx h2{font-size:clamp(26px,3vw,36px);margin-bottom:14px;max-width:520px}
+.inst-tx>div>p{font-size:16px;color:var(--txt-2);max-width:520px;margin-bottom:28px;line-height:1.62}
+/* V3 · a quién ayudamos */
+.aud{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:600px;margin:0 0 22px}
+.aud li{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r);padding:16px 16px 18px}
+.aud svg{width:24px;height:24px;color:var(--turquesa);margin-bottom:9px}
+.aud b{display:block;font-size:13.5px;color:var(--navy);line-height:1.3;margin-bottom:6px}
+.aud span{display:block;font-size:12.5px;color:var(--txt-2);line-height:1.5}
+.inst-ia{font-size:14px!important;color:var(--txt-3)!important;font-style:italic;margin-bottom:22px!important;max-width:560px}
+
+.inst-ben{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:600px}
+.ben{text-align:center;background:none;border:1.5px solid transparent;border-radius:15px;
+  padding:14px 8px 11px;cursor:pointer;transition:background .18s,border-color .18s}
+.ben:hover{background:#fff;border-color:var(--borde)}
+.ben[aria-expanded="true"]{background:#fff;border-color:var(--azul);box-shadow:var(--sombra)}
+.ben svg{display:block;width:30px;height:30px;color:var(--azul-hondo);margin:0 auto 9px}
+.ben b{display:block;font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.35}
+.ben-mas{display:block;margin-top:7px;font-size:10.5px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--azul-hondo);opacity:.7}
+.ben[aria-expanded="true"] .ben-mas{opacity:0}
+
+.serv{max-width:600px;margin-top:14px;background:#fff;border:1.5px solid var(--borde);
+  border-radius:var(--r2);padding:22px 24px;box-shadow:var(--sombra)}
+.serv[hidden]{display:none}
+.serv h3{font-size:18.5px;color:var(--navy);margin-bottom:8px}
+.serv>p{font-size:14.5px;color:var(--txt-2);line-height:1.6;margin-bottom:15px;max-width:none}
+.serv ul{list-style:none;display:grid;gap:9px}
+.serv li{display:flex;gap:9px;font-size:14px;color:var(--txt-2);line-height:1.5}
+.serv li svg{width:16px;height:16px;color:var(--turquesa);flex:none;margin-top:3px}
+.inst-acc{display:flex;flex-direction:column;align-items:center;gap:16px;flex:none}
+.inst-pill{flex:none;width:158px;height:158px;border-radius:50%;border:0;cursor:pointer;
+  background:linear-gradient(145deg,var(--turquesa),var(--azul-hondo));color:#fff;display:grid;place-items:center;
+  text-align:center;font-size:15px;font-weight:700;line-height:1.3;padding:18px;
+  box-shadow:0 14px 36px rgba(0,140,165,.34);transition:transform .2s,box-shadow .2s}
+.inst-pill:hover{transform:scale(1.04);box-shadow:0 18px 44px rgba(0,140,165,.44)}
+.inst-pill svg{width:18px;height:18px;margin:8px auto 0}
+
+/* ── BANDA ALIANZAS ── */
+.alianzas{padding:var(--s5) 0}
+.banda{position:relative;overflow:hidden;border-radius:var(--r4);
+  background:linear-gradient(104deg,var(--navy) 0%,var(--navy-2) 52%,var(--navy-3) 100%);
+  padding:40px 46px;display:grid;grid-template-columns:auto 1fr auto;gap:38px;align-items:center}
+.banda-glow{position:absolute;right:0;top:0;bottom:0;width:48%;height:100%;pointer-events:none;z-index:0}
+.banda-tx{position:relative;z-index:1;min-width:226px;padding-right:38px;border-right:1px solid rgba(255,255,255,.16)}
+.banda-tx .eyebrow{color:var(--cyan);margin-bottom:10px}
+.banda-tx h2{font-size:clamp(20px,2.1vw,26px);color:#fff;line-height:1.22}
+.banda-p{font-size:13.5px;color:rgba(255,255,255,.76);line-height:1.6;margin-top:12px}
+.banda-cat{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.banda-cat div{text-align:center;color:#fff}
+.banda-cat svg{width:32px;height:32px;margin:0 auto 11px;opacity:.95}
+.banda-cat b{display:block;font-size:13px;font-weight:600;line-height:1.4;color:rgba(255,255,255,.92)}
+.banda-cta{position:relative;z-index:1;flex:none}
+
+/* ── V4 · DE LAS IDEAS A LA TRANSFORMACIÓN ── */
+.ideas{background:linear-gradient(180deg,#F6FCFE,#FFFFFF)}
+.ideas-in{display:grid;grid-template-columns:1.02fr 1fr;gap:52px;align-items:center}
+.ideas-im{margin:0}
+.ideas-im img{width:100%;height:auto;display:block;border-radius:var(--r3);box-shadow:var(--sombra-2)}
+.ideas-tx h2{font-size:clamp(25px,2.9vw,34px);margin-bottom:16px;max-width:520px}
+.ideas-tx>p{font-size:16px;color:var(--txt-2);line-height:1.68;margin-bottom:26px;max-width:540px}
+.ideas-pasos{list-style:none;display:grid;gap:18px;margin-bottom:28px}
+.ideas-pasos li{display:grid;grid-template-columns:auto 1fr;column-gap:16px;row-gap:3px;align-items:baseline}
+.paso{grid-row:span 2;font-size:13px;font-weight:800;color:var(--cyan);letter-spacing:.06em;
+  border:1.5px solid var(--borde-2);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;align-self:start}
+.ideas-pasos b{font-size:16px;color:var(--navy)}
+.ideas-pasos em{font-style:normal;font-size:14.5px;color:var(--txt-2);line-height:1.58}
+
+/* ── V4 · ECOSISTEMA DE COLABORACIÓN ── */
+.eco{margin-top:34px;background:#fff;border:1.5px solid var(--borde);border-radius:var(--r4);
+  padding:38px 42px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;box-shadow:var(--sombra)}
+.eco-tx h3{font-size:clamp(21px,2.3vw,28px);color:var(--navy);line-height:1.22;margin-bottom:14px;max-width:460px}
+.eco-tx>p{font-size:15.5px;color:var(--txt-2);line-height:1.65;margin-bottom:22px;max-width:520px}
+.eco-ambitos{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-bottom:26px}
+.eco-ambitos dt{font-size:14px;font-weight:700;color:var(--azul-hondo);margin-bottom:3px}
+.eco-ambitos dd{margin:0;font-size:13.5px;color:var(--txt-2);line-height:1.5}
+.eco-im{margin:0}
+.eco-im img{width:100%;height:auto;display:block;border-radius:var(--r3)}
+
+/* ── EXPERIENCIA ── */
+.exp-in{display:grid;grid-template-columns:.78fr 1.22fr;gap:52px;align-items:center}
+.exp-tx h2{font-size:clamp(26px,3vw,34px);margin-bottom:14px}
+.exp-tx p{font-size:16px;color:var(--txt-2);line-height:1.65}
+/* V3 · evidencia */
+.exp-ev{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.exp-ev li{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r2);padding:20px 22px;box-shadow:var(--sombra)}
+.exp-ev svg{width:26px;height:26px;color:var(--azul-hondo);margin-bottom:10px}
+.exp-ev b{display:block;font-size:15px;color:var(--navy);margin-bottom:5px;line-height:1.3}
+.exp-ev span{display:block;font-size:13.5px;color:var(--txt-2);line-height:1.55}
+
+.exp-num{display:grid;grid-template-columns:repeat(4,1fr)}
+.exp-num div{text-align:center;padding:0 18px;border-left:1px solid var(--borde)}
+.exp-num div:first-child{border-left:0}
+.exp-num svg{width:34px;height:34px;color:var(--cyan);margin:0 auto 12px}
+.exp-num .n{display:block;font-size:26px;font-weight:800;color:var(--navy);line-height:1.1;margin-bottom:5px}
+.exp-num small{display:block;font-size:13px;color:var(--txt-2);line-height:1.45;font-weight:500}
+
+/* ── NOSOTROS ── */
+.nos{background:linear-gradient(180deg,#FFFFFF,#F4FBFE);padding-top:var(--s6)}
+.nos-in{display:grid;grid-template-columns:1.25fr .85fr;gap:52px;align-items:start}
+.nos-tx h2{font-size:clamp(26px,3vw,36px);margin-bottom:20px;max-width:560px}
+.nos-tx p{font-size:16px;color:var(--txt-2);line-height:1.7;margin-bottom:16px;max-width:620px}
+.nos-lema{font-size:17px!important;font-weight:800;color:var(--navy);margin-top:26px!important;letter-spacing:-.01em}
+.nos-lema span{color:var(--turquesa)}
+.globo{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.globo img{width:100%;max-width:440px;height:auto;display:block;border-radius:var(--r3)}
+.globo figcaption{font-size:13.5px;color:var(--txt-3);text-align:center;line-height:1.55;max-width:340px}
+.nos-pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.nos-pts li{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r2);padding:20px 22px;box-shadow:var(--sombra)}
+.nos-pts svg{width:26px;height:26px;color:var(--azul-hondo);margin-bottom:10px}
+.nos-pts b{display:block;font-size:15.5px;color:var(--navy);margin-bottom:5px}
+.nos-pts span{display:block;font-size:14px;color:var(--txt-2);line-height:1.55}
+
+/* ── COMUNIDAD ── */
+.comu{padding:0 0 var(--s7)}
+.comu-caja{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r4);padding:34px 40px;
+  display:grid;grid-template-columns:1fr .92fr .86fr;gap:36px;align-items:center;box-shadow:var(--sombra)}
+.comu-et{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:700;color:var(--azul-hondo);margin-bottom:12px}
+.comu-et svg{width:21px;height:21px;color:var(--cyan)}
+.comu-caja h2{font-size:clamp(21px,2.3vw,28px);line-height:1.22}
+.comu-lista{display:grid;gap:11px}
+.comu-lista li{list-style:none;display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--txt-2)}
+.comu-lista svg{width:17px;height:17px;color:var(--turquesa);flex:none;margin-top:3px}
+.comu-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.comu-nota{font-size:13.5px;color:var(--txt-3);line-height:1.55}
+.comu-nota .enlace{font-size:13.5px}
+.comu-cons{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--txt-3);line-height:1.5;flex-basis:100%}
+.comu-cons input{margin-top:3px;accent-color:var(--azul-hondo);width:16px;height:16px;flex:none}
+.comu-cons a{color:var(--azul-hondo);font-weight:600}
+.aviso{font-size:13.5px;font-weight:600;display:none;border-radius:12px;padding:11px 14px;flex-basis:100%}
+.aviso.err{display:block;background:#FDEDED;color:#9B1C1C;border:1px solid #F5C6C6}
+.aviso.ok{display:block;background:#E9F9F2;color:#04603F;border:1px solid #BFE9D7}
+.aviso.info{display:block;background:var(--hielo);color:var(--azul-hondo);border:1px solid var(--borde-2)}
+
+/* ── CTA FINAL ── */
+.cierre{position:relative;overflow:hidden;text-align:center;padding:var(--s7) 0 210px;background:linear-gradient(180deg,#FFFFFF 0%,#F2FBFE 100%)}
+.cierre .wrap{position:relative;z-index:1}
+.cierre h2{font-size:clamp(32px,4.2vw,52px);line-height:1.1;margin-bottom:18px}
+.cierre h2 em{display:block;font-style:italic;color:var(--cyan);font-weight:800}
+.cierre p{font-size:17.5px;color:var(--txt-2);margin-bottom:30px}
+.cierre-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cierre-ondas{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:min(290px,24vw);pointer-events:none;display:block;z-index:0}
+
+/* ── MODALES ── */
+dialog:not([open]){display:none}
+/* OJO: el reset global *{margin:0} pisa el margin:auto que el navegador
+   da a <dialog>, y el modal se pega a la esquina superior izquierda.
+   Hay que devolverlo explícitamente. */
+dialog{border:0;padding:0;margin:auto;border-radius:var(--r3);
+  max-width:560px;width:calc(100% - 32px);
+  max-height:min(88dvh,820px);overflow:auto;
+  box-shadow:0 30px 80px rgba(0,30,60,.3)}
+dialog::backdrop{background:rgba(0,22,46,.55);backdrop-filter:blur(3px)}
+.md{padding:30px 32px 32px}
+.md-h{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:6px}
+.md h3{font-size:24px;color:var(--navy)}
+.md>p{font-size:14.5px;color:var(--txt-2);margin-bottom:20px}
+.md-x{background:none;border:0;cursor:pointer;color:var(--txt-3);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none}
+.md-x:hover{background:var(--hielo-2);color:var(--navy)}
+.md-x svg{width:20px;height:20px}
+.campo{margin-bottom:14px}
+.campo label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.campo input,.campo select,.campo textarea{width:100%;border:1.5px solid var(--borde);border-radius:12px;padding:12px 14px;font-size:15px;background:#fff}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--azul)}
+.campo textarea{min-height:92px;resize:vertical}
+.campo-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.md .comu-cons{margin:6px 0 16px}
+.md .btn{width:100%}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.72);padding:var(--s6) 0 var(--s4);font-size:14.5px}
+.pie{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:var(--s5)}
+.pie h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:700}
+.pie ul{list-style:none;display:grid;gap:10px}
+.pie a,.pie button{color:rgba(255,255,255,.82);text-decoration:none;
+  background:none;border:0;padding:0;cursor:pointer;font:inherit;text-align:left}
+.pie a:hover,.pie button:hover{color:#fff}
+.pie .logo-n{color:#fff;font-size:24px}
+.pie .logo-d{color:rgba(255,255,255,.5)}
+.pie p{margin-top:16px;max-width:330px;line-height:1.65;color:rgba(255,255,255,.62)}
+.pie-soc{display:flex;gap:10px;margin-top:20px}
+.pie-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center}
+.pie-soc a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.45)}
+.pie-soc svg{width:17px;height:17px}
+.pie-b{border-top:1px solid rgba(255,255,255,.14);padding-top:var(--s3);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55)}
+.pie-b a{color:rgba(255,255,255,.55)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1180px){
+  .menu{display:none}
+  .menu.abierto{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;
+    gap:2px;background:#fff;padding:12px;margin:0;border-bottom:1px solid var(--borde);box-shadow:0 18px 40px rgba(0,45,90,.12);max-height:76vh;overflow:auto}
+  .menu.abierto .sub{position:static;display:block;box-shadow:none;border:0;padding:0 0 6px 12px;min-width:0}
+  .menu.abierto .ca{display:none}
+  .hamb{display:flex}
+  .nav-cta{margin-left:auto;padding:12px 18px;font-size:14px;min-height:44px}
+  /* la banda deja de ser fondo y pasa a ser imagen apilada */
+  .hero{background:#fff}
+  .hero::after{display:none}
+  .hero-bg{position:static;width:100%;height:auto;aspect-ratio:16/7;object-position:68% 50%}
+  .hero-in{min-height:0;gap:20px;padding:28px 24px 10px}
+  .lema{position:static;white-space:normal;padding:0 24px 40px;max-width:var(--max);margin:0 auto}
+  .lema span{color:var(--navy);font-size:clamp(14px,2.5vw,19px);text-shadow:none}
+  .lema::before,.lema::after{display:none}
+  .caminos{grid-template-columns:1fr}
+  .camino-tx{max-width:62%}
+  .cursos{grid-template-columns:repeat(2,1fr)}
+  .inst-in{grid-template-columns:1fr}
+  .inst-im{min-height:230px;order:2}
+  .inst-tx{grid-template-columns:1fr;padding:var(--s6) 24px;gap:28px}
+  .inst-acc{align-items:flex-start;width:100%}
+  .inst-pill{width:100%;height:auto;border-radius:100px;padding:18px 26px;display:flex;align-items:center;justify-content:center;gap:10px}
+  .inst-pill span br{display:none}
+  .inst-pill svg{margin:0}
+  .banda{grid-template-columns:1fr;gap:26px;padding:34px 28px}
+  .banda-tx{border-right:0;border-bottom:1px solid rgba(255,255,255,.16);padding:0 0 22px}
+  .exp-in{grid-template-columns:1fr;gap:34px}
+  .nos-in{grid-template-columns:1fr;gap:32px}
+  .nos-pts{grid-template-columns:1fr;margin-top:28px}
+  .aud{grid-template-columns:1fr;max-width:none}
+  .exp-ev{grid-template-columns:1fr}
+  /* V4 · la imagen cae debajo del texto en pantallas estrechas */
+  .ideas-in{grid-template-columns:1fr;gap:30px}
+  .ideas-im{order:2}
+  .eco{grid-template-columns:1fr;gap:28px;padding:30px 26px}
+  .eco-im{order:2}
+  .eco-ambitos{grid-template-columns:1fr}
+  .comu-caja{grid-template-columns:1fr;gap:24px;padding:30px 26px}
+  .pie{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:640px){
+  .sec{padding:var(--s6) 0}
+  .nav-cta span{display:none}
+  .nav-cta{padding:12px;width:44px;height:44px;border-radius:50%}
+  .hero-bg{aspect-ratio:5/4;object-position:62% 46%}
+  .cursos{grid-template-columns:1fr}
+  .camino-tx{max-width:100%}
+  .camino-art{opacity:.26;width:60%}
+  .inst-ben{grid-template-columns:repeat(2,1fr);gap:22px}
+  .banda-cat{grid-template-columns:repeat(2,1fr);gap:22px}
+  .exp-num{grid-template-columns:repeat(2,1fr);gap:28px 0}
+  .exp-num div{border-left:0;padding:0 10px}
+  .hero-cta .btn,.cierre-cta .btn{width:100%}
+  .campo-2{grid-template-columns:1fr}
+  .pie{grid-template-columns:1fr}
+  .cierre{padding-bottom:150px}
+  .md{padding:24px 22px 26px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rev.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="saltar" href="#principal">Saltar al contenido</a>
+
+<!-- ══ 1 · NAVBAR ══ -->
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="/" aria-label="Learn5 · inicio">
+      <span class="logo-n">Learn<span>5</span></span>
+      <span class="logo-d">AI &amp; EDTECH SOLUTIONS</span>
+    </a>
+
+    <ul class="menu" id="menu">
+      <li><a href="/" aria-current="page">Inicio</a></li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-sol">Soluciones
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-sol">
+          <li><a href="#soluciones">Para instituciones y organizaciones</a></li>
+          <li><button type="button" data-modal="propuesta">Solicitar una propuesta<small>Formulario B2B</small></button></li>
+          <li><button type="button" data-modal="reunion">Conversemos sobre tu proyecto</button></li>
+        </ul>
+      </li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-form">Formación
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-form">
+          <li><a href="#formacion">Formación destacada<small>Los cuatro programas</small></a></li>
+          <li><a href="https://learn5.pro/ia-30-dias/">Domina la IA en 30 Días<small>Programa guiado</small></a></li>
+          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Catálogo completo<small>Se abre en Hotmart</small></a></li>
+        </ul>
+      </li>
+      <li><a href="#alianzas">Alianzas</a></li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-com">Comunidad
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-com">
+          <li><a href="#comunidad">Comunidad Learn5</a></li>
+          <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Newsletter en LinkedIn</small></a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="mt" type="button" aria-expanded="false" aria-controls="sub-nos">Nosotros
+          <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-nos">
+          <li><a href="#nosotros">Quiénes somos<small>Propósito y capacidades</small></a></li>
+          <li><a href="#experiencia">Experiencia y confianza</a></li>
+          <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Ideas y tendencias, cada semana</small></a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <button class="btn btn-3 nav-cta" type="button" data-modal="reunion" aria-label="Conversemos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.6-4.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+      <span>Conversemos</span>
+    </button>
+    <button class="hamb" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="principal">
+
+<!-- ══ 2 · HERO ══ -->
+<section class="hero">
+  <img class="hero-bg" src="assets/hero-banda.jpg" width="2048" height="586" fetchpriority="high"
+       alt="Astronauta con un planeta digital reflejado en el casco, sobre la Tierra iluminada">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow">Educación · Innovación · Tecnología · Transformación</p>
+      <h1>Impulsamos la innovación educativa <em>sin fronteras.</em></h1>
+      <p class="hero-sub">Conectamos conocimiento, tecnología y oportunidades para transformar la educación y acompañar la evolución de personas, instituciones y organizaciones.</p>
+      <div class="hero-cta">
+        <a class="btn btn-1" href="#soluciones">Explorar soluciones
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-2" href="#nosotros">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8.5h.01"/></svg>
+          Conocer Learn5</a>
+      </div>
+      <p class="hero-pie">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c3 .2 5.5 2.2 5.5 5.4"/></svg>
+        Para personas, profesionales, empresas e instituciones educativas.
+      </p>
+    </div>
+  </div>
+  <p class="lema" aria-label="Enseña al presente, imagina el futuro">
+    <span>Enseña</span><span>al presente,</span><span class="f">Imagina</span><span class="c">el futuro.</span>
+  </p>
+</section>
+
+<span class="ancla" id="para-ti" aria-hidden="true"></span>
+<!-- ══ 3 · TRES CAMINOS ══ -->
+<section class="sec" id="caminos">
+  <div class="wrap">
+    <div class="sec-c rev">
+      <h2>Elige cómo transformar con <em>Learn5</em></h2>
+      <p>Tres caminos, un mismo propósito: impulsar la innovación educativa y la evolución de quienes la hacen posible.</p>
+    </div>
+    <div class="caminos">
+
+      <article class="camino rev">
+        <div class="camino-tx">
+          <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M5 10.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-5.5"/></svg>
+          <h3>Aprende</h3>
+          <p>Desarrollamos experiencias de aprendizaje que potencian capacidades, fortalecen competencias y preparan a las personas para nuevos desafíos.</p>
+          <a class="enlace" href="#formacion">Explorar formación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="camino-art" aria-hidden="true">
+          <svg viewBox="0 0 220 240">
+            <defs>
+              <linearGradient id="a1" x1=".1" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#BFF0FA"/><stop offset="1" stop-color="#1AA7C9"/></linearGradient>
+              <linearGradient id="a2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FE3F4"/><stop offset="1" stop-color="#0E90B6"/></linearGradient>
+            </defs>
+            <ellipse cx="118" cy="206" rx="86" ry="16" fill="#0FA8C6" opacity=".12"/>
+            <path d="M44 56 L192 34 L192 150 L44 172 Z" fill="url(#a1)" opacity=".42"/>
+            <path d="M44 56 L192 34 L192 150 L44 172 Z" fill="none" stroke="#17B6D4" stroke-width="2.6" opacity=".85"/>
+            <path d="M44 172 L192 150 L206 166 L58 190 Z" fill="url(#a2)" opacity=".5"/>
+            <path d="M103 80 L144 102 L103 124 Z" fill="#fff" opacity=".95"/>
+            <path d="M60 72h40M60 86h26" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+            <circle cx="186" cy="60" r="6" fill="#00C7E5" opacity=".9"/>
+            <circle cx="30" cy="124" r="4" fill="#00C7E5" opacity=".65"/>
+          </svg>
+        </div>
+      </article>
+
+      <article class="camino rev">
+        <div class="camino-tx">
+          <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V8l6-4 6 4v13"/><path d="M9 12h2M13 12h2M9 16h2M13 16h2"/></svg>
+          <h3>Transforma</h3>
+          <p>Acompañamos a instituciones y organizaciones en sus procesos de innovación, evolución educativa y desarrollo estratégico.</p>
+          <a class="enlace" href="#soluciones">Conocer soluciones <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="camino-art" aria-hidden="true">
+          <svg viewBox="0 0 220 240">
+            <defs>
+              <linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DE8F7"/><stop offset="1" stop-color="#1395BC"/></linearGradient>
+              <linearGradient id="b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00C7E5"/><stop offset="1" stop-color="#0E7FB8"/></linearGradient>
+            </defs>
+            <ellipse cx="112" cy="208" rx="88" ry="15" fill="#0FA8C6" opacity=".12"/>
+            <path d="M34 196 L34 150 L64 140 L64 196 Z" fill="url(#b1)" opacity=".48"/>
+            <path d="M34 150 L64 140 L78 148 L48 158 Z" fill="#BFF0FA" opacity=".55"/>
+            <path d="M78 196 L78 122 L108 112 L108 196 Z" fill="url(#b1)" opacity=".62"/>
+            <path d="M78 122 L108 112 L122 120 L92 130 Z" fill="#BFF0FA" opacity=".6"/>
+            <path d="M122 196 L122 92 L152 82 L152 196 Z" fill="url(#b1)" opacity=".76"/>
+            <path d="M122 92 L152 82 L166 90 L136 100 Z" fill="#CFF4FC" opacity=".65"/>
+            <path d="M166 196 L166 58 L196 48 L196 196 Z" fill="url(#b1)" opacity=".9"/>
+            <path d="M166 58 L196 48 L210 56 L180 66 Z" fill="#DFF8FD" opacity=".7"/>
+            <path d="M30 118 L74 86 L118 60 L176 20" fill="none" stroke="url(#b2)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M152 18 L180 16 L178 44" fill="none" stroke="url(#b2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </article>
+
+      <article class="camino rev">
+        <div class="camino-tx">
+          <svg class="camino-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg>
+          <h3>Innova</h3>
+          <p>Integramos conocimiento, tecnología y creatividad para desarrollar soluciones y experiencias educativas con impacto.</p>
+          <a class="enlace" href="#soluciones">Descubrir cómo innovamos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="camino-art" aria-hidden="true">
+          <svg viewBox="0 0 220 240">
+            <defs>
+              <linearGradient id="c1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#CFF4FC"/><stop offset="1" stop-color="#1395BC"/></linearGradient>
+              <linearGradient id="c2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FE3F4"/><stop offset="1" stop-color="#0B7FA6"/></linearGradient>
+            </defs>
+            <ellipse cx="110" cy="214" rx="84" ry="14" fill="#0FA8C6" opacity=".12"/>
+            <path d="M110 160 L186 190 L110 220 L34 190 Z" fill="url(#c2)" opacity=".42"/>
+            <path d="M110 160 L186 190 L110 220 L34 190 Z" fill="none" stroke="#17B6D4" stroke-width="1.8" opacity=".5"/>
+            <path d="M110 122 L186 152 L110 182 L34 152 Z" fill="url(#c1)" opacity=".62"/>
+            <path d="M110 122 L186 152 L110 182 L34 152 Z" fill="none" stroke="#17B6D4" stroke-width="1.8" opacity=".6"/>
+            <path d="M110 84 L186 114 L110 144 L34 114 Z" fill="url(#c1)" opacity=".86"/>
+            <path d="M110 84 L186 114 L110 144 L34 114 Z" fill="none" stroke="#17B6D4" stroke-width="2.2"/>
+            <rect x="82" y="26" width="56" height="44" rx="9" fill="#EAFBFF" stroke="#17B6D4" stroke-width="2.6"/>
+            <rect x="96" y="40" width="28" height="16" rx="4" fill="#17B6D4" opacity=".55"/>
+            <path d="M94 26v-9M110 26v-9M126 26v-9M94 70v9M110 70v9M126 70v9" stroke="#17B6D4" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Anclas de la web anterior. Si alguien tiene guardado o enlazado
+     learn5.pro/#cursos, learn5.pro/#ia30dias, #newsletter o #para-ti,
+     sigue aterrizando donde debe en vez de quedarse arriba. -->
+<span class="ancla" id="cursos" aria-hidden="true"></span>
+<span class="ancla" id="ia30dias" aria-hidden="true"></span>
+<!-- ══ 4 · FORMACIÓN DESTACADA ══ -->
+<section class="sec" id="formacion" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h rev">
+      <div>
+        <h2>El aprendizaje es el inicio de nuevas posibilidades.</h2>
+        <p class="sec-h-sub">Explora experiencias formativas diseñadas para desarrollar habilidades y aplicar el conocimiento en contextos reales.</p>
+      </div>
+      <a class="enlace" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Explorar toda la formación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <!-- Learn5 Academy: declarada como iniciativa EN DESARROLLO. No se
+         afirma que esté operativa ni se enlaza a nada que no exista. -->
+    <p class="form-nota rev">Learn5 Academy, nuestra plataforma formativa, está en desarrollo. Mientras tanto, los programas vigentes se imparten y se adquieren por los canales actuales.</p>
+    <div class="cursos" id="listaCursos"></div>
+  </div>
+</section>
+
+<!-- ══ 5 · SOLUCIONES PARA INSTITUCIONES ══ -->
+<section class="inst" id="soluciones">
+  <div class="inst-in">
+    <figure class="inst-im">
+      <img src="assets/institucional-edificio.jpg" loading="lazy" width="1254" height="588" alt="Edificio institucional moderno con un birrete luminoso, que representa la transformación de centros educativos">
+    </figure>
+    <div class="inst-tx">
+      <div>
+        <p class="eyebrow">Soluciones para instituciones y organizaciones</p>
+        <h2>La innovación educativa comienza cuando transformamos posibilidades en acciones.</h2>
+        <p>Acompañamos a instituciones educativas, empresas y organizaciones en el desarrollo de capacidades, la adopción de tecnología, la innovación de sus procesos y la creación de nuevas experiencias de aprendizaje.</p>
+
+        <!-- V3 · capa de audiencia: primero a quién ayudamos, luego cómo.
+             Antes la sección empezaba por el catálogo de servicios. -->
+        <ul class="aud">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9.5 13h2M13 13h1.5M9.5 16.5h5"/></svg>
+            <b>Instituciones educativas</b>
+            <span>Evolucionan su modelo formativo y lo llevan a entornos digitales sin perder criterio pedagógico.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M3 12.5h18"/></svg>
+            <b>Empresas y organizaciones</b>
+            <span>Forman a sus equipos, ordenan la inducción y adoptan IA con una ruta clara en vez de herramientas sueltas.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.3"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>
+            <b>Profesionales y docentes</b>
+            <span>Incorporan la IA a su trabajo diario y a su aula, con criterio y sin quedarse en la moda.</span>
+          </li>
+        </ul>
+
+        <p class="inst-ia">La inteligencia artificial atraviesa las cuatro capacidades: no es un añadido al final, es cómo trabajamos.</p>
+
+        <div class="inst-ben">
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-consultoria">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z"/><path d="M4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5"/></svg>
+            <b>Consultoría y transformación</b><span class="ben-mas">Ver más</span>
+          </button>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-capacitacion">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg>
+            <b>Formación y desarrollo</b><span class="ben-mas">Ver más</span>
+          </button>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-integracion">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+            <b>Tecnología e innovación</b><span class="ben-mas">Ver más</span>
+          </button>
+          <button class="ben" type="button" aria-expanded="false" aria-controls="serv-produccion">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
+            <b>Contenidos y experiencias</b><span class="ben-mas">Ver más</span>
+          </button>
+        </div>
+
+        <!-- Contenido validado con el propietario el 10-nov-2026.
+             Sin precios, sin plazos y sin nombres de terceros. -->
+        <div class="serv" id="serv-consultoria" role="region" hidden>
+          <h3>Consultoría y transformación</h3>
+          <p>Para quien sabe que su formación tiene que cambiar y no sabe por dónde empezar. Ordenamos el punto de partida y trazamos la ruta.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diagnóstico de los procesos de formación actuales</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Estrategia de adopción de educación en línea</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Apoyo a los procesos de aprendizaje y desarrollo</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Criterios de calidad y planes de mejora</li>
+          </ul>
+        </div>
+
+        <div class="serv" id="serv-capacitacion" role="region" hidden>
+          <h3>Formación y desarrollo</h3>
+          <p>Para equipos que necesitan capacidades nuevas y comunidades que quieren aprender. Programas a medida del trabajo real de cada grupo.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción a la compañía y acogida de nuevos equipos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Inducción para estudiantes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Programas formativos para profesores</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Programas formativos para emprendedores</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Programas formativos para perfiles creativos</li>
+          </ul>
+        </div>
+
+        <div class="serv" id="serv-produccion" role="region" hidden>
+          <h3>Contenidos y experiencias</h3>
+          <p>Para quien necesita formación propia y no la encuentra en un catálogo. Del esquema pedagógico al programa terminado.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Diseño instruccional, pedagógico y curricular</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Producción de cursos y de programas en línea completos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Creación de experiencias de aprendizaje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>IA aplicada a la producción y a la experiencia del alumno</li>
+          </ul>
+        </div>
+
+        <div class="serv" id="serv-integracion" role="region" hidden>
+          <h3>Tecnología e innovación</h3>
+          <p>Para quien tiene herramientas sueltas o espacios que se quedaron atrás. Evaluamos qué sirve en su contexto y lo integramos.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Adecuación tecnológica de espacios de aprendizaje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Entornos digitales, creativos e innovadores</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Incorporación de herramientas de IA al espacio formativo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="inst-acc">
+        <button class="inst-pill" type="button" data-modal="reunion">
+          <span>Conversemos<br>sobre tu<br>proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="enlace" type="button" data-modal="propuesta">Solicitar una propuesta
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5bis · DE LAS IDEAS A LA TRANSFORMACIÓN (V4) ══
+     Va entre Soluciones y Alianzas por indicación expresa del brief V4.
+     Sin promesas de resultado ni metodología propietaria. -->
+<section class="sec ideas" id="ideas">
+  <div class="wrap">
+    <div class="ideas-in rev">
+      <figure class="ideas-im">
+        <img src="assets/ideas-transformacion.jpg" width="1180" height="885" loading="lazy"
+             alt="Espacio de aprendizaje luminoso con un panel holográfico que muestra iconos de formación, progreso, equipo y configuración">
+      </figure>
+      <div class="ideas-tx">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>De las ideas a la transformación educativa.</h2>
+        <p>La innovación educativa no comienza con una herramienta, sino con la comprensión de un desafío. Acompañamos a instituciones y organizaciones desde la identificación de oportunidades hasta el diseño de estrategias, experiencias de aprendizaje y soluciones adaptadas a su realidad.</p>
+        <ol class="ideas-pasos">
+          <li><span class="paso">01</span><b>Comprender</b><em>Escuchamos, analizamos el contexto e identificamos necesidades y oportunidades de evolución.</em></li>
+          <li><span class="paso">02</span><b>Diseñar</b><em>Integramos conocimiento pedagógico, creatividad y tecnología para construir respuestas pertinentes.</em></li>
+          <li><span class="paso">03</span><b>Transformar</b><em>Acompañamos la puesta en marcha y el desarrollo de capacidades que permitan sostener la evolución.</em></li>
+        </ol>
+        <button class="btn btn-1" type="button" data-modal="reunion">Conversemos sobre tu proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6 · ALIANZAS Y CONVENIOS · entre instituciones y confianza ══ -->
+<section class="alianzas" id="alianzas">
+  <div class="wrap">
+    <div class="banda rev">
+      <!-- V3 · red de nodos conectados en vez de ondas planas: la idea de
+           alianza se ve, no solo se lee. Sin texto, sin logos de terceros. -->
+      <svg class="banda-glow" viewBox="0 0 520 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="bgHalo" cx="70%" cy="50%" r="60%">
+            <stop offset="0" stop-color="#00BCD2" stop-opacity=".30"/>
+            <stop offset="100%" stop-color="#00BCD2" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="bgLin" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#00BCD2" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#00BCD2" stop-opacity=".85"/>
+          </linearGradient>
+        </defs>
+        <rect width="520" height="240" fill="url(#bgHalo)"/>
+        <g stroke="url(#bgLin)" stroke-width="1.3" fill="none" opacity=".75">
+          <path d="M60 180 L150 92 L262 142 L356 64 L470 110"/>
+          <path d="M150 92 L262 142 L218 214 L356 64"/>
+          <path d="M60 180 L218 214 L470 110"/>
+          <path d="M262 142 L470 110 M150 92 L356 64"/>
+        </g>
+        <g fill="#00BCD2">
+          <circle cx="150" cy="92" r="3.4" opacity=".55"/>
+          <circle cx="262" cy="142" r="4.6" opacity=".8"/>
+          <circle cx="356" cy="64" r="4" opacity=".85"/>
+          <circle cx="470" cy="110" r="5.2"/>
+          <circle cx="218" cy="214" r="3.2" opacity=".6"/>
+          <circle cx="60" cy="180" r="2.6" opacity=".35"/>
+        </g>
+        <g fill="#FFFFFF" opacity=".5">
+          <circle cx="470" cy="110" r="1.8"/><circle cx="356" cy="64" r="1.4"/>
+        </g>
+      </svg>
+      <div class="banda-tx">
+        <p class="eyebrow">Alianzas · Colaboración · Oportunidades</p>
+        <h2>Conectamos capacidades para impulsar la innovación educativa.</h2>
+        <p class="banda-p">Promovemos iniciativas de colaboración y el intercambio de conocimiento, experiencias y soluciones entre Estados Unidos y Latinoamérica.</p>
+      </div>
+      <div class="banda-cat">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l9 4.5-9 4.5-9-4.5L12 4z"/><path d="M7 11v5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5"/></svg><b>Alianzas académicas e institucionales</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.6 8.7L11 15.8M16.4 8.7L13 15.8M8.3 7h7.4"/></svg><b>Colaboración tecnológica</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8.5 13.5l3-3 4 4"/><path d="M3 17l4.5-9L12 14l3-5 6 8z"/></svg><b>Desarrollo conjunto de programas</b></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h12l-3-3M20 16H8l3 3"/><circle cx="12" cy="12" r="9" opacity=".45"/></svg><b>Intercambio de conocimiento y experiencias</b></div>
+      </div>
+      <div class="banda-cta">
+        <button class="btn btn-ghost" type="button" data-modal="alianza">Exploremos una alianza</button>
+      </div>
+    </div>
+
+    <!-- V4 · módulo editorial bajo la franja navy. La franja se conserva
+         como resumen; esto lo desarrolla, sin repetir su texto. Invita a
+         colaborar: no da por firmado ningún convenio. -->
+    <div class="eco rev">
+      <div class="eco-tx">
+        <h3>Las mejores ideas llegan más lejos cuando trabajamos juntos.</h3>
+        <p>Creemos que la colaboración entre instituciones educativas, organizaciones, especialistas y aliados tecnológicos puede ampliar el alcance de la innovación. Buscamos explorar iniciativas que permitan compartir capacidades, desarrollar experiencias conjuntas y acercar soluciones educativas a nuevos entornos.</p>
+        <dl class="eco-ambitos">
+          <div><dt>Académico e institucional</dt><dd>Intercambio de experiencias y desarrollo de iniciativas educativas.</dd></div>
+          <div><dt>Tecnológico</dt><dd>Identificación y aplicación de soluciones pertinentes para distintos escenarios.</dd></div>
+          <div><dt>Formativo</dt><dd>Desarrollo conjunto de experiencias, programas y contenidos.</dd></div>
+          <div><dt>Innovación</dt><dd>Exploración de oportunidades para responder a nuevos desafíos educativos.</dd></div>
+        </dl>
+        <button class="btn btn-1" type="button" data-modal="alianza">Exploremos una alianza
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <figure class="eco-im">
+        <img src="assets/alianzas-ecosistema.jpg" width="1160" height="870" loading="lazy"
+             alt="Anillos de cristal entrelazados conectados con representaciones de instituciones y organizaciones">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7 · EXPERIENCIA Y CONFIANZA ══ -->
+<section class="sec" id="experiencia">
+  <div class="wrap">
+    <div class="exp-in">
+      <div class="exp-tx rev">
+        <h2>Experiencia que conecta educación, tecnología e innovación.</h2>
+        <p>Nuestra visión nace de la experiencia en educación, desarrollo de proyectos, tecnología y colaboración con distintos actores del ecosistema educativo.</p>
+      </div>
+      <!-- V3 · evidencia concreta en vez de cifras. Cada punto es
+           comprobable y ninguno lleva número. El cliente de logística
+           NO se nombra. La ponencia está pendiente de que Gelkin
+           confirme el dato antes de publicar. -->
+      <ul class="exp-ev rev">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.1 2.7-5.2 6-5.2S15 16.9 15 20"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.8c2.9.2 5 2.1 5 5.2"/></svg>
+          <b>Formación corporativa en curso</b>
+          <span>Programa de varias sesiones sobre IA aplicada para el equipo administrativo de una empresa de logística.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h3M8 17.5h7"/></svg>
+          <b>Programa guiado propio</b>
+          <span>«Domina la IA en 30 Días», publicado y en marcha, con su propia plataforma de aprendizaje.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 1.5z"/><path d="M8 8h7M8 11.5h5"/></svg>
+          <b>Catálogo publicado</b>
+          <span>Cursos y guías disponibles y a la venta para docentes, profesionales y equipos.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
+          <b>Presencia internacional</b>
+          <span>Participación como ponente en una conferencia universitaria internacional.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7bis · NOSOTROS ══
+     Destino del CTA "Conocer Learn5" del hero y de la entrada Nosotros
+     del menú. Comunica el Modelo Puente como principio, nunca como
+     acuerdo cerrado: no se nombra ningún convenio ni socio. -->
+<section class="sec nos" id="nosotros">
+  <div class="wrap">
+    <div class="nos-in rev">
+      <div class="nos-tx">
+        <p class="eyebrow">Innovación educativa sin fronteras</p>
+        <h2>El conocimiento no tiene fronteras. La innovación tampoco.</h2>
+        <p>La educación avanza cuando las ideas, las experiencias y las soluciones pueden circular, adaptarse y enriquecerse en contextos distintos.</p>
+        <p>Desde Estados Unidos, Learn5 impulsa una visión de colaboración educativa con Latinoamérica: intercambio de conocimiento, tecnología, talento y oportunidades de desarrollo.</p>
+        <p>No concebimos esta relación en una sola dirección. Reconocemos el potencial innovador de las instituciones, los profesionales y las comunidades educativas de ambos lados.</p>
+        <p class="nos-lema">Enseña al presente, <span>imagina el futuro.</span></p>
+      </div>
+      <!-- V4 · sustituye al globo SVG de la V3. Proporción 1:1 respetada,
+           sin texto incrustado. En móvil cae debajo del texto. -->
+      <figure class="globo" aria-labelledby="globo-cap">
+        <img src="assets/puente-globo.jpg" width="1000" height="1000" loading="lazy"
+             alt="Globo digital con América del Norte y del Sur conectadas por trayectorias luminosas en ambos sentidos">
+        <figcaption id="globo-cap">Conocimiento, experiencias y soluciones circulando en las dos direcciones.</figcaption>
+      </figure>
+    </div>
+
+    <ul class="nos-pts rev">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h12l-3-3M20 16H8l3 3"/></svg>
+        <b>Conectar conocimiento</b>
+        <span>Promover el intercambio de experiencias, modelos y buenas prácticas educativas.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.6 8.7L11 15.8M16.4 8.7L13 15.8M8.3 7h7.4"/></svg>
+        <b>Impulsar colaboración</b>
+        <span>Favorecer oportunidades de trabajo conjunto entre instituciones, especialistas y organizaciones.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
+        <b>Ampliar posibilidades</b>
+        <span>Acercar innovación y soluciones educativas a nuevos contextos y comunidades.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<span class="ancla" id="newsletter" aria-hidden="true"></span>
+<!-- ══ 8 · COMUNIDAD LEARN5 ══ -->
+<section class="comu" id="comunidad">
+  <div class="wrap">
+    <div class="comu-caja rev">
+      <div>
+        <p class="comu-et">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c3 .2 5.5 2.2 5.5 5.4"/></svg>
+          Comunidad Learn5
+        </p>
+        <h2>Una comunidad para aprender, compartir e imaginar nuevas posibilidades.</h2>
+      </div>
+      <div>
+        <ul class="comu-lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Ideas y tendencias sobre educación e innovación</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Experiencias y aprendizajes de otros docentes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Invitaciones a talleres, eventos y programas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 7"/></svg>Tecnología aplicada al aprendizaje, con criterio</li>
+        </ul>
+      </div>
+      <div class="comu-cta">
+        <a class="btn btn-3" href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".9" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg>
+          Únete a nuestra comunidad
+        </a>
+        <p class="comu-nota">Se publica en LinkedIn, cada semana. ¿Prefieres escribirnos?
+          <button class="enlace" type="button" data-modal="reunion">Hablemos</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9 · CTA FINAL ══ -->
+<section class="cierre" id="contacto">
+  <div class="wrap">
+    <h2 class="rev">El futuro de la educación<em>se construye juntos.</em></h2>
+    <p class="rev">Creemos en el poder del conocimiento, la innovación y la colaboración para abrir nuevas oportunidades.</p>
+    <div class="cierre-cta rev">
+      <a class="btn btn-1" href="#soluciones">Descubre nuestras soluciones
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      <button class="btn btn-2" type="button" data-modal="reunion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.6-4.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        Conversemos</button>
+    </div>
+  </div>
+  <svg class="cierre-ondas" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="o1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E7FC4"/><stop offset="1" stop-color="#012A52"/></linearGradient>
+      <linearGradient id="o2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#15B9DC"/><stop offset="1" stop-color="#0A6FB4"/></linearGradient>
+      <linearGradient id="o3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8FE6F5"/><stop offset="1" stop-color="#2DA9D8"/></linearGradient>
+    </defs>
+    <path d="M0 196 C 250 120, 420 232, 700 190 C 980 148, 1180 236, 1440 168 L1440 300 L0 300 Z" fill="url(#o3)" opacity=".42"/>
+    <path d="M0 228 C 270 158, 460 262, 760 214 C 1030 170, 1220 258, 1440 206 L1440 300 L0 300 Z" fill="url(#o2)" opacity=".72"/>
+    <path d="M0 262 C 300 206, 500 290, 820 250 C 1100 214, 1260 286, 1440 248 L1440 300 L0 300 Z" fill="url(#o1)"/>
+  </svg>
+</section>
+
+</main>
+
+<!-- ══ MODALES · tres recorridos comerciales distintos ══ -->
+<dialog id="md-reunion" aria-labelledby="t-reunion">
+  <form method="dialog" class="md" novalidate data-form="reunion">
+    <div class="md-h">
+      <h3 id="t-reunion">Agendar una reunión</h3>
+      <button class="md-x" type="button" data-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p>Treinta minutos, sin compromiso. Cuéntanos qué necesitas y te proponemos un horario.</p>
+    <div class="campo-2">
+      <div class="campo"><label for="r-nom">Nombre y apellidos *</label><input id="r-nom" name="nombre" required autocomplete="name"></div>
+      <div class="campo"><label for="r-mail">Correo *</label><input id="r-mail" name="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div class="campo-2">
+      <div class="campo"><label for="r-org">Organización</label><input id="r-org" name="organizacion" autocomplete="organization"></div>
+      <div class="campo"><label for="r-tel">Teléfono</label><input id="r-tel" name="telefono" type="tel" autocomplete="tel"></div>
+    </div>
+    <div class="campo"><label for="r-cuando">¿Cuándo te viene bien? *</label>
+      <select id="r-cuando" name="disponibilidad" required>
+        <option value="">— Selecciona —</option>
+        <option>Entre semana, por la mañana</option>
+        <option>Entre semana, a mediodía</option>
+        <option>Entre semana, por la tarde</option>
+        <option>Fin de semana</option>
+        <option>Me adapto a lo que tengas</option>
+      </select>
+    </div>
+    <div class="campo"><label for="r-msg">¿De qué quieres que hablemos?</label><textarea id="r-msg" name="mensaje"></textarea></div>
+    <label class="comu-cons"><input type="checkbox" name="consent" required><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
+    <p class="aviso" role="status" aria-live="polite"></p>
+    <button class="btn btn-1" type="submit">Enviar solicitud</button>
+  </form>
+</dialog>
+
+<dialog id="md-propuesta" aria-labelledby="t-propuesta">
+  <form method="dialog" class="md" novalidate data-form="propuesta">
+    <div class="md-h">
+      <h3 id="t-propuesta">Solicitar una propuesta</h3>
+      <button class="md-x" type="button" data-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p>Para instituciones y empresas. Cuéntanos tu contexto y preparamos una propuesta a medida.</p>
+    <div class="campo-2">
+      <div class="campo"><label for="p-nom">Nombre y apellidos *</label><input id="p-nom" name="nombre" required autocomplete="name"></div>
+      <div class="campo"><label for="p-mail">Correo corporativo *</label><input id="p-mail" name="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div class="campo-2">
+      <div class="campo"><label for="p-org">Organización *</label><input id="p-org" name="organizacion" required autocomplete="organization"></div>
+      <div class="campo"><label for="p-cat">Categoría de servicio *</label>
+        <select id="p-cat" name="categoria" required>
+          <option value="">— Selecciona —</option>
+          <option>Consultoría estratégica</option>
+          <option>Capacitación corporativa</option>
+          <option>Producción educativa</option>
+          <option>Integración tecnológica</option>
+          <option>Varias / no lo tengo claro</option>
+        </select>
+      </div>
+    </div>
+    <div class="campo"><label for="p-msg">Describe tu necesidad *</label><textarea id="p-msg" name="mensaje" required placeholder="Qué quieres resolver, a cuánta gente afecta y en qué plazo."></textarea></div>
+    <label class="comu-cons"><input type="checkbox" name="consent" required><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
+    <p class="aviso" role="status" aria-live="polite"></p>
+    <button class="btn btn-1" type="submit">Enviar solicitud</button>
+  </form>
+</dialog>
+
+<dialog id="md-alianza" aria-labelledby="t-alianza">
+  <form method="dialog" class="md" novalidate data-form="alianza">
+    <div class="md-h">
+      <h3 id="t-alianza">Conversemos sobre una alianza</h3>
+      <button class="md-x" type="button" data-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p>Convenios, alianzas académicas, partners tecnológicos y colaboración en programas.</p>
+    <div class="campo-2">
+      <div class="campo"><label for="al-org">Organización *</label><input id="al-org" name="organizacion" required autocomplete="organization"></div>
+      <div class="campo"><label for="al-tipo">Tipo de alianza *</label>
+        <select id="al-tipo" name="tipo" required>
+          <option value="">— Selecciona —</option>
+          <option>Convenio institucional</option>
+          <option>Alianza académica</option>
+          <option>Partner tecnológico</option>
+          <option>Colaboración en programas</option>
+        </select>
+      </div>
+    </div>
+    <div class="campo-2">
+      <div class="campo"><label for="al-nom">Persona de contacto *</label><input id="al-nom" name="nombre" required autocomplete="name"></div>
+      <div class="campo"><label for="al-mail">Correo *</label><input id="al-mail" name="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div class="campo"><label for="al-tel">Teléfono</label><input id="al-tel" name="telefono" type="tel" autocomplete="tel"></div>
+    <div class="campo"><label for="al-msg">Tu propuesta *</label><textarea id="al-msg" name="mensaje" required placeholder="Qué propones, qué aporta cada parte y en qué plazo."></textarea></div>
+    <label class="comu-cons"><input type="checkbox" name="consent" required><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
+    <p class="aviso" role="status" aria-live="polite"></p>
+    <button class="btn btn-1" type="submit">Enviar propuesta</button>
+  </form>
+</dialog>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="wrap">
+    <div class="pie">
+      <div>
+        <span class="logo-n">Learn<span style="color:var(--cyan)">5</span></span>
+        <span class="logo-d" style="display:block;margin-top:4px">AI &amp; EDTECH SOLUTIONS</span>
+        <p>Empresa EdTech de origen estadounidense y proyección internacional. Conectamos conocimiento, tecnología y oportunidades para impulsar la innovación educativa. Miami, Florida · LLC desde marzo de 2024.</p>
+        <div class="pie-soc">
+          <a href="https://www.linkedin.com/company/learn5/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10v7"/><circle cx="7.5" cy="6.8" r=".8" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17"/></svg></a>
+          <a href="https://www.instagram.com/learn5_tech/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="https://wa.me/17865271196" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.6-4.6a8.4 8.4 0 1 1 15.4-4.3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Formación</h4>
+        <ul>
+          <li><a href="#formacion">Formación destacada</a></li>
+          <li><a href="https://learn5.pro/ia-30-dias/">Domina la IA en 30 Días</a></li>
+          <li><a href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Catálogo completo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluciones</h4>
+        <ul>
+          <li><a href="#soluciones">Para instituciones y organizaciones</a></li>
+          <li><button type="button" data-modal="propuesta">Solicitar una propuesta</button></li>
+          <li><a href="#alianzas">Alianzas y colaboración</a></li>
+          <li><button type="button" data-modal="reunion">Conversemos</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:contacto@learn5.tech">contacto@learn5.tech</a></li>
+          <li><a href="tel:+17865271196">+1 786 527-1196</a></li>
+          <li>Miami, Florida, EE. UU.</li>
+          <li><a href="#comunidad">Comunidad Learn5</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-b">
+      <span>© 2024–2026 Learn5 LLC · Miami, Florida · Todos los derechos reservados.</span>
+      <span><a href="/privacidad.html">Privacidad</a> · <a href="/terminos.html">Términos</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   1 · CATÁLOGO DE FORMACIÓN · editable sin tocar el maquetado
+   `individual:false` = todavía no tiene página propia; va al
+   catálogo, que sí existe, en vez de a un enlace inventado.
+   ══════════════════════════════════════════════════════════════ */
+var CATALOGO = "https://hotmart.com/es/club/learn5/products";
+var CURSOS = [
+  { titulo:"IA en el Aula",
+    bajada:"Integra la IA en tu práctica docente de forma ética y creativa.",
+    etiqueta:"Curso online", img:"assets/curso-1.jpg",
+    url:"https://go.hotmart.com/G97993169E?dp=1", individual:true },
+  { titulo:"Transforma tu Futuro con IA",
+    bajada:"Potencia tu productividad, crea contenido y aplica la IA a tus proyectos y negocios.",
+    etiqueta:"Curso completo", img:"assets/curso-2.jpg",
+    url:"https://go.hotmart.com/W103286625X?dp=1", individual:true },
+  { titulo:"Domina la IA en 30 Días",
+    bajada:"Un plan paso a paso para usar la IA con confianza, propósito y resultados reales.",
+    etiqueta:"Programa guiado", img:"assets/curso-3.jpg",
+    url:"https://learn5.pro/ia-30-dias/", individual:true },
+  /* El producto real en Hotmart se llama "Educador Digital Total" y son
+     11 ebooks, no una guía suelta. El rótulo de la tarjeta viene del arte
+     aprobado; pendiente de que Gelkin decida si se renombra. */
+  { titulo:"Guía Digital del Educador",
+    bajada:"Once guías sobre IA, ciberseguridad, realidad aumentada y futuro del trabajo.",
+    etiqueta:"Pack de 11 ebooks", img:"assets/curso-4.jpg",
+    url:"https://go.hotmart.com/X98102417D?dp=1", individual:true }
+];
+
+(function pintarCursos(){
+  var cont = document.getElementById("listaCursos");
+  if(!cont) return;
+  function esc(t){ return String(t).replace(/[<>&"]/g, function(c){
+    return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  cont.innerHTML = CURSOS.map(function(c){
+    var cuerpo =
+      '<div class="curso-im">'+
+        '<span class="curso-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'+esc(c.etiqueta)+'</span>'+
+        '<img src="'+esc(c.img)+'" loading="lazy" width="1160" height="430" alt="">'+
+      '</div>'+
+      '<div class="curso-tx"><h3>'+esc(c.titulo)+'</h3><p>'+esc(c.bajada)+'</p>'+
+      '<span class="curso-fl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></div>';
+    if(!c.url) return '<article class="curso rev" aria-disabled="true">'+cuerpo+'</article>';
+    var fuera = c.url.indexOf("http") === 0 && c.url.indexOf("learn5.pro") < 0;
+    return '<a class="curso rev" href="'+esc(c.url)+'"'+(fuera?' target="_blank" rel="noopener"':'')+'>'+cuerpo+'</a>';
+  }).join("");
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   2 · NAVEGACIÓN · desplegables y menú móvil accesibles
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var menu  = document.getElementById("menu");
+  var hamb  = document.querySelector(".hamb");
+  var tiras = Array.prototype.slice.call(document.querySelectorAll(".menu .mt"));
+
+  function cerrarSubs(salvo){
+    tiras.forEach(function(b){
+      if(b === salvo) return;
+      b.setAttribute("aria-expanded","false");
+      document.getElementById(b.getAttribute("aria-controls")).classList.remove("on");
+    });
+  }
+  tiras.forEach(function(b){
+    var panel = document.getElementById(b.getAttribute("aria-controls"));
+    b.addEventListener("click", function(){
+      var abierto = b.getAttribute("aria-expanded") === "true";
+      cerrarSubs(b);
+      b.setAttribute("aria-expanded", String(!abierto));
+      panel.classList.toggle("on", !abierto);
+    });
+  });
+  document.addEventListener("click", function(e){
+    if(!e.target.closest(".menu")) cerrarSubs(null);
+  });
+
+  function cerrarMenu(){
+    menu.classList.remove("abierto");
+    hamb.setAttribute("aria-expanded","false");
+    cerrarSubs(null);
+  }
+  hamb.addEventListener("click", function(){
+    var abierto = hamb.getAttribute("aria-expanded") === "true";
+    if(abierto){ cerrarMenu(); return; }
+    menu.classList.add("abierto");
+    hamb.setAttribute("aria-expanded","true");
+    var primero = menu.querySelector("a,button");
+    if(primero) primero.focus();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Escape") return;
+    if(menu.classList.contains("abierto")){ cerrarMenu(); hamb.focus(); }
+    else cerrarSubs(null);
+  });
+  menu.addEventListener("click", function(e){
+    /* También los botones que abren modal, no solo los enlaces. */
+    if((e.target.closest("a") || e.target.closest("[data-modal]")) &&
+       menu.classList.contains("abierto")) cerrarMenu();
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   3 · ENVÍO DE FORMULARIOS · Web3Forms con FormSubmit de respaldo
+
+   Los tres formularios mandan a Web3Forms, y el correo llega a
+   contacto@learn5.tech. Si Web3Forms falla o tarda demasiado, el
+   mismo envío se reintenta por FormSubmit sin que el visitante se
+   entere. Dos servicios tienen que caerse a la vez para perder un
+   mensaje.
+
+   POR QUÉ: el 10-nov-2026 FormSubmit tardó 24,8 s en confirmar un
+   envío que sí había entregado. Sigue como red de seguridad, no
+   como vía principal.
+
+   PARA ACTIVAR WEB3FORMS: pega la clave en W3F_KEY. Mientras esté
+   vacía todo sale por FormSubmit, así que nada deja de funcionar.
+   La clave puede ir a la vista: es un alias del correo, no una
+   contraseña.
+   ══════════════════════════════════════════════════════════════ */
+var W3F_KEY    = "";
+var W3F_URL    = "https://api.web3forms.com/submit";
+var FS_DESTINO = "contacto@learn5.tech";
+var FS_URL     = "https://formsubmit.co/ajax/" + FS_DESTINO;
+var CORREO     = "contacto@learn5.tech";
+var WHATSAPP   = "https://wa.me/17865271196";
+
+/* OJO con el texto de este aviso. FormSubmit a veces recibe el mensaje
+   pero tarda 25 s en contestar, así que un corte por tiempo NO significa
+   que no haya llegado. Decir "no se ha enviado" provocaría que la gente
+   lo mandara tres veces o se fuera creyendo que falló. */
+function fallo(aviso){
+  aviso.className = "aviso err";
+  aviso.innerHTML = "No hemos podido confirmar el envío. Es posible que sí haya llegado, " +
+    "así que mejor no lo repitas. Para asegurarte, escríbenos a " +
+    '<a href="mailto:'+CORREO+'" style="color:inherit;text-decoration:underline">'+CORREO+'</a> ' +
+    'o por <a href="'+WHATSAPP+'" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
+}
+
+/* Petición con corte por tiempo: si la red se cuelga, el botón no
+   puede quedarse en "Enviando..." para siempre. */
+function pedir(url, cuerpo, ms){
+  var corte = ("AbortController" in window) ? new AbortController() : null;
+  var reloj = corte ? setTimeout(function(){ corte.abort(); }, ms) : null;
+  return fetch(url, {
+    method:"POST",
+    headers:{ "Content-Type":"application/json", Accept:"application/json" },
+    body: JSON.stringify(cuerpo),
+    signal: corte ? corte.signal : undefined
+  }).then(function(r){
+    if(reloj) clearTimeout(reloj);
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    return r.json();
+  }).then(function(j){
+    /* Los dos servicios devuelven success, uno como booleano y el
+       otro como la cadena "true". */
+    if(String(j.success) !== "true") throw new Error(j.message || "rechazado");
+    return true;
+  });
+}
+
+function copiar(o){ var c={}; for(var k in o){ if(Object.prototype.hasOwnProperty.call(o,k)) c[k]=o[k]; } return c; }
+
+function viaWeb3Forms(asunto, correoPersona, campos){
+  var d = copiar(campos);
+  d.access_key = W3F_KEY;
+  d.subject    = asunto;
+  d.from_name  = "Web Learn5";
+  if(correoPersona) d.replyto = correoPersona;
+  return pedir(W3F_URL, d, 15000);
+}
+
+function viaFormSubmit(asunto, correoPersona, campos){
+  var d = copiar(campos);
+  d._subject  = asunto;
+  d._template = "table";   // correo legible en vez de un volcado
+  d._captcha  = "false";   // obligatorio al enviar por AJAX
+  if(correoPersona) d._replyto = correoPersona;
+  return pedir(FS_URL, d, 35000);
+}
+
+/* Web3Forms primero, con 15 s de margen. Si no responde o devuelve
+   error, el mismo mensaje sale por FormSubmit antes de darlo por
+   perdido. El visitante no ve ninguna de las dos cosas. */
+function enviar(asunto, correoPersona, campos){
+  if(!W3F_KEY) return viaFormSubmit(asunto, correoPersona, campos);
+  return viaWeb3Forms(asunto, correoPersona, campos)
+    .catch(function(){ return viaFormSubmit(asunto, correoPersona, campos); });
+}
+
+(function(){
+  var ultimoFoco = null;
+
+  document.addEventListener("click", function(e){
+    var lanza = e.target.closest("[data-modal]");
+    if(lanza){
+      e.preventDefault();
+      var d = document.getElementById("md-" + lanza.getAttribute("data-modal"));
+      if(d){ ultimoFoco = lanza; d.showModal(); }
+      return;
+    }
+    var x = e.target.closest("[data-cerrar]");
+    if(x){ x.closest("dialog").close(); }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll("dialog"), function(d){
+    d.addEventListener("close", function(){
+      if(ultimoFoco) ultimoFoco.focus();
+      /* Limpiar el mensaje de error al cerrar: si no, al reabrir el
+         formulario aparece el aviso de la vez anterior. Un envío ya
+         hecho sí se conserva, para no invitar a mandarlo dos veces. */
+      var f = d.querySelector("form");
+      if(f && f.getAttribute("data-enviado") !== "si"){
+        var a = f.querySelector(".aviso");
+        if(a){ a.className = "aviso"; a.textContent = ""; }
+      }
+      d.scrollTop = 0;
+    });
+    d.addEventListener("click", function(e){ if(e.target === d) d.close(); });
+  });
+
+  var ASUNTOS = {
+    reunion:   "Learn5 · Solicitud de reunión",
+    propuesta: "Learn5 · Solicitud de propuesta",
+    alianza:   "Learn5 · Propuesta de alianza"
+  };
+
+  Array.prototype.forEach.call(document.querySelectorAll("form[data-form]"), function(f){
+    /* Trampa antispam de Web3Forms: un bot la rellena, una persona no. */
+    var trampa = document.createElement("input");
+    trampa.type = "checkbox"; trampa.name = "botcheck";
+    trampa.style.cssText = "position:absolute;left:-9999px";
+    trampa.tabIndex = -1; trampa.setAttribute("aria-hidden","true");
+    f.appendChild(trampa);
+
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var tipo  = f.getAttribute("data-form");
+      var aviso = f.querySelector(".aviso");
+      var boton = f.querySelector("[type=submit]");
+      aviso.className = "aviso";
+
+      var falla = null;
+      Array.prototype.forEach.call(f.querySelectorAll("[required]"), function(c){
+        if(falla) return;
+        var vacio = (c.type === "checkbox") ? !c.checked : !c.value.trim();
+        if(vacio) falla = c;
+        if(!falla && c.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c.value.trim())) falla = c;
+      });
+      if(falla){
+        aviso.className = "aviso err";
+        aviso.textContent = (falla.type === "checkbox")
+          ? "Necesitamos tu consentimiento para poder responderte."
+          : "Revisa los campos obligatorios: falta alguno o el correo no es válido.";
+        falla.focus();
+        return;
+      }
+      /* Trampa antispam: si está marcada es un bot. Fingimos normalidad
+         y no mandamos nada. */
+      if(trampa.checked) return;
+
+      /* El correo que llega lleva estos rótulos, no los nombres
+         internos de los campos: se lee de un vistazo. */
+      var ETIQUETAS = {
+        nombre:"Nombre", email:"Correo", organizacion:"Organización",
+        telefono:"Teléfono", disponibilidad:"Disponibilidad",
+        categoria:"Categoría", tipo:"Tipo de alianza",
+        mensaje:"Mensaje", consent:"Acepta privacidad"
+      };
+      var datos = {};
+      var correoPersona = "";
+      Array.prototype.forEach.call(f.elements, function(c){
+        if(!c.name || c.name === "botcheck") return;
+        if(c.name === "email") correoPersona = c.value.trim();
+        datos[ETIQUETAS[c.name] || c.name] =
+          (c.type === "checkbox") ? (c.checked ? "sí" : "no") : c.value.trim();
+      });
+      datos["Formulario"] = tipo;
+      var asunto = ASUNTOS[tipo] || "Learn5 · Mensaje desde la web";
+
+      var textoBoton = boton.textContent;
+      boton.disabled = true; boton.textContent = "Enviando…";
+
+      /* A los 7 s, si el servicio todavía no ha contestado, avisamos en
+         tono neutro. No es un error: el envío sigue en curso. */
+      var paciencia = setTimeout(function(){
+        aviso.className = "aviso info";
+        aviso.textContent = "Seguimos enviándolo. El servicio va lento hoy, dale unos segundos.";
+      }, 7000);
+
+      enviar(asunto, correoPersona, datos).then(function(){
+        clearTimeout(paciencia);
+        /* A partir de aquí el mensaje YA está enviado: ningún error de
+           repintado puede convertir un éxito en un fallo. */
+        f.setAttribute("data-enviado","si");
+        try{
+          f.querySelector(".md > p").textContent = "";
+          aviso.className = "aviso ok";
+          aviso.textContent = "Recibido. Te respondemos desde " + CORREO + ", normalmente el mismo día.";
+          Array.prototype.forEach.call(f.querySelectorAll(".campo, .campo-2, .comu-cons"), function(n){ n.style.display = "none"; });
+          boton.textContent = "Enviado";
+        }catch(err){ /* enviado igualmente */ }
+      }).catch(function(){
+        clearTimeout(paciencia);
+        fallo(aviso);
+        /* El botón NO vuelve a habilitarse: como el mensaje puede haber
+           llegado igualmente, reenviar solo produciría duplicados. */
+        boton.textContent = "No confirmado";
+      });
+    });
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   4 · DETALLE DE SERVICIOS · un panel abierto cada vez
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var botones = Array.prototype.slice.call(document.querySelectorAll(".ben"));
+  if(!botones.length) return;
+  botones.forEach(function(b){
+    var panel = document.getElementById(b.getAttribute("aria-controls"));
+    panel.setAttribute("aria-labelledby", panel.id + "-btn");
+    b.id = panel.id + "-btn";
+    b.addEventListener("click", function(){
+      var abierto = b.getAttribute("aria-expanded") === "true";
+      botones.forEach(function(o){
+        o.setAttribute("aria-expanded","false");
+        document.getElementById(o.getAttribute("aria-controls")).hidden = true;
+      });
+      if(!abierto){
+        b.setAttribute("aria-expanded","true");
+        panel.hidden = false;
+      }
+    });
+  });
+  /* Escape cierra el que esté abierto, como en el resto de la página. */
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Escape") return;
+    var abierto = botones.filter(function(b){ return b.getAttribute("aria-expanded") === "true"; })[0];
+    if(abierto){ abierto.click(); abierto.focus(); }
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   5 · entradas suaves al hacer scroll
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var nodos = document.querySelectorAll(".rev");
+  if(!("IntersectionObserver" in window) ||
+     window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    for(var i=0;i<nodos.length;i++) nodos[i].classList.add("on");
+    return;
+  }
+  var ob = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("on"); ob.unobserve(en.target); } });
+  }, { rootMargin:"0px 0px -8% 0px", threshold:.08 });
+  for(var j=0;j<nodos.length;j++) ob.observe(nodos[j]);
+})();
+</script>
+</body>
+</html>
