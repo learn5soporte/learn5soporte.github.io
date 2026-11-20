@@ -1,0 +1,42 @@
+/* ══════════════════════════════════════════════════════════════
+   Learn5 · evolución de mensaje — noviembre 2026
+   Hoja aparte, no se toca estilos.css. Solo la carga la portada.
+   Quitando una línea del <head> se revierte todo lo visual.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── IMAGINA LO QUE PUEDES LOGRAR ──
+   Sustituye al resumen de Soluciones. Usa el mismo sistema de
+   tarjetas, sombras y colores que el resto del sitio.            */
+.lograr{background:linear-gradient(180deg,#FFFFFF,#F4FBFE)}
+
+.logros{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+
+.logro{position:relative;background:#fff;border:1.5px solid var(--borde);
+  border-radius:var(--r3);padding:28px 30px 26px;box-shadow:var(--sombra);
+  display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s,border-color .2s}
+.logro:hover{transform:translateY(-4px);box-shadow:var(--sombra-2);border-color:var(--borde-2)}
+
+.logro-et{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--azul-hondo);
+  background:var(--hielo);border-radius:100px;padding:6px 13px;margin-bottom:18px}
+
+.logro>svg{width:30px;height:30px;color:var(--turquesa);margin-bottom:14px}
+
+.logro h3{font-size:19.5px;color:var(--navy);line-height:1.28;margin-bottom:10px;max-width:400px}
+.logro>p{font-size:14.5px;color:var(--txt-2);line-height:1.6;margin-bottom:18px;flex:1}
+
+.lograr-cta{display:flex;align-items:center;justify-content:center;gap:20px;
+  flex-wrap:wrap;margin-top:var(--s5);text-align:center}
+.lograr-cta p{font-size:15px;color:var(--txt-3)}
+
+@media(max-width:1180px){
+  .logros{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .logro{padding:24px 22px 22px}
+  .logro h3{font-size:18px}
+  .logros{gap:16px}
+  .lograr-cta{gap:14px}
+  .lograr-cta .btn{width:100%}
+}
