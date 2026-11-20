@@ -4,6 +4,18 @@
    Quitando una línea del <head> se revierte todo lo visual.
    ══════════════════════════════════════════════════════════════ */
 
+/* ── TARJETAS B2B: desafío y solución ──
+   Sustituyen a Aprende · Transforma · Innova. Misma caja y mismo
+   lenguaje gráfico; solo se añade la etiqueta de categoría arriba.  */
+.camino-cat{display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--azul-hondo);
+  background:var(--hielo);border-radius:100px;padding:5px 12px;margin-bottom:14px}
+.camino-tx h3{font-size:21px;line-height:1.26}
+.camino-tx .enlace{text-align:left}
+
+/* Con solo dos escenarios, la rejilla no debe dejar un hueco */
+.logros{grid-template-columns:repeat(2,1fr)}
+
 /* ── IMAGINA LO QUE PUEDES LOGRAR ──
    Sustituye al resumen de Soluciones. Usa el mismo sistema de
    tarjetas, sombras y colores que el resto del sitio.            */
