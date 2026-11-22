@@ -217,3 +217,17 @@
   margin:0 0 6px;font-size:10.5px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--azul-hondo)}
 .ml-anillo span{width:26px;height:0;border-top:1.6px dotted var(--cyan)}
+
+/* ── Lo que queda resuelto ──
+   Va por delante de los entregables a propósito: primero qué
+   resuelve la etapa, después con qué. Se marca con una barra
+   turquesa a la izquierda para que no se lea como un servicio más
+   de la lista de abajo.
+   No se usa «quick win»: promete velocidad y resultado garantizado,
+   y no hay caso documentado que lo respalde. */
+.ml-res-t{margin-top:16px;font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--turquesa)}
+.ml-res{margin-top:8px;padding:11px 14px;border-left:3px solid var(--turquesa);
+  background:var(--hielo);border-radius:0 var(--r) var(--r) 0;
+  font-size:14px;font-weight:600;color:var(--navy);line-height:1.55}
+.ml-et-d .ml-res-t{margin-top:14px}
