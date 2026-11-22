@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Soluciones para instituciones y organizaciones | Learn5</title>
-<meta name="description" content="Consultoría y transformación, formación y desarrollo, tecnología e innovación, contenidos y experiencias. Acompañamos a instituciones, empresas y profesionales.">
+<meta name="description" content="Consultoría y transformación, formación y desarrollo, tecnología e innovación, contenidos y experiencias. Acompañamos a gobiernos, empresas, pymes e instituciones educativas.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://learn5.pro/soluciones/">
@@ -12,7 +12,7 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Learn5">
 <meta property="og:title" content="Soluciones para instituciones y organizaciones | Learn5">
-<meta property="og:description" content="Consultoría y transformación, formación y desarrollo, tecnología e innovación, contenidos y experiencias. Acompañamos a instituciones, empresas y profesionales.">
+<meta property="og:description" content="Consultoría y transformación, formación y desarrollo, tecnología e innovación, contenidos y experiencias. Acompañamos a gobiernos, empresas, pymes e instituciones educativas.">
 <meta property="og:url" content="https://learn5.pro/soluciones/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23001D3D'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial' font-size='34' font-weight='bold' fill='%23fff' text-anchor='middle'%3EL%3Ctspan fill='%2300BCD2'%3E5%3C/tspan%3E%3C/text%3E%3C/svg%3E">
@@ -20,6 +20,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../estilos.css">
+<!-- Hoja propia de esta página. Quitando esta línea se revierte
+     todo lo visual de «A quién acompañamos». -->
+<link rel="stylesheet" href="../soluciones.css">
 </head>
 <body>
 <a class="saltar" href="#principal">Saltar al contenido</a>
@@ -86,33 +89,82 @@
     <nav class="miga" aria-label="Ruta"><a href="../">Inicio</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span>Soluciones</span></nav>
     <p class="eyebrow">Soluciones para instituciones y organizaciones</p>
     <h1>La innovación educativa comienza cuando transformamos posibilidades <em>en acciones.</em></h1>
-    <p class="pg-sub">Acompañamos a instituciones educativas, empresas y organizaciones en el desarrollo de capacidades, la adopción de tecnología, la innovación de sus procesos y la creación de nuevas experiencias de aprendizaje.</p>
+    <p class="pg-sub">Acompañamos a gobiernos y entidades públicas, empresas y corporaciones, pymes y startups e instituciones educativas en el desarrollo de capacidades, la adopción de tecnología, la innovación de sus procesos y la creación de nuevas experiencias de aprendizaje.</p>
   </div>
 </section>
 
+<!-- ══ A QUIÉN ACOMPAÑAMOS ══
+     Cuatro públicos que contratan, en cuatro columnas a todo el
+     ancho del contenedor. Antes eran tres tarjetas dentro de un
+     .aud con max-width:600px, que dejaba 680 px en blanco a la
+     derecha en pantallas anchas.
+
+     Educadores, profesionales y familias NO son una quinta
+     tarjeta: no contratan una propuesta, compran formación. Van
+     en la franja de abajo, que los devuelve a su recorrido en la
+     portada.
+
+     Cada tarjeta describe a quién nos dirigimos, nunca a quién
+     hemos acompañado: no hay casos públicos ni universitarios
+     documentados y no se insinúa que los haya. -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-c rev">
       <h2>A quién <em>acompañamos</em></h2>
-      <p>Tres puntos de partida distintos y un mismo trabajo: convertir una necesidad en una ruta posible.</p>
+      <p>Cuatro puntos de partida distintos y un mismo trabajo: convertir una necesidad en una ruta posible.</p>
     </div>
-    <ul class="aud">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9.5 13h2M13 13h1.5M9.5 16.5h5"/></svg>
-            <b>Instituciones educativas</b>
-            <span>Evolucionan su modelo formativo y lo llevan a entornos digitales sin perder criterio pedagógico.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M3 12.5h18"/></svg>
-            <b>Empresas y organizaciones</b>
-            <span>Forman a sus equipos, ordenan la inducción y adoptan IA con una ruta clara en vez de herramientas sueltas.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.3"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>
-            <b>Profesionales y docentes</b>
-            <span>Incorporan la IA a su trabajo diario y a su aula, con criterio y sin quedarse en la moda.</span>
-          </li>
+
+    <ul class="publicos">
+      <li class="rev">
+        <span class="pub-et">Gobiernos y entidades públicas</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 21h18M4 21V10M20 21V10M8 21v-6h8v6"/><path d="M2.5 10L12 4l9.5 6"/></svg>
+        <b>Formar a escala sin perder el control de la calidad.</b>
+        <p>Entidades nacionales, regionales y locales que necesitan llevar formación a muchas personas, con criterios de calidad sostenibles y capacidad instalada que no dependa de un proveedor externo.</p>
+        <ul class="pub-se">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>Programas que deben llegar a territorios distintos</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>Equipos internos que tienen que poder sostenerlo después</span></li>
         </ul>
+      </li>
+
+      <li class="rev">
+        <span class="pub-et">Empresas y corporaciones</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M3 12.5h18"/></svg>
+        <b>De capacitaciones sueltas a una ruta de aprendizaje.</b>
+        <p>Organizaciones con equipos grandes que forman, inducen y adoptan inteligencia artificial, y necesitan que todo eso responda a una misma estrategia en vez de a iniciativas aisladas.</p>
+        <ul class="pub-se">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>Cada área resuelve la inducción por su cuenta</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>Herramientas de IA compradas y poco usadas</span></li>
+        </ul>
+      </li>
+
+      <li class="rev">
+        <span class="pub-et">Pymes y startups</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 19L10 13l3.5 3.5L20 10"/><path d="M15 9.5h5.2V15"/><path d="M3 21h18"/></svg>
+        <b>Crecer rápido sin un área de formación detrás.</b>
+        <p>Equipos pequeños que incorporan gente, cambian procesos y adoptan tecnología a gran velocidad, sin una estructura interna que se ocupe de formar a nadie.</p>
+        <ul class="pub-se">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>Cada incorporación se forma improvisando</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>No hay tiempo ni equipo para construir el material</span></li>
+        </ul>
+      </li>
+
+      <li class="rev">
+        <span class="pub-et">Instituciones educativas</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M7 11.5V17c0 1.5 2.2 2.6 5 2.6s5-1.1 5-2.6v-5.5"/></svg>
+        <b>De digitalizar cursos a transformar cómo se aprende.</b>
+        <p>Universidades, institutos técnicos y tecnológicos y colegios que evolucionan su modelo formativo hacia entornos digitales sin perder criterio pedagógico.</p>
+        <ul class="pub-se">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>La formación en línea no termina de funcionar</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M4 12.5l5 5L20 7"/></svg><span>Cada docente usa IA por su cuenta, sin criterio común</span></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="pub-personas rev">
+      <p><b>¿Eres educador, profesional o quieres acompañar el aprendizaje de tu familia?</b> Esta página es para organizaciones que contratan. Tu recorrido empieza en la formación de Learn5.</p>
+      <a class="enlace" href="../#aprender">Ver formación para personas
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
 </section>
 
