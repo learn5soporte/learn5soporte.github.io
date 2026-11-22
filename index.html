@@ -207,47 +207,60 @@
       </div>
       <a class="enlace" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Explora tu próximo aprendizaje <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
-    <!-- Learn5 Academy: declarada como iniciativa EN DESARROLLO. No se
-         afirma que esté operativa ni se enlaza a nada que no exista. -->
-    <p class="form-nota rev">Learn5 Academy, nuestra plataforma formativa, está en desarrollo. Mientras tanto, los programas vigentes se imparten y se adquieren por los canales actuales.</p>
     <div class="cursos" id="listaCursos"></div>
   </div>
 </section>
-<!-- ══ 4 · IMAGINA LO QUE PUEDES LOGRAR ══
-     Sustituye al resumen de Soluciones. Conserva id="soluciones" para
-     que el menu, el pie y los enlaces antiguos sigan funcionando.
-     Cada escenario va a su destino real: formacion para personas,
-     soluciones/ para organizaciones. Son posibilidades que Learn5
-     ayuda a desarrollar, no resultados garantizados. -->
-<section class="sec lograr" id="soluciones">
+<!-- ══ 4 · FORMACIÓN PARA PERSONAS ══
+     Solo personas: educadores, profesionales y familias. Lo corporativo
+     vive en /soluciones/ y no se menciona aquí.
+     Los dos primeros CTA van al programa real de cada audiencia. El de
+     familias no lleva CTA a propósito: todavía no hay nada que ofrecer
+     y un botón sugeriría lo contrario.
+     El ancla #soluciones se conserva oculta por si queda algún enlace
+     antiguo apuntando ahí. -->
+<span class="ancla" id="soluciones" aria-hidden="true"></span>
+<section class="sec lograr" id="aprender">
   <div class="wrap">
     <div class="sec-c rev">
-      <h2>Y si enseñas o trabajas con tecnología, <em>imagina lo que puedes lograr</em></h2>
-      <p>El conocimiento y la tecnología adquieren valor cuando se convierten en nuevas capacidades, mejores experiencias y posibilidades reales.</p>
+      <h2>Aprender abre posibilidades. <em>Transformar lo que sabes cambia tu futuro.</em></h2>
+      <p>Creemos en una educación que acompaña a las personas en cada etapa de su vida. Por eso desarrollamos experiencias de aprendizaje que conectan conocimiento, creatividad y tecnología con los desafíos reales de enseñar, trabajar y crecer.</p>
     </div>
 
     <div class="logros">
       <article class="logro rev">
         <span class="logro-et">Para educadores</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M7 11.5V17c0 1.5 2.2 2.6 5 2.6s5-1.1 5-2.6v-5.5"/></svg>
-        <h3>De enseñar contenidos a crear experiencias que inspiran.</h3>
-        <p>Incorpora nuevas estrategias y herramientas para diseñar clases más dinámicas, creativas y cercanas a lo que tus estudiantes necesitan.</p>
-        <a class="enlace" href="#formacion">Ver formación
+        <h3>De transmitir conocimientos a crear experiencias que transforman.</h3>
+        <p>Transforma tu manera de enseñar con nuevas metodologías, creatividad e inteligencia artificial. Diseña experiencias que conecten con tus estudiantes y enriquezcan el aprendizaje.</p>
+        <a class="enlace" href="https://go.hotmart.com/G97993169E?dp=1" target="_blank" rel="noopener">Ver curso para docentes
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </article>
       <article class="logro rev">
         <span class="logro-et">Para profesionales</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="8" r="3.3"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>
-        <h3>De conocer herramientas a ampliar lo que puedes hacer.</h3>
-        <p>Desarrolla criterio para aplicar la inteligencia artificial a tu trabajo diario y a tus propios proyectos, más allá de la curiosidad inicial.</p>
-        <a class="enlace" href="#formacion">Ver formación
+        <h3>Tu profesión evoluciona. Tus posibilidades también.</h3>
+        <p>Impulsa tu desarrollo profesional con nuevas habilidades, inteligencia artificial y herramientas que te ayuden a trabajar mejor, crear oportunidades y llevar tus ideas más lejos.</p>
+        <a class="enlace" href="https://go.hotmart.com/W103286625X?dp=1" target="_blank" rel="noopener">Ver curso para profesionales
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="logro rev logro-futuro">
+        <span class="logro-et">Para padres y familias</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="8" cy="8.5" r="2.6"/><circle cx="16.5" cy="9.5" r="2"/><path d="M3 19c0-2.9 2.3-4.6 5-4.6s5 1.7 5 4.6"/><path d="M15 14.6c2.6.1 4.5 1.8 4.5 4.4"/></svg>
+        <h3>Acompañar su aprendizaje también es construir su futuro.</h3>
+        <p>Acompaña el crecimiento de tus hijos con nuevas ideas y herramientas para estimular su creatividad, fortalecer su aprendizaje y desenvolverse en un mundo en constante evolución.</p>
+        <span class="logro-pend">Esta línea está en desarrollo.</span>
       </article>
     </div>
 
-    <div class="lograr-cta rev">
-      <p>¿Representas a una institución o una empresa? Eso lo vemos arriba.</p>
-      <a class="btn btn-1" href="#caminos">Ver soluciones para organizaciones
+    <!-- Learn5 Academy · declarada EN DESARROLLO. El único enlace sale
+         al catálogo real que ya existe, no a una plataforma simulada. -->
+    <div class="academy rev">
+      <div class="academy-tx">
+        <p class="academy-marca">Learn5 Academy <span class="academy-et">En desarrollo</span></p>
+        <h3>Un nuevo espacio para aprender y evolucionar</h3>
+        <p>Estamos creando una experiencia de formación para educadores, profesionales y familias, con programas que conectan conocimiento, creatividad e innovación.</p>
+      </div>
+      <a class="btn btn-2" href="https://hotmart.com/es/club/learn5/products" target="_blank" rel="noopener">Ver formación disponible
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>

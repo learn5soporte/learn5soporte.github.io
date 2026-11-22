@@ -26,9 +26,6 @@
 .camino-tx p{flex:none}
 .camino-tx .enlace{margin-top:auto;text-align:left}
 
-/* Con solo dos escenarios, la rejilla no debe dejar un hueco */
-.logros{grid-template-columns:repeat(2,1fr)}
-
 /* ── EXPERIENCIA Y CONFIANZA ──
    Misma composición: texto a la izquierda, cuatro tarjetas a la
    derecha. Solo cambia el peso de la columna izquierda, que ahora
@@ -58,12 +55,18 @@
   .exp-cierre .btn{width:100%}
 }
 
-/* ── IMAGINA LO QUE PUEDES LOGRAR ──
-   Sustituye al resumen de Soluciones. Usa el mismo sistema de
-   tarjetas, sombras y colores que el resto del sitio.            */
+/* ── FORMACIÓN PARA PERSONAS · tres audiencias ──
+   Tres tarjetas equilibradas en escritorio, una columna por debajo
+   de 1180. Mismo blanco, mismos bordes y sombras que el resto.
+
+   OJO con el orden: estas reglas tienen que ir TODAS seguidas y al
+   final. Antes estaban partidas en dos bloques, uno arriba con la
+   rejilla de 3 columnas y otro aquí con la de 2, y como este cargaba
+   después ganaba el de 2. En escritorio se habría publicado a dos
+   columnas sin que las pruebas lo vieran.                          */
 .lograr{background:linear-gradient(180deg,#FFFFFF,#F4FBFE)}
 
-.logros{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.logros{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 
 .logro{position:relative;background:#fff;border:1.5px solid var(--borde);
   border-radius:var(--r3);padding:28px 30px 26px;box-shadow:var(--sombra);
@@ -77,20 +80,43 @@
 
 .logro>svg{width:30px;height:30px;color:var(--turquesa);margin-bottom:14px}
 
-.logro h3{font-size:19.5px;color:var(--navy);line-height:1.28;margin-bottom:10px;max-width:400px}
-.logro>p{font-size:14.5px;color:var(--txt-2);line-height:1.6;margin-bottom:18px;flex:1}
+.logro h3{font-size:18px;color:var(--navy);line-height:1.28;margin-bottom:10px;max-width:400px}
+.logro>p{font-size:14px;color:var(--txt-2);line-height:1.6;margin-bottom:18px;flex:1}
 
-.lograr-cta{display:flex;align-items:center;justify-content:center;gap:20px;
-  flex-wrap:wrap;margin-top:var(--s5);text-align:center}
-.lograr-cta p{font-size:15px;color:var(--txt-3)}
+/* La tarjeta de familias no tiene CTA porque todavía no hay oferta.
+   Tono más suave y borde discontinuo para que se lea como anticipo. */
+.logro-futuro{background:linear-gradient(180deg,#FFFFFF,#F6FCFE);border-style:dashed}
+.logro-pend{display:inline-block;align-self:flex-start;margin-top:auto;
+  font-size:12.5px;font-weight:700;color:var(--azul-hondo);
+  background:var(--hielo);border-radius:100px;padding:7px 14px}
+
+/* ── Learn5 Academy · franja informativa ── */
+.academy{margin-top:var(--s5);background:#fff;border:1.5px solid var(--borde);
+  border-radius:var(--r3);padding:28px 32px;box-shadow:var(--sombra);
+  display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.academy-tx{max-width:700px}
+.academy-marca{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  font-size:15px;font-weight:800;color:var(--navy);letter-spacing:-.01em;margin-bottom:10px}
+.academy-et{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--azul-hondo);background:var(--hielo);border-radius:100px;padding:5px 11px}
+.academy h3{font-size:19px;color:var(--navy);line-height:1.3;margin-bottom:9px}
+.academy-tx p:last-child{font-size:14.5px;color:var(--txt-2);line-height:1.6}
+.academy .btn{flex:none}
 
 @media(max-width:1180px){
   .logros{grid-template-columns:1fr}
 }
+/* Compactación en móvil. Solo espaciado: ningún tamaño de letra baja,
+   porque a 390 px el cuerpo ya está en el mínimo cómodo de lectura.
+   Medido sobre la página real: la sección pasa de 1.937 a 1.850 px. */
 @media(max-width:640px){
-  .logro{padding:24px 22px 22px}
-  .logro h3{font-size:18px}
-  .logros{gap:16px}
-  .lograr-cta{gap:14px}
-  .lograr-cta .btn{width:100%}
+  .logro{padding:22px 20px 20px}
+  .logro-et{margin-bottom:14px}
+  .logro>svg{margin-bottom:10px}
+  .logro>p{margin-bottom:14px}
+  .logros{gap:14px}
+  .academy{padding:22px 20px;gap:16px;margin-top:var(--s4)}
+  .academy-marca{margin-bottom:8px}
+  .academy h3{margin-bottom:8px}
+  .academy .btn{width:100%}
 }
