@@ -11,10 +11,52 @@
   letter-spacing:.13em;text-transform:uppercase;color:var(--azul-hondo);
   background:var(--hielo);border-radius:100px;padding:5px 12px;margin-bottom:14px}
 .camino-tx h3{font-size:21px;line-height:1.26}
-.camino-tx .enlace{text-align:left}
+
+/* Requisito 5 · la ilustración no debe pisar el texto.
+   Medido a 1440: con el texto al 63% llega a 224 px del borde de la
+   tarjeta. Estrechar el texto dejaba los títulos en cuatro líneas y se
+   leía peor, así que se estrecha la ilustración: al 38% empieza en 260
+   y quedan 36 px de aire. */
+.camino-art{right:-4%;width:38%}
+
+/* Requisito 7 · los tres CTA alineados.
+   El párrafo con flex:1 repartía el hueco sobrante y dejaba el enlace
+   de la tarjeta central 24 px más abajo. Con margin-top:auto el enlace
+   se ancla al fondo pase lo que pase con el texto. */
+.camino-tx p{flex:none}
+.camino-tx .enlace{margin-top:auto;text-align:left}
 
 /* Con solo dos escenarios, la rejilla no debe dejar un hueco */
 .logros{grid-template-columns:repeat(2,1fr)}
+
+/* ── EXPERIENCIA Y CONFIANZA ──
+   Misma composición: texto a la izquierda, cuatro tarjetas a la
+   derecha. Solo cambia el peso de la columna izquierda, que ahora
+   lleva dos párrafos en vez de uno, y se añade el cierre comercial
+   debajo de la rejilla.                                            */
+/* OJO: esta hoja carga DESPUÉS de estilos.css, así que una regla suelta
+   aquí gana a la media query que colapsa la rejilla en pantallas
+   estrechas. Hay que acotarla a escritorio o el móvil se queda a dos
+   columnas, con el texto en una tira ilegible. */
+@media(min-width:1181px){
+  .exp-in{grid-template-columns:.92fr 1.08fr;align-items:start}
+}
+.exp-tx h2{margin-bottom:18px}
+.exp-tx h2 em{font-style:normal;color:var(--turquesa)}
+.exp-tx p+p{margin-top:14px}
+
+.exp-cierre{display:flex;align-items:center;justify-content:space-between;gap:32px;
+  flex-wrap:wrap;margin-top:var(--s5);padding-top:var(--s4);
+  border-top:1.5px solid var(--borde)}
+.exp-cierre>div{max-width:680px}
+.exp-cierre p{font-size:15.5px;color:var(--txt-2);line-height:1.65}
+.exp-cierre p+p{margin-top:10px}
+.exp-cierre .btn{flex:none}
+
+@media(max-width:640px){
+  .exp-cierre{margin-top:var(--s4);gap:22px}
+  .exp-cierre .btn{width:100%}
+}
 
 /* ── IMAGINA LO QUE PUEDES LOGRAR ──
    Sustituye al resumen de Soluciones. Usa el mismo sistema de
