@@ -120,3 +120,12 @@
   .academy h3{margin-bottom:8px}
   .academy .btn{width:100%}
 }
+
+/* Enlace secundario de la franja de Alianzas hacia /alianzas/.
+   Discreto a propósito: el botón fantasma sigue siendo el CTA
+   principal y abre el formulario. */
+.banda-mas{display:inline-flex;align-items:center;gap:7px;margin-top:14px;
+  font-size:13.5px;font-weight:700;color:var(--cyan);text-decoration:none}
+.banda-mas svg{width:15px;height:15px;transition:transform .2s}
+.banda-mas:hover svg{transform:translateX(3px)}
+@media(prefers-reduced-motion:reduce){.banda-mas svg{transition:none}}
