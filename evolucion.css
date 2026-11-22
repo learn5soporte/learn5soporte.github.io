@@ -129,3 +129,57 @@
 .banda-mas svg{width:15px;height:15px;transition:transform .2s}
 .banda-mas:hover svg{transform:translateX(3px)}
 @media(prefers-reduced-motion:reduce){.banda-mas svg{transition:none}}
+
+/* ── ACTUALIDAD en la portada ──
+   La sección nace con el atributo hidden y solo se muestra si
+   actualidad/actualidad.json trae alguna entrada publicada. Mientras
+   tanto no ocupa nada: la portada mide exactamente lo mismo que hoy. */
+.act-port{background:linear-gradient(180deg,#FFFFFF,#F2FAFE)}
+.ap-caja{position:relative}
+
+/* Carril con anclaje: una tarjeta encaja limpia en móvil y tres
+   caben en escritorio. Sin desplazamiento automático. */
+.ap-pista{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);
+  gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;padding:4px}
+.ap-pista::-webkit-scrollbar{display:none}
+.ap-pista:focus-visible{outline:3px solid var(--cyan);outline-offset:4px;border-radius:var(--r3)}
+
+.ap-t{scroll-snap-align:start;display:flex;flex-direction:column;background:#fff;
+  border:1.5px solid var(--borde);border-radius:var(--r3);overflow:hidden;
+  box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s,border-color .2s}
+.ap-t:hover{transform:translateY(-4px);box-shadow:var(--sombra-2);border-color:var(--borde-2)}
+
+.ap-im{aspect-ratio:16/9;background:var(--hielo);overflow:hidden}
+.ap-im img{width:100%;height:100%;object-fit:cover;display:block}
+.ap-im-no{background:linear-gradient(120deg,#EAF9FF,#D7F1FB 60%,#C3E9F7)}
+
+.ap-tx{display:flex;flex-direction:column;flex:1;padding:20px 22px 22px}
+.ap-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.ap-cat{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--azul-hondo);background:var(--hielo);border-radius:100px;padding:5px 11px}
+.ap-meta time{font-size:12.5px;color:var(--txt-3)}
+.ap-t h3{font-size:18px;color:var(--navy);line-height:1.3;margin-bottom:8px}
+.ap-tx>p{font-size:14px;color:var(--txt-2);line-height:1.6;margin-bottom:15px}
+.ap-tx .enlace{margin-top:auto;align-self:flex-start}
+
+.ap-nav{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
+/* display:flex en la clase gana al atributo hidden del navegador, que
+   es una regla de la hoja del agente de usuario. Sin esto, las flechas
+   se ven aunque el carrusel no tenga nada que desplazar. */
+.ap-nav[hidden]{display:none}
+.ap-b{width:42px;height:42px;display:grid;place-items:center;cursor:pointer;
+  background:#fff;border:1.5px solid var(--borde);border-radius:50%;
+  color:var(--azul-hondo);transition:border-color .18s,background .18s}
+.ap-b:hover{border-color:var(--borde-2);background:var(--hielo)}
+.ap-b svg{width:19px;height:19px}
+
+@media(prefers-reduced-motion:reduce){
+  .ap-t,.ap-b{transition:none}
+  .ap-pista{scroll-behavior:auto}
+}
+@media(max-width:860px){
+  /* Una tarjeta visible y un pico de la siguiente, para que se vea
+     que hay más sin tener que adivinarlo. */
+  .ap-pista{grid-auto-columns:86%}
+}

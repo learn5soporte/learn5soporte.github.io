@@ -56,7 +56,8 @@
         <button class="mt" type="button" aria-expanded="false" aria-controls="sub-com">Comunidad
           <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-com">
-          <li><a href="#comunidad">Comunidad Learn5</a></li>
+          <li><a href="#comunidad">Comunidad Learn5<small>Participación y conexión</small></a></li>
+          <li><a href="actualidad/">Actualidad Learn5<small>Proyectos e iniciativas</small></a></li>
           <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Newsletter en LinkedIn</small></a></li>
         </ul>
       </li>
@@ -64,9 +65,9 @@
         <button class="mt" type="button" aria-expanded="false" aria-controls="sub-nos">Nosotros
           <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-nos">
-          <li><a href="nosotros/">Quiénes somos<small>Propósito y capacidades</small></a></li>
-          <li><a href="#experiencia">Experiencia y confianza</a></li>
-          <li><a href="https://www.linkedin.com/newsletters/clase-futura-7351652235795152900/" target="_blank" rel="noopener">Clase Futura<small>Ideas y tendencias, cada semana</small></a></li>
+          <li><a href="nosotros/">Quiénes somos<small>Qué es Learn5 y de dónde viene</small></a></li>
+          <li><a href="nosotros/#nosotros">Propósito y visión<small>Innovación educativa sin fronteras</small></a></li>
+          <li><a href="#experiencia">Experiencia y trayectoria</a></li>
         </ul>
       </li>
     </ul>
@@ -373,6 +374,37 @@
     </div>
   </div>
 </section>
+<!-- ══ ACTUALIDAD ══
+     Nace OCULTA y así se queda mientras actualidad/actualidad.json
+     no tenga ninguna entrada publicada: la portada no crece ni un
+     píxel hasta que haya contenido real. En cuanto se añada la
+     primera publicación, la sección aparece sola. No hay noticias
+     escritas aquí: todas salen del JSON. -->
+<section class="sec act-port" id="actualidad" hidden>
+  <div class="wrap">
+    <div class="sec-h rev">
+      <div>
+        <p class="eyebrow">Actualidad · Proyectos · Iniciativas</p>
+        <h2>Lo que estamos construyendo también cuenta nuestra historia.</h2>
+        <p class="sec-h-sub">Descubre las iniciativas, experiencias y novedades que forman parte de nuestro camino para impulsar la innovación educativa.</p>
+      </div>
+      <a class="enlace" href="actualidad/">Ver toda la actualidad
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="ap-caja">
+      <div class="ap-pista" id="ap-pista" tabindex="0" role="region"
+           aria-label="Publicaciones recientes de Learn5, desplazamiento horizontal"></div>
+      <div class="ap-nav" id="ap-nav" hidden>
+        <button class="ap-b" type="button" data-ir="-1" aria-label="Publicación anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="ap-b" type="button" data-ir="1" aria-label="Publicación siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="comu" id="comunidad">
   <div class="wrap">
     <div class="comu-caja rev">
@@ -565,6 +597,70 @@
     </div>
   </div>
 </footer>
+<!-- ══ Carrusel de Actualidad ══
+     Lee el mismo actualidad/actualidad.json que la página completa y
+     muestra las tres más recientes. Si no hay ninguna publicada, la
+     sección se queda oculta y no ocupa espacio.
+     Sin desplazamiento automático: se mueve con las flechas, con el
+     teclado o arrastrando. -->
+<script>
+(function(){
+  var sec=document.getElementById("actualidad");
+  if(!sec) return;
+  var pista=document.getElementById("ap-pista"), navi=document.getElementById("ap-nav");
+
+  function esc(x){ return String(x==null?"":x).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function fechaLarga(f){
+    var m=["enero","febrero","marzo","abril","mayo","junio","julio","agosto",
+           "septiembre","octubre","noviembre","diciembre"];
+    var p=String(f||"").split("-");
+    return p.length===3 ? parseInt(p[2],10)+" de "+m[parseInt(p[1],10)-1]+" de "+p[0] : "";
+  }
+
+  fetch("actualidad/actualidad.json",{cache:"no-cache"})
+   .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+   .then(function(d){
+     var pubs=(d&&d.publicaciones||[]).filter(function(x){ return x && x.estado==="publicado"; });
+     pubs.sort(function(a,b){ return String(b.fecha).localeCompare(String(a.fecha)); });
+     pubs=pubs.slice(0,3);
+     if(!pubs.length) return;            /* sigue oculta */
+
+     pista.innerHTML=pubs.map(function(x){
+       var img = x.imagen
+         ? '<div class="ap-im"><img src="'+esc(x.imagen)+'" alt="'+esc(x.alt||"")+'" loading="lazy"></div>'
+         : '<div class="ap-im ap-im-no" aria-hidden="true"></div>';
+       var destino = x.enlace ? esc(x.enlace) : "actualidad/#"+esc(x.id);
+       var fuera = x.enlace ? ' target="_blank" rel="noopener"' : '';
+       return '<article class="ap-t">'+img+
+         '<div class="ap-tx"><p class="ap-meta"><span class="ap-cat">'+esc(x.categoria)+'</span>'+
+         '<time datetime="'+esc(x.fecha)+'">'+esc(fechaLarga(x.fecha))+'</time></p>'+
+         '<h3>'+esc(x.titulo)+'</h3><p>'+esc(x.resumen)+'</p>'+
+         '<a class="enlace" href="'+destino+'"'+fuera+'>Leer más '+
+         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>'+
+         '</div></article>';
+     }).join("");
+
+     sec.hidden=false;
+
+     /* Las flechas solo tienen sentido si no caben todas a la vez. */
+     function revisa(){
+       var hayScroll = pista.scrollWidth > pista.clientWidth + 4;
+       navi.hidden = !hayScroll;
+     }
+     navi.addEventListener("click",function(e){
+       var b=e.target.closest(".ap-b"); if(!b) return;
+       var t=pista.querySelector(".ap-t");
+       var paso=t ? t.getBoundingClientRect().width+18 : pista.clientWidth*.8;
+       var suave=!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+       pista.scrollBy({left:paso*(+b.getAttribute("data-ir")), behavior:suave?"smooth":"auto"});
+     });
+     window.addEventListener("resize",revisa);
+     revisa();
+   })
+   .catch(function(){ /* sin publicaciones o JSON ilegible: queda oculta */ });
+})();
+</script>
 <script src="app.js" defer></script>
 </body>
 </html>
