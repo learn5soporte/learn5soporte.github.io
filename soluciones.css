@@ -62,3 +62,38 @@
   .publicos>li{padding:22px 20px 20px}
   .pub-personas{padding:20px 22px;gap:16px}
 }
+
+/* ══ CUATRO CAPACIDADES ══
+   La rejilla, la caja, los iconos y la lista siguen siendo los de
+   estilos.css. Aquí solo se añaden las tres piezas nuevas de cada
+   tarjeta: la frase comercial, el subtítulo de la lista y la frase
+   de valor. Nada de esto cambia el diseño aprobado.
+
+   Las tarjetas pasan a flex en columna para que la frase de valor
+   quede pegada al fondo: con cuatro servicios de longitud distinta,
+   sin esto la franja de valor bailaba hasta 30 px entre tarjetas. */
+.cap{display:flex;flex-direction:column}
+
+/* La frase comercial es lo primero que tiene que leerse. Va por
+   encima del párrafo en tamaño y peso, pero por debajo del h3 para
+   no competir con el nombre de la capacidad. */
+.cap-frase{font-size:16.5px;font-weight:700;color:var(--navy);
+  line-height:1.38;margin-bottom:12px}
+
+/* Subtítulo que separa la explicación de la lista de servicios. */
+.cap-sub{display:block;font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--azul-hondo);margin-bottom:12px}
+
+/* El valor para el cliente se separa con una línea fina para que no
+   se confunda con un servicio más de la lista. */
+.cap-valor{margin:18px 0 0;padding-top:15px;border-top:1px solid var(--borde);
+  font-size:13.5px;color:var(--txt-3);line-height:1.55}
+.cap-valor b{color:var(--azul-hondo);font-weight:700}
+
+@media(max-width:640px){
+  /* En móvil la tarjeta es una columna estrecha y el texto se
+     alarga; se baja el relleno, nunca el tamaño de letra. */
+  .cap{padding:22px 20px}
+  .cap-frase{font-size:15.5px}
+  .cap-valor{margin-top:16px;padding-top:13px}
+}
