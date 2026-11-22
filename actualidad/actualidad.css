@@ -1,0 +1,78 @@
+/* ══════════════════════════════════════════════════════════════
+   Learn5 · hoja propia de /actualidad/ — noviembre 2026
+
+   Sin rediseño: caja, radio, sombra, botones y tipografía vienen de
+   estilos.css. Aquí solo la rejilla del listado, los filtros y el
+   aviso de «todavía no hay publicaciones».
+
+   Vive junto a su HTML, como en /soluciones/ y /alianzas/.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Filtros por categoría ── */
+.act-filtros{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:var(--s4)}
+/* Mismo caso que las flechas del carrusel: sin esta línea, display:flex
+   anula el atributo hidden y los filtros aparecen vacíos. */
+.act-filtros[hidden]{display:none}
+.act-f{font:inherit;font-size:13px;font-weight:700;cursor:pointer;
+  color:var(--azul-hondo);background:#fff;border:1.5px solid var(--borde);
+  border-radius:100px;padding:8px 16px;transition:background .18s,border-color .18s,color .18s}
+.act-f:hover{border-color:var(--borde-2)}
+.act-f.on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* ── Listado ── */
+.act-lista{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+
+.act-art{display:flex;flex-direction:column;background:#fff;
+  border:1.5px solid var(--borde);border-radius:var(--r3);overflow:hidden;
+  box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s,border-color .2s}
+.act-art:hover{transform:translateY(-4px);box-shadow:var(--sombra-2);border-color:var(--borde-2)}
+/* Al llegar por /actualidad/#id, la entrada se marca sin parpadeos. */
+.act-destacada{border-color:var(--turquesa);box-shadow:var(--sombra-2)}
+
+/* Proporción fija para que las tarjetas no bailen mientras cargan
+   las imágenes. Sin imagen, queda un degradado de la casa. */
+.act-im{aspect-ratio:16/9;background:var(--hielo);overflow:hidden}
+.act-im img{width:100%;height:100%;object-fit:cover;display:block}
+.act-im-no{background:linear-gradient(120deg,#EAF9FF,#D7F1FB 60%,#C3E9F7)}
+
+.act-tx{display:flex;flex-direction:column;flex:1;padding:22px 24px 24px}
+.act-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:11px}
+.act-cat{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--azul-hondo);background:var(--hielo);border-radius:100px;padding:5px 11px}
+.act-meta time{font-size:12.5px;color:var(--txt-3)}
+.act-art h2{font-size:19px;color:var(--navy);line-height:1.3;margin-bottom:9px}
+.act-tx>p{font-size:14.5px;color:var(--txt-2);line-height:1.6;margin-bottom:16px}
+.act-tx .enlace{margin-top:auto;align-self:flex-start}
+
+.act-mas{margin-top:auto}
+.act-mas summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--azul-hondo);
+  list-style:none}
+.act-mas summary::-webkit-details-marker{display:none}
+.act-mas summary::after{content:" →"}
+.act-mas[open] summary::after{content:" ↑"}
+.act-mas>div{margin-top:12px;font-size:14px;color:var(--txt-2);line-height:1.65;
+  white-space:pre-line}
+
+/* ── Sin publicaciones todavía ──
+   Estado editorial honesto: dice que no hay nada y ofrece una
+   salida real, en vez de rellenar con noticias inventadas. */
+.act-vacio{max-width:620px;margin:0 auto;text-align:center;
+  background:#fff;border:1.5px dashed var(--borde-2);border-radius:var(--r3);
+  padding:46px 34px;box-shadow:var(--sombra)}
+.act-vacio svg{width:38px;height:38px;color:var(--turquesa);margin-bottom:18px}
+.act-vacio h2{font-size:21px;color:var(--navy);line-height:1.3;margin-bottom:11px}
+.act-vacio p{font-size:15px;color:var(--txt-2);line-height:1.65}
+.act-vacio-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+
+@media(prefers-reduced-motion:reduce){
+  .act-art,.act-f{transition:none}
+}
+
+@media(max-width:860px){
+  .act-lista{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .act-tx{padding:20px 20px 22px}
+  .act-vacio{padding:34px 22px}
+  .act-vacio-cta .btn{width:100%}
+}
