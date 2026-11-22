@@ -1,0 +1,233 @@
+/* ══════════════════════════════════════════════════════════════
+   Learn5 · hoja propia de /soluciones/ — noviembre 2026
+
+   Por qué una hoja aparte y no tocar estilos.css:
+   la clase .aud lleva max-width:600px porque nació como lista
+   lateral pequeña. Al quedarse sola en una sección ocupaba 600 de
+   los 1280 px del contenedor y dejaba 680 px en blanco a la
+   derecha, con el cuerpo a 12,5 px. En vez de corregir .aud
+   (compartida en estilos.css, que es de las tres páginas), la
+   sección pasa a usar .publicos y .aud queda sin uso. Quitando
+   una línea del <head> se revierte todo.
+
+   Mismo sistema gráfico que la portada: blanco, borde --borde,
+   radio --r3, sombra --sombra y elevación al pasar el ratón.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── A QUIÉN ACOMPAÑAMOS · cuatro públicos que contratan ── */
+.publicos{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);
+  gap:18px;margin:0 0 var(--s4)}
+
+.publicos>li{display:flex;flex-direction:column;background:#fff;
+  border:1.5px solid var(--borde);border-radius:var(--r3);
+  padding:24px 22px 22px;box-shadow:var(--sombra);
+  transition:transform .2s,box-shadow .2s,border-color .2s}
+.publicos>li:hover{transform:translateY(-4px);box-shadow:var(--sombra-2);
+  border-color:var(--borde-2)}
+
+.pub-et{display:inline-block;align-self:flex-start;font-size:10px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--azul-hondo);
+  background:var(--hielo);border-radius:100px;padding:5px 11px;margin-bottom:14px}
+
+.publicos>li>svg{width:28px;height:28px;color:var(--turquesa);margin-bottom:12px}
+
+.publicos b{display:block;font-size:16.5px;font-weight:700;color:var(--navy);
+  line-height:1.3;margin-bottom:9px}
+.publicos>li>p{font-size:13.5px;color:var(--txt-2);line-height:1.6;margin-bottom:16px}
+
+/* Las señales se anclan abajo para que las cuatro tarjetas
+   terminen a la misma altura pase lo que pase con el párrafo. */
+.pub-se{list-style:none;margin:auto 0 0;padding:0;display:grid;gap:8px}
+.pub-se li{display:flex;gap:8px;align-items:flex-start;
+  font-size:12.5px;color:var(--txt-3);line-height:1.45;
+  background:none;border:0;padding:0;box-shadow:none}
+.pub-se svg{flex:none;width:13px;height:13px;margin-top:3px;color:var(--turquesa)}
+
+/* ── Franja de personas ──
+   Educadores, profesionales y familias no contratan una propuesta:
+   compran formación. Por eso no son una quinta tarjeta, sino una
+   salida hacia su recorrido en la portada. */
+.pub-personas{display:flex;align-items:center;justify-content:space-between;
+  gap:26px;flex-wrap:wrap;background:linear-gradient(90deg,#F4FBFE,#FFFFFF);
+  border:1.5px solid var(--borde);border-radius:var(--r3);padding:22px 26px}
+.pub-personas p{font-size:14.5px;color:var(--txt-2);line-height:1.6;max-width:760px}
+.pub-personas b{color:var(--navy)}
+.pub-personas .enlace{flex:none}
+
+@media(max-width:1180px){
+  .publicos{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .publicos{grid-template-columns:1fr;gap:14px}
+  .publicos>li{padding:22px 20px 20px}
+  .pub-personas{padding:20px 22px;gap:16px}
+}
+
+/* ══ CUATRO CAPACIDADES ══
+   La rejilla, la caja, los iconos y la lista siguen siendo los de
+   estilos.css. Aquí solo se añaden las tres piezas nuevas de cada
+   tarjeta: la frase comercial, el subtítulo de la lista y la frase
+   de valor. Nada de esto cambia el diseño aprobado.
+
+   Las tarjetas pasan a flex en columna para que la frase de valor
+   quede pegada al fondo: con cuatro servicios de longitud distinta,
+   sin esto la franja de valor bailaba hasta 30 px entre tarjetas. */
+.cap{display:flex;flex-direction:column}
+
+/* La frase comercial es lo primero que tiene que leerse. Va por
+   encima del párrafo en tamaño y peso, pero por debajo del h3 para
+   no competir con el nombre de la capacidad.
+
+   OJO con la especificidad: estilos.css trae `.cap>p{font-size:14.5px}`,
+   que son dos puntos (clase + elemento) contra uno de `.cap-frase`.
+   Escrito como clase suelta, la frase salía al mismo tamaño y color
+   que la descripción y solo se distinguía por la negrita: el
+   «protagonismo visual» se perdía. Por eso va con `.cap>p.cap-frase`.
+   El orden de carga aquí no sirve de nada; manda la especificidad. */
+.cap>p.cap-frase{font-size:16.5px;font-weight:700;color:var(--navy);
+  line-height:1.38;margin-bottom:12px}
+
+/* Subtítulo que separa la explicación de la lista de servicios. */
+.cap-sub{display:block;font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--azul-hondo);margin-bottom:12px}
+
+/* El valor para el cliente se separa con una línea fina para que no
+   se confunda con un servicio más de la lista. */
+/* Misma razón de especificidad que la frase: sin el `.cap>p` delante,
+   el valor salía a 14,5 px y en el gris del cuerpo, indistinguible
+   de la descripción. */
+.cap>p.cap-valor{margin:18px 0 0;padding-top:15px;border-top:1px solid var(--borde);
+  font-size:13.5px;color:var(--txt-3);line-height:1.55}
+.cap-valor b{color:var(--azul-hondo);font-weight:700}
+
+@media(max-width:640px){
+  /* En móvil la tarjeta es una columna estrecha y el texto se
+     alarga; se baja el relleno, nunca el tamaño de letra. */
+  .cap{padding:22px 20px}
+  .cap>p.cap-frase{font-size:15.5px}
+  .cap>p.cap-valor{margin-top:16px;padding-top:13px}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MÉTODO LEARN5 · ciclo de seis etapas
+   Sustituye a la foto de «Cómo trabajamos».
+
+   Reparto de responsabilidades, a propósito:
+   · El HTML lleva las seis etapas completas en una <ol> real, con
+     su descripción y sus entregables. Es lo que leen los buscadores
+     y lo que se ve si el JavaScript no llega a ejecutarse.
+   · El SVG lo dibuja el JavaScript a partir de esa misma lista. Es
+     una mejora visual, no la fuente del contenido. Por eso ningún
+     texto vive sólo dentro del gráfico.
+   · En móvil no se encoge el círculo: se oculta y manda la lista,
+     que allí funciona como acordeón.
+   ══════════════════════════════════════════════════════════════ */
+.metodo{background:linear-gradient(180deg,#FFFFFF,#F1F9FE)}
+.ml-in{display:grid;grid-template-columns:.88fr 1.12fr;gap:46px;align-items:start}
+
+.ml-sub{font-size:19px;font-weight:700;color:var(--azul-hondo);
+  line-height:1.35;margin:-4px 0 16px}
+.ml-tx>p{font-size:15px;color:var(--txt-2);line-height:1.65}
+.ml-tx>p+p{margin-top:12px}
+
+/* Bloque de IA transversal. En móvil tiene que seguir visible
+   siempre, no escondido detrás de una etapa. */
+.ml-ia{margin-top:24px;background:#fff;border:1.5px solid var(--borde);
+  border-radius:var(--r2);padding:19px 21px;box-shadow:var(--sombra)}
+.ml-ia-t{display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--azul-hondo);margin-bottom:10px}
+.ml-ia-t svg{width:17px;height:17px;color:var(--turquesa)}
+.ml-ia p{font-size:14px;color:var(--txt-2);line-height:1.62}
+
+.ml-princ{list-style:none;display:grid;grid-template-columns:1fr 1fr;
+  gap:18px 20px;margin:26px 0 0;padding:0}
+.ml-princ li{display:flex;gap:11px}
+.ml-princ svg{width:21px;height:21px;color:var(--turquesa);flex:none;margin-top:2px}
+.ml-princ b{display:block;font-size:14.5px;color:var(--navy);margin-bottom:4px}
+.ml-princ span{display:block;font-size:13px;color:var(--txt-3);line-height:1.5}
+.ml-cta{margin-top:28px}
+
+/* ── El gráfico ── */
+.ml-vis{position:relative}
+.ml-svg{width:100%;height:auto;display:block}
+.ml-seg{cursor:pointer}
+.ml-arco{transition:opacity .18s,stroke-width .18s}
+.ml-seg:hover .ml-arco{opacity:.86}
+.ml-seg[aria-selected="true"] .ml-arco{stroke:#FFFFFF;stroke-width:4.5}
+.ml-seg:focus{outline:none}
+.ml-seg:focus-visible .ml-arco{stroke:var(--cyan);stroke-width:5.5}
+.ml-seg text{pointer-events:none;user-select:none}
+.ml-num{transition:opacity .18s}
+.ml-seg[aria-selected="true"] .ml-num circle{fill:var(--navy)}
+.ml-seg[aria-selected="true"] .ml-num text{fill:#FFFFFF}
+
+/* ── Panel de detalle, sólo escritorio ── */
+.ml-panel{margin-top:20px;background:#fff;border:1.5px solid var(--borde);
+  border-radius:var(--r3);padding:24px 26px;box-shadow:var(--sombra)}
+.ml-panel-et{font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--azul-hondo);margin-bottom:8px}
+.ml-panel h3{font-size:20px;color:var(--navy);line-height:1.28;margin-bottom:10px}
+.ml-panel>p{font-size:14.5px;color:var(--txt-2);line-height:1.62}
+.ml-ent-t{margin-top:16px;font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--azul-hondo)}
+.ml-ent{list-style:none;display:grid;gap:8px;margin:10px 0 0;padding:0}
+.ml-ent li{display:flex;gap:9px;font-size:13.5px;color:var(--txt-2);line-height:1.5}
+.ml-ent li svg{width:15px;height:15px;color:var(--turquesa);flex:none;margin-top:3px}
+.ml-nota{margin-top:16px;font-size:12.5px;color:var(--txt-3);line-height:1.5;font-style:italic}
+
+/* ── Lista de etapas ──
+   Es el contenido real. En escritorio, cuando el JavaScript ha
+   construido el gráfico (.ml-ok), se oculta. Si el JS falla, se
+   queda visible y la sección sigue siendo utilizable. */
+.ml-etapas{list-style:none;display:grid;gap:10px;margin:22px 0 0;padding:0}
+.ml-ok .ml-etapas{display:none}
+.ml-et{background:#fff;border:1.5px solid var(--borde);border-radius:var(--r2);
+  overflow:hidden;box-shadow:var(--sombra)}
+.ml-et>button{width:100%;display:flex;align-items:center;gap:12px;
+  background:none;border:0;padding:15px 17px;text-align:left;cursor:pointer;font:inherit}
+.ml-et-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  font-size:12px;font-weight:800;color:#fff}
+.ml-et-h{flex:1;font-size:15px;font-weight:700;color:var(--navy);line-height:1.3}
+.ml-et-ca{flex:none;width:18px;height:18px;color:var(--azul-hondo);transition:transform .2s}
+.ml-et>button[aria-expanded="true"] .ml-et-ca{transform:rotate(180deg)}
+.ml-et-d{padding:0 17px 17px;border-top:1px solid var(--borde)}
+.ml-et-d>p{font-size:14px;color:var(--txt-2);line-height:1.6;margin-top:14px}
+.ml-et>button[aria-expanded="false"]+.ml-et-d{display:none}
+
+@media(prefers-reduced-motion:reduce){
+  .ml-arco,.ml-num,.ml-et-ca{transition:none}
+}
+
+@media(max-width:1180px){
+  .ml-in{grid-template-columns:1fr;gap:34px}
+  .ml-vis{max-width:620px;margin:0 auto}
+}
+/* Por debajo de 760 el círculo dejaría el texto de los segmentos por
+   debajo de 10 px. Se retira y manda la lista. */
+@media(max-width:760px){
+  .ml-ok .ml-svg,.ml-ok .ml-panel{display:none}
+  .ml-ok .ml-etapas{display:grid}
+  .ml-princ{grid-template-columns:1fr;gap:16px}
+  .ml-cta .btn{width:100%}
+}
+
+/* Etiqueta del anillo exterior. Fuera del SVG a propósito: dentro
+   chocaba con el número 01, que va arriba del todo. */
+.ml-anillo{display:flex;align-items:center;justify-content:center;gap:9px;
+  margin:0 0 6px;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--azul-hondo)}
+.ml-anillo span{width:26px;height:0;border-top:1.6px dotted var(--cyan)}
+
+/* ── Lo que queda resuelto ──
+   Va por delante de los entregables a propósito: primero qué
+   resuelve la etapa, después con qué. Se marca con una barra
+   turquesa a la izquierda para que no se lea como un servicio más
+   de la lista de abajo.
+   No se usa «quick win»: promete velocidad y resultado garantizado,
+   y no hay caso documentado que lo respalde. */
+.ml-res-t{margin-top:16px;font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--turquesa)}
+.ml-res{margin-top:8px;padding:11px 14px;border-left:3px solid var(--turquesa);
+  background:var(--hielo);border-radius:0 var(--r) var(--r) 0;
+  font-size:14px;font-weight:600;color:var(--navy);line-height:1.55}
+.ml-et-d .ml-res-t{margin-top:14px}
