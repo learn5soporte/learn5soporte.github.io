@@ -1,0 +1,65 @@
+{
+  "_instrucciones": "Cada bloque de 'publicaciones' es una entrada. Añade los nuevos ARRIBA. Solo entra aquí lo que ya está autorizado para publicarse: este archivo es público, cualquiera puede abrirlo en learn5.pro/actualidad/actualidad.json. Los borradores NO van aquí, van en BORRADORES-actualidad.md, que no se sube. Si el archivo queda vacío, el carrusel de la portada no aparece y la página muestra un aviso discreto.",
+  "_plantilla": {
+    "id": "identificador-sin-tildes-ni-espacios",
+    "titulo": "Titular de la publicación",
+    "fecha": "2026-11-22",
+    "categoria": "Una de: Proyectos y experiencias | Formación y eventos | Innovación educativa | Alianzas y colaboración | Novedades Learn5",
+    "resumen": "Dos líneas como mucho, lo que se lee en la tarjeta.",
+    "imagen": "/assets/nombre-del-archivo.jpg",
+    "alt": "Descripción de la imagen para quien no puede verla. Obligatorio si hay imagen.",
+    "enlace": "Dejar vacío si no lleva a ningún sitio, o poner una URL completa.",
+    "texto": "Texto completo, opcional. Si lo pones, se despliega dentro de la propia página.",
+    "estado": "publicado"
+  },
+  "publicaciones": [
+    {
+      "id": "recorridos-formativos-3d",
+      "titulo": "Estamos desarrollando experiencias formativas con recorrido en 3D",
+      "fecha": "2026-11-22",
+      "categoria": "Innovación educativa",
+      "resumen": "«La ciudad que compartimos» es nuestra primera demostración: un entorno navegable en tres dimensiones donde se recorre una ciudad para entender cómo se decide, cómo se participa y qué significa cuidar lo que es de todos. Proyecto en desarrollo.",
+      "imagen": "/assets/actualidad-ciudad3d.jpg",
+      "alt": "Maqueta isométrica de una ciudad con plaza, monumento, edificio institucional y escuela, con tres marcadores numerados sobre los puntos del recorrido",
+      "enlace": "",
+      "texto": "",
+      "estado": "publicado"
+    },
+    {
+      "id": "conferencia-kiev-humanidades-2026",
+      "titulo": "Learn5 en la 5.ª Conferencia Internacional «Images of Modernity in the Humanities»",
+      "fecha": "2026-10-26",
+      "categoria": "Innovación educativa",
+      "resumen": "Encuentro en línea convocado por la Universidad Estatal de Comercio y Economía de Kiev, con más de 40 universidades y organizaciones de cinco continentes, sobre cómo la inteligencia artificial y la desinformación están transformando el periodismo y la confianza pública.",
+      "imagen": "/assets/actualidad-kiev.jpg",
+      "alt": "Globo terráqueo luminoso rodeado de ventanas de videollamada conectadas entre continentes por trazos de luz",
+      "enlace": "https://lnkd.in/p/e3is6_56",
+      "texto": "",
+      "estado": "publicado"
+    },
+    {
+      "id": "programa-ia-lori-internacional",
+      "titulo": "Programa de ocho semanas en IA aplicada para el equipo de LORI Internacional",
+      "fecha": "2026-08-08",
+      "categoria": "Proyectos y experiencias",
+      "resumen": "Ocho semanas con el equipo de LORI Internacional —comercio internacional, transporte marítimo y logística de ISO tanks desde Miami— trabajando los modelos de inteligencia artificial, su configuración y varias herramientas aplicadas a casos de uso reales de su operación.",
+      "imagen": "/assets/actualidad-lori.jpg",
+      "alt": "Ilustración isométrica de un isotanque, un buque portacontenedores y una grúa portuaria conectados a paneles flotantes de datos",
+      "enlace": "https://lorinternacional.com/",
+      "texto": "",
+      "estado": "publicado"
+    },
+    {
+      "id": "silia-2026",
+      "titulo": "Learn5, colaborador del I Simposio Internacional de Liderazgo en Inteligencia Artificial",
+      "fecha": "2026-07-24",
+      "categoria": "Alianzas y colaboración",
+      "resumen": "SILIA 2026 reunió a universidades y empresas de Latinoamérica y el Caribe en torno a la transformación universidad–empresa en la era de la IA generativa. Learn5 figura entre sus patrocinadores y colaboradores.",
+      "imagen": "/assets/actualidad-silia.jpg",
+      "alt": "Anfiteatro visto desde arriba, con filas curvas de butacas y líneas de luz que irradian desde el escenario hacia los extremos",
+      "enlace": "https://www.siliaglobal.com/silia-2026",
+      "texto": "",
+      "estado": "publicado"
+    }
+  ]
+}
