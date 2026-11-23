@@ -1,0 +1,41 @@
+/* ══════════════════════════════════════════════════════════════
+   Learn5 · hoja propia de /nosotros/ — noviembre 2026
+
+   Solo la sección del fundador. Todo lo demás de la página sigue
+   saliendo de estilos.css, sin tocar nada.
+
+   Vive junto a su HTML, igual que en /soluciones/, /alianzas/ y
+   /actualidad/, para que los archivos de cada página se suban
+   siempre al mismo sitio.
+   ══════════════════════════════════════════════════════════════ */
+
+.fundador{background:linear-gradient(180deg,#FFFFFF,#F2FAFE)}
+.fu-in{display:grid;grid-template-columns:auto 1fr;gap:38px;align-items:start;
+  max-width:900px;margin:0 auto}
+
+/* La foto es de 240 px y se muestra a 140: así se ve nítida en
+   pantallas Retina sin pedir un archivo más pesado. */
+.fu-foto{margin:0;flex:none}
+.fu-foto img{width:140px;height:140px;border-radius:50%;display:block;
+  object-fit:cover;border:3px solid #fff;box-shadow:var(--sombra-2)}
+
+.fu-tx h2{font-size:28px;color:var(--navy);line-height:1.2;margin:4px 0 6px}
+.fu-rol{font-size:14px;font-weight:700;color:var(--azul-hondo);
+  line-height:1.5;margin-bottom:18px}
+.fu-tx>p{font-size:15px;color:var(--txt-2);line-height:1.68}
+.fu-tx>p+p{margin-top:13px}
+
+/* El cierre en primera persona: va destacado pero sin gritar. */
+.fu-cierre{margin-top:18px;padding-left:16px;border-left:3px solid var(--turquesa);
+  font-size:16px;font-weight:700;color:var(--navy);line-height:1.5}
+
+.fu-tx .enlace{margin-top:20px}
+
+@media(max-width:760px){
+  /* En móvil la foto va arriba y centrada: en una columna estrecha,
+     140 px a la izquierda dejan el texto en una tira ilegible. */
+  .fu-in{grid-template-columns:1fr;gap:22px;justify-items:center;text-align:center}
+  .fu-tx .enlace{justify-content:center}
+  .fu-cierre{padding-left:0;border-left:0;padding-top:14px;
+    border-top:3px solid var(--turquesa);display:inline-block}
+}
