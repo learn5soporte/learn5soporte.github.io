@@ -1,39 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--
+  Learn5 · mapa del sitio — 23 de noviembre de 2026
+
+  Solo URLs canónicas, públicas e indexables. Las fechas lastmod son
+  las del último commit real de cada archivo, no inventadas.
+
+  Fuera a propósito: /nueva/ y /pruebas/ (restos de desarrollo, se
+  retiran) y /professor-ai-web/ (vive en otro repositorio y se da de
+  baja). /ia-30-dias/aula/ está bloqueada en robots.txt.
+
+  La portada y /en/ se declaran como alternativas la una de la otra
+  con xhtml:link, que es como Google espera el hreflang en un sitemap.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://learn5.pro/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://learn5.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learn5.pro/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learn5.pro/"/>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://learn5.pro/soluciones/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://learn5.pro/nosotros/</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://learn5.pro/ia-30-dias/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <loc>https://learn5.pro/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://learn5.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learn5.pro/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learn5.pro/"/>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://learn5.pro/soluciones/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://learn5.pro/alianzas/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://learn5.pro/nosotros/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://learn5.pro/actualidad/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://learn5.pro/ia-30-dias/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://learn5.pro/privacidad.html</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
   <url>
     <loc>https://learn5.pro/terminos.html</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
 </urlset>
